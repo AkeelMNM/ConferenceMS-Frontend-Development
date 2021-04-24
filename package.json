@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/AkeelMNM/ConferenceMS-Frontend-Development.git"
   },
-  "author": "M.N.M Akeel, A.M Zumry, M.A.M Nusky",
+  "authors": "M.N.M Akeel, A.M Zumry, M.A.M Nusky",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AkeelMNM/ConferenceMS-Frontend-Development/issues"
