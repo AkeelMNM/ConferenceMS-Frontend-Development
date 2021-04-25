@@ -11,6 +11,7 @@ class AddWorkShop extends React.Component{
             email:'',
             affiliation:'',
             contactNo:'',
+            postingDate:'',
             file:''
         }
     }
@@ -42,6 +43,11 @@ class AddWorkShop extends React.Component{
                     <div>
                         <label htmlFor={'contactNo'}>Contact Number</label>
                         <input type={'text'} name={'contactNo'} id={'contactNo'} value={this.state.contactNo}
+                               onChange={event => this.onChange(event)} />
+                    </div>
+                    <div>
+                        <label htmlFor={'postingDate'}>Posting Date</label>
+                        <input type={'date'} name={'postingDate'} id={'postingDate'} value={this.state.postingDate}
                                onChange={event => this.onChange(event)} />
                     </div>
                     <div>

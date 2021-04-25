@@ -11,6 +11,7 @@ class UpdateRemoveWorkshop extends React.Component{
             email:'',
             affiliation:'',
             contactNo:'',
+            postingDate:'',
             file:''
         }
     }
@@ -42,6 +43,11 @@ class UpdateRemoveWorkshop extends React.Component{
                     <div>
                         <label htmlFor={'contactNo'}>New Contact Number</label>
                         <input type={'text'} name={'contactNo'} id={'contactNo'} value={this.state.contactNo}
+                               onChange={event => this.onChange(event)} />
+                    </div>
+                    <div>
+                        <label htmlFor={'postingDate'}>New Posting Date</label>
+                        <input type={'date'} name={'postingDate'} id={'postingDate'} value={this.state.postingDate}
                                onChange={event => this.onChange(event)} />
                     </div>
                     <div>
