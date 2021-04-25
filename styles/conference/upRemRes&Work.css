@@ -20,11 +20,6 @@
 
 }
 
-#headLine{
-    font-size: 25px;
-    font-weight: bold;
-}
-
 h3{
     margin-top:-3px ;
 }
@@ -67,7 +62,8 @@ table{
     background-color:#109177;
     color:white;
 }*/
-#CHeadLine{
+
+#UPHeadLine{
     font-size: 25px;
     font-weight: bold;
     font-style: italic;
@@ -80,11 +76,35 @@ table{
     font-size: 14px;
 }
 
+#btnDiv{
+    margin-top: -35px;
+}
+
+#btnDelete{
+    background-color: #ff6801;
+    position: relative;
+    display: block;
+    padding: 9px 19px 8px 19px;
+    color: #FFF;
+    font-size: 16px;
+    text-align: center;
+    font-style: normal;
+    width: 45%;
+    border: 1px solid #ff6801;
+    border-width: 1px 1px 3px;
+    border-radius: 3px;
+    margin: -6px 275px 15px;
+}
+
+#btnDelete:hover{
+    background-color: #e96302;
+}
+
 /**
   ************************************************************************************
  */
 
-.form-style-resWork{
+.form-style-upRemResWork{
     max-width: 500px;
     padding: 10px 20px;
     background: #f4f7f8;
@@ -93,21 +113,21 @@ table{
     margin: 15px auto 10px;
     font-family: Georgia, "Times New Roman", Times, serif;
 }
-.form-style-resWork fieldset{
+.form-style-upRemResWork fieldset{
     border: none;
 }
-.form-style-resWork legend {
+.form-style-upRemResWork legend {
     font-size: 1.4em;
     margin-bottom: 10px;
 }
-.form-style-resWork label {
+.form-style-upRemResWork label {
     display: block;
     margin-bottom: 8px;
 }
-.form-style-resWork input[type="text"],
-.form-style-resWork input[type="date"],
-.form-style-resWork input[type="file"],
-.form-style-resWork select {
+.form-style-upRemResWork input[type="text"],
+.form-style-upRemResWork input[type="date"],
+.form-style-upRemResWork input[type="file"],
+.form-style-upRemResWork select {
     font-family: Georgia, "Times New Roman", Times, serif;
     border: none;
     border-radius: 4px;
@@ -124,17 +144,17 @@ table{
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     margin: 0 0 30px;
 }
-.form-style-resWork input[type="text"]:focus,
-.form-style-resWork input[type="date"]:focus,
-.form-style-resWork input[type="file"] focus,
-.form-style-resWork select:focus{
+.form-style-upRemResWork input[type="text"]:focus,
+.form-style-upRemResWork input[type="date"]:focus,
+.form-style-upRemResWork input[type="file"] focus,
+.form-style-upRemResWork select:focus{
     background: #e6e6e6;
 }
-.form-style-resWork select{
+.form-style-upRemResWork select{
     -webkit-appearance: menulist-button;
     height:35px;
 }
-.form-style-resWork .number {
+.form-style-upRemResWork .number {
     background: #1abc9c;
     color: #fff;
     height: 30px;
@@ -148,12 +168,12 @@ table{
     border-radius: 15px 15px 15px 0px;
 }
 
-.form-style-resWork input[type="submit"],
-.form-style-resWork input[type="button"]
+.form-style-upRemResWork input[type="submit"],
+.form-style-upRemResWork input[type="button"]
 {
     position: relative;
     display: block;
-    padding: 9px 29px 8px 29px;
+    padding: 9px 19px 8px 19px;
     color: #FFF;
     background: #6dabe4;
     font-size: 16px;
@@ -163,10 +183,10 @@ table{
     border: 1px solid #62a1e0;
     border-width: 1px 1px 3px;
     border-radius: 3px;
-    margin: -35px 275px 15px;
+    margin: -6px 275px 15px;
 }
-.form-style-resWork input[type="submit"]:hover,
-.form-style-resWork input[type="button"]:hover
+.form-style-upRemResWork input[type="submit"]:hover,
+.form-style-upRemResWork input[type="button"]:hover
 {
     background: #62a1e0;
 }
