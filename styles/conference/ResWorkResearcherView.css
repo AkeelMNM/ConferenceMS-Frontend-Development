@@ -1,5 +1,5 @@
-.RItem-style-view{
-    max-width: 900px;
+.RWItem-style-view{
+    max-width: 500px;
     padding: 10px 20px;
     background: #f4f7f8;
     padding: 20px;
@@ -7,21 +7,21 @@
     margin: 20px 15px 10px;
     font-family: Georgia, "Times New Roman", Times, serif;
 }
-.RItem-style-view fieldset{
+.RWItem-style-view fieldset{
     border: none;
 }
-.RItem-style-view legend {
+.RWItem-style-view legend {
     font-size: 1.4em;
     margin-bottom: 10px;
 }
-.RItem-style-view label {
+.RWItem-style-view label {
     display: block;
     margin-bottom: 8px;
 }
-.RItem-style-view input[type="text"],
-.RItem-style-view input[type="date"],
-.RItem-style-view input[type="file"],
-.RItem-style-view select {
+.RWItem-style-view input[type="text"],
+.RWItem-style-view input[type="date"],
+.RWItem-style-view input[type="file"],
+.RWItem-style-view select {
     font-family: Georgia, "Times New Roman", Times, serif;
     border: none;
     border-radius: 4px;
@@ -38,17 +38,17 @@
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     margin: 0 0 30px;
 }
-.RItem-style-view input[type="text"]:focus,
-.RItem-style-view input[type="date"]:focus,
-.RItem-style-view input[type="file"] focus,
-.RItem-style-view select:focus{
+.RWItem-style-view input[type="text"]:focus,
+.RWItem-style-view input[type="date"]:focus,
+.RWItem-style-view input[type="file"] focus,
+.RWItem-style-view select:focus{
     background: #e6e6e6;
 }
-.RItem-style-view select{
+.RWItem-style-view select{
     -webkit-appearance: menulist-button;
     height:35px;
 }
-.RItem-style-view .number {
+.RWItem-style-view .number {
     background: #1abc9c;
     color: #fff;
     height: 30px;
@@ -62,48 +62,27 @@
     border-radius: 15px 15px 15px 0px;
 }
 
-#btnWork
+.btnReview
 {
     position: relative;
     display: block;
     padding: 9px 9px 8px 9px;
     color: #FFF;
-    background: #ff6801;
+    background: #6dabe4;
     font-size: 14px;
     text-align: center;
     font-style: normal;
-    width: 70%;
-    border: 1px solid #e96302;
+    width: 30%;
+    border: 1px solid #62a1e0;
     border-width: 1px 1px 3px;
     border-radius: 3px;
-    margin: 50px -10px -45px 85px;
+    margin: 25px 0 0 0;
+    float: right;
 }
 
-#btnWork:hover
+.btnReview:hover
 {
-    background: #e96302;
-}
-
-#btnPaper
-{
-    position: relative;
-    display: block;
-    padding: 9px 9px 8px 9px;
-    color: #FFF;
-    background: #ff6801;
-    font-size: 14px;
-    text-align: center;
-    font-style: normal;
-    width: 70%;
-    border: 1px solid #e96302;
-    border-width: 1px 1px 3px;
-    border-radius: 3px;
-    margin: 40px -10px -35px 85px;
-}
-
-#btnPaper:hover
-{
-    background: #e96302;
+    background: #62a1e0;
 }
 
 .resTag{
@@ -111,7 +90,7 @@
     padding: 5px;
 }
 .resTd{
-    width: 500px;
+    width: 350px;
     padding: 5px;
 }
 
@@ -120,18 +99,9 @@
     font-size: 22px;
 }
 
-#VHeadLine{
+#RVHeadLine{
     font-size: 25px;
     font-weight: bold;
     font-style: italic;
     text-decoration: underline;
-}
-
-#btnTag{
-    width: 240px;
-}
-
-#statCol{
-    color: red;
-    margin-left: 20px;
 }

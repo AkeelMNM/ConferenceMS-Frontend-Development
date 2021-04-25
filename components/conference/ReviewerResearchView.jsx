@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/conference/ReserachWorkshopView.css'
+import '../../styles/conference/ResWorkResearcherView.css'
 
 class ReviewerResearchView extends React.Component{
     constructor(props) {
@@ -9,7 +9,7 @@ class ReviewerResearchView extends React.Component{
 
     render() {
         return <div>
-            <div><label id={'VHeadLine'} >Research Paper Submissions</label></div>
+            <div><label id={'RVHeadLine'} >Research Paper Submissions</label></div>
             <div className={'RWItem-style-view'}>
                     <table>
                         <thead>

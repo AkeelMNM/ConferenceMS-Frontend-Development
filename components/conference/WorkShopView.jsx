@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../styles/conference/ResWorkResearcherView.css'
+import '../../styles/conference/ReserachWorkshopView.css'
 
-class ReviewerWorkshopView extends React.Component{
+class WorkShopView extends React.Component{
     constructor(props) {
         super(props);
 
@@ -9,30 +9,28 @@ class ReviewerWorkshopView extends React.Component{
 
     render() {
         return <div>
-            <div><label id={'RVHeadLine'} >All Proposed Workshops</label></div>
-            <div className={'RWItem-style-view'}>
+            <div><label id={'VHeadLine'} >Workshop Submissions</label></div>
+            <div className={'RItem-style-view'}>
                 <table>
                     <thead>
                     <tr>
-                        <th colSpan={2}><label id={'pTitle'}>Workshop Title</label></th>
+                        <th colSpan={3}><label id={'pTitle'}>Workshop Title</label></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td className={'resTag'}>Presenter Name</td>
                         <td className={'resTd'}>: Name</td>
+                        <td><span id={'statCol'}>Submission Status</span> : Approved</td>
                     </tr>
                     <tr>
                         <td>Email</td>
                         <td className={'resTd'}>: 123@gm.lk</td>
+                        <td rowSpan={4} id={'btnTag'}><button id={'btnWork'}>Edit Submission</button></td>
                     </tr>
                     <tr>
                         <td>Affiliation</td>
                         <td className={'resTd'}>: SLIIT</td>
-                    </tr>
-                    <tr>
-                        <td>Contact Number</td>
-                        <td className={'resTd'}>: 11111111</td>
                     </tr>
                     <tr>
                         <td>Submitted Date</td>
@@ -42,9 +40,6 @@ class ReviewerWorkshopView extends React.Component{
                         <td>File</td>
                         <td className={'resTd'}>: File</td>
                     </tr>
-                    <tr>
-                        <td colSpan={2}><button className={'btnReview'}>View More</button></td>
-                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -52,4 +47,4 @@ class ReviewerWorkshopView extends React.Component{
     }
 }
 
-export default ReviewerWorkshopView;
+export default WorkShopView;
