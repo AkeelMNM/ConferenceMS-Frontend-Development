@@ -2,6 +2,7 @@ import React from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Home from "./components/Home";
 import AddResearchPaper from "./components/conference/AddResearchPaper";
+import AddWorkShop from "./components/conference/AddWorkShop";
 
 
 class App extends React.Component{
@@ -13,7 +14,7 @@ class App extends React.Component{
         return <Router>
             <Switch>
                 <Route exact path="/">
-                    <Home/>
+                    <AddWorkShop/>
                 </Route>
             </Switch>
         </Router>
