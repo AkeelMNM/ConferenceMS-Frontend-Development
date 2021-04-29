@@ -1,6 +1,20 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import '../../styles/conference/upRemRes&Work.css'
+import {toast} from "react-toastify";
+
+/**
+ * @author : M.N.M Akeel
+ * Registration Number : IT19153414
+ */
+
+/* configuring options to display toast message */
+const options = {
+    position: toast.POSITION.TOP_CENTER,
+    hideProgressBar:true,
+    autoClose:3000,
+    closeButton:false
+}
 
 class UpdateRemoveResearchPaper extends React.Component{
     constructor(props) {
@@ -12,6 +26,41 @@ class UpdateRemoveResearchPaper extends React.Component{
             date:'',
             file:''
         }
+    }
+
+    updateResearchPaper(event){
+        event.preventDefault();
+
+        let researchPaper = {
+            authorName:this.state.authorName,
+            paperTitle:this.state.paperTitle,
+            email:this.state.email,
+            date:this.state.date,
+            file:''
+        }
+
+
+        /**
+         * Validating the Research Paper submission input fields
+         * Displaying Error message if any input field is empty
+         */
+        if(researchPaper.authorName === ''){
+            toast.error("Fill the Author Name", options)
+        }else if (researchPaper.paperTitle === ''){
+            toast.error("Fill Paper Title", options)
+        }else if (researchPaper.email === ''){
+            toast.error("Fill Email Address", options)
+        }else if (researchPaper.date === ''){
+            toast.error("Add Submission Date", options)
+        }else if (researchPaper.file === ''){
+            toast.error("Attach the Research Paper", options)
+        }else{
+            console.log(JSON.stringify(researchPaper));
+        }
+    }
+
+    removeResearchPaper(){
+
     }
 
     onChange(event){
@@ -52,8 +101,9 @@ class UpdateRemoveResearchPaper extends React.Component{
                     <div>
                         <div id={'checkB'}><input type={'checkbox'}/><span>By clicking this checkbox i agree i'm posting my own research works</span></div>
                         <div id={'btnDiv'}>
-                            <input type={'button'} value={'Update Paper Submission'} />
-                            <input type={'button'} id={'btnDelete'} value={'Remove Paper Submission'} />
+                            <input type={'submit'} value={'Update Paper Submission'} onClick={event => this.updateResearchPaper(event)} />
+                            <input type={'submit'} id={'btnDelete'} value={'Remove Paper Submission'}
+                                   onClick={event => this.removeResearchPaper(event)} />
                         </div>
                     </div>
                 </form>

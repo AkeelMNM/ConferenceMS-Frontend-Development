@@ -1,6 +1,11 @@
 import React from 'react';
 import '../../styles/conference/ResWorkResearcherView.css'
 
+/**
+ * @author : M.N.M Akeel
+ * Registration Number : IT19153414
+ */
+
 class ReviewerWorkshopView extends React.Component{
     constructor(props) {
         super(props);

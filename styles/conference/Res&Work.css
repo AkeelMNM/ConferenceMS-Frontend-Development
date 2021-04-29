@@ -100,8 +100,16 @@
 .form-style-resWork input[type="button"]:hover
 {
     background: #62a1e0;
+    cursor: pointer;
 }
 
+/* Adding Require asterisk mark on label*/
+.form-style-resWork label::after{
+    content: " *";
+    color: red;
+}
 /**
   ************************************************************************************
  */
+
+

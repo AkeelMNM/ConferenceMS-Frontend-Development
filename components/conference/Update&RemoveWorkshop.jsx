@@ -1,6 +1,20 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import '../../styles/conference/upRemRes&Work.css'
+import {toast} from "react-toastify";
+
+/**
+ * @author : M.N.M Akeel
+ * Registration Number : IT19153414
+ */
+
+/* configuring options to display toast message */
+const options = {
+    position: toast.POSITION.TOP_CENTER,
+    hideProgressBar:true,
+    autoClose:3000,
+    closeButton:false
+}
 
 class UpdateRemoveWorkshop extends React.Component{
     constructor(props) {
@@ -14,6 +28,47 @@ class UpdateRemoveWorkshop extends React.Component{
             postingDate:'',
             file:''
         }
+    }
+
+
+    updateWorkShop(event){
+        event.preventDefault();
+
+        let WorkShop = {
+            presenterName:this.state.presenterName,
+            workshopTitle:this.state.workshopTitle,
+            email:this.state.email,
+            affiliation:this.state.affiliation,
+            contactNo:this.state.contactNo,
+            postingDate:this.state.postingDate,
+            file:''
+        }
+
+        /**
+         * Validating the Workshop submission input fields
+         * Displaying Error message if any input field is empty
+         */
+        if(WorkShop.workshopTitle === ''){
+            toast.error("Fill Workshop Title", options);
+        }else if(WorkShop.presenterName === ''){
+            toast.error("Fill Presenter Name",options )
+        }else if (WorkShop.email === ''){
+            toast.error("Fill Email Address", options)
+        }else if (WorkShop.affiliation === ''){
+            toast.error("Add Affiliation", options)
+        }else if (WorkShop.contactNo === ''){
+            toast.error("Add Contact Number", options)
+        }else if (WorkShop.postingDate === ''){
+            toast.error("Add Submission Date", options)
+        }else if (WorkShop.file === ''){
+            toast.error("Attach Proposal Document", options)
+        }else{
+            console.log(JSON.stringify(WorkShop));
+        }
+    }
+
+    removeWorkShop(event){
+
     }
 
     onChange(event){
@@ -58,8 +113,9 @@ class UpdateRemoveWorkshop extends React.Component{
                     <div>
                         <div id={'checkB'}><input type={'checkbox'}/><span>By clicking this checkbox i agree i'm posting my own works</span></div>
                         <div id={'btnDiv'}>
-                            <input type={'button'} value={'Update Workshop Details'} />
-                            <input type={'button'} id={'btnDelete'} value={'Remove Workshop Details'} />
+                            <input type={'submit'} value={'Update Workshop Details'} onClick={event => this.updateWorkShop(event)}/>
+                            <input type={'submit'} id={'btnDelete'} value={'Remove Workshop Details'}
+                                   onClick={event => this.removeWorkShop(event)}/>
                         </div>
                     </div>
                 </form>

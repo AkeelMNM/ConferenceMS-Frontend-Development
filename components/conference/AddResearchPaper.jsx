@@ -1,16 +1,62 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import '../../styles/conference/Res&Work.css'
+import '../../styles/conference/Res&Work.css';
+import '../../styles/conference/toast.css';
+import 'react-toastify/dist/ReactToastify.css';
+import {toast} from "react-toastify";
+toast.configure();
+
+/**
+ * @author : M.N.M Akeel
+ * Registration Number : IT19153414
+ */
 
 class AddResearchPaper extends React.Component{
     constructor(props) {
         super(props);
-        this.state ={
+        this.state = {
             authorName:'',
             paperTitle:'',
             email:'',
             date:'',
+            file:'',
+        }
+    }
+
+    submitResearchPaper(event){
+        event.preventDefault();
+
+        let researchPaper = {
+            authorName:this.state.authorName,
+            paperTitle:this.state.paperTitle,
+            email:this.state.email,
+            date:this.state.date,
             file:''
+        }
+
+        /* configuring options to display toast message */
+        const options = {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar:true,
+            autoClose:3000,
+            closeButton:false
+        }
+        /**
+         * Validating the Research Paper submission input fields
+         * Displaying Error message if any input field is empty
+         */
+        if(researchPaper.authorName === ''){
+            toast.error("Fill the Author Name", options)
+        }else if (researchPaper.paperTitle === ''){
+            toast.error("Fill Paper Title", options)
+        }else if (researchPaper.email === ''){
+            toast.error("Fill Email Address", options)
+        }else if (researchPaper.date === ''){
+            toast.error("Add Submission Date", options)
+        }else if (researchPaper.file === ''){
+            toast.error("Attach the Research Paper", options)
+        }else{
+            console.log(JSON.stringify(researchPaper));
         }
     }
 
@@ -26,31 +72,31 @@ class AddResearchPaper extends React.Component{
                     <div>
                         <label htmlFor={'authorName'}>Author Name</label>
                         <input type={'text'} name={'authorName'} id={'authorName'} value={this.state.authorName}
-                                onChange={event => this.onChange(event)} />
+                                required onChange={event => this.onChange(event)} />
                     </div>
                     <div>
                         <label htmlFor={'paperTitle'}>Paper Title</label>
                         <input type={'text'} name={'paperTitle'} id={'paperTitle'} value={this.state.paperTitle}
-                               onChange={event => this.onChange(event)} />
+                               required onChange={event => this.onChange(event)} />
                     </div>
                     <div>
                         <label htmlFor={'email'}>Author Email</label>
                         <input type={'text'} name={'email'} id={'email'} value={this.state.email}
-                               onChange={event => this.onChange(event)} />
+                               required onChange={event => this.onChange(event)} />
                     </div>
                     <div>
                         <label htmlFor={'date'}>Submitting Date</label>
                         <input type={'date'} name={'date'} id={'date'} value={this.state.date}
-                               onChange={event => this.onChange(event)} />
+                               required onChange={event => this.onChange(event)} />
                     </div>
                     <div>
                         <label htmlFor={'file'}>Upload Research Paper</label>
                         <input type={'file'} name={'file'} id={'file'} value={this.state.file}
-                               onChange={event => this.onChange(event)} />
+                                onChange={event => this.onChange(event)} />
                     </div>
                     <div>
                         <div id={'checkB'}><input type={'checkbox'}/><span>By clicking this checkbox i agree i'm posting my own research works</span></div>
-                        <input type={'button'} value={'Add Research Paper'} />
+                        <input type={'submit'} value={'Add Research Paper'} onClick={ event => this.submitResearchPaper(event)} />
                     </div>
                 </form>
             </div>
