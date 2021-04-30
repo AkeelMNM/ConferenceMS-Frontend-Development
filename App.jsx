@@ -1,6 +1,9 @@
 import React from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Home from "./components/Home";
+import AddResearchPaper from "./components/conference/AddResearchPaper";
+import ReviewerResearchView from "./components/conference/ReviewerResearchView";
+import ReviewerWorkshopView from "./components/conference/ReviewerWorkshopView";
 
 
 class App extends React.Component{
@@ -8,11 +11,13 @@ class App extends React.Component{
         super(props);
     }
 
+
+
     render() {
         return <Router>
             <Switch>
                 <Route exact path="/">
-                    <Home/>
+                    <ReviewerWorkshopView/>
                 </Route>
             </Switch>
         </Router>

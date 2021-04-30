@@ -1,10 +1,27 @@
 import React from 'react';
 import '../../styles/conference/ResWorkResearcherView.css'
+import ReResearchListHolder from "./ReResearchListHolder";
 
 /**
  * @author : M.N.M Akeel
  * Registration Number : IT19153414
  */
+
+const ResearchPapers = [
+    {
+        authorName:'Name',
+        paperTitle:'Paper Title',
+        email:'123@gmail.com',
+        date:'21-05-20201',
+        file:'File',
+    },{
+        authorName:'Name2',
+        paperTitle:'Paper Title2',
+        email:'2123@gmail.com',
+        date:'26-05-20201',
+        file:'File2',
+    }
+]
 
 class ReviewerResearchView extends React.Component{
     constructor(props) {
@@ -15,35 +32,12 @@ class ReviewerResearchView extends React.Component{
     render() {
         return <div>
             <div><label id={'RVHeadLine'} >Research Paper Submissions</label></div>
-            <div className={'RWItem-style-view'}>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th colSpan={2}><label id={'pTitle'}>Paper Title</label></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td className={'resTag'}>Author Name</td>
-                                <td className={'resTd'}>: Name</td>
-                            </tr>
-                            <tr>
-                                <td>Email</td>
-                                <td className={'resTd'}>: 123@gm.lk</td>
-                            </tr>
-                            <tr>
-                                <td>Submitted Date</td>
-                                <td className={'resTd'}>: 11-11-1111</td>
-                            </tr>
-                            <tr>
-                                <td>File</td>
-                                <td className={'resTd'}>: File</td>
-                            </tr>
-                            <tr>
-                                <td colSpan={2}><button className={'btnReview'}>Review Paper</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div>
+                {
+                    ResearchPapers.map(researchPaper =>{
+                        return <ReResearchListHolder ResearchPaper={researchPaper}/>
+                    })
+                }
             </div>
         </div>
     }

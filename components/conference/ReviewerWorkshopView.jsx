@@ -1,10 +1,32 @@
 import React from 'react';
 import '../../styles/conference/ResWorkResearcherView.css'
+import WorkshopListHolder from "./WorkshopListHolder";
 
 /**
  * @author : M.N.M Akeel
  * Registration Number : IT19153414
  */
+
+const Workshop = [
+    {
+        presenterName:'Name',
+        workshopTitle:'Work Title',
+        email:'123@gmail.com',
+        affiliation:'SLIIT',
+        contactNo:'077854785',
+        postingDate:'25-01-2021',
+        file:'File'
+    },
+    {
+        presenterName:'Name2',
+        workshopTitle:'Work Title2',
+        email:'54123@gmail.com',
+        affiliation:'Peradeniya',
+        contactNo:'077854785',
+        postingDate:'28-07-2021',
+        file:'File2'
+    }
+]
 
 class ReviewerWorkshopView extends React.Component{
     constructor(props) {
@@ -15,43 +37,12 @@ class ReviewerWorkshopView extends React.Component{
     render() {
         return <div>
             <div><label id={'RVHeadLine'} >All Proposed Workshops</label></div>
-            <div className={'RWItem-style-view'}>
-                <table>
-                    <thead>
-                    <tr>
-                        <th colSpan={2}><label id={'pTitle'}>Workshop Title</label></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td className={'resTag'}>Presenter Name</td>
-                        <td className={'resTd'}>: Name</td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td className={'resTd'}>: 123@gm.lk</td>
-                    </tr>
-                    <tr>
-                        <td>Affiliation</td>
-                        <td className={'resTd'}>: SLIIT</td>
-                    </tr>
-                    <tr>
-                        <td>Contact Number</td>
-                        <td className={'resTd'}>: 11111111</td>
-                    </tr>
-                    <tr>
-                        <td>Submitted Date</td>
-                        <td className={'resTd'}>: 11-11-1111</td>
-                    </tr>
-                    <tr>
-                        <td>File</td>
-                        <td className={'resTd'}>: File</td>
-                    </tr>
-                    <tr>
-                        <td colSpan={2}><button className={'btnReview'}>View More</button></td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div>
+                {
+                    Workshop.map(workshop => {
+                        return <WorkshopListHolder Workshop={workshop} />
+                    })
+                }
             </div>
         </div>
     }
