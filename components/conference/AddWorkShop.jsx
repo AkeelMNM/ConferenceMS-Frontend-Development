@@ -17,7 +17,6 @@ class AddWorkShop extends React.Component{
             email:'',
             affiliation:'',
             contactNo:'',
-            postingDate:'',
             file:''
         }
     }
@@ -31,7 +30,6 @@ class AddWorkShop extends React.Component{
             email:this.state.email,
             affiliation:this.state.affiliation,
             contactNo:this.state.contactNo,
-            postingDate:this.state.postingDate,
             file:''
         }
 
@@ -56,8 +54,6 @@ class AddWorkShop extends React.Component{
             toast.error("Add Affiliation", options)
         }else if (WorkShop.contactNo === ''){
             toast.error("Add Contact Number", options)
-        }else if (WorkShop.postingDate === ''){
-            toast.error("Add Submission Date", options)
         }else if (WorkShop.file === ''){
             toast.error("Attach Proposal Document", options)
         }else{
@@ -92,11 +88,6 @@ class AddWorkShop extends React.Component{
                     <div>
                         <label htmlFor={'contactNo'}>Contact Number</label>
                         <input type={'text'} name={'contactNo'} id={'contactNo'} value={this.state.contactNo}
-                               required onChange={event => this.onChange(event)} />
-                    </div>
-                    <div>
-                        <label htmlFor={'postingDate'}>Posting Date</label>
-                        <input type={'date'} name={'postingDate'} id={'postingDate'} value={this.state.postingDate}
                                required onChange={event => this.onChange(event)} />
                     </div>
                     <div>

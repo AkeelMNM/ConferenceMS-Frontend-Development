@@ -18,7 +18,6 @@ class AddResearchPaper extends React.Component{
             authorName:'',
             paperTitle:'',
             email:'',
-            date:'',
             file:'',
         }
     }
@@ -30,7 +29,6 @@ class AddResearchPaper extends React.Component{
             authorName:this.state.authorName,
             paperTitle:this.state.paperTitle,
             email:this.state.email,
-            date:this.state.date,
             file:''
         }
 
@@ -51,8 +49,6 @@ class AddResearchPaper extends React.Component{
             toast.error("Fill Paper Title", options)
         }else if (researchPaper.email === ''){
             toast.error("Fill Email Address", options)
-        }else if (researchPaper.date === ''){
-            toast.error("Add Submission Date", options)
         }else if (researchPaper.file === ''){
             toast.error("Attach the Research Paper", options)
         }else{
@@ -82,11 +78,6 @@ class AddResearchPaper extends React.Component{
                     <div>
                         <label htmlFor={'email'}>Author Email</label>
                         <input type={'text'} name={'email'} id={'email'} value={this.state.email}
-                               required onChange={event => this.onChange(event)} />
-                    </div>
-                    <div>
-                        <label htmlFor={'date'}>Submitting Date</label>
-                        <input type={'date'} name={'date'} id={'date'} value={this.state.date}
                                required onChange={event => this.onChange(event)} />
                     </div>
                     <div>
