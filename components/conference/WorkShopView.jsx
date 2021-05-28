@@ -1,10 +1,36 @@
 import React from 'react';
 import '../../styles/conference/ReserachWorkshopView.css'
+import WorkshopViewListHolder from "./WorkshopViewListHolder";
 
 /**
  * @author : M.N.M Akeel
  * Registration Number : IT19153414
  */
+
+const Workshop = [
+    {
+        wsID:'ws1',
+        workshopTitle:'Workshop Title',
+        presenterName:'Name',
+        email:'123@gmail.com',
+        affiliation:'UOM',
+        contactNo:'123456789',
+        postingDate:'12-12-2021',
+        file:''
+
+    },
+    {
+        wsID:'ws2',
+        workshopTitle:'Workshop Title2',
+        presenterName:'Name2',
+        email:'123@gmail.com',
+        affiliation:'UOP',
+        contactNo:'123456789',
+        postingDate:'12-11-2021',
+        file:''
+
+    }
+]
 
 class WorkShopView extends React.Component{
     constructor(props) {
@@ -12,41 +38,20 @@ class WorkShopView extends React.Component{
 
     }
 
+    editSubmission(wsID){
+
+    }
+
     render() {
         return <div>
             <div><label id={'VHeadLine'} >Workshop Submissions</label></div>
-            <div className={'RItem-style-view'}>
-                <table>
-                    <thead>
-                    <tr>
-                        <th colSpan={3}><label id={'pTitle'}>Workshop Title</label></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td className={'resTag'}>Presenter Name</td>
-                        <td className={'resTd'}>: Name</td>
-                        <td><span id={'statCol'}>Submission Status</span> : Approved</td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td className={'resTd'}>: 123@gm.lk</td>
-                        <td rowSpan={4} id={'btnTag'}><button id={'btnWork'}>Edit Submission</button></td>
-                    </tr>
-                    <tr>
-                        <td>Affiliation</td>
-                        <td className={'resTd'}>: SLIIT</td>
-                    </tr>
-                    <tr>
-                        <td>Submitted Date</td>
-                        <td className={'resTd'}>: 11-11-1111</td>
-                    </tr>
-                    <tr>
-                        <td>File</td>
-                        <td className={'resTd'}>: File</td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div>
+                {
+                    Workshop.map(workshop => {
+                        return <WorkshopViewListHolder key={workshop.wsID} Workshop={workshop}
+                                                       editSubmission={workshop => this.editSubmission(workshop.wsID)}/>
+                    })
+                }
             </div>
         </div>
     }

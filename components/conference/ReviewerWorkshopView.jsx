@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/conference/ResWorkResearcherView.css'
-import WorkshopListHolder from "./WorkshopListHolder";
+import ReviewerWorkshopListHolder from "./ReviewerWorkshopListHolder";
 
 /**
  * @author : M.N.M Akeel
@@ -40,7 +40,7 @@ class ReviewerWorkshopView extends React.Component{
             <div>
                 {
                     Workshop.map(workshop => {
-                        return <WorkshopListHolder Workshop={workshop} />
+                        return <ReviewerWorkshopListHolder Workshop={workshop} />
                     })
                 }
             </div>

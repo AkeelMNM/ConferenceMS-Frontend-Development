@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/conference/ResWorkResearcherView.css'
-import ReResearchListHolder from "./ReResearchListHolder";
+import ReviewerResearchListHolder from "./ReviewerResearchListHolder";
 
 /**
  * @author : M.N.M Akeel
@@ -35,7 +35,7 @@ class ReviewerResearchView extends React.Component{
             <div>
                 {
                     ResearchPapers.map(researchPaper =>{
-                        return <ReResearchListHolder ResearchPaper={researchPaper}/>
+                        return <ReviewerResearchListHolder ResearchPaper={researchPaper}/>
                     })
                 }
             </div>

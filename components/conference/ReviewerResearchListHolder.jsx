@@ -1,7 +1,7 @@
 import React from "react";
 import '../../styles/conference/ResWorkResearcherView.css'
 
-export default function ReResearchListHolder(props){
+export default function ReviewerResearchListHolder(props){
     const {ResearchPaper, approvePaper, viewPaper} = props;
 
     return <div className={'RWItem-style-view'}>
