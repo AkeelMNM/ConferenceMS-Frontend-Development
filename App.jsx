@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 // import Home from "./components/Home";
 import Login from "./components/user/Login";
 import Register from "./components/user/Register";
+import AdminCreateUser from "./components/user/AdminCreateUser";
 
 class App extends React.Component{
     constructor(props) {
@@ -15,6 +16,7 @@ class App extends React.Component{
                 <Route exact path="/" component={Login}/>
                 <Route path="/Login" component={Login}/>
                 <Route path="/Register" component={Register} />
+                <Route path="/AdminCreateUser" component={AdminCreateUser} />
             </Switch>
         </Router>
     }
