@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../../styles/user/LoginRegister.css';
 
 /**
  * @author : A.M Zumry
@@ -41,8 +42,8 @@ class Register extends Component {
                         <label htmlFor={'type'}>User Type</label>
                         <select id="type" name="type" value={this.state.type} onChange={event => this.onChange(event)}>
                             <option>Select</option>
-                            <option value="buyer">Buyer</option>
-                            <option value="seller">Seller</option>
+                            <option value="Researcher">Researcher</option>
+                            <option value="WorkshopConductor">Workshop Conductor</option>
                         </select>
                     </div>
                     <div>
