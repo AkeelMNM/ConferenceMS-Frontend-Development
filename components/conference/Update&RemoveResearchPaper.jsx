@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import '../../styles/conference/upRemRes&Work.css'
 import {toast} from "react-toastify";
+import ResearchPaperServices from "../../services/ResearchPaperServices";
 
 /**
  * @author : M.N.M Akeel
@@ -20,11 +21,26 @@ class UpdateRemoveResearchPaper extends React.Component{
     constructor(props) {
         super(props);
         this.state ={
+            subID:this.props.match.params.id,
             authorName:'',
             paperTitle:'',
             email:'',
             file:''
         }
+    }
+
+    componentDidMount() {
+        console.log(this.state.subID)
+        ResearchPaperServices.getResearchPaperByID(this.state.subID)
+            .then(res => {
+                const researchPaper = res.data;
+                this.setState({
+                    authorName:researchPaper.authorName,
+                    paperTitle:researchPaper.paperTitle,
+                    email:researchPaper.email,
+                })
+            })
+            .catch(err => console.error(err));
     }
 
     updateResearchPaper(event){

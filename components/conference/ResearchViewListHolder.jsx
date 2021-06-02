@@ -15,16 +15,16 @@ export default function ResearchViewListHolder(props){
             <tr>
                 <td className={'resTag'}>Author Name</td>
                 <td className={'resTd'}>: {Research.authorName}</td>
-                <td><span id={'statCol'}>Submission Status</span> : {Research.status}</td>
+                <td><span id={'statCol'}>Submission Status</span> : {Research.submissionStatus}</td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td className={'resTd'}>: {Research.authorEmail}</td>
-                <td rowSpan={3} id={'btnTag'}><button id={'btnPaper'} onClick={() => editSubmission(Research.rsID)}>Edit Submission</button></td>
+                <td className={'resTd'}>: {Research.email}</td>
+                <td rowSpan={3} id={'btnTag'}><button id={'btnPaper'} onClick={() => editSubmission(Research)}>Edit Submission</button></td>
             </tr>
             <tr>
                 <td>Submitted Date</td>
-                <td className={'resTd'}>: {Research.subDate}</td>
+                <td className={'resTd'}>: {Research.submittedDate}</td>
             </tr>
             <tr>
                 <td>File</td>

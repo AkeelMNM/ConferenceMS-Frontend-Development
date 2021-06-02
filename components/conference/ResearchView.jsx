@@ -1,37 +1,34 @@
 import React from 'react';
 import '../../styles/conference/ReserachWorkshopView.css'
 import ResearchListHolder from "./ResearchViewListHolder";
+import ResearchPaperServices from "../../services/ResearchPaperServices";
 
 /**
  * @author : M.N.M Akeel
  * Registration Number : IT19153414
  */
 
-const Research = [
-    {
-    rsID:'ww',
-    paperTitle:'paperTitle',
-    authorName:'example',
-    authorEmail:'123@gamil.com',
-    subDate:'12-12-2121'
-    },
-    {
-        rsID:'ww2',
-        paperTitle:'paperTitle2',
-        authorName:'example2',
-        authorEmail:'123@gamil.com',
-        subDate:'12-12-2111'
-    }
-]
 
 class ResearchView extends React.Component{
     constructor(props) {
         super(props);
 
+        this.state = {
+            researchPapers:[]
+        }
     }
 
-    editSubmission(rsID){
+    componentDidMount() {
+        ResearchPaperServices.getResearchPaper("123456")
+            .then(researchPaper => {
+                this.setState({researchPapers:researchPaper})})
+            .catch(err => console.error(err));
 
+    }
+
+    editSubmission(research){
+       const id = research._id;
+       this.props.history.push(`/updateResearchPaper/${id}`);
     }
 
     render() {
@@ -39,9 +36,9 @@ class ResearchView extends React.Component{
             <div><label id={'VHeadLine'} >Research Paper Submissions</label></div>
             <div>
                 {
-                    Research.map(research => {
-                        return <ResearchListHolder key={research.rsID} Research={research}
-                                                   editSubmission={research => this.editSubmission(research.rsID) } />
+                    this.state.researchPapers.map(research => {
+                        return <ResearchListHolder key={research._id} Research={research}
+                                                   editSubmission={research => this.editSubmission(research) } />
                     })
                 }
             </div>

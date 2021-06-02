@@ -4,6 +4,7 @@ import '../../styles/conference/Res&Work.css';
 import '../../styles/conference/toast.css';
 import 'react-toastify/dist/ReactToastify.css';
 import {toast} from "react-toastify";
+import ResearchPaperService from "../../services/ResearchPaperServices";
 toast.configure();
 
 /**
@@ -26,10 +27,11 @@ class AddResearchPaper extends React.Component{
         event.preventDefault();
 
         let researchPaper = {
+            userID:'123456',
             authorName:this.state.authorName,
             paperTitle:this.state.paperTitle,
             email:this.state.email,
-            file:''
+            researchPFileLocation:''
         }
 
         /* configuring options to display toast message */
@@ -49,10 +51,15 @@ class AddResearchPaper extends React.Component{
             toast.error("Fill Paper Title", options)
         }else if (researchPaper.email === ''){
             toast.error("Fill Email Address", options)
-        }else if (researchPaper.file === ''){
+        }/*else if (researchPaper.researchPFileLocation === ''){
             toast.error("Attach the Research Paper", options)
-        }else{
+        }*/else{
             console.log(JSON.stringify(researchPaper));
+            ResearchPaperService.submitResearchPaper(researchPaper)
+                .then(res => {
+                    console.log(res.status);
+                })
+
         }
     }
 
