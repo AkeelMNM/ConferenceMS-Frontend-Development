@@ -6,6 +6,7 @@ import Register from "./components/user/Register";
 import AdminCreateUser from "./components/user/AdminCreateUser";
 import ResearchersPayment from "./components/user/ResearchersPayment";
 import AttendeesPayment from "./components/user/AttendeesPayment";
+import UserProfile from "./components/user/UserProfile";
 
 class App extends React.Component{
     constructor(props) {
@@ -18,6 +19,7 @@ class App extends React.Component{
                 <Route exact path="/" component={Login}/>
                 <Route path="/Login" component={Login}/>
                 <Route path="/Register" component={Register} />
+                <Route path="/UserProfile" component={UserProfile} />
                 <Route path="/AdminCreateUser" component={AdminCreateUser} />
                 <Route path="/ResearchersPayment" component={ResearchersPayment} />
                 <Route path="/AttendeesPayment" component={AttendeesPayment} />
