@@ -19,11 +19,13 @@ class ResearchView extends React.Component{
     }
 
     componentDidMount() {
+        /**
+         * Change the Parameter need to get the userID from Token
+         */
         ResearchPaperServices.getResearchPaper("60b134021a66ed342a73681a")
             .then(researchPaper => {
                 this.setState({researchPapers:researchPaper})})
             .catch(err => console.error(err));
-
     }
 
     editSubmission(research){

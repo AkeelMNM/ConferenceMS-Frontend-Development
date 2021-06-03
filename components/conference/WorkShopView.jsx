@@ -1,45 +1,37 @@
 import React from 'react';
 import '../../styles/conference/ReserachWorkshopView.css'
 import WorkshopViewListHolder from "./WorkshopViewListHolder";
+import WorkShopServices from "../../services/WorkShopServices";
 
 /**
  * @author : M.N.M Akeel
  * Registration Number : IT19153414
  */
 
-const Workshop = [
-    {
-        wsID:'ws1',
-        workshopTitle:'Workshop Title',
-        presenterName:'Name',
-        email:'123@gmail.com',
-        affiliation:'UOM',
-        contactNo:'123456789',
-        postingDate:'12-12-2021',
-        file:''
-
-    },
-    {
-        wsID:'ws2',
-        workshopTitle:'Workshop Title2',
-        presenterName:'Name2',
-        email:'123@gmail.com',
-        affiliation:'UOP',
-        contactNo:'123456789',
-        postingDate:'12-11-2021',
-        file:''
-
-    }
-]
 
 class WorkShopView extends React.Component{
     constructor(props) {
         super(props);
 
+        this.state ={
+            Workshops:[]
+        }
+
     }
 
-    editSubmission(wsID){
+    componentDidMount() {
+        /**
+         * Change the Parameter need to get the userID from Token
+         */
+        WorkShopServices.getWorkShop("60b1345d1a66ed342a73681b")
+            .then(workShop => {
+                this.setState({Workshops:workShop})})
+            .catch(err => console.error(err));
+    }
 
+    editSubmission(workshop){
+        const id = workshop._id;
+        this.props.history.push(`/updateWorkShop/${id}`);
     }
 
     render() {
@@ -47,9 +39,9 @@ class WorkShopView extends React.Component{
             <div><label id={'VHeadLine'} >Workshop Submissions</label></div>
             <div>
                 {
-                    Workshop.map(workshop => {
-                        return <WorkshopViewListHolder key={workshop.wsID} Workshop={workshop}
-                                                       editSubmission={workshop => this.editSubmission(workshop.wsID)}/>
+                    this.state.Workshops.map(workshop => {
+                        return <WorkshopViewListHolder key={workshop._id} Workshop={workshop}
+                                                       editSubmission={workshop => this.editSubmission(workshop)}/>
                     })
                 }
             </div>

@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import '../../styles/conference/upRemRes&Work.css'
 import {toast} from "react-toastify";
+import WorkShopServices from "../../services/WorkShopServices";
 
 /**
  * @author : M.N.M Akeel
@@ -20,6 +21,7 @@ class UpdateRemoveWorkshop extends React.Component{
     constructor(props) {
         super(props);
         this.state ={
+            wsID:this.props.match.params.id,
             presenterName:'',
             workshopTitle:'',
             email:'',
@@ -29,6 +31,20 @@ class UpdateRemoveWorkshop extends React.Component{
         }
     }
 
+    componentDidMount() {
+        WorkShopServices.getWorkShop(this.state.wsID)
+            .then(res => {
+                console.log(res)
+                this.setState({
+                    presenterName:res.presenterName,
+                    workshopTitle:res.workshopTitle,
+                    email:res.email,
+                    affiliation:res.affiliation,
+                    contactNo:res.contactNumber
+                })
+            })
+            .catch(err => console.error(err));
+    }
 
     updateWorkShop(event){
         event.preventDefault();
@@ -38,8 +54,8 @@ class UpdateRemoveWorkshop extends React.Component{
             workshopTitle:this.state.workshopTitle,
             email:this.state.email,
             affiliation:this.state.affiliation,
-            contactNo:this.state.contactNo,
-            file:''
+            contactNumber:this.state.contactNo,
+            fileLocation:''
         }
 
         /**

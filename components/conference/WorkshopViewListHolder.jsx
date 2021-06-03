@@ -15,20 +15,24 @@ export default function WorkshopViewListHolder(props) {
             <tr>
                 <td className={'resTag'}>Presenter Name</td>
                 <td className={'resTd'}>: {Workshop.presenterName}</td>
-                <td><span id={'statCol'}>Submission Status</span> : {Workshop.status}</td>
+                <td><span id={'statCol'}>Submission Status</span> : {Workshop.proposalStatus}</td>
             </tr>
             <tr>
                 <td>Email</td>
                 <td className={'resTd'}>: {Workshop.email}</td>
-                <td rowSpan={4} id={'btnTag'}><button id={'btnWork'}>Edit Submission</button></td>
+                <td rowSpan={4} id={'btnTag'}><button id={'btnWork'} onClick={() => editSubmission(Workshop)}>Edit Submission</button></td>
             </tr>
             <tr>
                 <td>Affiliation</td>
                 <td className={'resTd'}>: {Workshop.affiliation}</td>
             </tr>
             <tr>
+                <td>Contact Number</td>
+                <td className={'resTd'}>: {Workshop.contactNumber}</td>
+            </tr>
+            <tr>
                 <td>Submitted Date</td>
-                <td className={'resTd'}>: {Workshop.postingDate}</td>
+                <td className={'resTd'}>: {Workshop.submittedDate}</td>
             </tr>
             <tr>
                 <td>File</td>

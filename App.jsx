@@ -7,6 +7,7 @@ import ReviewerWorkshopView from "./components/conference/ReviewerWorkshopView";
 import ResearchView from "./components/conference/ResearchView";
 import WorkShopView from "./components/conference/WorkShopView";
 import UpdateRemoveResearchPaper from "./components/conference/Update&RemoveResearchPaper";
+import UpdateRemoveWorkshop from "./components/conference/Update&RemoveWorkshop";
 
 
 class App extends React.Component{
@@ -21,6 +22,8 @@ class App extends React.Component{
             <Switch>
                 <Route exact path="/" component={ResearchView}/>
                 <Route exact path="/updateResearchPaper/:id" component={UpdateRemoveResearchPaper}/>
+                <Route exact path="/WorkShopView" component={WorkShopView}/>
+                <Route exact path="/updateWorkShop/:id" component={UpdateRemoveWorkshop}/>
             </Switch>
         </Router>
     }

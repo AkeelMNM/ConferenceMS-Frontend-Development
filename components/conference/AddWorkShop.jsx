@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import '../../styles/conference/Res&Work.css'
 import {toast} from "react-toastify";
+import WorkShopServices from "../../services/WorkShopServices";
 
 /**
  * @author : M.N.M Akeel
@@ -58,6 +59,14 @@ class AddWorkShop extends React.Component{
             toast.error("Attach Proposal Document", options)
         }else{
             console.log(JSON.stringify(WorkShop));
+            WorkShopServices.submitWorkShop(WorkShop)
+                .then(res => {
+                    if(res.status === 200){
+                        toast.success("Research Paper Submitted Successfully",options)
+                    }else{
+                        toast.success("Something went wrong!!,Try again.",options)
+                    }
+                })
         }
     }
 

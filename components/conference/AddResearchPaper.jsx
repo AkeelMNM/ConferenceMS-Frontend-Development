@@ -57,9 +57,12 @@ class AddResearchPaper extends React.Component{
             console.log(JSON.stringify(researchPaper));
             ResearchPaperService.submitResearchPaper(researchPaper)
                 .then(res => {
-                    console.log(res.status);
+                    if(res.status === 200){
+                        toast.success("Research Paper Submitted Successfully",options)
+                    }else{
+                        toast.success("Something went wrong!!,Try again.",options)
+                    }
                 })
-
         }
     }
 
