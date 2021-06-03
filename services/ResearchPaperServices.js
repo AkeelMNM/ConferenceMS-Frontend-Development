@@ -33,7 +33,6 @@ class ResearchPaperServices{
         return await fetch(RESEARCH_PAPER_API_BASE_URL+"/paper/"+id,{
             method:'GET',
         }).then(response =>{
-            console.log(response.json())
             return response.json();
         }).catch(reason => {
             return reason;

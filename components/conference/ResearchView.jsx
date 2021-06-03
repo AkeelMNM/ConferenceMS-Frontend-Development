@@ -19,7 +19,7 @@ class ResearchView extends React.Component{
     }
 
     componentDidMount() {
-        ResearchPaperServices.getResearchPaper("123456")
+        ResearchPaperServices.getResearchPaper("60b134021a66ed342a73681a")
             .then(researchPaper => {
                 this.setState({researchPapers:researchPaper})})
             .catch(err => console.error(err));

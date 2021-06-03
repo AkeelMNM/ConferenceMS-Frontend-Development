@@ -33,11 +33,11 @@ class UpdateRemoveResearchPaper extends React.Component{
         console.log(this.state.subID)
         ResearchPaperServices.getResearchPaperByID(this.state.subID)
             .then(res => {
-                const researchPaper = res.data;
+                console.log(res)
                 this.setState({
-                    authorName:researchPaper.authorName,
-                    paperTitle:researchPaper.paperTitle,
-                    email:researchPaper.email,
+                    authorName:res.authorName,
+                    paperTitle:res.paperTitle,
+                    email:res.email,
                 })
             })
             .catch(err => console.error(err));
