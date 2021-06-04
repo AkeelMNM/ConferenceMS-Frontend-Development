@@ -46,13 +46,13 @@ class AddResearchPaper extends React.Component{
          * Displaying Error message if any input field is empty
          */
         if(researchPaper.authorName === ''){
-            toast.error("Fill the Author Name", options)
+            toast.warning("Fill the Author Name", options)
         }else if (researchPaper.paperTitle === ''){
-            toast.error("Fill Paper Title", options)
+            toast.warning("Fill Paper Title", options)
         }else if (researchPaper.email === ''){
-            toast.error("Fill Email Address", options)
+            toast.warning("Fill Email Address", options)
         }/*else if (researchPaper.researchPFileLocation === ''){
-            toast.error("Attach the Research Paper", options)
+            toast.warning("Attach the Research Paper", options)
         }*/else{
             console.log(JSON.stringify(researchPaper));
             ResearchPaperService.submitResearchPaper(researchPaper)
@@ -60,7 +60,7 @@ class AddResearchPaper extends React.Component{
                     if(res.status === 200){
                         toast.success("Research Paper Submitted Successfully",options)
                     }else{
-                        toast.success("Something went wrong!!,Try again.",options)
+                        toast.error("Something went wrong!!,Try again.",options)
                     }
                 })
         }

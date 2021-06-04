@@ -32,7 +32,7 @@ class UpdateRemoveWorkshop extends React.Component{
     }
 
     componentDidMount() {
-        WorkShopServices.getWorkShop(this.state.wsID)
+        WorkShopServices.getWorkShopByID(this.state.wsID)
             .then(res => {
                 console.log(res)
                 this.setState({
@@ -46,6 +46,9 @@ class UpdateRemoveWorkshop extends React.Component{
             .catch(err => console.error(err));
     }
 
+    /**
+     *  This method is to update Workshop proposal
+     */
     updateWorkShop(event){
         event.preventDefault();
 
@@ -63,30 +66,49 @@ class UpdateRemoveWorkshop extends React.Component{
          * Displaying Error message if any input field is empty
          */
         if(WorkShop.workshopTitle === ''){
-            toast.error("Fill Workshop Title", options);
+            toast.warning("Fill Workshop Title!!", options);
         }else if(WorkShop.presenterName === ''){
-            toast.error("Fill Presenter Name",options )
+            toast.warning("Fill Presenter Name!!",options )
         }else if (WorkShop.email === ''){
-            toast.error("Fill Email Address", options)
+            toast.warning("Fill Email Address!!", options)
         }else if (WorkShop.affiliation === ''){
-            toast.error("Add Affiliation", options)
+            toast.warning("Add Affiliation!!", options)
         }else if (WorkShop.contactNo === ''){
-            toast.error("Add Contact Number", options)
+            toast.warning("Add Contact Number!!", options)
         }else if (WorkShop.file === ''){
-            toast.error("Attach Proposal Document", options)
+            toast.warning("Attach Proposal Document!!", options)
         }else{
-            console.log(JSON.stringify(WorkShop));
+            WorkShopServices.updateWorkShop(this.state.wsID,WorkShop)
+                .then(res => {
+                    if(res.status === 200){
+                        toast.success("WorkShop Proposal Updated Successfully",options)
+                    }else{
+                        toast.error("Something went wrong!!,Try again.",options)
+                    }
+                })
         }
     }
 
+    /**
+     *  This method is to Remove Research Paper Submission
+     */
     removeWorkShop(event){
-
+        event.preventDefault()
+        WorkShopServices.removeWorkShop(this.state.wsID)
+            .then(res => {
+                if(res.status === 200){
+                    toast.error("WorkShop Proposal Removed",options)
+                }else{
+                    toast.warning("Something went wrong!!,Try again.",options)
+                }
+            })
     }
 
     onChange(event){
         const { name, value } = event.target;
         this.setState({ [name] : value });
     }
+
     render() {
         return <div>
             <div><label id={'UPHeadLine'} >Update or Remove Workshop Submission</label></div>

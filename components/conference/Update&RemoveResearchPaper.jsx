@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import '../../styles/conference/upRemRes&Work.css'
 import {toast} from "react-toastify";
 import ResearchPaperServices from "../../services/ResearchPaperServices";
+import ResearchPaperService from "../../services/ResearchPaperServices";
 
 /**
  * @author : M.N.M Akeel
@@ -43,6 +44,9 @@ class UpdateRemoveResearchPaper extends React.Component{
             .catch(err => console.error(err));
     }
 
+    /**
+     *  This method is to update Research Paper Submission
+     */
     updateResearchPaper(event){
         event.preventDefault();
 
@@ -59,20 +63,37 @@ class UpdateRemoveResearchPaper extends React.Component{
          * Displaying Error message if any input field is empty
          */
         if(researchPaper.authorName === ''){
-            toast.error("Fill the Author Name", options)
+            toast.warning("Fill the Author Name", options)
         }else if (researchPaper.paperTitle === ''){
-            toast.error("Fill Paper Title", options)
+            toast.warning("Fill Paper Title", options)
         }else if (researchPaper.email === ''){
-            toast.error("Fill Email Address", options)
+            toast.warning("Fill Email Address", options)
         }else if (researchPaper.file === ''){
-            toast.error("Attach the Research Paper", options)
+            toast.warning("Attach the Research Paper", options)
         }else{
             console.log(JSON.stringify(researchPaper));
+            ResearchPaperService.updateResearchPaper(researchPaper)
+                .then(res => {
+                    if(res.status === 200){
+                        toast.success("Research Paper Submission Updated Successfully",options)
+                    }else{
+                        toast.error("Something went wrong!!,Try again.",options)
+                    }
+                })
         }
     }
 
-    removeResearchPaper(){
-
+    removeResearchPaper(event){
+        event.preventDefault()
+        ResearchPaperService.removeResearchPaper(this.state.subID)
+            .then(res => {
+                if(res.status === 200){
+                    toast.error("Research Paper Submission Removed",options)
+                    this.props.history.push("/");
+                }else{
+                    toast.warning("Something went wrong!!,Try again.",options)
+                }
+            })
     }
 
     onChange(event){

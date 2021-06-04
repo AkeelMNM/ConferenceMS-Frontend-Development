@@ -22,6 +22,9 @@ class AddWorkShop extends React.Component{
         }
     }
 
+    /**
+     * This function is to submit Workshop proposal
+     */
     submitWorkShop(event){
         event.preventDefault();
 
@@ -46,25 +49,25 @@ class AddWorkShop extends React.Component{
          * Displaying Error message if any input field is empty
          */
         if(WorkShop.workshopTitle === ''){
-            toast.error("Fill Workshop Title", options);
+            toast.warning("Fill Workshop Title", options);
         }else if(WorkShop.presenterName === ''){
-            toast.error("Fill Presenter Name",options )
+            toast.warning("Fill Presenter Name",options )
         }else if (WorkShop.email === ''){
-            toast.error("Fill Email Address", options)
+            toast.warning("Fill Email Address", options)
         }else if (WorkShop.affiliation === ''){
-            toast.error("Add Affiliation", options)
+            toast.warning("Add Affiliation", options)
         }else if (WorkShop.contactNo === ''){
-            toast.error("Add Contact Number", options)
+            toast.warning("Add Contact Number", options)
         }else if (WorkShop.file === ''){
-            toast.error("Attach Proposal Document", options)
+            toast.warning("Attach Proposal Document", options)
         }else{
             console.log(JSON.stringify(WorkShop));
             WorkShopServices.submitWorkShop(WorkShop)
                 .then(res => {
                     if(res.status === 200){
-                        toast.success("Research Paper Submitted Successfully",options)
+                        toast.success("Workshop Proposal Submitted Successfully",options)
                     }else{
-                        toast.success("Something went wrong!!,Try again.",options)
+                        toast.error("Something went wrong!!,Try again.",options)
                     }
                 })
         }

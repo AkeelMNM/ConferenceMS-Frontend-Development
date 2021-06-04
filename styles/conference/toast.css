@@ -14,7 +14,9 @@
     font-size: 14px;
 }
 .Toastify__toast--warning {
-    background: yellow;
+    background: #efef01;
+    color: red;
+    font-size: 16px;
 }
 .Toastify__toast--error {
     background: #b0473e;

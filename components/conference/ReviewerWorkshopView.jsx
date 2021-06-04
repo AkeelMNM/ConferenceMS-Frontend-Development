@@ -1,37 +1,28 @@
 import React from 'react';
 import '../../styles/conference/ResWorkResearcherView.css'
 import ReviewerWorkshopListHolder from "./ReviewerWorkshopListHolder";
+import WorkShopServices from "../../services/WorkShopServices";
 
 /**
  * @author : M.N.M Akeel
  * Registration Number : IT19153414
  */
 
-const Workshop = [
-    {
-        presenterName:'Name',
-        workshopTitle:'Work Title',
-        email:'123@gmail.com',
-        affiliation:'SLIIT',
-        contactNo:'077854785',
-        postingDate:'25-01-2021',
-        file:'File'
-    },
-    {
-        presenterName:'Name2',
-        workshopTitle:'Work Title2',
-        email:'54123@gmail.com',
-        affiliation:'Peradeniya',
-        contactNo:'077854785',
-        postingDate:'28-07-2021',
-        file:'File2'
-    }
-]
 
 class ReviewerWorkshopView extends React.Component{
     constructor(props) {
         super(props);
 
+        this.state = {
+            Workshops:[]
+        }
+    }
+
+    componentDidMount() {
+        WorkShopServices.getWorkShop()
+            .then(workShop => {
+                this.setState({Workshops:workShop})})
+            .catch(err => console.error(err));
     }
 
     render() {
@@ -39,8 +30,8 @@ class ReviewerWorkshopView extends React.Component{
             <div><label id={'RVHeadLine'} >All Proposed Workshops</label></div>
             <div>
                 {
-                    Workshop.map(workshop => {
-                        return <ReviewerWorkshopListHolder Workshop={workshop} />
+                    this.state.Workshops.map(workshop => {
+                        return <ReviewerWorkshopListHolder key={workshop._id} Workshop={workshop} />
                     })
                 }
             </div>

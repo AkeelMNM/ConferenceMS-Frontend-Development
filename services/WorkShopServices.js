@@ -1,10 +1,10 @@
 
-const WORK_SHOP_API_BASE_URL = "http://localhost:3000/workShop";
+const WORK_SHOP_API_BASE_URI = "http://localhost:3000/workShop";
 
 class WorkShopServices{
 
     async submitWorkShop(workShop){
-        return await fetch(WORK_SHOP_API_BASE_URL,{
+        return await fetch(WORK_SHOP_API_BASE_URI,{
             method:'POST',
             headers:{
                 'content-Type':"application/json"
@@ -18,8 +18,19 @@ class WorkShopServices{
 
     }
 
-    async getWorkShop(id){
-        return await fetch(WORK_SHOP_API_BASE_URL+"/"+id,{
+    async getWorkShop(){
+        return await fetch(WORK_SHOP_API_BASE_URI+"/",{
+            method:'GET',
+        }).then(response =>{
+            return response.json();
+        }).catch(reason => {
+            return reason;
+        })
+
+    }
+
+    async getWorkShopByUser(id){
+        return await fetch(WORK_SHOP_API_BASE_URI+"/"+id,{
             method:'GET',
         }).then(response =>{
             return response.json();
@@ -30,7 +41,7 @@ class WorkShopServices{
     }
 
     async getWorkShopByID(id){
-        return await fetch(WORK_SHOP_API_BASE_URL+"/work/"+id,{
+        return await fetch(WORK_SHOP_API_BASE_URI+"/work/"+id,{
             method:'GET',
         }).then(response =>{
             return response.json();
@@ -42,7 +53,7 @@ class WorkShopServices{
 
 
     async updateWorkShop(id,workShop){
-        return await fetch(WORK_SHOP_API_BASE_URL+"/"+id,{
+        return await fetch(WORK_SHOP_API_BASE_URI+"/"+id,{
             method:'PUT',
             headers:{
                 'content-Type':"application/json"
@@ -56,7 +67,7 @@ class WorkShopServices{
     }
 
     async removeWorkShop(id){
-        return await fetch(WORK_SHOP_API_BASE_URL+"/"+id,{
+        return await fetch(WORK_SHOP_API_BASE_URI+"/"+id,{
             method:'DELETE',
         }).then(response =>{
             return response;

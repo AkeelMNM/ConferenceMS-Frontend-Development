@@ -1,10 +1,10 @@
 
-const RESEARCH_PAPER_API_BASE_URL = "http://localhost:3000/researchPaper";
+const RESEARCH_PAPER_API_BASE_URI = "http://localhost:3000/researchPaper";
 
 class ResearchPaperServices{
 
     async submitResearchPaper(researchPaper){
-        return await fetch(RESEARCH_PAPER_API_BASE_URL,{
+        return await fetch(RESEARCH_PAPER_API_BASE_URI,{
             method:'POST',
             headers:{
               'content-Type':"application/json"
@@ -18,8 +18,19 @@ class ResearchPaperServices{
 
     }
 
-    async getResearchPaper(id){
-        return await fetch(RESEARCH_PAPER_API_BASE_URL+"/"+id,{
+    async getResearchPaper(){
+        return await fetch(RESEARCH_PAPER_API_BASE_URI+"/",{
+            method:'GET',
+        }).then(response =>{
+            return response.json();
+        }).catch(reason => {
+            return reason;
+        })
+
+    }
+
+    async getResearchPaperByUser(id){
+        return await fetch(RESEARCH_PAPER_API_BASE_URI+"/"+id,{
             method:'GET',
         }).then(response =>{
             return response.json();
@@ -30,7 +41,7 @@ class ResearchPaperServices{
     }
 
     async getResearchPaperByID(id){
-        return await fetch(RESEARCH_PAPER_API_BASE_URL+"/paper/"+id,{
+        return await fetch(RESEARCH_PAPER_API_BASE_URI+"/paper/"+id,{
             method:'GET',
         }).then(response =>{
             return response.json();
@@ -42,7 +53,7 @@ class ResearchPaperServices{
 
 
     async updateResearchPaper(id,researchPaper){
-        return await fetch(RESEARCH_PAPER_API_BASE_URL+"/"+id,{
+        return await fetch(RESEARCH_PAPER_API_BASE_URI+"/"+id,{
             method:'PUT',
             headers:{
                 'content-Type':"application/json"
@@ -56,7 +67,8 @@ class ResearchPaperServices{
     }
 
     async removeResearchPaper(id){
-        return await fetch(RESEARCH_PAPER_API_BASE_URL+"/"+id,{
+        console.log(id);
+        return await fetch(RESEARCH_PAPER_API_BASE_URI+"/"+id,{
             method:'DELETE',
         }).then(response =>{
             return response;
