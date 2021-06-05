@@ -1,0 +1,110 @@
+import axios from "axios";
+
+const CONFERENCE_API_BASE_URI = "http://localhost:3000/posts";
+
+class ConferenceService{
+
+    /*async createconference(conference){
+        return await fetch(CONFERENCE_API_BASE_URI,{
+            method:'POST',
+            headers:{
+                'content-Type':"application/json"
+            },
+            body:JSON.stringify(conference)
+        }).then(response =>{
+            return response;
+        }).catch(reason => {
+            return reason;
+        })
+
+    }*/
+
+    /*async getConference(){
+        return await fetch(CONFERENCE_API_BASE_URI+"/",{
+            method:'GET',
+        }).then(response =>{
+            return response.json();
+        }).catch(reason => {
+            return reason;
+        })
+
+    }*/
+
+
+   /* async getConferenceByUser(id){
+        return await fetch(CONFERENCE_API_BASE_URI+"/"+id,{
+            method:'GET',
+        }).then(response =>{
+            return response.json();
+        }).catch(reason => {
+            return reason;
+        })
+
+    }*/
+
+   /*async getconferenceById(id){
+        return await fetch(CONFERENCE_API_BASE_URI+"/conference/"+id,{
+            method:'GET',
+        }).then(response =>{
+            return response.json();
+        }).catch(reason => {
+            return reason;
+        })
+
+    }*/
+
+
+  /*async updateconference(id,Conference){
+        return await fetch(CONFERENCE_API_BASE_URI+"/"+id,{
+            method:'PUT',
+            headers:{
+                'content-Type':"application/json"
+            },
+            body:JSON.stringify(Conference)
+        }).then(response =>{
+            return response;
+        }).catch(reason => {
+            return reason;
+        })
+    }*/
+
+    /*async deleteconference(id){
+        return await fetch(CONFERENCE_API_BASE_URI+"/"+id,{
+            method:'DELETE',
+        }).then(response =>{
+            return response;
+        }).catch(reason => {
+            return reason;
+        })
+
+    }*/
+    ///////////////////////////////////////////
+    getConference(){
+
+        return axios.get(CONFERENCE_API_BASE_URI);
+    }
+    createconference(conference){
+
+        return axios.post(CONFERENCE_API_BASE_URI,conference);
+    }
+
+    getconferenceById(conferenceId){
+        return axios.get(CONFERENCE_API_BASE_URI + '/' + conferenceId);
+    }
+
+    updateconference(conference, conferenceId){
+        return axios.put(CONFERENCE_API_BASE_URI + '/' + conferenceId, conference);
+    }
+
+    deleteconference(conferenceId){
+        return axios.delete(CONFERENCE_API_BASE_URI + '/' + conferenceId);
+    }
+
+
+
+
+
+
+}
+
+export default new ConferenceService();
