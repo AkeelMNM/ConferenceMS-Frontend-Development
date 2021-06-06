@@ -4,9 +4,10 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Login from "./components/user/Login";
 import Register from "./components/user/Register";
 import AdminCreateUser from "./components/user/AdminCreateUser";
+import UserProfile from "./components/user/UserProfile";
 import ResearchersPayment from "./components/user/ResearchersPayment";
 import AttendeesPayment from "./components/user/AttendeesPayment";
-import UserProfile from "./components/user/UserProfile";
+import TemplatesDownload from "./components/user/TemplatesDownload";
 
 class App extends React.Component{
     constructor(props) {
@@ -23,6 +24,7 @@ class App extends React.Component{
                 <Route path="/AdminCreateUser" component={AdminCreateUser} />
                 <Route path="/ResearchersPayment" component={ResearchersPayment} />
                 <Route path="/AttendeesPayment" component={AttendeesPayment} />
+                <Route path="/TemplatesDownload" component={TemplatesDownload} />
             </Switch>
         </Router>
     }

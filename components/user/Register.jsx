@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
+import {toast} from "react-toastify";
 import '../../styles/user/LoginRegister.css';
+import '../../styles/toast.css';
+import 'react-toastify/dist/ReactToastify.css';
+import {toast} from "react-toastify";
+import UserServices from "../../services/UserServices";
+toast.configure();
 
 /**
  * @author : A.M Zumry
@@ -11,11 +17,57 @@ class Register extends Component {
         super(props);
 
         this.state = {
-            username:'',
-            password:'',
+            name:'',
             email:'',
             type:'',
+            password:''
         }
+    }
+
+    /**
+     * This function is to submit registrar proposal
+     */
+    registerAccount(event) {
+        event.preventDefault();
+
+        let Account = {
+            name:this.state.name,
+            email:this.state.email,
+            type:this.state.type,
+            password:this.state.password
+        }
+
+        /* configuring options to display toast message */
+        const options = {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar:true,
+            autoClose:3000,
+            closeButton:false
+        }
+
+        /**
+         * Validating the Registration submission input fields
+         * Displaying Error message if any input field is empty
+         */
+        if(Account.name == ''){
+            toast.warning("Fill your Full Name.", options);
+        }else if(Account.email == ''){
+            toast.warning("Fill your Email Address.", options);
+        }else if(Account.type == ''){
+            toast.warning("Select user type.", options);
+        }else if(Account.password == ''){
+            toast.warning("Fill password.", options);
+        }else {
+            console.log(JSON.stringify(Account));
+            UserServices.createAccount(Account).then(res => {
+               if(res.status == 200){
+                   toast.success("Account created Successfully", options);
+               }else{
+                   toast.error("Something went wrong!!,Try again.", options);
+               }
+            });
+        }
+
     }
 
     onChange(event){
@@ -29,8 +81,8 @@ class Register extends Component {
                 <label id={'logRegHead'}>SignUp</label><br/>
                 <form>
                     <div>
-                        <label htmlFor={'username'}>Full Name</label>
-                        <input type={'text'} name={'username'} id={'username'} value={this.state.username}
+                        <label htmlFor={'name'}>Full Name</label>
+                        <input type={'text'} name={'name'} id={'name'} value={this.state.name}
                                onChange={event => this.onChange(event)}/>
                     </div>
                     <div>

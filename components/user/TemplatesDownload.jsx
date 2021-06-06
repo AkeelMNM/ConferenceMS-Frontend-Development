@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../../styles/user/TemplatesDownload.css';
 
 /**
  * @author : A.M Zumry
@@ -11,11 +12,16 @@ class TemplatesDownload extends Component {
     }
 
     render() {
-        return (
-            <div>
-
+        return <div>
+            <div className={'div-style-TemDow'}>
+                <div>
+                    <label> Template Name: </label>
+                </div>
+                <div>
+                    <label> download </label>
+                </div>
             </div>
-        );
+        </div>
     }
 }
 
