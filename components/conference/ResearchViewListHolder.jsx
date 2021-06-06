@@ -2,7 +2,7 @@ import React from "react";
 import '../../styles/conference/ReserachWorkshopView.css'
 
 export default function ResearchViewListHolder(props){
-    const {Research, editSubmission} = props;
+    const {Research, editSubmission, researchSubPayment } = props;
 
     return <div className={'RItem-style-view'}>
         <table>
@@ -20,7 +20,13 @@ export default function ResearchViewListHolder(props){
             <tr>
                 <td>Email</td>
                 <td className={'resTd'}>: {Research.email}</td>
-                <td rowSpan={3} id={'btnTag'}><button id={'btnPaper'} onClick={() => editSubmission(Research)}>Edit Submission</button></td>
+                {
+                    Research.paymentStatus === 'Payment paid' && Research.submissionStatus === 'Approved'?
+                        (<td rowSpan={3} id={'btnTag'}>Payment Paid</td>)
+                    :Research.paymentStatus === 'Not Available' && Research.submissionStatus === 'Approved'?
+                        (<td rowSpan={3} id={'btnTag'}><button id={'btnPayment'} onClick={() => researchSubPayment(Research)}>Payment</button></td>)
+                    :(<td rowSpan={3} id={'btnTag'}><button id={'btnPaper'} onClick={() => editSubmission(Research)}>Edit Submission</button></td>)
+                }
             </tr>
             <tr>
                 <td>Submitted Date</td>

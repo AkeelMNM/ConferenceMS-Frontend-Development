@@ -106,6 +106,28 @@
     background: #e96302;
 }
 
+#btnPayment
+{
+    position: relative;
+    display: block;
+    padding: 9px 9px 8px 9px;
+    color: #FFF;
+    background: #ff6801;
+    font-size: 14px;
+    text-align: center;
+    font-style: normal;
+    width: 70%;
+    border: 1px solid #e96302;
+    border-width: 1px 1px 3px;
+    border-radius: 3px;
+    margin: 40px -10px -35px 85px;
+}
+
+#btnPayment:hover
+{
+    background: #e96302;
+}
+
 .resTag{
     width: 150px;
     padding: 5px;

@@ -1,4 +1,3 @@
-
 const RESEARCH_PAPER_API_BASE_URI = "http://localhost:3000/researchPaper";
 
 class ResearchPaperServices{
