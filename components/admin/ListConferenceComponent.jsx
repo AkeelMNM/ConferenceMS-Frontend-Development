@@ -68,7 +68,7 @@ class ListConferenceComponent extends Component {
                             <th> Conference Title </th>
                             <th> Message</th>
                             <th> Status</th>
-                            <th> PostedDate</th>
+                            <th> Conference Date & Time</th>
                             <th> Actions</th>
                         </tr>
 

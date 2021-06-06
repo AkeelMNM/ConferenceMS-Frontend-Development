@@ -34,7 +34,7 @@ class EditConferenceComponent extends Component {
     componentDidMount(){
         ConferenceService.getconferenceById(this.state.id).then( (res) =>{
             let conference = res.data;
-            this.setState({creator: product.creator,
+            this.setState({creator: conference.creator,
                 conference_title: conference.conference_title,
                 message : conference.message,
                 status: conference.status,
@@ -74,9 +74,7 @@ class EditConferenceComponent extends Component {
                 <div className="container">
                     <div className="row" >
                         <div className = "card col-md-6 offset-md-3 offset-md-3">
-                            {
-                                this.getTitle()
-                            }
+                            <h3 className="text-center"> Update Conference</h3>
 
 
                             <div className="card-body">
@@ -106,8 +104,8 @@ class EditConferenceComponent extends Component {
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Posted Date :</label>
-                                        <input type="date" placeholder="postedDate" name="postedDate" className="form-control"
+                                        <label>Conference Date :</label>
+                                        <input  placeholder="postedDate" name="postedDate" className="form-control"
                                                value={this.state.postedDate} onChange ={event=>this.onChange(event)}/>
 
                                     </div>

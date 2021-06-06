@@ -132,7 +132,7 @@ class CreateConferenceComponent extends Component {
 
                                     <div className="form-group">
                                         <label>Posted Date :</label>
-                                        <input type="date" placeholder="postedDate" name="postedDate" className="form-control"
+                                        <input placeholder="postedDate" name="postedDate" className="form-control"
                                                value={this.state.postedDate} onChange ={this.changepostedDateHandler}/>
 
                                     </div>

@@ -21,7 +21,7 @@ class App extends React.Component{
                 <Route path ="/" exact component ={ListConferenceComponent}></Route>
                 <Route path ="/add-conference/:id" component ={CreateConferenceComponent}></Route>
                 <Route path ="/view-conference/:id" component ={EditorViewConferenceComponent}></Route>
-                <Route exact path="/updateConference/:id" component={EditConferenceComponent}/>
+                <Route exact path="/update-conference/:id" component={EditConferenceComponent}/>
 
             </Switch>
         </Router>
