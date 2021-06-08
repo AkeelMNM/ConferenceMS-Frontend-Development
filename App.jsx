@@ -2,7 +2,7 @@ import React from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 // import Home from "./components/Home";
 import Login from "./components/user/Login";
-import Register from "./components/user/Register";
+import LoginRegisterHandler from "./components/user/LoginRegisterHandler";
 import AdminCreateUser from "./components/user/AdminCreateUser";
 import UserProfile from "./components/user/UserProfile";
 import ResearchersPayment from "./components/user/ResearchersPayment";
@@ -17,9 +17,9 @@ class App extends React.Component{
     render() {
         return <Router>
             <Switch>
-                <Route exact path="/" component={Login}/>
+                <Route exact path="/" component={LoginRegisterHandler}/>
                 <Route path="/Login" component={Login}/>
-                <Route path="/Register" component={Register} />
+                <Route path="/Register" component={LoginRegisterHandler}/>
                 <Route path="/UserProfile" component={UserProfile} />
                 <Route path="/AdminCreateUser" component={AdminCreateUser} />
                 <Route path="/ResearchersPayment" component={ResearchersPayment} />

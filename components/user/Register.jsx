@@ -3,7 +3,6 @@ import {toast} from "react-toastify";
 import '../../styles/user/LoginRegister.css';
 import '../../styles/toast.css';
 import 'react-toastify/dist/ReactToastify.css';
-import {toast} from "react-toastify";
 import UserServices from "../../services/UserServices";
 toast.configure();
 
@@ -76,38 +75,37 @@ class Register extends Component {
     }
 
     render() {
-        return <div>
-            <div className={'form-style-logReg'}>
-                <label id={'logRegHead'}>SignUp</label><br/>
-                <form>
-                    <div>
-                        <label htmlFor={'name'}>Full Name</label>
-                        <input type={'text'} name={'name'} id={'name'} value={this.state.name}
-                               onChange={event => this.onChange(event)}/>
-                    </div>
-                    <div>
-                        <label htmlFor={'email'}>Email</label>
-                        <input type={'text'} name={'email'} id={'email'}  value={this.state.email}
-                               onChange={event => this.onChange(event)}/>
-                    </div>
-                    <div>
-                        <label htmlFor={'type'}>User Type</label>
-                        <select id="type" name="type" value={this.state.type} onChange={event => this.onChange(event)}>
-                            <option>Select</option>
-                            <option value="Researcher">Researcher</option>
-                            <option value="WorkshopConductor">Workshop Conductor</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label htmlFor={'password'}>Password</label>
-                        <input type={'password'} name={'password'} id={'password'} value={this.state.password}
-                               onChange={event => this.onChange(event)}/>
-                    </div>
-                    <div>
-                        <input type={'submit'} value={'Register'} onClick={event => this.registerAccount(event)} />
-                    </div>
-                </form>
-            </div>
+        return <div className={"signin-signup"}>
+
+            <form className={"sign-up-form"}>
+                <h2 className={"title"}>Sign up</h2>
+                <div className={"input-field"}>
+                    <i></i>
+                    <input type={'text'} name={'name'} id={'name'} value={this.state.name}
+                           placeholder={"Full Name"} onChange={event => this.onChange(event)}/>
+                </div>
+                <div className={"input-field"}>
+                    <i></i>
+                    <input type={'text'} name={'email'} id={'email'}  value={this.state.email}
+                           placeholder={"Email"} onChange={event => this.onChange(event)}/>
+                </div>
+                <div className={"input-field"}>
+                    <i></i>
+                    <select id="type" name="type" value={this.state.type} onChange={event => this.onChange(event)}>
+                        <option>Select</option>
+                        <option value="Researcher">Researcher</option>
+                        <option value="WorkshopConductor">Workshop Conductor</option>
+                    </select>
+                </div>
+                <div className={"input-field"}>
+                    <i></i>
+                    <input type={'password'} name={'password'} id={'password'} value={this.state.password}
+                           placeholder={"Password"} onChange={event => this.onChange(event)}/>
+                </div>
+                <input type={"submit"} className={"btn"} value={"sign up"} />
+                <p className={"social-media"}>Or Sign up with social platforms</p>
+            </form>
+
         </div>
     }
 }
