@@ -24,6 +24,7 @@ class App extends React.Component{
                 <Route exact path="/updateResearchPaper/:id" component={UpdateRemoveResearchPaper}/>
                 <Route exact path="/WorkShopView" component={WorkShopView}/>
                 <Route exact path="/updateWorkShop/:id" component={UpdateRemoveWorkshop}/>
+                <Route exact path="/ReResearchPaperView" component={ReviewerResearchView}/>
             </Switch>
         </Router>
     }

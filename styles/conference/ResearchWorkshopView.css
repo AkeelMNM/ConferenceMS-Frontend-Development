@@ -112,12 +112,12 @@
     display: block;
     padding: 9px 9px 8px 9px;
     color: #FFF;
-    background: #ff6801;
+    background: #1abc9c;
     font-size: 14px;
     text-align: center;
     font-style: normal;
     width: 70%;
-    border: 1px solid #e96302;
+    border: 1px solid #1abc9c;
     border-width: 1px 1px 3px;
     border-radius: 3px;
     margin: 40px -10px -35px 85px;
@@ -125,7 +125,7 @@
 
 #btnPayment:hover
 {
-    background: #e96302;
+    background: #169980;
 }
 
 .resTag{
@@ -145,8 +145,6 @@
 #VHeadLine{
     font-size: 25px;
     font-weight: bold;
-    font-style: italic;
-    text-decoration: underline;
 }
 
 #btnTag{
@@ -156,4 +154,14 @@
 #statCol{
     color: red;
     margin-left: 20px;
+}
+
+#payCol{
+    color: red;
+    margin-left: 130px;
+}
+
+#approval{
+    display: inline-block;
+    margin-top: 50px;
 }

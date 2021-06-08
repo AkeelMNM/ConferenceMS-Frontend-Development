@@ -1,5 +1,5 @@
 import React from "react";
-import '../../styles/conference/ReserachWorkshopView.css'
+import '../../styles/conference/ResearchWorkshopView.css'
 
 export default function ResearchViewListHolder(props){
     const {Research, editSubmission, researchSubPayment } = props;
@@ -22,9 +22,9 @@ export default function ResearchViewListHolder(props){
                 <td className={'resTd'}>: {Research.email}</td>
                 {
                     Research.paymentStatus === 'Payment paid' && Research.submissionStatus === 'Approved'?
-                        (<td rowSpan={3} id={'btnTag'}>Payment Paid</td>)
+                        (<td rowSpan={3} id={'btnTag'}><span id={'payCol'}>Payment</span><span id={'approval'}> : Paid</span></td>)
                     :Research.paymentStatus === 'Not Available' && Research.submissionStatus === 'Approved'?
-                        (<td rowSpan={3} id={'btnTag'}><button id={'btnPayment'} onClick={() => researchSubPayment(Research)}>Payment</button></td>)
+                        (<td rowSpan={3} id={'btnTag'}><button id={'btnPayment'} onClick={() => researchSubPayment(Research)}>Pay to Present</button></td>)
                     :(<td rowSpan={3} id={'btnTag'}><button id={'btnPaper'} onClick={() => editSubmission(Research)}>Edit Submission</button></td>)
                 }
             </tr>

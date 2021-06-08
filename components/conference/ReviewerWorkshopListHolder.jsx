@@ -2,7 +2,7 @@ import React from 'react';
 import '../../styles/conference/ResWorkResearcherView.css'
 
 export default function ReviewerWorkshopListHolder(props) {
-    const {Workshop, approveWorkshop, viewWorkshop} = props;
+    const {Workshop, approveWorkshop, viewWorkshop,rejectWorkshop} = props;
 
     return <div className={'RWItem-style-view'}>
         <table>
@@ -38,14 +38,21 @@ export default function ReviewerWorkshopListHolder(props) {
             </tr>
             <tr>
                 <td colSpan={2}>
-                    <button className={'btnView'}>View Proposal Document</button>
+                    <button className={'btnView'} onClick={() => viewWorkshop(Workshop)}>View Proposal Document</button>
                 </td>
             </tr>
             <tr>
                 <td colSpan={2}>
-                    <button className={'btnAccept'}>Approve</button>
-                    <button className={'btnDecline'}>Reject</button>
-                    {/* <span id={'stateS'}>States : Approved</span>*/}
+                    {
+                        Workshop.proposalStatus === 'Approved'?
+                            (<span id={'stateS'}>States : Approved</span>)
+                        :(
+                            <div>
+                                <button className={'btnAccept'} onClick={() => approveWorkshop(Workshop)}>Approve</button>
+                                <button className={'btnDecline'} onClick={() => rejectWorkshop(Workshop)}>Reject</button>
+                            </div>
+                         )
+                    }
                 </td>
             </tr>
             </tbody>

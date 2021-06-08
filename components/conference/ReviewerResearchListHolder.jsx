@@ -2,7 +2,7 @@ import React from "react";
 import '../../styles/conference/ResWorkResearcherView.css'
 
 export default function ReviewerResearchListHolder(props){
-    const {ResearchPaper, approvePaper, viewPaper} = props;
+    const {ResearchPaper, approvePaper,viewPaper,rejectPaper} = props;
 
     return <div className={'RWItem-style-view'}>
         <table>
@@ -22,7 +22,7 @@ export default function ReviewerResearchListHolder(props){
             </tr>
             <tr>
                 <td>Submitted Date</td>
-                <td className={'resTd'}>: {ResearchPaper.date}</td>
+                <td className={'resTd'}>: {ResearchPaper.submittedDate}</td>
             </tr>
             <tr>
                 <td>File</td>
@@ -30,14 +30,34 @@ export default function ReviewerResearchListHolder(props){
             </tr>
             <tr>
                 <td colSpan={2}>
-                    <button className={'btnView'}>View Research Paper</button>
+                    <button className={'btnView'} onClick={() => viewPaper(ResearchPaper)}>View Research Paper</button>
                 </td>
             </tr>
             <tr>
                 <td colSpan={2}>
-                    <button className={'btnAccept'}>Approve</button>
-                    <button className={'btnDecline'}>Reject</button>
-                    {/* <span id={'stateS'}>States : Approved</span>*/}
+                    {
+                        ResearchPaper.paymentStatus === 'Not Available' && ResearchPaper.submissionStatus === 'Approved'?
+                            (<span id={'stateS'}>States : Approved</span>)
+                        :ResearchPaper.paymentStatus === 'Payment paid' && ResearchPaper.submissionStatus === 'Approved'?
+                            (<span id={'stateS'}>States : Approved</span>)
+                        :(
+                            <div>
+                                <button className={'btnAccept'} onClick={() => approvePaper(ResearchPaper)}>Approve</button>
+                                <button className={'btnDecline'} onClick={() => rejectPaper(ResearchPaper)}>Reject</button>
+                            </div>
+                        )
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td colSpan={2}>
+                    {
+                        ResearchPaper.paymentStatus === 'Not Available' && ResearchPaper.submissionStatus === 'Approved'?
+                            (<span id={'stateS'}>Payment : Not paid</span>)
+                            :ResearchPaper.paymentStatus === 'Payment paid' && ResearchPaper.submissionStatus === 'Approved'?
+                            (<span id={'stateS'}>Payment : Paid</span>)
+                            :(<></>)
+                    }
                 </td>
             </tr>
             </tbody>

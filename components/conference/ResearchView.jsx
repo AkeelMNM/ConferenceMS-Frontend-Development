@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/conference/ReserachWorkshopView.css'
+import '../../styles/conference/ResearchWorkshopView.css'
 import ResearchListHolder from "./ResearchViewListHolder";
 import ResearchPaperServices from "../../services/ResearchPaperServices";
 

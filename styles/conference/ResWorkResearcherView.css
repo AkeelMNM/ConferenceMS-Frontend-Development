@@ -154,8 +154,6 @@
 #RVHeadLine{
     font-size: 25px;
     font-weight: bold;
-    font-style: italic;
-    text-decoration: underline;
 }
 
 #stateS{
@@ -164,3 +162,4 @@
     margin-right: 30px;
     color: #07bc0c;
 }
+
