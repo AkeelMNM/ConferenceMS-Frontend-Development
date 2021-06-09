@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import '../../styles/user/LoginRegister.css';
+import '../../styles/toast.css';
+import 'react-toastify/dist/ReactToastify.css';
+import {toast} from "react-toastify";
+import UserServices from "../../services/UserServices";
+toast.configure();
 
 //Images
 import Img01 from 'url:../../images/Login/log.svg';
@@ -29,10 +34,57 @@ class LoginRegisterHandler extends Component {
             isPasswordShown: false,
             isEyeImage: true,
             isOnClicked: true,
-            name:'',
+            fullName:'',
             email:'',
             type:'',
-            password:''
+            password:'',
+            logEmail:'',
+            logPassword:''
+        }
+    }
+
+    /**
+     * This function is to submit create account proposal
+     */
+    registerAccount(event){
+        event.preventDefault();
+
+        let Account = {
+            fullName: this.state.fullName,
+            email: this.state.email,
+            type: this.state.type,
+            password: this.state.password
+        }
+
+        /* configuring options to display toast message */
+        const options = {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar:true,
+            autoClose:3000,
+            closeButton:false
+        }
+        /**
+         * Validating the create account submission input fields
+         * Displaying Error message if any input field is empty
+         */
+        if(Account.fullName === ''){
+            toast.warning("File Full Name.", options);
+        }else if(Account.email === ''){
+            toast.warning("File Email.", options);
+        }else if(Account.type === ''){
+            toast.warning("Select Type", options);
+        }else if(Account.password === ''){
+            toast.warning("File Password", options);
+        }else {
+            console.log(JSON.stringify(Account));
+            UserServices.createAccount(Account)
+                .then(res =>{
+                    if(res.status === 201){
+                        toast.success("Account created Successfully", options);
+                    }else{
+                        toast.error("Something went wrong!!,Try again.",options);
+                    }
+                })
         }
     }
 
@@ -71,19 +123,20 @@ class LoginRegisterHandler extends Component {
                         {/*<Login/>*/}
                         {/*<Register/>*/}
 
+                {/* ----------------------------- Login Form ----------------------------- */}
                         <form className={"sign-in-form"}>
                             <h2 className={"title"}>Sign In</h2>
                             <div className={"input-field"}>
                                 <img src={ImgEmail} className={"fas"}/>
-                                <input type={'text'} name={'email'} id={'email'}  value={this.state.email}
+                                <input type={'text'} name={'logEmail'} id={'logEmail'}  value={this.state.logEmail}
                                        placeholder={"Email"} onChange={event => this.onChange(event)}/>
                             </div>
                             <div className={"input-field"}>
                                 <img src={ImgLock} className={"fas"}/>
                                 <input
                                     type={this.state.isPasswordShown===false ? "password" : "text"}
-                                    name={'password'} id={'password'}
-                                    value={this.state.password} placeholder={"Password"}
+                                    name={'logPassword'} id={'logPassword'}
+                                    value={this.state.logPassword} placeholder={"Password"}
                                     onChange={event => this.onChange(event)}
                                 />
                                 <img
@@ -96,11 +149,12 @@ class LoginRegisterHandler extends Component {
                             <p className={"social-media"}>Or Sign up with social platforms</p>
                         </form>
 
+                {/* ----------------------------- Registration Form ----------------------------- */}
                         <form className={"sign-up-form"}>
                             <h2 className={"title"}>Sign up</h2>
                             <div className={"input-field"}>
                                 <img src={ImgUser} className={"fas"}/>
-                                <input type={'text'} name={'name'} id={'name'} value={this.state.name}
+                                <input type={'text'} name={'fullName'} id={'fullName'} value={this.state.fullName}
                                        placeholder={"Full Name"} onChange={event => this.onChange(event)}/>
                             </div>
                             <div className={"input-field"}>
@@ -110,8 +164,11 @@ class LoginRegisterHandler extends Component {
                             </div>
                             <div className={"input-field"}>
                                 <img src={ImgUsers} className={"fas"}/>
-                                <input type={'text'} name={'email'} id={'email'}  value={this.state.email}
-                                       placeholder={"Type"} onChange={event => this.onChange(event)}/>
+                                <select id={"type"} name={"type"} value={this.state.type} onChange={event => this.onChange(event)}>
+                                    <option id={"SEL-opt"}>Selection</option>
+                                    <option value={"Researcher"}>Researcher</option>
+                                    <option value={"Workshop Conductor"}>Workshop Conductor</option>
+                                </select>
                             </div>
                             <div className={"input-field"}>
                                 <img src={ImgLock} className={"fas"}/>
@@ -127,7 +184,7 @@ class LoginRegisterHandler extends Component {
                                     onClick={this.state.isOnClicked===true ? this.PasswordVisibility.bind(this) : this.PasswordNotVisibility.bind(this)}
                                 />
                             </div>
-                            <input type={"submit"} className={"btn"} value={"sign up"} />
+                            <input type={"submit"} className={"btn"} value={"Register"} onClick={event => this.registerAccount(event)}/>
                             <p className={"social-media"}>Or Sign up with social platforms</p>
                         </form>
 
@@ -135,7 +192,6 @@ class LoginRegisterHandler extends Component {
                 </div>
 
                 <div className={"panels-container"}>
-
                     <div className={"panel left-panel"}>
                         <div className={"content"}>
                             <h3>New Here ?</h3>
@@ -159,7 +215,6 @@ class LoginRegisterHandler extends Component {
                         </div>
                         <img src={Img02} className={"image"} />
                     </div>
-
                 </div>
 
             </div>
