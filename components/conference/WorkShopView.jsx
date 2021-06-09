@@ -19,6 +19,9 @@ class WorkShopView extends React.Component{
 
     }
 
+    /**
+     * Mounting Workshop proposal submission of the relevant user to view
+     */
     componentDidMount() {
         /**
          * Change the Parameter need to get the userID from Token
@@ -28,7 +31,9 @@ class WorkShopView extends React.Component{
                 this.setState({Workshops:workShop})})
             .catch(err => console.error(err));
     }
-
+    /**
+     * this method is to redirect to the update page for edit Workshop proposal submission
+     */
     editSubmission(workshop){
         const id = workshop._id;
         this.props.history.push(`/updateWorkShop/${id}`);

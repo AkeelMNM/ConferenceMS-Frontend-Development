@@ -31,6 +31,9 @@ class UpdateRemoveWorkshop extends React.Component{
         }
     }
 
+    /**
+     * Mounting Workshop proposal submission details of the relevant user to update form
+     */
     componentDidMount() {
         WorkShopServices.getWorkShopByID(this.state.wsID)
             .then(res => {

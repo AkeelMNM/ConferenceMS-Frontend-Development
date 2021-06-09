@@ -23,6 +23,9 @@ class AddResearchPaper extends React.Component{
         }
     }
 
+    /**
+     * This function is to submit Research paper and details
+     */
     submitResearchPaper(event){
         event.preventDefault();
 

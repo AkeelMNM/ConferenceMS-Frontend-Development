@@ -30,6 +30,9 @@ class UpdateRemoveResearchPaper extends React.Component{
         }
     }
 
+    /**
+     * Mounting Research paper submission details of the relevant user to update form
+     */
     componentDidMount() {
         console.log(this.state.subID)
         ResearchPaperServices.getResearchPaperByID(this.state.subID)

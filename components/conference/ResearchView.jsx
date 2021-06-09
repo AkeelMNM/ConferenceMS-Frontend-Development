@@ -18,6 +18,9 @@ class ResearchView extends React.Component{
         }
     }
 
+    /**
+     * Mounting Research paper submission of the relevant user to view
+     */
     componentDidMount() {
         /**
          * Change the Parameter need to get the userID from Token
@@ -28,6 +31,9 @@ class ResearchView extends React.Component{
             .catch(err => console.error(err));
     }
 
+    /**
+     * this method is to redirect to the update page for edit Research paper submission
+     */
     editSubmission(research){
        const id = research._id;
        this.props.history.push(`/updateResearchPaper/${id}`);
