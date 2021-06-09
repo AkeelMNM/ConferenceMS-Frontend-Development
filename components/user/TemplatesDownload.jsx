@@ -6,6 +6,28 @@ import '../../styles/user/TemplatesDownload.css';
  * Registration Number : IT19175126
  */
 
+const file =[
+    {
+        name: "Photo 1",
+        thumb:
+            "https://images.unsplash.com/photo-1604263439201-171fb8c0fddc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=427&q=80 427w",
+        file:
+            "https://images.unsplash.com/photo-1604263439201-171fb8c0fddc?rnd=" +
+            Math.random(),
+        filename: "photo-1.jpg",
+
+    },
+    {
+        name: "Photo 2",
+        thumb:
+            "https://images.unsplash.com/photo-1604164388977-1b6250ef26f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=80 401w",
+        file:
+            "https://images.unsplash.com/photo-1604164388977-1b6250ef26f3?rnd=" +
+            Math.random(),
+        filename: "photo-2.jpg",
+    }
+];
+
 class TemplatesDownload extends Component {
     constructor(props) {
         super(props);
@@ -14,12 +36,7 @@ class TemplatesDownload extends Component {
     render() {
         return <div>
             <div className={'div-style-TemDow'}>
-                <div>
-                    <label> Template Name: </label>
-                </div>
-                <div>
-                    <label> download </label>
-                </div>
+
             </div>
         </div>
     }
