@@ -31,7 +31,23 @@ class ReviewerResearchView extends React.Component{
      * this method is to handle if the Reviewer approve Research paper submission
      */
     approvePaper(research){
-
+        let id = research._id;
+        let approval = {aStatus:"Approved"}
+        ResearchPaperServices.researchPaperApproval(id,approval)
+            .then(response =>{
+                let researchPaper = response;
+                if(researchPaper.submissionStatus === "Approved"){
+                    /**
+                     * TODO:display the message appropriately
+                     */
+                    console.log("Approved")
+                }else{
+                    /**
+                     * TODO:display the message appropriately
+                     */
+                    console.log("Something went wrong, try again!!")
+                }
+            })
     }
 
     /**
@@ -45,7 +61,23 @@ class ReviewerResearchView extends React.Component{
      * this method is to handle if the Reviewer reject Research paper submission
      */
     rejectPaper(research){
-
+        let id = research._id;
+        let approval = {aStatus:"Rejected"}
+        ResearchPaperServices.researchPaperApproval(id,approval)
+            .then(response =>{
+                let researchPaper = response;
+                if(researchPaper.submissionStatus === "Rejected"){
+                    /**
+                     * TODO:display the message appropriately
+                     */
+                    console.log("Rejected")
+                }else{
+                    /**
+                     * TODO:display the message appropriately
+                     */
+                    console.log("Something went wrong, try again!!")
+                }
+            })
     }
 
     render() {

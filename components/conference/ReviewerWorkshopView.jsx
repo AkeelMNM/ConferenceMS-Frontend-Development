@@ -31,7 +31,23 @@ class ReviewerWorkshopView extends React.Component{
      * this method is to handle if the Reviewer approve Workshop proposal
      */
     approveWorkshop(workshop){
-
+        let id = research._id;
+        let approval = {aStatus:"Approved"}
+        WorkShopServices.workShopApproval(id,approval)
+            .then(response =>{
+                let researchPaper = response;
+                if(researchPaper.submissionStatus === "Approved"){
+                    /**
+                     * TODO:display the message appropriately
+                     */
+                    console.log("Approved")
+                }else{
+                    /**
+                     * TODO:display the message appropriately
+                     */
+                    console.log("Something went wrong, try again!!")
+                }
+            })
     }
 
     /**
@@ -45,7 +61,23 @@ class ReviewerWorkshopView extends React.Component{
      * this method is to handle if the Reviewer reject Workshop proposal
      */
     rejectWorkshop(workshop){
-
+        let id = research._id;
+        let approval = {aStatus:"Rejected"}
+        WorkShopServices.workShopApproval(id,approval)
+            .then(response =>{
+                let researchPaper = response;
+                if(researchPaper.submissionStatus === "Rejected"){
+                    /**
+                     * TODO:display the message appropriately
+                     */
+                    console.log("Rejected")
+                }else{
+                    /**
+                     * TODO:display the message appropriately
+                     */
+                    console.log("Something went wrong, try again!!")
+                }
+            })
     }
 
     render() {

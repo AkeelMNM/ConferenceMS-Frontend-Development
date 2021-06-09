@@ -97,14 +97,15 @@ class WorkShopServices{
     /**
      *  This service function is to approval of Workshop proposal submission
      */
-    async workShopApproval(id){
+    async workShopApproval(id,approval){
         return await fetch(WORK_SHOP_API_BASE_URI+'/approval/'+id,{
-            method:'POST',
+            method:'PUT',
             headers:{
                 'content-Type':"application/json"
-            }
+            },
+            body:JSON.stringify(approval)
         }).then(response =>{
-            return response;
+            return response.json();
         }).catch(reason => {
             return reason;
         })

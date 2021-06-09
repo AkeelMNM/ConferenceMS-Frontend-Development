@@ -97,14 +97,15 @@ class ResearchPaperServices{
     /**
      *  This service function is for approval of Research paper submission
      */
-    async researchPaperApproval(id){
+    async researchPaperApproval(id,approval){
         return await fetch(RESEARCH_PAPER_API_BASE_URI+'/approval/'+id,{
-            method:'POST',
+            method:'PUT',
             headers:{
                 'content-Type':"application/json"
-            }
+            },
+            body:JSON.stringify(approval)
         }).then(response =>{
-            return response;
+            return response.json();
         }).catch(reason => {
             return reason;
         })
@@ -114,14 +115,15 @@ class ResearchPaperServices{
     /**
      *  This service function is for make payment of Research paper submission
      */
-    async researchPaperPayment(id){
+    async researchPaperPayment(id,researchPayment){
         return await fetch(RESEARCH_PAPER_API_BASE_URI+'/payment/'+id,{
-            method:'POST',
+            method:'PUT',
             headers:{
                 'content-Type':"application/json"
             },
+            body:JSON.stringify(researchPayment)
         }).then(response =>{
-            return response;
+            return response.json();
         }).catch(reason => {
             return reason;
         })

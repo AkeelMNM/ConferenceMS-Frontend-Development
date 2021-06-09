@@ -57,7 +57,6 @@ class AddResearchPaper extends React.Component{
         }/*else if (researchPaper.researchPFileLocation === ''){
             toast.warning("Attach the Research Paper", options)
         }*/else{
-            console.log(JSON.stringify(researchPaper));
             ResearchPaperService.submitResearchPaper(researchPaper)
                 .then(res => {
                     if(res.status === 200){
