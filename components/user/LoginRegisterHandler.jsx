@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import '../../styles/user/LoginRegister.css';
 
 //Images
-import Img01 from 'url:../../images/log.svg';
-import Img02 from 'url:../../images/register.svg';
-import ImgEmail from 'url:../../images/email.png';
-import ImgLock from 'url:../../images/lock.png';
-import ImgUser from 'url:../../images/user.png';
-import ImgUsers from 'url:../../images/users.png';
+import Img01 from 'url:../../images/Login/log.svg';
+import Img02 from 'url:../../images/Login/register.svg';
+import ImgEmail from 'url:../../images/Login/email.png';
+import ImgLock from 'url:../../images/Login/lock.png';
+import ImgUser from 'url:../../images/Login/user.png';
+import ImgUsers from 'url:../../images/Login/users.png';
+import ImgEye from 'url:../../images/Login/eye.png';
+import ImgEyeHide from 'url:../../images/Login/eye-hide.png';
 
 
 // import Login from "./Login";
@@ -24,6 +26,9 @@ class LoginRegisterHandler extends Component {
 
         this.state = {
             isActive:true,
+            isPasswordShown: false,
+            isEyeImage: true,
+            isOnClicked: true,
             name:'',
             email:'',
             type:'',
@@ -38,6 +43,18 @@ class LoginRegisterHandler extends Component {
     changeSignUpForm(){
         this.setState({isActive:true})
     }
+
+    PasswordVisibility(){
+        this.setState({isPasswordShown:true});
+        this.setState({isEyeImage:false});
+        this.setState({isOnClicked:false})
+    };
+
+    PasswordNotVisibility(){
+        this.setState({isPasswordShown:false});
+        this.setState({isEyeImage:true});
+        this.setState({isOnClicked:true})
+    };
 
     onChange(event){
         const { name, value } = event.target;
@@ -63,8 +80,17 @@ class LoginRegisterHandler extends Component {
                             </div>
                             <div className={"input-field"}>
                                 <img src={ImgLock} className={"fas"}/>
-                                <input type={'password'} name={'password'} id={'password'} value={this.state.password}
-                                       placeholder={"Password"} onChange={event => this.onChange(event)}/>
+                                <input
+                                    type={this.state.isPasswordShown===false ? "password" : "text"}
+                                    name={'password'} id={'password'}
+                                    value={this.state.password} placeholder={"Password"}
+                                    onChange={event => this.onChange(event)}
+                                />
+                                <img
+                                    src={this.state.isEyeImage===true ? ImgEye : ImgEyeHide}
+                                    className={"eye"}
+                                    onClick={this.state.isOnClicked===true ? this.PasswordVisibility.bind(this) : this.PasswordNotVisibility.bind(this)}
+                                />
                             </div>
                             <input type={"submit"} value={"Login"} className={"btn solid"} />
                             <p className={"social-media"}>Or Sign up with social platforms</p>
@@ -89,8 +115,17 @@ class LoginRegisterHandler extends Component {
                             </div>
                             <div className={"input-field"}>
                                 <img src={ImgLock} className={"fas"}/>
-                                <input type={'password'} name={'password'} id={'password'} value={this.state.password}
-                                       placeholder={"Password"} onChange={event => this.onChange(event)}/>
+                                <input
+                                    type={this.state.isPasswordShown===false ? "password" : "text"}
+                                    name={'password'} id={'password'}
+                                    value={this.state.password} placeholder={"Password"}
+                                    onChange={event => this.onChange(event)}
+                                />
+                                <img
+                                    src={this.state.isEyeImage===true ? ImgEye : ImgEyeHide}
+                                    className={"eye"}
+                                    onClick={this.state.isOnClicked===true ? this.PasswordVisibility.bind(this) : this.PasswordNotVisibility.bind(this)}
+                                />
                             </div>
                             <input type={"submit"} className={"btn"} value={"sign up"} />
                             <p className={"social-media"}>Or Sign up with social platforms</p>
