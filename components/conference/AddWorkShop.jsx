@@ -14,7 +14,7 @@ class AddWorkShop extends React.Component{
         super(props);
         this.state = {
             presenterName:'',
-            workshopTitle:'',
+            workShopTitle:'',
             email:'',
             affiliation:'',
             contactNo:'',
@@ -30,7 +30,7 @@ class AddWorkShop extends React.Component{
 
         let WorkShop = {
             presenterName:this.state.presenterName,
-            workshopTitle:this.state.workshopTitle,
+            workShopTitle:this.state.workShopTitle,
             email:this.state.email,
             affiliation:this.state.affiliation,
             contactNo:this.state.contactNo,
@@ -48,7 +48,7 @@ class AddWorkShop extends React.Component{
          * Validating the Workshop submission input fields
          * Displaying Error message if any input field is empty
          */
-        if(WorkShop.workshopTitle === ''){
+        if(WorkShop.workShopTitle === ''){
             toast.warning("Fill Workshop Title", options);
         }else if(WorkShop.presenterName === ''){
             toast.warning("Fill Presenter Name",options )
@@ -83,8 +83,8 @@ class AddWorkShop extends React.Component{
             <div className={'form-style-resWork'}>
                 <form>
                     <div>
-                        <label htmlFor={'workshopTitle'}>WorkShop Title</label>
-                        <input type={'text'} name={'workshopTitle'} id={'workshopTitle'} value={this.state.workshopTitle}
+                        <label htmlFor={'workShopTitle'}>WorkShop Title</label>
+                        <input type={'text'} name={'workShopTitle'} id={'workShopTitle'} value={this.state.workShopTitle}
                                required={'required'} onChange={event => this.onChange(event)} />
                     </div>
                     <div>

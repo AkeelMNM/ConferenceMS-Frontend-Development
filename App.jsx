@@ -21,10 +21,10 @@ class App extends React.Component{
         return <Router>
             <Switch>
                 <Route exact path="/" component={ResearchView}/>
-                <Route exact path="/updateResearchPaper/:id" component={UpdateRemoveResearchPaper}/>
-                <Route exact path="/WorkShopView" component={WorkShopView}/>
-                <Route exact path="/updateWorkShop/:id" component={UpdateRemoveWorkshop}/>
-                <Route exact path="/ReResearchPaperView" component={ReviewerResearchView}/>
+                <Route  path="/updateResearchPaper/:id" component={UpdateRemoveResearchPaper}/>
+                <Route  path="/WorkShopView" component={WorkShopView}/>
+                <Route  path="/updateWorkShop/:id" component={UpdateRemoveWorkshop}/>
+                <Route  path="/ReResearchPaperView" component={ReviewerResearchView}/>
             </Switch>
         </Router>
     }

@@ -23,7 +23,7 @@ class UpdateRemoveWorkshop extends React.Component{
         this.state ={
             wsID:this.props.match.params.id,
             presenterName:'',
-            workshopTitle:'',
+            workShopTitle:'',
             email:'',
             affiliation:'',
             contactNo:'',
@@ -40,7 +40,7 @@ class UpdateRemoveWorkshop extends React.Component{
                 console.log(res)
                 this.setState({
                     presenterName:res.presenterName,
-                    workshopTitle:res.workshopTitle,
+                    workShopTitle:res.workShopTitle,
                     email:res.email,
                     affiliation:res.affiliation,
                     contactNo:res.contactNumber
@@ -57,7 +57,7 @@ class UpdateRemoveWorkshop extends React.Component{
 
         let WorkShop = {
             presenterName:this.state.presenterName,
-            workshopTitle:this.state.workshopTitle,
+            workShopTitle:this.state.workShopTitle,
             email:this.state.email,
             affiliation:this.state.affiliation,
             contactNumber:this.state.contactNo,
@@ -68,7 +68,7 @@ class UpdateRemoveWorkshop extends React.Component{
          * Validating the Workshop submission input fields
          * Displaying Error message if any input field is empty
          */
-        if(WorkShop.workshopTitle === ''){
+        if(WorkShop.workShopTitle === ''){
             toast.warning("Fill Workshop Title!!", options);
         }else if(WorkShop.presenterName === ''){
             toast.warning("Fill Presenter Name!!",options )
@@ -118,8 +118,8 @@ class UpdateRemoveWorkshop extends React.Component{
             <div className={'form-style-upRemResWork'}>
                 <form>
                     <div>
-                        <label htmlFor={'workshopTitle'}>New WorkShop Title</label>
-                        <input type={'text'} name={'workshopTitle'} id={'workshopTitle'} value={this.state.workshopTitle}
+                        <label htmlFor={'workShopTitle'}>New WorkShop Title</label>
+                        <input type={'text'} name={'workShopTitle'} id={'workShopTitle'} value={this.state.workShopTitle}
                                onChange={event => this.onChange(event)} />
                     </div>
                     <div>

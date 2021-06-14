@@ -8,7 +8,7 @@ export default function WorkshopViewListHolder(props) {
         <table>
             <thead>
             <tr>
-                <th colSpan={3}><label id={'pTitle'}>{Workshop.workshopTitle}</label></th>
+                <th colSpan={3}><label id={'pTitle'}>{Workshop.workShopTitle}</label></th>
             </tr>
             </thead>
             <tbody>

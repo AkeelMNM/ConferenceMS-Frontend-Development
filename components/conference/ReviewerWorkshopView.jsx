@@ -25,6 +25,8 @@ class ReviewerWorkshopView extends React.Component{
             .then(workShop => {
                 this.setState({Workshops:workShop})})
             .catch(err => console.error(err));
+
+
     }
 
     /**
