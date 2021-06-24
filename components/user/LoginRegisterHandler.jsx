@@ -25,22 +25,23 @@ import ImgEyeHide from 'url:../../images/Login/eye-hide.png';
  * Registration Number : IT19175126
  */
 
+const initialState = {
+    isPasswordShown: false,
+    isEyeImage: true,
+    fullName:'',
+    email:'',
+    type:'',
+    password:''
+}
+
 class LoginRegisterHandler extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.state =  {
             isActive:true,
-            isPasswordShown: false,
-            isEyeImage: true,
-            isOnClicked: true,
-            fullName:'',
-            email:'',
-            type:'',
-            password:'',
-            logEmail:'',
-            logPassword:''
-        }
+            isOnClicked: true
+        } , initialState ;
     }
 
     /**
@@ -89,10 +90,14 @@ class LoginRegisterHandler extends Component {
     }
 
     changeSignInForm(){
+        // set state value to initialize state value
+        this.setState(initialState);
         this.setState({isActive:false})
     }
 
     changeSignUpForm(){
+        // set state value to initialize state value
+        this.setState(initialState);
         this.setState({isActive:true})
     }
 
@@ -128,15 +133,15 @@ class LoginRegisterHandler extends Component {
                             <h2 className={"title"}>Sign In</h2>
                             <div className={"input-field"}>
                                 <img src={ImgEmail} className={"fas"}/>
-                                <input type={'text'} name={'logEmail'} id={'logEmail'}  value={this.state.logEmail}
+                                <input type={'text'} name={'email'} id={'email'}  value={this.state.email}
                                        placeholder={"Email"} onChange={event => this.onChange(event)}/>
                             </div>
                             <div className={"input-field"}>
                                 <img src={ImgLock} className={"fas"}/>
                                 <input
                                     type={this.state.isPasswordShown===false ? "password" : "text"}
-                                    name={'logPassword'} id={'logPassword'}
-                                    value={this.state.logPassword} placeholder={"Password"}
+                                    name={'password'} id={'password'}
+                                    value={this.state.password} placeholder={"Password"}
                                     onChange={event => this.onChange(event)}
                                 />
                                 <img
