@@ -20,7 +20,7 @@ class App extends React.Component{
     render() {
         return <Router>
             <Switch>
-                <Route exact path="/" component={ResearchView}/>
+                <Route exact path="/" component={AddResearchPaper}/>
                 <Route  path="/updateResearchPaper/:id" component={UpdateRemoveResearchPaper}/>
                 <Route  path="/WorkShopView" component={WorkShopView}/>
                 <Route  path="/updateWorkShop/:id" component={UpdateRemoveWorkshop}/>

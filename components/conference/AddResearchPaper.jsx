@@ -19,7 +19,7 @@ class AddResearchPaper extends React.Component{
             authorName:'',
             paperTitle:'',
             email:'',
-            file:'',
+            file:[]
         }
     }
 
@@ -44,6 +44,7 @@ class AddResearchPaper extends React.Component{
             autoClose:3000,
             closeButton:false
         }
+
         /**
          * Validating the Research Paper submission input fields
          * Displaying Error message if any input field is empty
@@ -54,9 +55,15 @@ class AddResearchPaper extends React.Component{
             toast.warning("Fill Paper Title", options)
         }else if (researchPaper.email === ''){
             toast.warning("Fill Email Address", options)
-        }/*else if (researchPaper.researchPFileLocation === ''){
+        }else if (this.state.file.length === 0){
             toast.warning("Attach the Research Paper", options)
-        }*/else{
+        }else{
+            ResearchPaperService.researchPaperUpload(this.state.file)
+                .then(response =>{
+                    console.log(response.url)
+                    researchPaper.researchPFileLocation = response.url
+                    console.log(JSON.stringify(researchPaper))
+                })
             ResearchPaperService.submitResearchPaper(researchPaper)
                 .then(res => {
                     if(res.status === 200){
@@ -72,6 +79,12 @@ class AddResearchPaper extends React.Component{
         const { name, value } = event.target;
         this.setState({ [name] : value });
     }
+
+    handleFileInput(event){
+        const file = event.target.files;
+        this.setState({ file :file[0]});
+    }
+
     render() {
         return <div>
             <div><label id={'CHeadLine'} >New Research Paper Submission</label></div>
@@ -94,8 +107,8 @@ class AddResearchPaper extends React.Component{
                     </div>
                     <div>
                         <label htmlFor={'file'}>Upload Research Paper</label>
-                        <input type={'file'} name={'file'} id={'file'} value={this.state.file}
-                                onChange={event => this.onChange(event)} />
+                        <input type={'file'} name={'file'} id={'file'}
+                                onChange={event => this.handleFileInput(event)} />
                     </div>
                     <div>
                         <div id={'checkB'}><input type={'checkbox'}/><span>By clicking this checkbox i agree i'm posting my own research works</span></div>
