@@ -40,8 +40,11 @@ class LoginRegisterHandler extends Component {
 
         this.state =  {
             isActive:true,
-            isOnClicked: true
-        } , initialState ;
+            isOnClicked: true,
+            isPasswordShown: false,
+            isEyeImage: true,
+            initialState
+        }
     }
 
     /**
@@ -82,6 +85,7 @@ class LoginRegisterHandler extends Component {
                 .then(res =>{
                     if(res.status === 201){
                         toast.success("Account created Successfully", options);
+                        this.setState(initialState);
                     }else{
                         toast.error("Something went wrong!!,Try again.",options);
                     }
