@@ -1,16 +1,24 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import '../../styles/conference/Res&Work.css';
 import '../../styles/conference/toast.css';
 import 'react-toastify/dist/ReactToastify.css';
 import {toast} from "react-toastify";
 import ResearchPaperService from "../../services/ResearchPaperServices";
+import FileUploadService from "../../services/FileUploadService";
 toast.configure();
 
 /**
  * @author : M.N.M Akeel
  * Registration Number : IT19153414
  */
+
+/* configuring options to display toast message */
+const options = {
+    position: toast.POSITION.TOP_CENTER,
+    hideProgressBar:true,
+    autoClose:3000,
+    closeButton:false
+}
 
 class AddResearchPaper extends React.Component{
     constructor(props) {
@@ -19,7 +27,7 @@ class AddResearchPaper extends React.Component{
             authorName:'',
             paperTitle:'',
             email:'',
-            file:[]
+            file:[],
         }
     }
 
@@ -37,13 +45,6 @@ class AddResearchPaper extends React.Component{
             researchPFileLocation:''
         }
 
-        /* configuring options to display toast message */
-        const options = {
-            position: toast.POSITION.TOP_CENTER,
-            hideProgressBar:true,
-            autoClose:3000,
-            closeButton:false
-        }
 
         /**
          * Validating the Research Paper submission input fields
@@ -58,22 +59,21 @@ class AddResearchPaper extends React.Component{
         }else if (this.state.file.length === 0){
             toast.warning("Attach the Research Paper", options)
         }else{
-            ResearchPaperService.researchPaperUpload(this.state.file)
+            FileUploadService.FileUploads(this.state.file)
                 .then(response =>{
-                    console.log(response.url)
                     researchPaper.researchPFileLocation = response.url
-                    console.log(JSON.stringify(researchPaper))
-                })
-            ResearchPaperService.submitResearchPaper(researchPaper)
-                .then(res => {
-                    if(res.status === 200){
-                        toast.success("Research Paper Submitted Successfully",options)
-                    }else{
-                        toast.error("Something went wrong!!,Try again.",options)
-                    }
+                    ResearchPaperService.submitResearchPaper(researchPaper)
+                        .then(res => {
+                            if(res.status === 200){
+                                toast.success("Research Paper Submitted Successfully",options)
+                            }else{
+                                toast.error("Something went wrong!!,Try again.",options)
+                            }
+                        })
                 })
         }
     }
+
 
     onChange(event){
         const { name, value } = event.target;

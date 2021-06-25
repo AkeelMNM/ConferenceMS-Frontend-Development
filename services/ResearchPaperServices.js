@@ -1,5 +1,6 @@
 const RESEARCH_PAPER_API_BASE_URI = "http://localhost:3000/researchPaper";
 
+
 class ResearchPaperServices{
 
     /**
@@ -17,7 +18,6 @@ class ResearchPaperServices{
         }).catch(reason => {
             return reason;
         })
-
     }
 
     /**
@@ -130,21 +130,6 @@ class ResearchPaperServices{
 
     }
 
-    async researchPaperUpload(file){
-        let form = new FormData()
-        form.append('name',file.name)
-        form.append('file',file)
-
-        return await fetch(RESEARCH_PAPER_API_BASE_URI+'/upload',{
-            method:'POST',
-            body:form
-        }).then(response =>{
-            return response.json();
-        }).catch(reason => {
-            return reason;
-        })
-
-    }
 }
 
 export default new ResearchPaperServices();

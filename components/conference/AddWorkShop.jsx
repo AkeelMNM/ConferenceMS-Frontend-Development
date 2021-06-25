@@ -3,11 +3,20 @@ import {Link} from "react-router-dom";
 import '../../styles/conference/Res&Work.css'
 import {toast} from "react-toastify";
 import WorkShopServices from "../../services/WorkShopServices";
+import FileUploadService from "../../services/FileUploadService";
 
 /**
  * @author : M.N.M Akeel
  * Registration Number : IT19153414
  */
+
+/* configuring options to display toast message */
+const options = {
+    position: toast.POSITION.TOP_CENTER,
+    hideProgressBar:true,
+    autoClose:3000,
+    closeButton:false
+}
 
 class AddWorkShop extends React.Component{
     constructor(props) {
@@ -18,7 +27,7 @@ class AddWorkShop extends React.Component{
             email:'',
             affiliation:'',
             contactNo:'',
-            file:''
+            file:[]
         }
     }
 
@@ -37,13 +46,6 @@ class AddWorkShop extends React.Component{
             file:''
         }
 
-        /* configuring options to display toast message */
-        const options = {
-            position: toast.POSITION.TOP_CENTER,
-            hideProgressBar:true,
-            autoClose:3000,
-            closeButton:false
-        }
         /**
          * Validating the Workshop submission input fields
          * Displaying Error message if any input field is empty
@@ -58,18 +60,22 @@ class AddWorkShop extends React.Component{
             toast.warning("Add Affiliation", options)
         }else if (WorkShop.contactNo === ''){
             toast.warning("Add Contact Number", options)
-        }else if (WorkShop.file === ''){
+        }else if (this.state.file.length === 0){
             toast.warning("Attach Proposal Document", options)
         }else{
-            console.log(JSON.stringify(WorkShop));
-            WorkShopServices.submitWorkShop(WorkShop)
-                .then(res => {
-                    if(res.status === 200){
-                        toast.success("Workshop Proposal Submitted Successfully",options)
-                    }else{
-                        toast.error("Something went wrong!!,Try again.",options)
-                    }
+            FileUploadService.FileUploads(this.state.file)
+                .then(response =>{
+                    WorkShop.file = response.url
+                    WorkShopServices.submitWorkShop(WorkShop)
+                        .then(res => {
+                            if(res.status === 200){
+                                toast.success("Workshop Proposal Submitted Successfully",options)
+                            }else{
+                                toast.error("Something went wrong!!,Try again.",options)
+                            }
+                    })
                 })
+
         }
     }
 
@@ -77,6 +83,12 @@ class AddWorkShop extends React.Component{
         const { name, value } = event.target;
         this.setState({ [name] : value });
     }
+
+    handleFileInput(event){
+        const file = event.target.files;
+        this.setState({ file :file[0]});
+    }
+
     render() {
         return <div>
             <div><label id={'CHeadLine'} >New Workshop Submission</label></div>
@@ -104,8 +116,8 @@ class AddWorkShop extends React.Component{
                     </div>
                     <div>
                         <label htmlFor={'file'}>Upload Workshop Proposal Document</label>
-                        <input type={'file'} name={'file'} id={'file'} value={this.state.file}
-                               onChange={event => this.onChange(event)} />
+                        <input type={'file'} name={'file'} id={'file'}
+                               onChange={event => this.handleFileInput(event)} />
                     </div>
                     <div>
                         <div id={'checkB'}><input type={'checkbox'}/><span>By clicking this checkbox i agree i'm posting my own works</span></div>
