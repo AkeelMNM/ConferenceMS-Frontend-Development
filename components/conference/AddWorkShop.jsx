@@ -27,7 +27,9 @@ class AddWorkShop extends React.Component{
             email:'',
             affiliation:'',
             contactNo:'',
-            file:[]
+            file:[],
+
+            agreement:false
         }
     }
 
@@ -62,6 +64,8 @@ class AddWorkShop extends React.Component{
             toast.warning("Add Contact Number", options)
         }else if (this.state.file.length === 0){
             toast.warning("Attach Proposal Document", options)
+        }else if (this.state.agreement === false){
+            toast.warning("Please Agree to Terms&Conditions.", options)
         }else{
             FileUploadService.FileUploads(this.state.file)
                 .then(response =>{
@@ -71,7 +75,7 @@ class AddWorkShop extends React.Component{
                             if(res.status === 200){
                                 toast.success("Workshop Proposal Submitted Successfully",options)
                             }else{
-                                toast.error("Something went wrong!!,Try again.",options)
+                                toast.error("Something went wrong!! Try again.",options)
                             }
                     })
                 })
@@ -87,6 +91,14 @@ class AddWorkShop extends React.Component{
     handleFileInput(event){
         const file = event.target.files;
         this.setState({ file :file[0]});
+    }
+
+    handleCheckBox(){
+        if(this.state.agreement === false){
+            this.setState({agreement:true})
+        }else{
+            this.setState({agreement:false})
+        }
     }
 
     render() {
@@ -120,7 +132,10 @@ class AddWorkShop extends React.Component{
                                onChange={event => this.handleFileInput(event)} />
                     </div>
                     <div>
-                        <div id={'checkB'}><input type={'checkbox'}/><span>By clicking this checkbox i agree i'm posting my own works</span></div>
+                        <div id={'checkB'}>
+                            <input type={'checkbox'} type={'checkbox'} name={'agreement'} value={true} onChange={() => this.handleCheckBox()}/>
+                            <span>By clicking this checkbox i agree i'm posting my own works</span>
+                        </div>
                         <input type={'submit'} value={'Add Workshop'} onClick={event => this.submitWorkShop(event)} />
                     </div>
                 </form>

@@ -28,6 +28,8 @@ class AddResearchPaper extends React.Component{
             paperTitle:'',
             email:'',
             file:[],
+
+            agreement:false
         }
     }
 
@@ -50,7 +52,7 @@ class AddResearchPaper extends React.Component{
          * Validating the Research Paper submission input fields
          * Displaying Error message if any input field is empty
          */
-        if(researchPaper.authorName === ''){
+       if(researchPaper.authorName === ''){
             toast.warning("Fill the Author Name", options)
         }else if (researchPaper.paperTitle === ''){
             toast.warning("Fill Paper Title", options)
@@ -58,6 +60,8 @@ class AddResearchPaper extends React.Component{
             toast.warning("Fill Email Address", options)
         }else if (this.state.file.length === 0){
             toast.warning("Attach the Research Paper", options)
+        }else if (this.state.agreement === false){
+            toast.warning("Please Agree to Terms&Conditions.", options)
         }else{
             FileUploadService.FileUploads(this.state.file)
                 .then(response =>{
@@ -67,7 +71,7 @@ class AddResearchPaper extends React.Component{
                             if(res.status === 200){
                                 toast.success("Research Paper Submitted Successfully",options)
                             }else{
-                                toast.error("Something went wrong!!,Try again.",options)
+                                toast.error("Something went wrong!! Try again.",options)
                             }
                         })
                 })
@@ -83,6 +87,14 @@ class AddResearchPaper extends React.Component{
     handleFileInput(event){
         const file = event.target.files;
         this.setState({ file :file[0]});
+    }
+
+    handleCheckBox(){
+        if(this.state.agreement === false){
+            this.setState({agreement:true})
+        }else{
+            this.setState({agreement:false})
+        }
     }
 
     render() {
@@ -111,7 +123,10 @@ class AddResearchPaper extends React.Component{
                                 onChange={event => this.handleFileInput(event)} />
                     </div>
                     <div>
-                        <div id={'checkB'}><input type={'checkbox'}/><span>By clicking this checkbox i agree i'm posting my own research works</span></div>
+                        <div id={'checkB'}>
+                            <input type={'checkbox'} name={'agreement'} value={true} onChange={() => this.handleCheckBox()} />
+                            <span>By clicking this checkbox i agree i'm posting my own research works</span>
+                        </div>
                         <input type={'submit'} value={'Add Research Paper'} onClick={ event => this.submitResearchPaper(event)} />
                     </div>
                 </form>
