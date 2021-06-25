@@ -33,8 +33,8 @@ export default function ResearchViewListHolder(props){
                 <td className={'resTd'}>: {Research.submittedDate}</td>
             </tr>
             <tr>
-                <td>File</td>
-                <td className={'resTd'}>: File</td>
+                <td>View Research Paper</td>
+                <td className={'resTd'}><a className={'linkButton'} target={'_blank'} href={Research.researchPFileLocation}>View</a></td>
             </tr>
             </tbody>
         </table>

@@ -35,8 +35,8 @@ export default function WorkshopViewListHolder(props) {
                 <td className={'resTd'}>: {Workshop.submittedDate}</td>
             </tr>
             <tr>
-                <td>File</td>
-                <td className={'resTd'}>: File</td>
+                <td>View Workshop Document</td>
+                <td className={'resTd'}><a className={'linkButton'} target={'_blank'} href={Workshop.fileLocation}>View</a></td>
             </tr>
             </tbody>
         </table>
