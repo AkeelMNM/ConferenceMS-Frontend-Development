@@ -1,6 +1,8 @@
 import React from "react";
 import home from 'url:../images/home.jpg'
 import '../styles/Home.css';
+import "aos/dist/aos.css";
+import AOS from 'aos';
 
 class Home extends React.Component{
     constructor(props) {
@@ -9,6 +11,7 @@ class Home extends React.Component{
     }
 
     render() {
+        AOS.init();
         return <div>
             <div>
                 <nav id={'bigDiv'}>
@@ -64,7 +67,7 @@ class Home extends React.Component{
                 <div className={'divText3'}>Sri Lanka Institute of Information Technology, Sri Lanka</div>
             </div>
 
-            <div className={'aboutDiv'}>
+            <div className={'aboutDiv'} data-aos="fade-up">
                 <label id={'aboutCon'}>About the conference</label>
                 <p id={'para'}>
                     The 3rd International conference on advancements in computing -2021 (ICAC2021) is organized by the
@@ -80,7 +83,7 @@ class Home extends React.Component{
                     Lanka Section and all publications are available in IEEE Xplore digital library
                 </p>
             </div>
-            <div id={'cardDiv'}>
+            <div id={'cardDiv'} data-aos="fade-up">
                 <div>
                     <div className={'box'}>
                         <label className={'custom-underline'}>KEY NOTE SPEAKERS</label>
@@ -111,7 +114,7 @@ class Home extends React.Component{
                 </div>
             </div>
 
-            <div>
+            <div data-aos="fade-up">
                 <div className={'box'}>
                     <label className={'custom-underline'}>EVENT VENUE</label>
                 </div>
