@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Cookies from 'universal-cookie/es6';
 import '../../styles/user/LoginRegister.css';
 import '../../styles/toast.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,6 +8,8 @@ import UserServices from "../../services/UserServices";
 toast.configure();
 
 //Images
+import Img011 from 'url:../../images/Login/bg1.svg';
+import Img022 from 'url:../../images/Login/bg2.svg';
 import Img01 from 'url:../../images/Login/log.svg';
 import Img02 from 'url:../../images/Login/register.svg';
 import ImgEmail from 'url:../../images/Login/email.png';
@@ -48,6 +51,57 @@ class LoginRegisterHandler extends Component {
     }
 
     /**
+     * This function is to submit Login account proposal
+     */
+    loginAccount(event){
+        event.preventDefault();
+
+        let User = {
+            email:this.state.email,
+            password:this.state.password
+        }
+
+        /* configuring options to display toast message */
+        const options = {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar:true,
+            autoClose:3000,
+            closeButton:false
+        }
+        /**
+         * Validating the create account submission input fields
+         * Displaying Error message if any input field is empty
+         */
+        if(User.email === ''){
+            toast.warning("File Email.", options);
+        }else if(User.password === ''){
+            toast.warning("File Password", options);
+        }else {
+            console.log(JSON.stringify(User));
+            UserServices.loginAccount(User)
+                .then(res =>{
+                    if(res.status === 201){
+                        toast.success("Login Successful", options);
+                        const [userID,type] = res.data.split('~');
+                        const cookies = new Cookies();
+                        cookies.set('_id',userID,{path:'/'});
+                        cookies.set('type',type,{ path: '/' });
+
+                        if(type === 'Researcher'){
+                            this.props.history.push("/UserProfile")
+                        }else if(type === 'Workshop Conductor'){
+                            this.props.history.push("/UserProfile")
+                        }
+
+                    }else{
+                        toast.error("Username or Password Incorrect.",options);
+                    }
+                })
+        }
+    }
+
+
+    /**
      * This function is to submit create account proposal
      */
     registerAccount(event){
@@ -80,7 +134,7 @@ class LoginRegisterHandler extends Component {
         }else if(Account.password === ''){
             toast.warning("File Password", options);
         }else {
-            console.log(JSON.stringify(Account));
+            // console.log(JSON.stringify(Account));
             UserServices.createAccount(Account)
                 .then(res =>{
                     if(res.status === 201){
@@ -93,12 +147,14 @@ class LoginRegisterHandler extends Component {
         }
     }
 
+    // Sign in button
     changeSignInForm(){
         // set state value to initialize state value
         this.setState(initialState);
         this.setState({isActive:false})
     }
 
+    // Sign up button
     changeSignUpForm(){
         // set state value to initialize state value
         this.setState(initialState);
@@ -154,7 +210,7 @@ class LoginRegisterHandler extends Component {
                                     onClick={this.state.isOnClicked===true ? this.PasswordVisibility.bind(this) : this.PasswordNotVisibility.bind(this)}
                                 />
                             </div>
-                            <input type={"submit"} value={"Login"} className={"btn solid"} />
+                            <input type={"submit"} value={"Login"} className={"btn solid"} onClick={event => this.loginAccount(event)} />
                             <p className={"social-media"}>Or Sign up with social platforms</p>
                         </form>
 
@@ -197,6 +253,8 @@ class LoginRegisterHandler extends Component {
                             <p className={"social-media"}>Or Sign up with social platforms</p>
                         </form>
 
+                {/* ------------ Registration Form  end ------------ */}
+
                     </div>
                 </div>
 
@@ -210,7 +268,7 @@ class LoginRegisterHandler extends Component {
                             </p>
                             <button className={"btn transparent"} id={"sign-up-btn"} onClick={this.changeSignInForm.bind(this)} >Sign up</button>
                         </div>
-                        <img src={Img01} className={"image"} />
+                        <img src={Img011} className={"image"} />
                     </div>
 
                     <div className={"panel right-panel"}>
@@ -222,7 +280,7 @@ class LoginRegisterHandler extends Component {
                             </p>
                             <button className={"btn transparent"} id={"sign-in-btn"} onClick={this.changeSignUpForm.bind(this)} >Sign up</button>
                         </div>
-                        <img src={Img02} className={"image"} />
+                        <img src={Img022} className={"image"} />
                     </div>
                 </div>
 
