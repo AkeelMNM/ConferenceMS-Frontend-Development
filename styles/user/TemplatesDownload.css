@@ -6,11 +6,27 @@
 */
 
 .div-style-TemDow {
-    width: 400px;
-    padding: 10px 20px;
+    /*width: 400px;*/
+    /*padding: 10px 20px;*/
     padding: 20px;
     background: #f4f7f8;
     /*margin: 165px auto 0 540px;*/
     font-family: Georgia, "Times New Roman", Times, serif;
+    /*display: inline-block;*/
+}
+
+.TemDow-container{
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+}
+
+.TemDow-row {
+    padding: 10px;
+}
+
+.TemDow-body {
     display: inline-block;
+    background: red;
+    padding: 10px;
 }

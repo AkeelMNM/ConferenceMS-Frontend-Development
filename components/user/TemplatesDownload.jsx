@@ -6,7 +6,7 @@ import '../../styles/user/TemplatesDownload.css';
  * Registration Number : IT19175126
  */
 
-const file =[
+const files =[
     {
         name: "Photo 1",
         thumb:
@@ -36,6 +36,21 @@ class TemplatesDownload extends Component {
     render() {
         return <div>
             <div className={'div-style-TemDow'}>
+                <h1> Templates download </h1>
+
+                <div className={'TemDow-container'}>
+                    {files.map((file, idx) => (
+                        <div className={'TemDow-row'}>
+                            <div className={'TemDow-body'}>
+                                {/*<img src={file.thumb} />*/}
+                                <h1> {file.filename}</h1>
+                                <h5> {file.name} </h5>
+
+                                <a> Download  </a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
 
             </div>
         </div>
