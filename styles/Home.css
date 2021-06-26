@@ -1,0 +1,646 @@
+#bigDiv {
+    background: #254441;
+    font-size:22px;
+    line-height: 32px;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    word-wrap:break-word !important;
+    font-family: 'Open Sans', sans-serif;
+    z-index: 1;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 890px;
+}
+
+.toggle,
+[id^=drop] {
+    display: none;
+}
+
+/* Giving a background-color to the nav container. */
+nav {
+    margin:0;
+    padding: 0;
+    background: #254441;
+    font-size:22px;
+    line-height: 32px;
+    color: #ffffff;
+    word-wrap:break-word !important;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#logo {
+    display: block;
+    padding: 0 30px;
+    float: left;
+    font-size:20px;
+    line-height: 60px;
+}
+
+/* Since we'll have the "ul li" "float:left"
+ * we need to add a clear after the container. */
+
+nav:after {
+    content:"";
+    display:table;
+    clear:both;
+}
+
+/* Removing padding, margin and "list-style" from the "ul",
+ * and adding "position:reltive" */
+nav ul {
+    float: right;
+    padding:0;
+    margin:0;
+    list-style: none;
+    position: relative;
+}
+
+/* Positioning the navigation items inline */
+nav ul li {
+    margin: 0px;
+    display:inline-block;
+    float: left;
+    background-color: #254441;
+}
+
+/* Styling the links */
+nav a {
+    display:block;
+    padding:14px 20px;
+    color:#FFF;
+    font-size:17px;
+    text-decoration:none;
+}
+
+
+nav ul li ul li:hover { background: #000000; }
+
+/* Background color change on Hover */
+nav a:hover {
+    background-color: #000000;
+}
+
+/* Hide Dropdowns by Default
+ * and giving it a position of absolute */
+nav ul ul {
+    display: none;
+    position: absolute;
+    /* has to be the same number as the "line-height" of "nav a" */
+    top: 60px;
+}
+
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+    display:inherit;
+}
+
+/* First Tier Dropdown */
+nav ul ul li {
+    width:230px;
+    float:none;
+    display:list-item;
+    position: relative;
+}
+
+/* Second, Third and more Tiers
+ * We move the 2nd and 3rd etc tier dropdowns to the left
+ * by the amount of the width of the first tier.
+*/
+nav ul ul ul li {
+    position: relative;
+    top:-60px;
+    /* has to be the same number as the "width" of "nav ul ul li" */
+    left:170px;
+}
+
+
+/* Change ' +' in order to change the Dropdown symbol */
+li > a:after { content:  ' +'; }
+li > a:only-child:after { content: ''; }
+
+
+#logButton{
+    margin-top: 15px;
+    width: 60px;
+    height: 30px;
+    margin-right: 5px
+}
+
+/* Media Queries
+--------------------------------------------- */
+
+@media all and (max-width : 768px) {
+
+    #logo {
+        display: block;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        float: none;
+    }
+
+    nav {
+        margin: 0;
+    }
+
+    /* Hide the navigation menu by default */
+    /* Also hide the  */
+    .toggle + a,
+    .menu {
+        display: none;
+    }
+
+    /* Stylinf the toggle lable */
+    .toggle {
+        display: block;
+        background-color: #254441;
+        padding:14px 20px;
+        color:#FFF;
+        font-size:17px;
+        text-decoration:none;
+        border:none;
+    }
+
+    .toggle:hover {
+        background-color: #000000;
+    }
+
+    /* Display Dropdown when clicked on Parent Lable */
+    [id^=drop]:checked + ul {
+        display: block;
+    }
+
+    /* Change menu item's width to 100% */
+    nav ul li {
+        display: block;
+        width: 100%;
+    }
+
+    nav ul ul .toggle,
+    nav ul ul a {
+        padding: 0 40px;
+    }
+
+    nav ul ul ul a {
+        padding: 0 80px;
+    }
+
+    nav a:hover,
+    nav ul ul ul a {
+        background-color: #000000;
+    }
+
+    nav ul li ul li .toggle,
+    nav ul ul a,
+    nav ul ul ul a{
+        padding:14px 20px;
+        color:#FFF;
+        font-size:17px;
+    }
+
+
+    nav ul li ul li .toggle,
+    nav ul ul a {
+        background-color: #212121;
+    }
+
+    /* Hide Dropdowns by Default */
+    nav ul ul {
+        float: none;
+        position:static;
+        color: #ffffff;
+        /* has to be the same number as the "line-height" of "nav a" */
+    }
+
+    /* Hide menus on hover */
+    nav ul ul li:hover > ul,
+    nav ul li:hover > ul {
+        display: none;
+    }
+
+    /* Fisrt Tier Dropdown */
+    nav ul ul li {
+        display: block;
+        width: 100%;
+    }
+
+    nav ul ul ul li {
+        position: static;
+        /* has to be the same number as the "width" of "nav ul ul li" */
+
+    }
+}
+
+@media all and (max-width : 330px) {
+
+    nav ul li {
+        display:block;
+        width: 94%;
+    }
+
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+#navImg{
+    width: 100%;
+}
+
+/*
+.divText {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    padding-top:13.5%;
+    text-align:center;
+    font-weight:bold;
+    font-size:5vw;
+    color:white;
+    font-family:arial;
+}*/
+
+.wrapper {
+    position:relative;
+    width:100%;
+    min-height:900px;
+}
+.divImage {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-image: url("../images/home.jpg");
+    background-repeat: no-repeat;
+    background-size:100% auto;
+    filter: brightness(60%);
+
+}
+.divText {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    padding-top:13.5%;
+    text-align:center;
+    font-weight:bold;
+    font-size:5vw;
+    color:white;
+    font-family:arial;
+}
+
+.divText2 {
+    position:absolute;
+    top:0;
+    left:0;
+    margin-top: 150px;
+    width:100%;
+    padding-top:13.5%;
+    text-align:center;
+    font-weight:bold;
+    font-size:2.5vw;
+    color:white;
+    font-family:arial;
+}
+
+.divText3 {
+    position:absolute;
+    top:0;
+    left:0;
+    margin-top: 210px;
+    width:100%;
+    padding-top:13.5%;
+    text-align:center;
+    font-weight:bold;
+    font-size:2vw;
+    color:white;
+    font-family:arial;
+}
+
+@media (min-width: 1200px) {
+    .divText{
+        font-size:60px;
+    }
+}
+.aboutDiv{
+    width:50%;
+    height: 100%;
+    margin-left:25%;
+}
+
+#para{
+    text-align: center;
+    font-family: "Times New Roman";
+    font-size: 20px;
+    line-height: 30px;
+}
+
+#aboutCon{
+    display: inline-block;
+    margin-left: 205px;
+    font-family: "Times New Roman";
+    font-size: 38px;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+.card{
+    border-radius: 5px;
+    width: 300px;
+    max-width: 100%;
+    min-height: 350px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    background-image: url("../images/home.jpg");
+    background-size: cover;
+    float: left;
+    margin: 0 auto 0 50px;
+}
+
+.info{
+    position: relative;
+    width: 100%;
+    height: 350px;
+    background-color: #fff;
+    transform: translateY(100%)
+    translateY(-88px)
+    translateZ(0);
+    transition: transform 0.5s ease-out;
+}
+
+.info:before {
+    z-index: -1;
+    display: block;
+    position: absolute;
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url('../images/home.jpg');
+    filter: blur(10px);
+    background-size: cover;
+    opacity: 0.25;
+    transform: translateY(-100%)
+    translateY(88px)
+    translateZ(0);
+    transition: transform 0.5s ease-out;
+}
+
+.card:hover .info,
+.card:hover .info:before {
+    transform: translateY(0) translateZ(0);
+}
+
+.title {
+    padding: 34px;
+    margin: 0 0 0 5px;
+    font-size: 25px;
+    line-height: 1;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.description {
+    margin: 0;
+    padding: 0 34px 24px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+
+*{
+    box-sizing: border-box;
+    position: relative;
+    transition: all .3s ease
+}
+
+#cardDiv{
+    height:600px;
+    background: #F0F0F0;
+}
+
+#cardInsideDiv{
+    margin-left: 200px;
+}
+
+
+@media (min-width:800px) {
+    h1 {
+        font-size: 4.236em;
+        font-weight: 300
+    }
+}
+
+p {
+    margin-bottom: 1.3em;
+    line-height: 1.618
+}
+
+@media (min-width:800px) {
+    p {
+        font-size: 1.3em
+    }
+}
+
+a {
+    color: #e03616;
+    text-decoration: none
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+#venueTitle{
+    display: inline-block;
+    font-size: 30px;
+    margin:60px 0 50px 420px;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.box {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.custom-underline {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.normal-underline:hover {
+    color: #444;
+    text-decoration: underline;
+}
+
+.custom-underline,
+.custom-underline:hover,
+.custom-underline:focus,
+.custom-underline:active {
+    color: black;
+    text-decoration: none;
+}
+
+.custom-underline::after {
+    content: "";
+    position: absolute;
+}
+
+.box{
+    height:125px;
+    display: inline-block;
+    font-size: 30px;
+    margin:30px 0 0 0px;
+    text-align: center;
+}
+
+.box .custom-underline::after {
+    top: 65%;
+    height: 2px !important;
+    width: 40%;
+    left: 30%;
+    margin-top: 20px;
+    background-color: black;
+    transition: 0.4s ease-out all .1s;
+}
+
+.box:hover .custom-underline::after {
+    width: 90%;
+    left: 5%;
+    transition: 0.5s ease all;
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.crd {
+    margin: .1rem;
+    position: relative;
+    width: 550px;
+    height: 280px;
+    overflow: hidden;
+}
+
+.crd-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.crd--effect {
+    position: relative;
+    color: hsla(0, 0%, 90%, .5);
+    float: left;
+}
+
+.crd--effect span {
+    color: hsl(0, 0%, 90%);
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    transform: scale(1.4);
+    transition: .5s;
+}
+
+.crd--effect:hover span {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.crd--effect {
+    text-align: right;
+    left: 200px;
+}
+
+.crd--effect {
+    padding-left: 0;
+    padding-right: 1rem;
+}
+
+.crd--effect .crd-img {
+    transition: .5s;
+}
+
+.crd--effect:hover .crd-img {
+    transform: scale(.95);
+}
+
+#imageTileDiv{
+    margin-left: 5px;
+    float: left;
+
+}
+#imageTileDiv2{
+    margin-left: 5px;
+    margin-top: .1rem;
+    float: left;
+}
+
+.imgDiv{
+    float: left;
+    margin-left: 5px;
+}
+
+#venueTile{
+    width: 60%;
+    height: 200px;
+    background: #F0F0F0;
+    margin-left: 320px;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.12),
+    0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+}
+
+#venueName{
+    width: 40%;
+    height: 150px;
+    float: left;
+    margin-left: 130px;
+    margin-top: 50px;
+}
+
+#venueDate{
+    width: 40%;
+    height: 150px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.vNameTitle{
+    font-size: 28px;
+    font-weight: bold;
+    float: left;
+    font-family: "Times New Roman";
+    text-decoration: underline;
+}
+
+#vNameCont{
+    font-size: 24px;
+    float: left;
+    margin-top: 10px;
+    font-family: "Times New Roman";
+}
+
+#vNameDate{
+    font-size: 24px;
+    float: left;
+    margin-top: 30px;
+    margin-left: -80px;
+    font-family: "Times New Roman";
+
+}
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
