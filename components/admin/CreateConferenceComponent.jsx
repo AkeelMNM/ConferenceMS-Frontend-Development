@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import ConferenceService from "../../Services/ConferenceService";
+import '../../styles/toast.css';
+import 'react-toastify/dist/ReactToastify.css';
+import {toast} from "react-toastify"
+toast.configure()
 
 
 class CreateConferenceComponent extends Component {
@@ -11,7 +15,7 @@ class CreateConferenceComponent extends Component {
             creator:'',
             conference_title:'',
             message:'',
-            status:'',
+            status:'Pending',
             postedDate:''
 
         }
@@ -62,7 +66,45 @@ class CreateConferenceComponent extends Component {
             });
         }
 
+      /*  const options = {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar:true,
+            autoClose:3000,
+            closeButton:false
+        }*/
+
+        /**
+         * Validating the Research Paper submission input fields
+         * Displaying Error message if any input field is empty
+         */
+      /*  if(conference.creator === ''){
+            toast.warning("Fill the Creator's Name", options)
+        }else if (conference.conference_title === ''){
+            toast.warning("Fill Conference Content Title", options)
+        }else if (conference.message === ''){
+            toast.warning("Fill Message", options)
+        }else if (conference.status === ''){
+            toast.warning("Fill Status", options)
+        } else if (conference.postedDate === ''){
+            toast.warning("Fill PostedDate", options)
+        }else{
+            console.log(JSON.stringify(conference));
+            ConferenceService.createconference(conference)
+                .then(res => {
+                    if(res.status === 200){
+                        toast.success("Conference Content Submitted Successfully",options)
+                    }else{
+                        toast.error("Something went wrong!!,Try again.",options)
+                    }
+                })
+        }*/
+
     }
+
+
+
+
+
 
     changecreatorHandler= (event) =>{
         this.setState({creator: event.target.value});
@@ -125,8 +167,8 @@ class CreateConferenceComponent extends Component {
                                     </div>
                                     <div className="form-group">
                                         <label>Status :</label>
-                                        <input placeholder="status" name="status" className="form-control"
-                                               value={this.state.status} onChange ={this.changestatusHandler}/>
+                                        <input value="Pending"  placeholder="status" name="status" className="form-control"
+                                              />
 
                                     </div>
 

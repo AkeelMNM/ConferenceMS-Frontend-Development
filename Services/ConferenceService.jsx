@@ -4,7 +4,20 @@ const CONFERENCE_API_BASE_URI = "http://localhost:3000/posts";
 
 class ConferenceService{
 
-    /*async createconference(conference){
+
+
+   /* async getConference(){
+        return await fetch(CONFERENCE_API_BASE_URI+"/",{
+            method:'GET',
+        }).then(response =>{
+            return response.json();
+        }).catch(reason => {
+            return reason;
+        })
+
+    }
+
+    async createconference(conference){
         return await fetch(CONFERENCE_API_BASE_URI,{
             method:'POST',
             headers:{
@@ -17,21 +30,12 @@ class ConferenceService{
             return reason;
         })
 
-    }*/
-
-    /*async getConference(){
-        return await fetch(CONFERENCE_API_BASE_URI+"/",{
-            method:'GET',
-        }).then(response =>{
-            return response.json();
-        }).catch(reason => {
-            return reason;
-        })
-
-    }*/
+    }
 
 
-   /* async getConferenceByUser(id){
+
+
+   async getConferenceByUser(id){
         return await fetch(CONFERENCE_API_BASE_URI+"/"+id,{
             method:'GET',
         }).then(response =>{
@@ -40,9 +44,9 @@ class ConferenceService{
             return reason;
         })
 
-    }*/
+    }
 
-   /*async getconferenceById(id){
+   async getconferenceById(id){
         return await fetch(CONFERENCE_API_BASE_URI+"/conference/"+id,{
             method:'GET',
         }).then(response =>{
@@ -51,10 +55,10 @@ class ConferenceService{
             return reason;
         })
 
-    }*/
+    }
 
 
-  /*async updateconference(id,Conference){
+  async updateconference(id,Conference){
         return await fetch(CONFERENCE_API_BASE_URI+"/"+id,{
             method:'PUT',
             headers:{
@@ -66,9 +70,9 @@ class ConferenceService{
         }).catch(reason => {
             return reason;
         })
-    }*/
+    }
 
-    /*async deleteconference(id){
+    async deleteconference(id){
         return await fetch(CONFERENCE_API_BASE_URI+"/"+id,{
             method:'DELETE',
         }).then(response =>{
@@ -79,7 +83,7 @@ class ConferenceService{
 
     }*/
     ///////////////////////////////////////////
-    getConference(){
+   getConference(){
 
         return axios.get(CONFERENCE_API_BASE_URI);
     }
@@ -99,6 +103,29 @@ class ConferenceService{
     deleteconference(conferenceId){
         return axios.delete(CONFERENCE_API_BASE_URI + '/' + conferenceId);
     }
+
+    //
+    /**
+     *  This service function is to approval of Conference proposal submission
+     */
+    async ConferenceApproval(id,approval){
+        return await fetch(CONFERENCE_API_BASE_URI+'/approval/'+id,{
+            method:'PUT',
+            headers:{
+                'content-Type':"application/json"
+            },
+            body:JSON.stringify(approval)
+        }).then(response =>{
+            return response.json();
+        }).catch(reason => {
+            return reason;
+        })
+    }
+    //
+    updateconferenceApproval(conference, conferenceId){
+        return axios.put(CONFERENCE_API_BASE_URI + '/' + conferenceId, conference);
+    }
+
 
 
 

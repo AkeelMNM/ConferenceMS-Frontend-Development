@@ -7,6 +7,10 @@ import CreateConferenceComponent from './components/admin/CreateConferenceCompon
 import EditConferenceComponent from './components/admin/EditConferenceComponent';
 import ListConferenceComponent from './components/admin/ListConferenceComponent';
 import EditorViewConferenceComponent from "./components/admin/EditorViewConferenceComponent";
+import AdminApproveOrRejectComponent from "./components/admin/AdminApproveOrRejectComponent";
+import AdminConferenceListHolder from "./components/admin/AdminConferenceListHolder";
+import AdminUpdateApprovororReject from "./components/admin/AdminUpdateApprovororReject";
+import DisplayConferenceContents from "./components/admin/DisplayConferenceContents";
 
 
 
@@ -22,6 +26,9 @@ class App extends React.Component{
                 <Route path ="/add-conference/:id" component ={CreateConferenceComponent}></Route>
                 <Route path ="/view-conference/:id" component ={EditorViewConferenceComponent}></Route>
                 <Route exact path="/update-conference/:id" component={EditConferenceComponent}/>
+                <Route exact path="/approve-conference/:id" component={AdminApproveOrRejectComponent}/>
+                <Route exact path="/update-conferenceapproval/:id" component={AdminUpdateApprovororReject}/>
+                <Route exact path="/display-conference/:id" component={DisplayConferenceContents}/>
 
             </Switch>
         </Router>

@@ -4,7 +4,6 @@
   "description": "Frontend of Conference Management System",
   "main": "index.js",
   "scripts": {
-
     "start": "parcel index.html"
   },
   "repository": {

@@ -11,7 +11,7 @@ class EditConferenceComponent extends Component {
             creator:'',
             conference_title:'',
             message:'',
-            status:'',
+            status:'Pending',
             postedDate:''
 
         }
@@ -98,8 +98,8 @@ class EditConferenceComponent extends Component {
                                     </div>
                                     <div className="form-group">
                                         <label>Status :</label>
-                                        <input placeholder="status" name="status" className="form-control"
-                                               value={this.state.status} onChange ={event=>this.onChange(event)}/>
+                                        <input value="Pending"  placeholder="status" name="status" className="form-control"
+                                               />
 
                                     </div>
 

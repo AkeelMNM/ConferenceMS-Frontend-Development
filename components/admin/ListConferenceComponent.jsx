@@ -15,6 +15,8 @@ class ListConferenceComponent extends Component {
         this.createconference=this.createconference.bind(this);
         this.updateconference = this.updateconference.bind(this);
         this.deleteconference = this.deleteconference.bind(this);
+        this.approveconference=this.approveconference.bind(this);
+        this.displayconference=this.displayconference.bind(this);
 
 
     }
@@ -49,18 +51,30 @@ class ListConferenceComponent extends Component {
         this.props.history.push('add-conference/_add');
 
     }
+    //Admin
+   approveconference(){
+        this.props.history.push('approve-conference/_add');
 
+    }
+
+    displayconference(){
+        this.props.history.push('display-conference/_add');
+
+    }
 
 
     render() {
         return (
             <div>
-                <h2 className="text-center"> Conference List </h2>
+                <h2 className="text-center"> Conference Content  List </h2>
                 <div className= "row">
                     <button className="btn btn-primary" onClick={this.createconference}>Add Conference</button>
+                    <button className="btn btn-primary" onClick={this.approveconference}>Admin</button>
+                    <button className="btn btn-primary" onClick={this.displayconference}>Display</button>
                 </div>
                 <br></br>
                 <div className="row">
+
                     <table className="table table-striped table-bordered">
                         <thead>
                         <tr>
