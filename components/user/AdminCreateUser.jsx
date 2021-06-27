@@ -3,7 +3,7 @@ import '../../styles/user/LoginRegister.css';
 import '../../styles/toast.css';
 import 'react-toastify/dist/ReactToastify.css';
 import {toast} from "react-toastify";
-import AdminUserServices from "../../services/AdminCreateUserService";
+import AdminUserServices from "../../services/AdminUserService";
 toast.configure();
 
 //Images
@@ -47,6 +47,46 @@ class AdminCreateUser extends Component {
      */
     registerAccount(event) {
         event.preventDefault();
+
+        let Account = {
+            fullName: this.state.fullName,
+            email: this.state.email,
+            type: this.state.type,
+            password: this.state.password
+        }
+
+        /* configuring options to display toast message */
+        const options = {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar:true,
+            autoClose:3000,
+            closeButton:false
+        }
+
+        /**
+         * Validating the create account submission input fields
+         * Displaying Error message if any input field is empty
+         */
+        if(Account.fullName === ''){
+            toast.warning("File Full Name.", options);
+        }else if(Account.email === ''){
+            toast.warning("File Email.", options);
+        }else if(Account.type === ''){
+            toast.warning("Select Type", options);
+        }else if(Account.password === ''){
+            toast.warning("File Password", options);
+        }else {
+            // console.log(JSON.stringify(Account));
+            AdminUserServices.registerAccount(Account)
+                .then(res =>{
+                    if(res.status === 201){
+                        toast.success("Account created Successfully", options);
+                        this.setState(initialState);
+                    }else{
+                        toast.error("Something went wrong!!,Try again.",options);
+                    }
+                })
+        }
     }
 
 
