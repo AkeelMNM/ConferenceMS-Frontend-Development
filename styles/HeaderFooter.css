@@ -52,7 +52,7 @@ nav:after {
 }
 
 /* Removing padding, margin and "list-style" from the "ul",
- * and adding "position:reltive" */
+ * and adding "position:relative" */
 nav ul {
     float: right;
     padding:0;
@@ -257,3 +257,4 @@ li > a:only-child:after { content: ''; }
     width: 100%;
     height: 200px;
 }
+

@@ -93,15 +93,16 @@ body{
 
 #para{
     text-align: center;
-    font-family: "Times New Roman";
+    font-family: "Cambria Math", serif;
     font-size: 20px;
     line-height: 30px;
+    color: #9195a2;
 }
 
 #aboutCon{
     display: inline-block;
     margin-left: 205px;
-    font-family: "Times New Roman";
+    font-family: "Times New Roman", serif;
     font-size: 38px;
 }
 
@@ -383,7 +384,7 @@ a {
     font-size: 28px;
     font-weight: bold;
     float: left;
-    font-family: "Times New Roman";
+    font-family: "Times New Roman", serif;
     text-decoration: underline;
 }
 
@@ -391,7 +392,7 @@ a {
     font-size: 24px;
     float: left;
     margin-top: 10px;
-    font-family: "Times New Roman";
+    font-family: "Times New Roman", serif;
 }
 
 #vNameDate{
@@ -399,7 +400,7 @@ a {
     float: left;
     margin-top: 30px;
     margin-left: -80px;
-    font-family: "Times New Roman";
+    font-family: "Times New Roman", serif;
 
 }
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
