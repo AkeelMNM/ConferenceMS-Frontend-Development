@@ -49,8 +49,9 @@ class AdminApproveOrRejectComponent extends Component {
         this.props.history.push(`/Reject-conference/${id}`);
     }*/
 /////////////////////////////////////////
-    approvalconference(conference){
-        let id = conference._id;
+    approvalconference(id){
+
+        console.log(id);
         let approval = {aStatus:"Approved"}
         ConferenceService.ConferenceApproval(id,approval)
             .then(response =>{
@@ -70,8 +71,8 @@ class AdminApproveOrRejectComponent extends Component {
     }
 
 
-    rejectconference(conference){
-        let id = conference._id;
+    rejectconference(id){
+
         let approval = {aStatus:"Rejected"}
         ConferenceService.ConferenceApproval(id,approval)
             .then(response =>{
@@ -122,7 +123,7 @@ class AdminApproveOrRejectComponent extends Component {
                             <th> Conference Title </th>
                             <th> Message</th>
 
-                            <th> PostedDate</th>
+                            <th> Conference Date & Time</th>
                             <th> Status</th>
                             <th> Actions</th>
                         </tr>
@@ -142,10 +143,13 @@ class AdminApproveOrRejectComponent extends Component {
                                         <td >
                                             {
                                                 conference.status === 'Approved'?
-                                                    (<span id={'stateS'}>States : Approved</span>)
+
+                                                    (<span id={'stateS'}> Approved</span>)
+                                                    :conference.status === 'Rejected'?(<span id={'stateS'}>Rejected</span>)
                                                     :(
                                                         <div>
-                                                            <button onClick={ () => this.updateconferenceApproval(conference.id)} className="btn btn-info">Approve/Reject </button>
+                                                            <button onClick={ () => this.approvalconference(conference.id)} className="btn btn-info">Approve</button>
+                                                            <button onClick={ () => this.rejectconference(conference.id)} className="btn btn-info">Reject</button>
                                                             <button style={{marginLeft: "10px"}} onClick={ () => this.deleteapproval(conference.id)} className="btn btn-delete">Delete</button>
                                                         </div>
                                                     )

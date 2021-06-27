@@ -109,7 +109,7 @@ class ConferenceService{
      *  This service function is to approval of Conference proposal submission
      */
     async ConferenceApproval(id,approval){
-        return await fetch(CONFERENCE_API_BASE_URI+'/approval/'+id,{
+        return await fetch(CONFERENCE_API_BASE_URI+'/approve/'+id,{
             method:'PUT',
             headers:{
                 'content-Type':"application/json"
@@ -123,7 +123,7 @@ class ConferenceService{
     }
     //
     updateconferenceApproval(conference, conferenceId){
-        return axios.put(CONFERENCE_API_BASE_URI + '/' + conferenceId, conference);
+        return axios.put(CONFERENCE_API_BASE_URI + '/approve/' + conferenceId, conference);
     }
 
 

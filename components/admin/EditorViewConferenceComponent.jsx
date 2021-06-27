@@ -49,7 +49,7 @@ class EditorViewConferenceComponent extends Component {
                         </div>
 
                         <div className = "row">
-                            <label> Posted Date:</label>
+                            <label> Conference Date & Time:</label>
                             <div> { this.state.conferences.postedDate }</div>
                         </div>
 

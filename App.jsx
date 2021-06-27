@@ -11,6 +11,7 @@ import AdminApproveOrRejectComponent from "./components/admin/AdminApproveOrReje
 import AdminConferenceListHolder from "./components/admin/AdminConferenceListHolder";
 import AdminUpdateApprovororReject from "./components/admin/AdminUpdateApprovororReject";
 import DisplayConferenceContents from "./components/admin/DisplayConferenceContents";
+import Workshops from "./components/admin/Workshops";
 
 
 
@@ -29,6 +30,7 @@ class App extends React.Component{
                 <Route exact path="/approve-conference/:id" component={AdminApproveOrRejectComponent}/>
                 <Route exact path="/update-conferenceapproval/:id" component={AdminUpdateApprovororReject}/>
                 <Route exact path="/display-conference/:id" component={DisplayConferenceContents}/>
+                <Route exact path="/workshops/:id" component={CreateConferenceComponent}/>
 
             </Switch>
         </Router>
