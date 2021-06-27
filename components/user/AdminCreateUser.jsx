@@ -1,22 +1,70 @@
 import React, {Component} from 'react';
 import '../../styles/user/LoginRegister.css';
+import '../../styles/toast.css';
+import 'react-toastify/dist/ReactToastify.css';
+import {toast} from "react-toastify";
+import AdminUserServices from "../../services/AdminCreateUserService";
+toast.configure();
+
+//Images
+import Img011 from 'url:../../images/Login/bg1.svg';
+import Img022 from 'url:../../images/Login/bg2.svg';
+import Img01 from 'url:../../images/Login/log.svg';
+import Img02 from 'url:../../images/Login/register.svg';
+import ImgEmail from 'url:../../images/Login/email.png';
+import ImgLock from 'url:../../images/Login/lock.png';
+import ImgUser from 'url:../../images/Login/user.png';
+import ImgUsers from 'url:../../images/Login/users.png';
+import ImgEye from 'url:../../images/Login/eye.png';
+import ImgEyeHide from 'url:../../images/Login/eye-hide.png';
+
 
 /**
  * @author : A.M Zumry
  * Registration Number : IT19175126
  */
 
+const initialState = {
+    username:'',
+    password:'',
+    email:'',
+    type:''
+}
+
 class AdminCreateUser extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            username:'',
-            password:'',
-            email:'',
-            type:'',
-        }
+            isPasswordShown: false,
+            isEyeImage: true,
+            initialState
+        };
     }
+
+    /**
+     * This function is to submit admin create account proposal
+     */
+    registerAccount(event) {
+        event.preventDefault();
+    }
+
+
+    // Admin Users view panel
+    changeViewUsersForm(){
+    }
+
+    PasswordVisibility(){
+        this.setState({isPasswordShown:true});
+        this.setState({isEyeImage:false});
+        this.setState({isOnClicked:false})
+    };
+
+    PasswordNotVisibility(){
+        this.setState({isPasswordShown:false});
+        this.setState({isEyeImage:true});
+        this.setState({isOnClicked:true})
+    };
 
     onChange(event){
         const { name, value } = event.target;
@@ -25,37 +73,73 @@ class AdminCreateUser extends Component {
 
     render() {
         return <div>
-            <div className={'form-style-logReg'}>
-                <label id={'logRegHead'}>Admin Create User form </label><br/>
-                <form>
-                    <div>
-                        <label htmlFor={'username'}>Full Name</label>
-                        <input type={'text'} name={'username'} id={'username'} value={this.state.username}
-                               onChange={event => this.onChange(event)}/>
+
+            <div className={"container sign-up-mode"} id={"container"}>
+                <div className={"forms-container"}>
+                    <div className={"signin-signup"}>
+
+                        {/* ----------------------------- Registration Form ----------------------------- */}
+                        <form className={"sign-up-form"}>
+                            <h2 className={"title"}> Admin Register User </h2>
+                            <div className={"input-field"}>
+                                <img src={ImgUser} className={"fas"}/>
+                                <input type={'text'} name={'fullName'} id={'fullName'} value={this.state.fullName}
+                                       placeholder={"Full Name"} onChange={event => this.onChange(event)}/>
+                            </div>
+                            <div className={"input-field"}>
+                                <img src={ImgEmail} className={"fas"}/>
+                                <input type={'text'} name={'email'} id={'email'}  value={this.state.email}
+                                       placeholder={"Email"} onChange={event => this.onChange(event)}/>
+                            </div>
+                            <div className={"input-field"}>
+                                <img src={ImgUsers} className={"fas"}/>
+                                <select id={"type"} name={"type"} value={this.state.type} onChange={event => this.onChange(event)}>
+                                    <option id={"SEL-opt"}>Selection</option>
+                                    <option value={"Administer"}>Administer</option>
+                                    <option value={"Editor"}>Editor</option>
+                                    <option value={"Viewer"}>Viewer</option>
+                                </select>
+                            </div>
+                            <div className={"input-field"}>
+                                <img src={ImgLock} className={"fas"}/>
+                                <input
+                                    type={this.state.isPasswordShown===false ? "password" : "text"}
+                                    name={'password'} id={'password'}
+                                    value={this.state.password} placeholder={"Password"}
+                                    onChange={event => this.onChange(event)}
+                                />
+                                <img
+                                    src={this.state.isEyeImage===true ? ImgEye : ImgEyeHide}
+                                    className={"eye"}
+                                    onClick={this.state.isOnClicked===true ? this.PasswordVisibility.bind(this) : this.PasswordNotVisibility.bind(this)}
+                                />
+                            </div>
+                            <input type={"submit"} className={"btn"} value={"Register"} onClick={event => this.registerAccount(event)}/>
+                        </form>
+
+                        {/* ------------ Registration Form  end ------------ */}
+
                     </div>
-                    <div>
-                        <label htmlFor={'email'}>Email</label>
-                        <input type={'text'} name={'email'} id={'email'}  value={this.state.email}
-                               onChange={event => this.onChange(event)}/>
+                </div>
+
+                <div className={"panels-container"}>
+                    <div className={"panel left-panel"}></div>
+
+                    <div className={"panel right-panel"}>
+                        <div className={"content"}>
+                            <h3>One of us</h3>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+                                ex ratione. Aliquid!
+                            </p>
+                            <button className={"btn transparent"} id={"sign-in-btn"} onClick={this.changeViewUsersForm.bind(this)} > View Users </button>
+                        </div>
+                        <img src={Img02} className={"image"} />
                     </div>
-                    <div>
-                        <label htmlFor={'type'}>User Type</label>
-                        <select id="type" name="type" value={this.state.type} onChange={event => this.onChange(event)}>
-                            <option>Select</option>
-                            <option value="Editor">Editor</option>
-                            <option value="Reviewer">Reviewer</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label htmlFor={'password'}>Password</label>
-                        <input type={'password'} name={'password'} id={'password'} value={this.state.password}
-                               onChange={event => this.onChange(event)}/>
-                    </div>
-                    <div>
-                        <input type={'submit'} value={'Register'} onClick={event => this.registerAccount(event)} />
-                    </div>
-                </form>
+                </div>
+
             </div>
+
         </div>
     }
 }
