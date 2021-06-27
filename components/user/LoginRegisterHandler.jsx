@@ -18,6 +18,7 @@ import ImgUser from 'url:../../images/Login/user.png';
 import ImgUsers from 'url:../../images/Login/users.png';
 import ImgEye from 'url:../../images/Login/eye.png';
 import ImgEyeHide from 'url:../../images/Login/eye-hide.png';
+import {Link} from "react-router-dom";
 
 
 // import Login from "./Login";
@@ -69,7 +70,7 @@ class LoginRegisterHandler extends Component {
             closeButton:false
         }
         /**
-         * Validating the create account submission input fields
+         * Validating the login account submission input fields
          * Displaying Error message if any input field is empty
          */
         if(User.email === ''){
@@ -211,7 +212,7 @@ class LoginRegisterHandler extends Component {
                                 />
                             </div>
                             <input type={"submit"} value={"Login"} className={"btn solid"} onClick={event => this.loginAccount(event)} />
-                            <p className={"social-media"}>Or Sign up with social platforms</p>
+                            <p className={"p-link"}>Don't have an account? <Link id={'linkC'} onClick={this.changeSignInForm.bind(this)}> Create Account </Link> </p>
                         </form>
 
                 {/* ----------------------------- Registration Form ----------------------------- */}
@@ -250,7 +251,7 @@ class LoginRegisterHandler extends Component {
                                 />
                             </div>
                             <input type={"submit"} className={"btn"} value={"Register"} onClick={event => this.registerAccount(event)}/>
-                            <p className={"social-media"}>Or Sign up with social platforms</p>
+                            <p className={"p-link"}>Do you have an account? <Link id={'linkC'} onClick={this.changeSignUpForm.bind(this)}> Login Account </Link> </p>
                         </form>
 
                 {/* ------------ Registration Form  end ------------ */}
@@ -278,7 +279,7 @@ class LoginRegisterHandler extends Component {
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
                                 ex ratione. Aliquid!
                             </p>
-                            <button className={"btn transparent"} id={"sign-in-btn"} onClick={this.changeSignUpForm.bind(this)} >Sign up</button>
+                            <button className={"btn transparent"} id={"sign-in-btn"} onClick={this.changeSignUpForm.bind(this)} >Sign In</button>
                         </div>
                         <img src={Img022} className={"image"} />
                     </div>
