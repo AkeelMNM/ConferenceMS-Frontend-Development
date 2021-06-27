@@ -71,22 +71,26 @@ class DisplayConferenceContents extends Component {
                     <table className="table table-striped table-bordered">
 
                         <tbody>
+
                         {
                             this.state.conferences.map(
                                 conference =>
                                     <tr key={conference.id}>
+                                        <br></br>
 
                                         <div><label>Creator : </label>{conference.creator} </div>
 
                                         <div>  <label>Conference Title : </label>{conference.conference_title} </div>
 
-                                            <div> <label>Message :</label> {conference.message} </div>
+                                        <div> <label>Message :</label> {conference.message} </div>
 
-                                                <div><label>Conference Date & Time : </label> {conference.postedDate} </div>
+                                        <div><label>Conference Date & Time : </label> {conference.postedDate} </div>
 
                                         <div>
 
-                                            <button style={{marginLeft: "10px"}} onClick={ () => this.viewconference(conference.id)} className="btn btn-info">View </button>
+                                            <br></br>
+                                            <button style={{marginLeft: "280px"}} onClick={ () => this.viewconference(conference.id)} className="btn btn-info">View </button>
+                                            <br></br>
                                         </div>
 
                                     </tr>

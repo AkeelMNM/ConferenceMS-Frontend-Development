@@ -253,7 +253,6 @@ tr {
     color: #fff;
     background-color: #17a2b8;
     border-color: #17a2b8;
-     hover:#62a1e0
 }
 
 *, ::after, ::before {
@@ -303,7 +302,7 @@ h2 {
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
+    margin-right: 15px;
     margin-left: -15px;
 }
 
@@ -352,7 +351,7 @@ h3 {
     border-collapse: collapse;
 }
 .table {
-    width: 110%;
+    width: 100%;
     margin-bottom: 1rem;
     color: #212529;
 }
