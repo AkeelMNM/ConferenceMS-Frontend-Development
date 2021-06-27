@@ -16,6 +16,7 @@
     "url": "https://github.com/AkeelMNM/ConferenceMS-Frontend-Development/issues"
   },
   "homepage": "https://github.com/AkeelMNM/ConferenceMS-Frontend-Development#readme",
+
   "dependencies": {
     "axios": "^0.21.1",
     "cors": "^2.8.5",
