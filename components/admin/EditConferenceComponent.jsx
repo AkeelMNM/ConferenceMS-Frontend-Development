@@ -33,7 +33,8 @@ class EditConferenceComponent extends Component {
 
     componentDidMount(){
         ConferenceService.getconferenceById(this.state.id).then( (res) =>{
-            let conference = res.data;
+            let conference = res;
+            console.log(conference);
             this.setState({creator: conference.creator,
                 conference_title: conference.conference_title,
                 message : conference.message,
@@ -51,7 +52,7 @@ class EditConferenceComponent extends Component {
         let conference ={creator: this.state.creator,conference_title: this.state.conference_title,message: this.state.message,status: this.state.status,postedDate: this.state.postedDate};
         console.log('conference => '+JSON.stringify(conference));
         console.log('id => ' + JSON.stringify(this.state.id));
-        ConferenceService.updateconference(conference, this.state.id).then( res => {
+        ConferenceService.updateconference(this.state.id,conference).then( res => {
             this.props.history.push('/');
         });
 
@@ -81,13 +82,13 @@ class EditConferenceComponent extends Component {
                                 <form>
                                     <div className="form-group">
                                         <label> Creator's  Name :</label>
-                                        <input placeholder="creator" name="creator" className="form-control"
+                                        <input disabled placeholder="creator" name="creator" className="form-control"
                                                value={this.state.creator} onChange ={event=>this.onChange(event)}/>
 
                                     </div>
                                     <div className="form-group">
                                         <label> Conference Title:</label>
-                                        <input placeholder="conference_title" name="conference_title" className="form-control"
+                                        <input disabled placeholder="conference_title" name="conference_title" className="form-control"
                                                value={this.state.conference_title} onChange ={event=>this.onChange(event)}/>
                                     </div>
                                     <div className="form-group">
@@ -98,13 +99,13 @@ class EditConferenceComponent extends Component {
                                     </div>
                                     <div className="form-group">
                                         <label>Status :</label>
-                                        <input value="Pending"  placeholder="status" name="status" className="form-control"
+                                        <input disabled value="Pending"  placeholder="status" name="status" className="form-control"
                                                />
 
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Conference Date :</label>
+                                        <label>Conference Date & Time:</label>
                                         <input  placeholder="postedDate" name="postedDate" className="form-control"
                                                value={this.state.postedDate} onChange ={event=>this.onChange(event)}/>
 

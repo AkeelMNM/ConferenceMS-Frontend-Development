@@ -16,8 +16,8 @@
     "url": "https://github.com/AkeelMNM/ConferenceMS-Frontend-Development/issues"
   },
   "homepage": "https://github.com/AkeelMNM/ConferenceMS-Frontend-Development#readme",
-
   "dependencies": {
+    "admin-lte": "^3.1.0",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "moment": "^2.29.1",

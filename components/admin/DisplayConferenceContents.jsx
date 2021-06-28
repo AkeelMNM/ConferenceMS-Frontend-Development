@@ -41,7 +41,7 @@ class DisplayConferenceContents extends Component {
 
         ConferenceService.getConference().then((res) =>{
 
-            this.setState({conferences:res.data});
+            this.setState({conferences:res});
         });
 
     }

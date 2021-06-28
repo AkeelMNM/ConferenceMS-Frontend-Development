@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const CONFERENCE_API_BASE_URI = "http://localhost:3000/posts";
+const CONFERENCE_API_BASE_URI = "http://localhost:3000/Conference";
 
 class ConferenceService{
 
 
 
-   /* async getConference(){
-        return await fetch(CONFERENCE_API_BASE_URI+"/",{
+   async getConference(){
+        return await fetch(CONFERENCE_API_BASE_URI+"",{
             method:'GET',
         }).then(response =>{
             return response.json();
@@ -47,7 +47,7 @@ class ConferenceService{
     }
 
    async getconferenceById(id){
-        return await fetch(CONFERENCE_API_BASE_URI+"/conference/"+id,{
+        return await fetch(CONFERENCE_API_BASE_URI+"/"+id,{
             method:'GET',
         }).then(response =>{
             return response.json();
@@ -59,6 +59,7 @@ class ConferenceService{
 
 
   async updateconference(id,Conference){
+       console.log(Conference);
         return await fetch(CONFERENCE_API_BASE_URI+"/"+id,{
             method:'PUT',
             headers:{
@@ -81,9 +82,23 @@ class ConferenceService{
             return reason;
         })
 
-    }*/
+    }
+
+    async ConferenceApproval(id,approval){
+        return await fetch(CONFERENCE_API_BASE_URI+'/approve/'+id,{
+            method:'PUT',
+            headers:{
+                'content-Type':"application/json"
+            },
+            body:JSON.stringify(approval)
+        }).then(response =>{
+            return response.json();
+        }).catch(reason => {
+            return reason;
+        })
+    }
     ///////////////////////////////////////////
-   getConference(){
+   /*getConference(){
 
         return axios.get(CONFERENCE_API_BASE_URI);
     }
@@ -108,7 +123,7 @@ class ConferenceService{
     /**
      *  This service function is to approval of Conference proposal submission
      */
-    async ConferenceApproval(id,approval){
+    /*async ConferenceApproval(id,approval){
         return await fetch(CONFERENCE_API_BASE_URI+'/approve/'+id,{
             method:'PUT',
             headers:{
@@ -124,7 +139,7 @@ class ConferenceService{
     //
     updateconferenceApproval(conference, conferenceId){
         return axios.put(CONFERENCE_API_BASE_URI + '/approve/' + conferenceId, conference);
-    }
+    }*/
 
 
 

@@ -16,7 +16,7 @@ class EditorViewConferenceComponent extends Component {
     }
     componentDidMount(){
         ConferenceService.getconferenceById(this.state.id).then( res => {
-            this.setState({conferences: res.data});
+            this.setState({conferences: res});
 
         })
     }

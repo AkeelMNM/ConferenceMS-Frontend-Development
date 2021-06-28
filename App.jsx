@@ -12,6 +12,8 @@ import AdminConferenceListHolder from "./components/admin/AdminConferenceListHol
 import AdminUpdateApprovororReject from "./components/admin/AdminUpdateApprovororReject";
 import DisplayConferenceContents from "./components/admin/DisplayConferenceContents";
 import Workshops from "./components/admin/Workshops";
+import AdminDashboard from "./components/admin/AdminDashboard";
+import DashboardApp from "./components/admin/Dashboardapp";
 
 
 
@@ -23,14 +25,21 @@ class App extends React.Component{
     render() {
         return <Router>
             <Switch>
-                <Route path ="/" exact component ={ListConferenceComponent}></Route>
-                <Route path ="/add-conference/:id" component ={CreateConferenceComponent}></Route>
-                <Route path ="/view-conference/:id" component ={EditorViewConferenceComponent}></Route>
-                <Route exact path="/update-conference/:id" component={EditConferenceComponent}/>
-                <Route exact path="/approve-conference/:id" component={AdminApproveOrRejectComponent}/>
-                <Route exact path="/update-conferenceapproval/:id" component={AdminUpdateApprovororReject}/>
-                <Route exact path="/display-conference/:id" component={DisplayConferenceContents}/>
-                <Route exact path="/workshops/:id" component={CreateConferenceComponent}/>
+                <Route path ="/"  exact component ={ListConferenceComponent}/>
+                <Route path ="/add-conference/:id/:name/:title" component ={CreateConferenceComponent}/>
+                <Route path ="/view-conference/:id" component ={EditorViewConferenceComponent}/>
+                <Route  path="/display-workshops" component={Workshops}/>
+                <Route  path="/list-ContentView" component={ListConferenceComponent}/>
+                <Route  path="/update-conference/:id" component={EditConferenceComponent}/>
+                <Route path="/approve-conference/:id" component={AdminApproveOrRejectComponent}/>
+                <Route  path="/display-conference/:id" component={DisplayConferenceContents}/>
+                <Route  path="/AdminDashboard/" component={AdminDashboard}/>
+                <Route  path="/go/" component={ListConferenceComponent}/>
+
+
+
+
+
 
             </Switch>
         </Router>

@@ -17,6 +17,8 @@ class ListConferenceComponent extends Component {
         this.deleteconference = this.deleteconference.bind(this);
         this.approveconference=this.approveconference.bind(this);
         this.displayconference=this.displayconference.bind(this);
+        this.displayworkshops=this.displayworkshops.bind(this);
+        this.AdminDashboard=this.AdminDashboard.bind(this);
 
 
     }
@@ -42,13 +44,13 @@ class ListConferenceComponent extends Component {
 
         ConferenceService.getConference().then((res) =>{
 
-            this.setState({conferences:res.data});
+            this.setState({conferences:res});
         });
 
     }
 
     createconference(){
-        this.props.history.push('add-conference/_add');
+        this.props.history.push('');
 
     }
     //Admin
@@ -62,15 +64,29 @@ class ListConferenceComponent extends Component {
 
     }
 
+    displayworkshops(){
+        this.props.history.push('display-workshops/');
+
+    }
+
+    AdminDashboard(){
+        this.props.history.push('AdminDashboard/');
+
+    }
+
 
     render() {
         return (
             <div>
                 <h2 className="text-center"> Conference Content  List </h2>
                 <div className= "row">
-                    <button className="btn btn-primary" onClick={this.createconference}>Add Conference</button>
-                    <button className="btn btn-primary" onClick={this.approveconference}>Admin</button>
+                    <button className="btn btn-primary" onClick={this.displayworkshops}>Workshops</button>
                     <button className="btn btn-primary" onClick={this.displayconference}>Display</button>
+                    <button className="btn btn-primary" onClick={this.AdminDashboard}>Admin Dashboard</button>
+                    <button className="btn btn-primary" onClick={this.approveconference}>Admin</button>
+
+
+
                 </div>
                 <br></br>
                 <div className="row">

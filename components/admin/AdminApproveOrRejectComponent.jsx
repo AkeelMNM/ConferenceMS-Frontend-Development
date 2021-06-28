@@ -100,7 +100,7 @@ class AdminApproveOrRejectComponent extends Component {
 
         ConferenceService.getConference().then((res) =>{
 
-            this.setState({conferences:res.data});
+            this.setState({conferences:res});
         });
 
     }
@@ -149,8 +149,8 @@ class AdminApproveOrRejectComponent extends Component {
                                                     :(
                                                         <div>
                                                             <button onClick={ () => this.approvalconference(conference.id)} className="btn btn-info">Approve</button>
-                                                            <button onClick={ () => this.rejectconference(conference.id)} className="btn btn-info">Reject</button>
-                                                            <button style={{marginLeft: "10px"}} onClick={ () => this.deleteapproval(conference.id)} className="btn btn-delete">Delete</button>
+                                                            <button onClick={ () => this.rejectconference(conference.id)} className="btn btn-danger">Reject</button>
+                                                            <button style={{marginLeft: "10px"}} onClick={ () => this.deleteapproval(conference.id)} className="btn btn-danger">Delete</button>
                                                         </div>
                                                     )
                                             }

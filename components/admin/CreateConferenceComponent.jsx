@@ -12,8 +12,8 @@ class CreateConferenceComponent extends Component {
 
         this.state={
             id: this.props.match.params.id,
-            creator:'',
-            conference_title:'',
+            creator: this.props.match.params.name,
+            conference_title:this.props.match.params.title,
             message:'',
             status:'Pending',
             postedDate:''
@@ -31,7 +31,7 @@ class CreateConferenceComponent extends Component {
     }
 
     //step 3
-    componentDidMount(){
+   /* componentDidMount(){
         if(this.state.id === '_add'){
             return
         }else{
@@ -46,38 +46,48 @@ class CreateConferenceComponent extends Component {
                 });
             });
         }
+    }*/
+
+
+    getworkshop(id){
+        this.props.history.push(`/get-workshop/${id}`);
     }
+
+
 
 
     saveConference =(e)=>{
 
         e.preventDefault();
-        let conference ={creator: this.state.creator,conference_title: this.state.conference_title,message: this.state.message,status: this.state.status,postedDate: this.state.postedDate};
+        let conference ={
+            workshopId:this.state.id,
+            creator: this.state.creator,
+            conference_title: this.state.conference_title,
+            message: this.state.message,
+            status: this.state.status,
+            postedDate: this.state.postedDate
+        };
         console.log('conference => '+JSON.stringify(conference));
         //step5
-        if(this.state.id === '_add'){
-            ConferenceService.createconference(conference).then(res =>{
-                this.props.history.push('/');
-            });
-        }else{
-            ConferenceService.updateconference(conference, this.state.id).then( res => {
-                this.props.history.push('/conference');
+
+            ConferenceService.createconference(conference, this.state.id).then( res => {
+                this.props.history.push('/list-ContentView');
 
             });
-        }
 
-      /*  const options = {
+
+       /*const options = {
             position: toast.POSITION.TOP_CENTER,
             hideProgressBar:true,
             autoClose:3000,
             closeButton:false
-        }*/
+        }
 
         /**
          * Validating the Research Paper submission input fields
          * Displaying Error message if any input field is empty
          */
-      /*  if(conference.creator === ''){
+       /* if(conference.creator === ''){
             toast.warning("Fill the Creator's Name", options)
         }else if (conference.conference_title === ''){
             toast.warning("Fill Conference Content Title", options)
@@ -93,6 +103,7 @@ class CreateConferenceComponent extends Component {
                 .then(res => {
                     if(res.status === 200){
                         toast.success("Conference Content Submitted Successfully",options)
+                        this.props.history.push('/list-ContentView');
                     }else{
                         toast.error("Something went wrong!!,Try again.",options)
                     }
@@ -104,7 +115,9 @@ class CreateConferenceComponent extends Component {
 
 
 
-
+    changecreatorHandler= (event) =>{
+        this.setState({workshopId: event.target.value});
+    }
 
     changecreatorHandler= (event) =>{
         this.setState({creator: event.target.value});
@@ -130,7 +143,7 @@ class CreateConferenceComponent extends Component {
         if(this.state.id === '_add'){
             return <h3 className="text-center">Add Conference</h3>
         }else{
-            return <h3 className="text-center">Update Conference</h3>
+            return <h3 className="text-center">Create Conference</h3>
         }
     }
 
