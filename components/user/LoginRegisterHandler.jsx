@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Cookies from 'universal-cookie/es6';
+import {Link} from "react-router-dom";
 import '../../styles/user/LoginRegister.css';
 import '../../styles/toast.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,19 +11,12 @@ toast.configure();
 //Images
 import Img011 from 'url:../../images/Login/bg1.svg';
 import Img022 from 'url:../../images/Login/bg2.svg';
-import Img01 from 'url:../../images/Login/log.svg';
-import Img02 from 'url:../../images/Login/register.svg';
 import ImgEmail from 'url:../../images/Login/email.png';
 import ImgLock from 'url:../../images/Login/lock.png';
 import ImgUser from 'url:../../images/Login/user.png';
 import ImgUsers from 'url:../../images/Login/users.png';
 import ImgEye from 'url:../../images/Login/eye.png';
 import ImgEyeHide from 'url:../../images/Login/eye-hide.png';
-import {Link} from "react-router-dom";
-
-
-// import Login from "./Login";
-// import Register from "./Register";
 
 /**
  * @author : A.M Zumry
@@ -47,9 +41,12 @@ class LoginRegisterHandler extends Component {
             isOnClicked: true,
             isPasswordShown: false,
             isEyeImage: true,
-            initialState
+            initialState,
+            // The regular expression to validate the email pattern
+            emailRegex: /\S+@\S+\.\S+/
         }
     }
+
 
     /**
      * This function is to submit Login account proposal
@@ -69,6 +66,7 @@ class LoginRegisterHandler extends Component {
             autoClose:3000,
             closeButton:false
         }
+
         /**
          * Validating the login account submission input fields
          * Displaying Error message if any input field is empty
@@ -77,16 +75,17 @@ class LoginRegisterHandler extends Component {
             toast.warning("File Email.", options);
         }else if(User.password === ''){
             toast.warning("File Password", options);
-        }else {
+        }else if(this.state.emailRegex.test(User.email)){
+            console.log("Hello Iam else ");
             console.log(JSON.stringify(User));
             UserServices.loginAccount(User)
                 .then(res =>{
                     if(res.status === 201){
                         toast.success("Login Successful", options);
-                        const [userID,type] = res.data.split('~');
-                        const cookies = new Cookies();
-                        cookies.set('_id',userID,{path:'/'});
-                        cookies.set('type',type,{ path: '/' });
+                        // const [userID,type] = res.data.split('~');
+                        // const cookies = new Cookies();
+                        // cookies.set('_id',userID,{path:'/'});
+                        // cookies.set('type',type,{ path: '/' });
 
                         if(type === 'Researcher'){
                             this.props.history.push("/UserProfile")
@@ -98,6 +97,8 @@ class LoginRegisterHandler extends Component {
                         toast.error("Username or Password Incorrect.",options);
                     }
                 })
+        }else {
+            toast.info("Please enter a valid email!", options);
         }
     }
 
@@ -134,8 +135,7 @@ class LoginRegisterHandler extends Component {
             toast.warning("Select Type", options);
         }else if(Account.password === ''){
             toast.warning("File Password", options);
-        }else {
-            // console.log(JSON.stringify(Account));
+        }else if(this.state.emailRegex.test(Account.email)){
             UserServices.createAccount(Account)
                 .then(res =>{
                     if(res.status === 201){
@@ -145,17 +145,19 @@ class LoginRegisterHandler extends Component {
                         toast.error("Something went wrong!!,Try again.",options);
                     }
                 })
+        }else {
+            toast.info("Please enter a valid email!", options);
         }
     }
 
-    // Sign in button
+    // redirecting to Sign-in page
     changeSignInForm(){
         // set state value to initialize state value
         this.setState(initialState);
         this.setState({isActive:false})
     }
 
-    // Sign up button
+    // redirecting to  Sign-up page
     changeSignUpForm(){
         // set state value to initialize state value
         this.setState(initialState);
@@ -186,9 +188,6 @@ class LoginRegisterHandler extends Component {
                 <div className={"forms-container"}>
                     <div className={"signin-signup"}>
 
-                        {/*<Login/>*/}
-                        {/*<Register/>*/}
-
                 {/* ----------------------------- Login Form ----------------------------- */}
                         <form className={"sign-in-form"}>
                             <h2 className={"title"}>Sign In</h2>
@@ -212,7 +211,7 @@ class LoginRegisterHandler extends Component {
                                 />
                             </div>
                             <input type={"submit"} value={"Login"} className={"btn solid"} onClick={event => this.loginAccount(event)} />
-                            <p className={"p-link"}>Don't have an account? <Link id={'linkC'} onClick={this.changeSignInForm.bind(this)}> Create Account </Link> </p>
+                            <p className={"p-link"}>Don't have an account? <Link id={'linkC'} to={''} onClick={this.changeSignInForm.bind(this)}> Create Account </Link> </p>
                         </form>
 
                 {/* ----------------------------- Registration Form ----------------------------- */}
@@ -234,6 +233,7 @@ class LoginRegisterHandler extends Component {
                                     <option id={"SEL-opt"}>Selection</option>
                                     <option value={"Researcher"}>Researcher</option>
                                     <option value={"Workshop Conductor"}>Workshop Conductor</option>
+                                    <option value={"Attendee"}>Attendee</option>
                                 </select>
                             </div>
                             <div className={"input-field"}>
@@ -251,7 +251,7 @@ class LoginRegisterHandler extends Component {
                                 />
                             </div>
                             <input type={"submit"} className={"btn"} value={"Register"} onClick={event => this.registerAccount(event)}/>
-                            <p className={"p-link"}>Do you have an account? <Link id={'linkC'} onClick={this.changeSignUpForm.bind(this)}> Login Account </Link> </p>
+                            <p className={"p-link"}>Do you have an account? <Link id={'linkC'} to={''} onClick={this.changeSignUpForm.bind(this)}> Login Account </Link> </p>
                         </form>
 
                 {/* ------------ Registration Form  end ------------ */}
@@ -262,24 +262,22 @@ class LoginRegisterHandler extends Component {
                 <div className={"panels-container"}>
                     <div className={"panel left-panel"}>
                         <div className={"content"}>
-                            <h3>New Here ?</h3>
+                            <h3>ICAF 2021</h3>
                             <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                                ex ratione. Aliquid!
+                                International Conference on Application Frameworks.
                             </p>
-                            <button className={"btn transparent"} id={"sign-up-btn"} onClick={this.changeSignInForm.bind(this)} >Sign up</button>
+                            {/*<button className={"btn transparent"} id={"sign-up-btn"} onClick={this.changeSignInForm.bind(this)} >Sign up</button>*/}
                         </div>
                         <img src={Img011} className={"image"} />
                     </div>
 
                     <div className={"panel right-panel"}>
                         <div className={"content"}>
-                            <h3>One of us</h3>
+                            <h3>ICAF 2021</h3>
                             <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                                ex ratione. Aliquid!
+                                International Conference on Application Frameworks.
                             </p>
-                            <button className={"btn transparent"} id={"sign-in-btn"} onClick={this.changeSignUpForm.bind(this)} >Sign In</button>
+                            {/*<button className={"btn transparent"} id={"sign-in-btn"} onClick={this.changeSignUpForm.bind(this)} >Sign In</button>*/}
                         </div>
                         <img src={Img022} className={"image"} />
                     </div>

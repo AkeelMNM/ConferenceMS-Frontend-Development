@@ -135,9 +135,8 @@ class AdminCreateUser extends Component {
                                 <img src={ImgUsers} className={"fas"}/>
                                 <select id={"type"} name={"type"} value={this.state.type} onChange={event => this.onChange(event)}>
                                     <option id={"SEL-opt"}>Selection</option>
-                                    <option value={"Administer"}>Administer</option>
                                     <option value={"Editor"}>Editor</option>
-                                    <option value={"Viewer"}>Viewer</option>
+                                    <option value={"Reviewer"}>Reviewer</option>
                                 </select>
                             </div>
                             <div className={"input-field"}>
