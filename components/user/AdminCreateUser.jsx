@@ -7,9 +7,6 @@ import AdminUserServices from "../../services/AdminUserService";
 toast.configure();
 
 //Images
-import Img011 from 'url:../../images/Login/bg1.svg';
-import Img022 from 'url:../../images/Login/bg2.svg';
-import Img01 from 'url:../../images/Login/log.svg';
 import Img02 from 'url:../../images/Login/register.svg';
 import ImgEmail from 'url:../../images/Login/email.png';
 import ImgLock from 'url:../../images/Login/lock.png';

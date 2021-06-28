@@ -9,10 +9,12 @@ class UserServices {
 
 
     async loginAccount(Account){
-        console.log('this user service', USER_API_BASE_URI+"/login/"+Account.email+ "," +Account.password);
-        console.log('user service ',await fetch(USER_API_BASE_URI+"/login/"+Account.email+ "," +Account.password, {method: 'GET',}));
-        return await fetch(USER_API_BASE_URI+"/login/"+Account.email+ "," +Account.password, {
-            method: 'GET',
+        return await fetch(USER_API_BASE_URI+"/login",{
+            method: 'POST',
+            headers:{
+                'content-Type':"application/json"
+            },
+            body:JSON.stringify(Account)
         }).then(response =>{
             return response.json();
         }).catch(reason => {

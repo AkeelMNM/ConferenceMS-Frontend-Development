@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../../styles/user/Payment.css';
+import {toast} from "react-toastify";
 
 /**
  * @author : A.M Zumry
@@ -15,6 +16,40 @@ class ResearchersPayment extends Component {
             payment:'',
             payDate:''
         }
+    }
+
+    /**
+     * This function is to submit Researcher Payment proposal
+     */
+    ResearcherPay(event){
+        event.preventDefault();
+
+        let Payment = {
+            name:this.state.name,
+            payment:this.state.payment
+        }
+
+        /* configuring options to display toast message */
+        const options = {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar:true,
+            autoClose:3000,
+            closeButton:false
+        }
+
+        /**
+         * Validating the login account submission input fields
+         * Displaying Error message if any input field is empty
+         */
+        if(Payment.name === ''){
+            toast.warning("File Name.", options);
+        }else if(Payment.payment === ''){
+            toast.warning("File Amount.", options);
+        }else {
+            console.log(JSON.stringify(Payment));
+
+        }
+
     }
 
     onChange(event){
@@ -42,7 +77,7 @@ class ResearchersPayment extends Component {
                                onChange={event => this.onChange(event)}/>
                     </div>
                     <div>
-                        <input type={'submit'} value={'Make Payment'} onClick={event => this.payMobile(event)} />
+                        <input type={'submit'} value={'Make Payment'} onClick={event => this.ResearcherPay(event)} />
                     </div>
                 </form>
             </div>

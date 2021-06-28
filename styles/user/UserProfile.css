@@ -83,7 +83,8 @@
 .thSt{
     text-align: left;
     padding: 6px;
-    background-color: lightskyblue;
+    /*background-color: lightskyblue;*/
+    background-image: linear-gradient(144deg, #d15a08 0%, #759cc7 100%);
     color: white;
 }
 

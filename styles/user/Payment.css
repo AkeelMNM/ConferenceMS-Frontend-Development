@@ -166,12 +166,12 @@ h3{
     display: block;
     padding: 9px 29px 8px 29px;
     color: #FFF;
-    background: #1abc9c;
+    background: #6dabe4;
     font-size: 16px;
     text-align: center;
     font-style: normal;
     width: 100%;
-    border: 1px solid #16a085;
+    border: 1px solid #6dabe4;
     border-width: 1px 1px 3px;
     margin: 0 auto 10px;
     cursor: pointer;
@@ -179,7 +179,7 @@ h3{
 .form-style-pay input[type="submit"]:hover,
 .form-style-pay input[type="button"]:hover
 {
-    background: #109177;
+    background: #62a1e0;
 }
 
 #radioDiv{

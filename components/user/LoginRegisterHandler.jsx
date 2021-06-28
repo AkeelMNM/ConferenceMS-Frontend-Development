@@ -80,19 +80,22 @@ class LoginRegisterHandler extends Component {
             console.log(JSON.stringify(User));
             UserServices.loginAccount(User)
                 .then(res =>{
-                    if(res.status === 201){
+                    if(res !== null){
                         toast.success("Login Successful", options);
-                        // const [userID,type] = res.data.split('~');
-                        // const cookies = new Cookies();
-                        // cookies.set('_id',userID,{path:'/'});
-                        // cookies.set('type',type,{ path: '/' });
+                        localStorage.setItem('userToken',res.token);
+                        localStorage.setItem('_id',res.userID);
 
-                        if(type === 'Researcher'){
+                        if(res.type === 'Researcher'){
                             this.props.history.push("/UserProfile")
-                        }else if(type === 'Workshop Conductor'){
+                        }else if(res.type === 'Workshop Conductor'){
+                            this.props.history.push("/UserProfile")
+                        }else if(res.type === 'Attendee'){
+                            this.props.history.push("/UserProfile")
+                        }else if(res.type === 'Editor'){
+                            this.props.history.push("/UserProfile")
+                        }else if(res.type === 'Reviewer'){
                             this.props.history.push("/UserProfile")
                         }
-
                     }else{
                         toast.error("Username or Password Incorrect.",options);
                     }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {toast} from "react-toastify";
 import AttendeesPaymentServices from "../../services/AttendeesPaymentServices";
+import validator from 'validator';
 
 /**
  * @author : A.M Zumry
@@ -13,9 +14,10 @@ class AttendeesPayment extends Component {
 
         this.state = {
             name:'',
-            email:'',
             payment:'',
-            payDate:''
+            cardNo:'',
+            exDate:'',
+            cvv:''
         }
     }
 
@@ -26,10 +28,8 @@ class AttendeesPayment extends Component {
         event.preventDefault();
 
         let Payment = {
-            name:this.state.name,
-            email:this.state.email,
-            payment:this.state.payment,
-            payDate:this.state.payDate
+            userID:'12345',
+            payment:this.state.payment
         }
 
         /* configuring options to display toast message */
@@ -49,12 +49,12 @@ class AttendeesPayment extends Component {
          */
         if(Payment.name === ''){
             toast.warning("File Name.", options);
-        }else if(Payment.email === ''){
-            toast.warning("File Email.", options);
         }else if(Payment.payment === ''){
             toast.warning("File Amount.", options);
-        }else if(Payment.payDate === '') {
-            toast.warning("File Date.", options);
+        }else if(Payment.cardNo === '') {
+            toast.warning("File Card Number.", options);
+        }else if(validator.isCreditCard(Payment.cardNo)){
+            toast.info("File Card Number.", options);
         }else if(emailRegex.test(Payment.email) ){
             console.log(JSON.stringify(Payment));
             AttendeesPaymentServices.makePayment(Payment)
@@ -81,14 +81,8 @@ class AttendeesPayment extends Component {
             <div className={'form-style-pay'}>
                 <form>
                     <div>
-                        <label htmlFor={'name'}>Name</label>
+                        <label htmlFor={'name'}>Card Owner</label>
                         <input type={'text'} name={'name'} id={'name'} placeholder={'Name'} value={this.state.name}
-                               onChange={event => this.onChange(event)}/>
-                    </div>
-                    <div>
-                        <label htmlFor={'email'}>Email</label>
-                        <input type={'text'} name={'email'} id={'email'} placeholder={'Email'} value={this.state.email}
-                               pattern={''}
                                onChange={event => this.onChange(event)}/>
                     </div>
                     <div>
@@ -97,8 +91,18 @@ class AttendeesPayment extends Component {
                                onChange={event => this.onChange(event)}/>
                     </div>
                     <div>
-                        <label htmlFor={'payDate'}>Payment Date</label>
-                        <input type={'date'} name={'payDate'} id={'payDate'} value={this.state.payDate}
+                        <label htmlFor={'cardNo'}>Card Number</label>
+                        <input type={'text'} name={'cardNo'} id={'cardNo'} placeholder={'Valid Card Number'} value={this.state.cardNo}
+                               onChange={event => this.onChange(event)}/>
+                    </div>
+                    <div>
+                        <label htmlFor={'exDate'}>Expiration Date</label>
+                        <input type={'text'} name={'exDate'} id={'exDate'} placeholder={'MM/YY'} value={this.state.exDate}
+                               onChange={event => this.onChange(event)}/>
+                    </div>
+                    <div>
+                        <label htmlFor={'cvv'}>CVV Code</label>
+                        <input type={'text'} name={'cvv'} id={'cvv'} placeholder={'CVV'} value={this.state.cvv}
                                onChange={event => this.onChange(event)}/>
                     </div>
                     <div>

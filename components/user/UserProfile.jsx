@@ -30,7 +30,7 @@ class UserProfile extends Component {
      * Mounting user details proposal submission of the relevant user to view
      */
     componentDidMount() {
-        UserServices.getUserByID("60bd03cab3113425101ade57")
+        UserServices.getUserByID("60d6fce024f60e61180673ad")
             .then(user => {
                 this.setState({
                     fullName: user.fullName,
