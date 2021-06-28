@@ -14,7 +14,7 @@
  */
 
 .form-style-resWork{
-    max-width: 500px;
+    max-width: 550px;
     padding: 10px 20px;
     background: #f4f7f8;
     padding: 20px;
@@ -36,6 +36,7 @@
 .form-style-resWork input[type="text"],
 .form-style-resWork input[type="date"],
 .form-style-resWork input[type="file"],
+.form-style-resWork textarea,
 .form-style-resWork select {
     font-family: Georgia, "Times New Roman", Times, serif;
     border: none;
@@ -56,6 +57,7 @@
 .form-style-resWork input[type="text"]:focus,
 .form-style-resWork input[type="date"]:focus,
 .form-style-resWork input[type="file"] focus,
+.form-style-resWork textarea focus,
 .form-style-resWork select:focus{
     background: #e6e6e6;
 }
@@ -77,8 +79,7 @@
     border-radius: 15px 15px 15px 0px;
 }
 
-.form-style-resWork input[type="submit"],
-.form-style-resWork input[type="button"]
+.form-style-resWork input[type="submit"]
 {
     position: relative;
     display: block;
@@ -101,11 +102,68 @@
     cursor: pointer;
 }
 
+.form-style-resWork input[type="button"]
+{
+    position: relative;
+    display: block;
+    padding: 6px 6px 6px 6px;
+    color: #FFF;
+    background: #6dabe4;
+    font-size: 16px;
+    font-style: normal;
+    width: 25%;
+    border: 1px solid #62a1e0;
+    border-width: 1px 1px 3px;
+    border-radius: 3px;
+    margin-top: -5px;
+}
+
+
 /* Adding Require asterisk mark on label*/
 .form-style-resWork label::after{
     content: " *";
     color: red;
 }
+
+
+.fieldSt{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    border: none !important;
+    border-radius: 4px !important;
+    font-size: 15px !important;
+    outline: 0 !important;
+    padding: 10px !important;
+    width: 40% !important;
+    box-sizing: border-box !important;
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    background: #e6e6e6 !important;
+    color: #63686e !important;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset !important;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset !important;
+    margin: 0 0 30px !important;
+}
+
+.nameBtn{
+    position: relative !important;
+    display: block !important;
+    padding: 5px 5px 5px 5px !important;
+    color: #FFF !important;
+    background: #ff6801 !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    width: 8% !important;
+    border: 1px solid #ff6801 !important;
+    border-radius: 3px !important;
+    margin-left: 210px !important;
+    margin-top: -64px !important;
+}
+
+.nameBtn:hover{
+    background: #ff6801;
+    cursor: pointer;
+}
+
 /**
   ************************************************************************************
  */

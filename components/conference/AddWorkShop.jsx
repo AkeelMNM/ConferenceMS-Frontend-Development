@@ -27,7 +27,9 @@ class AddWorkShop extends React.Component{
             email:'',
             affiliation:'',
             contactNo:'',
+            conductorNames:'',
             file:[],
+            names:[],
 
             agreement:false
         }
@@ -45,7 +47,8 @@ class AddWorkShop extends React.Component{
             email:this.state.email,
             affiliation:this.state.affiliation,
             contactNo:this.state.contactNo,
-            file:''
+            conductorNames:this.state.names,
+            file:'',
         }
 
         /**
@@ -64,6 +67,8 @@ class AddWorkShop extends React.Component{
             toast.warning("Add Contact Number", options)
         }else if (this.state.file.length === 0){
             toast.warning("Attach Proposal Document", options)
+        } else if (WorkShop.conductorNames === 0){
+            toast.warning("Enter Workshop Conductor Names", options)
         }else if (this.state.agreement === false){
             toast.warning("Please Agree to Terms&Conditions.", options)
         }else{
@@ -101,6 +106,23 @@ class AddWorkShop extends React.Component{
         }
     }
 
+    handleChangeOnNames(i, event) {
+        let names = [...this.state.names];
+        names[i] = event.target.value;
+        this.setState({ names });
+    }
+
+    addClick(){
+        this.setState(prevState => ({ names: [...prevState.names, '']}))
+    }
+
+    removeClick(i){
+        let names = [...this.state.names];
+        names.splice(i,1);
+        this.setState({ names });
+    }
+
+
     render() {
         return <div>
             <div><label id={'CHeadLine'} >New Workshop Submission</label></div>
@@ -125,6 +147,20 @@ class AddWorkShop extends React.Component{
                         <label htmlFor={'contactNo'}>Contact Number</label>
                         <input type={'text'} name={'contactNo'} id={'contactNo'} value={this.state.contactNo}
                                required onChange={event => this.onChange(event)} />
+                    </div>
+                    <div>
+                        <label htmlFor={'conductorNames'}>Workshop Constructors Names</label><br/>
+                        {
+                            this.state.names.map((el, i) =>
+                                <div key={i}>
+                                    <input type="text" className={'fieldSt'} placeholder={'Name'} value={el||''} onChange={this.handleChangeOnNames.bind(this, i)} />
+                                    <input type='button' className={'nameBtn'} value='-' onClick={this.removeClick.bind(this, i)}/>
+                                    <br/>
+                                </div>
+                            )
+                        }
+                        <input type='button' value='Add Names' onClick={this.addClick.bind(this)}/>
+                        <br/>
                     </div>
                     <div>
                         <label htmlFor={'file'}>Upload Workshop Proposal Document</label>
