@@ -127,7 +127,7 @@ class AddResearchPaper extends React.Component{
                             <input type={'checkbox'} name={'agreement'} value={true} onChange={() => this.handleCheckBox()} />
                             <span>By clicking this checkbox i agree i'm posting my own research works</span>
                         </div>
-                        <input type={'submit'} value={'Add Research Paper'} onClick={ event => this.submitResearchPaper(event)} />
+                        <input type={'submit'} value={'Submit Research Paper'} onClick={ event => this.submitResearchPaper(event)} />
                     </div>
                 </form>
             </div>

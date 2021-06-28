@@ -20,7 +20,7 @@ class CallForPaper extends React.Component{
                         with keynotes and panels from both local and international researchers.
                     </p>
                 </div>
-                <div className={'topicDiv'}>
+                <div id={'topicDiv'}>
                     <label className={'conTopic'}>Conference topics</label>
                     <div>
                         <div className={'listDiv'}>
@@ -44,6 +44,20 @@ class CallForPaper extends React.Component{
                                 <li>New finding on Pascal</li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+                <div>
+                    <label id={'subTopic'}>Submission:</label>
+                    <div id={"subMDiv"}>
+                        <p id={'subPara'}>
+                            To be published in the ICAF 2021 Conference Proceedings,
+                            an author of an accepted paper is required to register for the conference and the paper must be presented by an author of that paper at the conference.
+                            During the initial paper submission process the submitted papers will be reviewed and will be approved or reject by the Reviewer.
+                            if a research paper is approved the author of that research paper must pay to present the paper at Conference and
+                            if a research paper is rejected the author can make change and submit the paper again.
+                            Only PDF files will be accepted for the review process.
+                            Author List and their affiliations should be removed from the initial PDF File.
+                        </p>
                     </div>
                 </div>
                 <div>

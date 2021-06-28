@@ -172,7 +172,7 @@ class AddWorkShop extends React.Component{
                             <input type={'checkbox'} type={'checkbox'} name={'agreement'} value={true} onChange={() => this.handleCheckBox()}/>
                             <span>By clicking this checkbox i agree i'm posting my own works</span>
                         </div>
-                        <input type={'submit'} value={'Add Workshop'} onClick={event => this.submitWorkShop(event)} />
+                        <input type={'submit'} value={'Submit Workshop'} onClick={event => this.submitWorkShop(event)} />
                     </div>
                 </form>
             </div>

@@ -71,7 +71,7 @@
 
 #bigDivision{
     background: #F0F0F0;
-    height: 700px;
+    height: 920px;
 }
 
 #listBigDiv{
@@ -89,15 +89,21 @@
     font-size: 28px;
 }
 
-.topicDiv{
+#topicDiv{
     width: 65%;
     height: 300px;
-    margin-left: 260px;
+    margin-left: 200px;
     margin-top: 60px;
 }
 
+#workTopicDiv{
+    width: 65%;
+    height: 300px;
+    margin-left: 260px;
+}
+
 .topicList li{
-    font-size: 18px;
+    font-size: 17px;
     font-family: "Open Sans", sans-serif;
     line-height: 30px;
 }
@@ -114,4 +120,42 @@
     margin-left: 250px;
     margin-top: 30px;
     color: #757682;
+}
+
+#subMDiv{
+    width: 80%;
+    margin-left: 200px;
+}
+
+#subTopic{
+    display: inline-block;
+    font-size: 28px;
+    margin-left: -290px;
+    margin-top: 50px;
+    font-weight: bold;
+ }
+
+#subPara{
+    text-align: left;
+    font-family: "Cambria Math";
+    font-size: 18px;
+    line-height: 30px;
+}
+
+#paperSubDiv{
+    width: 65%;
+    height: 300px;
+    margin-left: 260px;
+    margin-top: -50px;
+}
+
+#iDateDiv{
+    width: 65%;
+    height: 300px;
+    margin-left: 200px;
+    margin-top: -30px;
+}
+
+.iDateText{
+    font-weight: bold;
 }

@@ -16,7 +16,7 @@ class Home extends React.Component{
             <div className={'wrapper'}>
                 <div className={'divImage'}></div>
                 <div className={'divText'}>International Conference on Application Frameworks</div>
-                <div className={'divText2'}>1st,2nd and 3rd July 2021</div>
+                <div className={'divText2'}>7th,8th and 9th July 2021</div>
                 <div className={'divText3'}>Sri Lanka Institute of Information Technology, Sri Lanka</div>
             </div>
 
