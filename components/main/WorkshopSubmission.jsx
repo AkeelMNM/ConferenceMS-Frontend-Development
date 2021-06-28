@@ -10,7 +10,7 @@ class WorkshopSubmission extends React.Component{
         return <div>
             <div>
                 <div className={'box'}>
-                    <label className={'custom-underline'}>Workshop Submission</label>
+                    <label className={'custom-underline'}>WORKSHOP SUBMISSION</label>
                 </div>
                 <div>
                     <div id={'workTopicDiv'}>

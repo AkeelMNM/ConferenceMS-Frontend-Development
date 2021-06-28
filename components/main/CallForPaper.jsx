@@ -10,7 +10,7 @@ class CallForPaper extends React.Component{
         return <div>
             <div id={'bigDivision'}>
                 <div className={'box'}>
-                    <label className={'custom-underline'}>Call For Paper</label>
+                    <label className={'custom-underline'}>CALL FOR PAPER</label>
                 </div>
                 <div className={'paraDiv'}>
                     <p className={'discPara'}>

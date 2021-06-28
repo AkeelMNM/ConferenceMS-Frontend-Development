@@ -10,7 +10,7 @@ class ImportantDates extends React.Component{
         return <div>
             <div>
                 <div className={'box'}>
-                    <label className={'custom-underline'}>Important Dates</label>
+                    <label className={'custom-underline'}>IMPORTANT DATES</label>
                 </div>
                 <div>
                     <div id={'iDateDiv'}>

@@ -21,7 +21,7 @@ class Home extends React.Component{
             </div>
 
             <div className={'aboutDiv'}>
-                <label id={'aboutCon'}>About the conference</label>
+                <label id={'aboutCon'}>ABOUT THE CONFERENCE</label>
                 <p id={'para'}>
                     The 3rd International conference on advancements in computing -2021 (ICAC2021) is organized by the
                     Faculty of Computing of the Sri Lanka Institute of Information Technology (SLIIT) as an open forum

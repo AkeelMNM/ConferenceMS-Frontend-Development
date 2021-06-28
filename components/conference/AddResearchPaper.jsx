@@ -47,7 +47,6 @@ class AddResearchPaper extends React.Component{
             researchPFileLocation:''
         }
 
-
         /**
          * Validating the Research Paper submission input fields
          * Displaying Error message if any input field is empty

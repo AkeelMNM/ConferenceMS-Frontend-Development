@@ -8,8 +8,20 @@ class Footer extends React.Component{
 
     render() {
         return <div>
-            <div className={'footer'}>
-                <p>This is Footer</p>
+            <div id={'footer'}>
+                    <div id={'contInfoTitle'}>
+                        <label id={'contInfoLabel'}>Contact Information</label>
+                        <hr/>
+                        <div id={'contactInfo'}>
+                            <label id={'uniTitle'}>Sri Lanka Institute of Information Technology, Sri Lanka</label><br/>
+                            <div>
+                                <label className={'footerCText'}>Email: </label><label className={'footerCTextD'}>123@gmail.com, </label>
+                                <label className={'footerCText'}>Contact Number: </label><label className={'footerCTextD'}>123456789, </label>
+                                <label className={'footerCText'}>Address: </label><label className={'footerCTextD'}>Kandy</label>
+                            </div>
+                        </div>
+                        <label id={'rightsLabel'}>&copy; 2020 SLIIT, developed by 3rd year 1st Semester Students. All Rights Reserved</label>
+                    </div>
             </div>
         </div>
     }

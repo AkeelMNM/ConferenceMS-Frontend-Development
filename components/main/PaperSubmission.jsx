@@ -10,7 +10,7 @@ class PaperSubmission extends React.Component{
         return <div>
             <div>
                 <div className={'box'}>
-                    <label className={'custom-underline'}>Research Paper Submission</label>
+                    <label className={'custom-underline'}>RESEARCH PAPER SUBMISSION</label>
                 </div>
                 <div>
                     <div id={'workTopicDiv'}>
