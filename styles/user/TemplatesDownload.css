@@ -5,28 +5,108 @@
 ************************************************************
 */
 
-.div-style-TemDow {
-    /*width: 400px;*/
-    /*padding: 10px 20px;*/
-    padding: 20px;
-    background: #f4f7f8;
-    /*margin: 165px auto 0 540px;*/
-    font-family: Georgia, "Times New Roman", Times, serif;
-    /*display: inline-block;*/
+/* --------- define custom css variables --------- */
+:root {
+    --text-black-900: #000000;
+    --text-black-700: #555555;
+    --text-black-600: #666666;
+    --outer-shadow: 3px 3px 3px #d0d0d0, -3px -3px 3px #f8f8f8;
 }
 
-.TemDow-container{
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
+
+.outer-shadow {
+    box-shadow: var(--outer-shadow);
 }
 
-.TemDow-row {
-    padding: 10px;
-}
 
-.TemDow-body {
+/* --------------------
+Templates download title section
+-------------------- */
+
+.section-title {
+    padding: 0 15px;
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+.section-title h2 {
     display: inline-block;
-    background: red;
-    padding: 10px;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-black-900);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* --------------------
+Templates download section
+-------------------- */
+
+.Templates-container {
+    max-width: 1140px;
+    margin: auto;
+}
+
+.Templates-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Templates-section{
+    padding: 80px 0 80px;
+    min-height: 100vh;
+}
+
+.Templates-section .Templates-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Templates-section .Templates-item-inner{
+    padding: 50px 15px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.Templates-section .Templates-item-inner h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-black-700);
+    margin: 0 0 10px;
+    text-transform: capitalize;
+}
+
+.Templates-section .Templates-item-inner p {
+    font-size: 16px;
+    color: var(--text-black-600);
+    margin: 0;
+    line-height: 26px;
+}
+
+/* --------------------
+Templates download button section
+-------------------- */
+
+.Download-btn {
+    width: 150px;
+    background-color: var(--btn-submit);
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 15px;
+    color: var(--bg-color-fff);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.Download-btn:hover {
+    background-color: #4d84e2;
 }

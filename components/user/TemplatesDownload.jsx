@@ -9,21 +9,31 @@ import '../../styles/user/TemplatesDownload.css';
 const files =[
     {
         name: "Photo 1",
-        thumb:
-            "https://images.unsplash.com/photo-1604263439201-171fb8c0fddc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=427&q=80 427w",
-        file:
-            "https://images.unsplash.com/photo-1604263439201-171fb8c0fddc?rnd=" +
-            Math.random(),
+        file: "International Conference on Application Frameworks 11.",
         filename: "photo-1.jpg",
 
     },
     {
         name: "Photo 2",
-        thumb:
-            "https://images.unsplash.com/photo-1604164388977-1b6250ef26f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=80 401w",
         file:
-            "https://images.unsplash.com/photo-1604164388977-1b6250ef26f3?rnd=" +
-            Math.random(),
+            "International Conference on Application Frameworks 22.",
+        filename: "photo-2.jpg",
+    },
+    {
+        name: "Photo 3",
+        file:
+            "International Conference on Application Frameworks 333.",
+        filename: "photo-2.jpg",
+    },{
+        name: "Photo 4",
+        file:
+            "International Conference on Application Frameworks 44.",
+        filename: "photo-2.jpg",
+    },
+    {
+        name: "Photo 5",
+        file:
+            "International Conference on Application Frameworks 55.",
         filename: "photo-2.jpg",
     }
 ];
@@ -35,23 +45,29 @@ class TemplatesDownload extends Component {
 
     render() {
         return <div>
-            <div className={'div-style-TemDow'}>
-                <h1> Templates download </h1>
+            <div className={"Templates-section"}>
+                <div className={"Templates-container"}>
 
-                <div className={'TemDow-container'}>
-                    {files.map((file, idx) => (
-                        <div className={'TemDow-row'}>
-                            <div className={'TemDow-body'}>
-                                {/*<img src={file.thumb} />*/}
-                                <h1> {file.filename}</h1>
-                                <h5> {file.name} </h5>
-
-                                <a> Download  </a>
-                            </div>
+                    <div className={"Templates-row"}>
+                        <div className={"section-title"}>
+                            <h2>Templates</h2>
                         </div>
-                    ))}
-                </div>
+                    </div>
 
+                    {/*Download Templates items */}
+                    <div className={"Templates-row"}>
+                        {files.map((file, idx) => (
+                            <div className={"Templates-item"}>
+                                <div className={"Templates-item-inner outer-shadow"}>
+                                    <h3> {file.name} </h3>
+                                    <p> {file.file} </p>
+                                    <button className={"Download-btn"}> Download </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                </div>
             </div>
         </div>
     }
