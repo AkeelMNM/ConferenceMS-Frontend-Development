@@ -59,28 +59,78 @@ class ResearchersPayment extends Component {
 
     render() {
         return <div className={'big-style-div'}>
-            <div className={'form-style-pay'}>
-                <form>
-                    <div>
-                        <label htmlFor={'name'}>Name</label>
-                        <input type={'text'} name={'name'} id={'name'} placeholder={'Name'} value={this.state.name}
-                               onChange={event => this.onChange(event)}/>
+            <div className={"payment-section"}>
+                <div className={"payment-container"}>
+
+                    <div className={"payment-row"}>
+                        <div className={"section-title"}>
+                            <h2>Researcher Payment</h2>
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor={'payment'}>Payment</label>
-                        <input type={'text'} name={'payment'} id={'payment'} placeholder={'Amount'} value={this.state.payment}
-                               onChange={event => this.onChange(event)}/>
+
+                    <div className={"payment-row"}>
+                        <div className={"payment-item"}>
+                            <div className={"payment-item-inner outer-shadow-payment"}>
+                                <form>
+                                    <div>
+                                        <label htmlFor={'name'}>Card Owner</label>
+                                        <input type={'text'} name={'name'} id={'name'} placeholder={'Name'} value={this.state.name}
+                                               onChange={event => this.onChange(event)}/>
+                                    </div>
+                                    <div>
+                                        <label htmlFor={'payment'}>Payment</label>
+                                        <input type={'text'} name={'payment'} id={'payment'} placeholder={'Amount'} value={this.state.payment}
+                                               onChange={event => this.onChange(event)}/>
+                                    </div>
+                                    <div>
+                                        <label htmlFor={'cardNo'}>Card Number</label>
+                                        <input type={'text'} name={'cardNo'} id={'cardNo'} placeholder={'Valid Card Number'} value={this.state.cardNo}
+                                               onChange={event => this.onChange(event)}/>
+                                    </div>
+                                    <div>
+                                        <label htmlFor={'exDate'}>Expiration Date</label>
+                                        <input type={'text'} name={'exDate'} id={'exDate'} placeholder={'MM/YY'} value={this.state.exDate}
+                                               onChange={event => this.onChange(event)}/>
+                                    </div>
+                                    <div>
+                                        <label htmlFor={'cvv'}>CVV Code</label>
+                                        <input type={'text'} name={'cvv'} id={'cvv'} placeholder={'CVV'} value={this.state.cvv}
+                                               onChange={event => this.onChange(event)}/>
+                                    </div>
+                                    <div>
+                                        <input type={'submit'} value={'Make Payment'} onClick={event => this.ResearcherPay(event)} />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor={'payDate'}>Payment Date</label>
-                        <input type={'date'} name={'payDate'} id={'payDate'} value={this.state.payDate}
-                               onChange={event => this.onChange(event)}/>
-                    </div>
-                    <div>
-                        <input type={'submit'} value={'Make Payment'} onClick={event => this.ResearcherPay(event)} />
-                    </div>
-                </form>
+                </div>
             </div>
+
+            {/*<div className={'form-style-pay'}>*/}
+            {/*    <form>*/}
+            {/*        <div>*/}
+            {/*            <label htmlFor={'name'}>Name</label>*/}
+            {/*            <input type={'text'} name={'name'} id={'name'} placeholder={'Name'} value={this.state.name}*/}
+            {/*                   onChange={event => this.onChange(event)}/>*/}
+            {/*        </div>*/}
+            {/*        <div>*/}
+            {/*            <label htmlFor={'payment'}>Payment</label>*/}
+            {/*            <input type={'text'} name={'payment'} id={'payment'} placeholder={'Amount'} value={this.state.payment}*/}
+            {/*                   onChange={event => this.onChange(event)}/>*/}
+            {/*        </div>*/}
+            {/*        <div>*/}
+            {/*            <label htmlFor={'payDate'}>Payment Date</label>*/}
+            {/*            <input type={'date'} name={'payDate'} id={'payDate'} value={this.state.payDate}*/}
+            {/*                   onChange={event => this.onChange(event)}/>*/}
+            {/*        </div>*/}
+            {/*        <div>*/}
+            {/*            <input type={'submit'} value={'Make Payment'} onClick={event => this.ResearcherPay(event)} />*/}
+            {/*        </div>*/}
+            {/*    </form>*/}
+            {/*</div>*/}
+
+
         </div>
     }
 }

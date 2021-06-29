@@ -24,7 +24,7 @@ class AttendeesPayment extends Component {
     /**
      * This function is to submit Attendees Payment proposal
      */
-    Pay(event){
+    AttendeesPay(event){
         event.preventDefault();
 
         let Payment = {
@@ -40,9 +40,6 @@ class AttendeesPayment extends Component {
             closeButton:false
         }
 
-        // The regular expression to validate the email pattern
-        const emailRegex = /\S+@\S+\.\S+/;
-
         /**
          * Validating the login account submission input fields
          * Displaying Error message if any input field is empty
@@ -53,9 +50,15 @@ class AttendeesPayment extends Component {
             toast.warning("File Amount.", options);
         }else if(Payment.cardNo === '') {
             toast.warning("File Card Number.", options);
-        }else if(validator.isCreditCard(Payment.cardNo)){
-            toast.info("File Card Number.", options);
-        }else if(emailRegex.test(Payment.email) ){
+        }else if(Payment.exDate === ''){
+            toast.warning("File Expiration date.", options);
+        }else if(Payment.cvv === ''){
+            toast.warning("File cvv.", options);
+        }
+        // else if(validator.isCreditCard(Payment.cardNo)){
+        //     toast.info("File Card Number.", options);
+        // }
+        else {
             console.log(JSON.stringify(Payment));
             AttendeesPaymentServices.makePayment(Payment)
                 .then(res => {
@@ -65,8 +68,6 @@ class AttendeesPayment extends Component {
                         toast.error("Error!! Please fill in the correct details and try again.",options);
                     }
                 })
-        }else {
-            toast.info("Please enter a valid email!", options);
         }
     }
 
@@ -77,39 +78,90 @@ class AttendeesPayment extends Component {
 
     render() {
         return <div className={'big-style-div'}>
-            <h1> Attendees Payment </h1>
-            <div className={'form-style-pay'}>
-                <form>
-                    <div>
-                        <label htmlFor={'name'}>Card Owner</label>
-                        <input type={'text'} name={'name'} id={'name'} placeholder={'Name'} value={this.state.name}
-                               onChange={event => this.onChange(event)}/>
+            <div className={"payment-section"}>
+                <div className={"payment-container"}>
+
+                    <div className={"payment-row"}>
+                        <div className={"section-title"}>
+                            <h2>Attendees Payment</h2>
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor={'payment'}>Payment</label>
-                        <input type={'text'} name={'payment'} id={'payment'} placeholder={'Amount'} value={this.state.payment}
-                               onChange={event => this.onChange(event)}/>
+
+                    <div className={"payment-row"}>
+                        <div className={"payment-item"}>
+                            <div className={"payment-item-inner outer-shadow-payment"}>
+                                <form>
+                                    <div>
+                                        <label htmlFor={'name'}>Card Owner</label>
+                                        <input type={'text'} name={'name'} id={'name'} placeholder={'Name'} value={this.state.name}
+                                               onChange={event => this.onChange(event)}/>
+                                    </div>
+                                    <div>
+                                        <label htmlFor={'payment'}>Payment</label>
+                                        <input type={'text'} name={'payment'} id={'payment'} placeholder={'Amount'} value={this.state.payment}
+                                               onChange={event => this.onChange(event)}/>
+                                    </div>
+                                    <div>
+                                        <label htmlFor={'cardNo'}>Card Number</label>
+                                        <input type={'text'} name={'cardNo'} id={'cardNo'} placeholder={'Valid Card Number'} value={this.state.cardNo}
+                                               onChange={event => this.onChange(event)}/>
+                                    </div>
+                                    <div>
+                                        <label htmlFor={'exDate'}>Expiration Date</label>
+                                        <input type={'text'} name={'exDate'} id={'exDate'} placeholder={'MM/YY'} value={this.state.exDate}
+                                               onChange={event => this.onChange(event)}/>
+                                    </div>
+                                    <div>
+                                        <label htmlFor={'cvv'}>CVV Code</label>
+                                        <input type={'text'} name={'cvv'} id={'cvv'} placeholder={'CVV'} value={this.state.cvv}
+                                               onChange={event => this.onChange(event)}/>
+                                    </div>
+                                    <div>
+                                        <input type={'submit'} value={'Make Payment'} onClick={event => this.AttendeesPay(event)} />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor={'cardNo'}>Card Number</label>
-                        <input type={'text'} name={'cardNo'} id={'cardNo'} placeholder={'Valid Card Number'} value={this.state.cardNo}
-                               onChange={event => this.onChange(event)}/>
-                    </div>
-                    <div>
-                        <label htmlFor={'exDate'}>Expiration Date</label>
-                        <input type={'text'} name={'exDate'} id={'exDate'} placeholder={'MM/YY'} value={this.state.exDate}
-                               onChange={event => this.onChange(event)}/>
-                    </div>
-                    <div>
-                        <label htmlFor={'cvv'}>CVV Code</label>
-                        <input type={'text'} name={'cvv'} id={'cvv'} placeholder={'CVV'} value={this.state.cvv}
-                               onChange={event => this.onChange(event)}/>
-                    </div>
-                    <div>
-                        <input type={'submit'} value={'Make Payment'} onClick={event => this.Pay(event)} />
-                    </div>
-                </form>
+
+                </div>
             </div>
+
+            {/*<h1> Attendees Payment </h1>*/}
+            {/*<div className={'form-style-pay'}>*/}
+            {/*    <form>*/}
+            {/*        <div>*/}
+            {/*            <label htmlFor={'name'}>Card Owner</label>*/}
+            {/*            <input type={'text'} name={'name'} id={'name'} placeholder={'Name'} value={this.state.name}*/}
+            {/*                   onChange={event => this.onChange(event)}/>*/}
+            {/*        </div>*/}
+            {/*        <div>*/}
+            {/*            <label htmlFor={'payment'}>Payment</label>*/}
+            {/*            <input type={'text'} name={'payment'} id={'payment'} placeholder={'Amount'} value={this.state.payment}*/}
+            {/*                   onChange={event => this.onChange(event)}/>*/}
+            {/*        </div>*/}
+            {/*        <div>*/}
+            {/*            <label htmlFor={'cardNo'}>Card Number</label>*/}
+            {/*            <input type={'text'} name={'cardNo'} id={'cardNo'} placeholder={'Valid Card Number'} value={this.state.cardNo}*/}
+            {/*                   onChange={event => this.onChange(event)}/>*/}
+            {/*        </div>*/}
+            {/*        <div>*/}
+            {/*            <label htmlFor={'exDate'}>Expiration Date</label>*/}
+            {/*            <input type={'text'} name={'exDate'} id={'exDate'} placeholder={'MM/YY'} value={this.state.exDate}*/}
+            {/*                   onChange={event => this.onChange(event)}/>*/}
+            {/*        </div>*/}
+            {/*        <div>*/}
+            {/*            <label htmlFor={'cvv'}>CVV Code</label>*/}
+            {/*            <input type={'text'} name={'cvv'} id={'cvv'} placeholder={'CVV'} value={this.state.cvv}*/}
+            {/*                   onChange={event => this.onChange(event)}/>*/}
+            {/*        </div>*/}
+            {/*        <div>*/}
+            {/*            <input type={'submit'} value={'Make Payment'} onClick={event => this.AttendeesPay(event)} />*/}
+            {/*        </div>*/}
+            {/*    </form>*/}
+            {/*</div>*/}
+
+
         </div>
     }
 }
