@@ -1,5 +1,5 @@
 import React from "react";
-import '../../styles/conference/WebView.css'
+import '../../styles/WebView.css'
 
 class ImportantDates extends React.Component{
     constructor(props) {

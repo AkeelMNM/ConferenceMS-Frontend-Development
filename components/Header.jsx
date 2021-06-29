@@ -6,7 +6,7 @@ class Header extends React.Component{
         super(props);
 
         this.state = {
-            type:'Attendee'
+            type:'WorkshopConductor'
         }
     }
 
@@ -198,12 +198,9 @@ class Header extends React.Component{
                         <input type={'checkbox'} id={'drop'}/>
                         <ul className={'menu'}>
                             <li><a href="#">Home</a></li>
-                            <li style={{width:"230px"}}>
-                                <a href="#">Paper Submission</a>
-                            </li>
-                            <li style={{width:"230px"}}>
-                                <a href="#">View Submissions</a>
-                            </li>
+                            <li style={{width:"230px"}}><a href="#">Paper Submission</a></li>
+                            <li style={{width:"230px"}}><a href="#">View Submissions</a></li>
+                            <li style={{width:"230px"}}><a href="#">Submissions Guidelines</a></li>
                             <li><a href="#">Contact</a></li>
                         </ul>
                     </nav>
@@ -232,6 +229,7 @@ class Header extends React.Component{
                             <li><a href="#">Home</a></li>
                             <li style={{width:"230px"}}><a href="#">Workshop Submission</a></li>
                             <li style={{width:"230px"}}><a href="#">View Submissions</a></li>
+                            <li style={{width:"230px"}}><a href="#">Submissions Guideline</a></li>
                             <li><a href="#">Contact</a></li>
                         </ul>
                     </nav>

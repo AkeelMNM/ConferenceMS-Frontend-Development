@@ -1,5 +1,5 @@
 import React from "react";
-import '../../styles/conference/WebView.css'
+import '../../styles/WebView.css'
 
 class CallForPaper extends React.Component{
     constructor(props) {
@@ -14,7 +14,7 @@ class CallForPaper extends React.Component{
                 </div>
                 <div className={'paraDiv'}>
                     <p className={'discPara'}>
-                        The 2021 International Conference on Application Frameworks (ICAF 2021) will be held in Sri Lanka from 6th to 8th July 2021.
+                        The 2021 International Conference on Application Frameworks (ICAF 2021) will be held in Sri Lanka from 7th to 9th July 2021.
                         The ICAF 2021 is themed “Latest findings and implementations of different programming languages.”
                         ICAF 2021 will include attractive workshops and programs aimed at practitioners,
                         with keynotes and panels from both local and international researchers.
