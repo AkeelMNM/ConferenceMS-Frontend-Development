@@ -1,5 +1,8 @@
 import React from "react";
-import home from 'url:../images/home.jpg'
+import BG1 from 'url:../images/BG1.jpg'
+import BG2 from 'url:../images/BG2.jpg'
+import BG3 from 'url:../images/BG3.jpg'
+import BG4 from 'url:../images/BG4.jpeg'
 import '../styles/Home.css';
 import "aos/dist/aos.css";
 import AOS from 'aos';
@@ -23,17 +26,15 @@ class Home extends React.Component{
             <div className={'aboutDiv'}>
                 <label id={'aboutCon'}>ABOUT THE CONFERENCE</label>
                 <p id={'para'}>
-                    The 3rd International conference on advancements in computing -2021 (ICAC2021) is organized by the
+                    The International conference on Application Frameworks -2021 (ICAF2021) is organized by the
                     Faculty of Computing of the Sri Lanka Institute of Information Technology (SLIIT) as an open forum
                     for academics along with industry professionals to present the latest findings and research output
-                    and practical deployments in the Computer Science and Information Technology domains.
-                    Primary objective of the ICAC is to uplift the research culture and the quality of research done by
+                    and practical deployments in the Programming Languages domains.
+                    Primary objective of the ICAF is to uplift the research culture and the quality of research done by
                     Sri Lankan researchers.
                     This conference will create a platform for national and international researchers to showcase their
                     research output, networking opportunities to discuss innovative ideas, and initiate collaborative
                     work.
-                    ICAC 2019 and ICAC 2020 were successfully conducted with a technical co-sponsorship by IEEE Sri
-                    Lanka Section and all publications are available in IEEE Xplore digital library
                 </p>
             </div>
             <div id={'cardDiv'} data-aos={'fade-up'}>
@@ -44,23 +45,22 @@ class Home extends React.Component{
                     <div id={'cardInsideDiv'}>
                         <div className={'card'} data-aos={'fade-up'}>
                             <div className={'info'}>
-                                <h1 className={'title'}>Prof. John L. Volakis</h1>
-                                <p className={'description'}>College of Engineering and Computing, Florida International
-                                    University, USA</p>
+                                <h1 className={'title'}>Prof. John Beyers</h1>
+                                <p className={'description'}>University of Maryland, Land-grant university in College Park,
+                                    Maryland</p>
                             </div>
                         </div>
-                        <div className={'card'} data-aos={'fade-up'}>
-                            <div className={'info'}>
-                                <h1 className={'title'}>Prof. John L. Volakis</h1>
-                                <p className={'description'}>College of Engineering and Computing, Florida International
-                                    University, USA</p>
+                        <div className={'card2'} data-aos={'fade-up'}>
+                            <div className={'info2'}>
+                                <h1 className={'title'}>Prof. Douglas Klutz</h1>
+                                <p className={'description'}>University of Alabama,Tuscaloosa, AL 35487, United States</p>
                             </div>
                         </div>
-                        <div className={'card'} data-aos={'fade-up'}>
-                            <div className={'info'}>
-                                <h1 className={'title'}>Prof. John L. Volakis</h1>
-                                <p className={'description'}>College of Engineering and Computing, Florida International
-                                    University, USA</p>
+                        <div className={'card3'} data-aos={'fade-up'}>
+                            <div className={'info3'}>
+                                <h1 className={'title'}>Prof. Jack Epps</h1>
+                                <p className={'description'}>University of Southern California,Los Angeles,
+                                    CA 90007, United States</p>
                             </div>
                         </div>
                     </div>
@@ -78,24 +78,24 @@ class Home extends React.Component{
                     </div>
                     <div id={'venueDate'}>
                         <label className={'vNameTitle'}>DATE</label><br/>
-                        <label id={'vNameDate'}>1st - 3rd July,2021</label>
+                        <label id={'vNameDate'}>7th - 9th July,2021</label>
                     </div>
 
                 </div>
                 <div id={'imageTileDiv'} data-aos={'fade-up'}>
                     <div className={'crd crd--effect'}>
-                        <div className={'crd-img'} style={{backgroundImage: "url("+home+")"}}/>
+                        <div className={'crd-img'} style={{backgroundImage: "url("+BG1+")"}}/>
                     </div>
                     <div className={'crd crd--effect'}>
-                        <div className={'crd-img'} style={{backgroundImage:"url("+home+")"}}/>
+                        <div className={'crd-img'} style={{backgroundImage:"url("+BG2+")"}}/>
                     </div>
                 </div>
                 <div id={'imageTileDiv2'} data-aos={'fade-up'}>
                     <div className={'crd crd--effect'}>
-                        <div className={'crd-img'} style={{backgroundImage: "url("+home+")"}}/>
+                        <div className={'crd-img'} style={{backgroundImage: "url("+BG3+")"}}/>
                     </div>
                     <div className={'crd crd--effect'}>
-                        <div className={'crd-img'} style={{backgroundImage: "url("+home+")"}}/>
+                        <div className={'crd-img'} style={{backgroundImage: "url("+BG4+")"}}/>
                     </div>
                 </div>
             </div>
