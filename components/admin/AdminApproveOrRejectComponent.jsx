@@ -67,7 +67,7 @@ class AdminApproveOrRejectComponent extends Component {
             })
     }
 
-
+//Admin Reject
     rejectconference(id){
 
         let approval = {aStatus:"Rejected"}
