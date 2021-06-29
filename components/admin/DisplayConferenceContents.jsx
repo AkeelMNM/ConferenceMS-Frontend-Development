@@ -59,7 +59,6 @@ class DisplayConferenceContents extends Component {
 
     }
 
-
     render() {
         return (
             <div>
@@ -97,8 +96,6 @@ class DisplayConferenceContents extends Component {
                                         </div>
 
                                     </tr>
-
-
                             )
 
                         }
@@ -112,5 +109,4 @@ class DisplayConferenceContents extends Component {
         )
     }
 }
-
 export default DisplayConferenceContents;
