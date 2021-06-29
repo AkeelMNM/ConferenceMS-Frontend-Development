@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import "../../styles/user/UserProfile.css";
 import UserServices from "../../services/UserServices";
+import {toast} from "react-toastify";
 
 /**
  * @author : A.M Zumry
@@ -17,11 +18,13 @@ class UserProfile extends Component {
             newType:'',
             password:'',
             rePassword:'',
-            User: [],
+
             fullName:'',
             email:'',
             type:''
         }
+        // this.CheckPassword = this.CheckPassword.bind(this);
+        // this.onChange = this.onChange.bind(this);
     }
 
     clearInputs(){
@@ -34,26 +37,84 @@ class UserProfile extends Component {
         })
     }
 
+
     /**
      * This function is to submit Researcher Payment proposal
      */
     changeUserDetails(event){
         event.preventDefault();
 
+        const userID = localStorage.getItem('_id');
 
-        let Account = {
-            fullName:this.state.newName,
-            email:this.state.NewEmail,
-            type:this.state.newType,
-            password:this.state.rePassword
+        /* configuring options to display toast message */
+        const options = {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar:true,
+            autoClose:3000,
+            closeButton:false
         }
 
-        const userID = localStorage.getItem('_id');
-        UserServices.updateUser(userID,Account)
-            .then(res =>{
-                
-            })
+        // The regular expression to validate the email pattern
+        const emailRegex= /\S+@\S+\.\S+/;
 
+        console.log('Password', this.state.password);
+        console.log('New Password', this.state.rePassword);
+
+        if(this.state.password !== null && this.state.NewEmail === '' && this.state.rePassword !== null){
+            let Pass = {
+                password:this.state.password,
+                email:this.state.email
+            }
+            UserServices.checkPassword(Pass)
+                .then(res => {
+                    if(res !== null){
+                        if(res.error !== 'Invalid Password'){
+                            let Account = {
+                                fullName:this.state.newName,
+                                email:this.state.NewEmail,
+                                type:this.state.newType,
+                                password:this.state.rePassword
+                            }
+                            UserServices.updateUser(userID,Account)
+                                .then(res => {
+                                if(res.status === 201){
+                                    toast.success("Password Change Successfully", options);
+                                    console.log(res.body);
+                                    this.clearInputs();
+                                }
+                                else {
+                                    toast.warning('Something went wrong, try again!', options);
+                                }
+                            })
+                        }else {
+                            toast.warning('Invalid Old Password, Enter correct password!', options);
+                        }
+                    }
+                })
+        }else if(this.state.NewEmail !== ''){
+            if(emailRegex.test(this.state.NewEmail)){
+                let account = {
+                    fullName:this.state.newName,
+                    email:this.state.NewEmail,
+                    type:this.state.newType,
+                    password:this.state.rePassword
+                }
+                UserServices.updateUser(userID,account)
+                    .then(res => {
+                        if (res.status === 201) {
+                            toast.success("Email Change Successfully", options);
+                            console.log(res.body);
+                            this.clearInputs();
+                        }else {
+                            toast.warning('Something went wrong, try again!', options);
+                        }
+                    })
+            }else{
+                toast.info("Please enter a valid email!", options);
+            }
+        }else{
+            toast.warning('Something went wrong, try again!', options);
+        }
     }
 
 
@@ -127,7 +188,11 @@ class UserProfile extends Component {
                                 <h1> Change Password </h1>
                                 <form>
                                     <div className={"input-Field"}>
-                                        <input type={'password'} name={'password'} id={'password'} value={this.state.password} placeholder={'Enter New Password'}
+                                        <input type={'password'} name={'password'} id={'password'} value={this.state.password} placeholder={'Enter Old Password'}
+                                               onChange={event => this.onChange(event)} />
+                                    </div>
+                                    <div className={"input-Field"}>
+                                        <input type={'password'} name={'rePassword'} id={'rePassword'} value={this.state.rePassword} placeholder={'Enter New Password'}
                                                onChange={event => this.onChange(event)}/>
                                     </div>
                                     <div>
@@ -140,42 +205,6 @@ class UserProfile extends Component {
 
                 </div>
             </div>
-
-
-
-
-            {/*<div className={'form-style-userPro'}>*/}
-            {/*    <form>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor={'newName'}>Change Username</label>*/}
-            {/*            <input type={'text'} name={'newName'} id={'newName'} value={this.state.newName} placeholder={'Enter New Username'}*/}
-            {/*                   onChange={event => this.onChange(event)}/>*/}
-
-            {/*            <input type={'submit'} value={'Change Username'} onClick={event => this.changeUserDetails(event)} />*/}
-            {/*        </div>*/}
-            {/*    </form>*/}
-            {/*    <form>*/}
-            {/*        <div>*/}
-            {/*            <br/>*/}
-            {/*            <label htmlFor={'NewEmail'}>Change Email</label>*/}
-            {/*            <input type={'text'} name={'NewEmail'} id={'NewEmail'}  value={this.state.NewEmail} placeholder={'Enter New Email'}*/}
-            {/*                   onChange={event => this.onChange(event)}/>*/}
-
-            {/*            <input type={'submit'} value={'Change Email'} onClick={event => this.changeUserDetails(event)} />*/}
-            {/*        </div>*/}
-            {/*    </form>*/}
-            {/*    <form>*/}
-            {/*        <div>*/}
-            {/*            <br/>*/}
-            {/*            <label htmlFor={'password'}>Change Password</label>*/}
-                        <input type={'password'} name={'password'} id={'password'} value={this.state.password} placeholder={'Enter New Password'}
-                               onChange={event => this.onChange(event)}/>
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <input type={'submit'} value={'Change Password'} onClick={event => this.changeUserDetails(event)} />*/}
-            {/*        </div>*/}
-            {/*    </form>*/}
-            {/*</div>*/}
 
         </div>
     }

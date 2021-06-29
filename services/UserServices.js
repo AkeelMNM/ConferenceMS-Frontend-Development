@@ -72,6 +72,25 @@ class UserServices {
         })
     }
 
+    /**
+     * this service function is to user login details submission in backend
+     */
+    async checkPassword(pass){
+        return await fetch(USER_API_BASE_URI+"/checkPassword",{
+            method: 'POST',
+            headers:{
+                'content-Type':"application/json"
+            },
+            body:JSON.stringify(pass)
+        }).then(response =>{
+            return response.json();
+        }).catch(reason => {
+            return reason;
+        })
+    }
+
+
+
 
 
 
