@@ -103,6 +103,7 @@ class WorkShopAllView extends React.Component{
                     })
                 }
             </div>
+            <div style={{height:'50px'}}></div>
         </div>
     }
 }
