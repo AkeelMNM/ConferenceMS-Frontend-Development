@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import ConferenceService from "../../Services/ConferenceService";
 import '/styles/admin/Conference.css';
-
+/*
+*  IT 19167442
+*  Author Nusky M.A.M
+* */
 class EditConferenceComponent extends Component {
     constructor(props){
         super(props)
