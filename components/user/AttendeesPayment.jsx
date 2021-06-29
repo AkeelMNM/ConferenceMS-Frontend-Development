@@ -127,41 +127,6 @@ class AttendeesPayment extends Component {
                 </div>
             </div>
 
-            {/*<h1> Attendees Payment </h1>*/}
-            {/*<div className={'form-style-pay'}>*/}
-            {/*    <form>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor={'name'}>Card Owner</label>*/}
-            {/*            <input type={'text'} name={'name'} id={'name'} placeholder={'Name'} value={this.state.name}*/}
-            {/*                   onChange={event => this.onChange(event)}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor={'payment'}>Payment</label>*/}
-            {/*            <input type={'text'} name={'payment'} id={'payment'} placeholder={'Amount'} value={this.state.payment}*/}
-            {/*                   onChange={event => this.onChange(event)}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor={'cardNo'}>Card Number</label>*/}
-            {/*            <input type={'text'} name={'cardNo'} id={'cardNo'} placeholder={'Valid Card Number'} value={this.state.cardNo}*/}
-            {/*                   onChange={event => this.onChange(event)}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor={'exDate'}>Expiration Date</label>*/}
-            {/*            <input type={'text'} name={'exDate'} id={'exDate'} placeholder={'MM/YY'} value={this.state.exDate}*/}
-            {/*                   onChange={event => this.onChange(event)}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor={'cvv'}>CVV Code</label>*/}
-            {/*            <input type={'text'} name={'cvv'} id={'cvv'} placeholder={'CVV'} value={this.state.cvv}*/}
-            {/*                   onChange={event => this.onChange(event)}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <input type={'submit'} value={'Make Payment'} onClick={event => this.AttendeesPay(event)} />*/}
-            {/*        </div>*/}
-            {/*    </form>*/}
-            {/*</div>*/}
-
-
         </div>
     }
 }
