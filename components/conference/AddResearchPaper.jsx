@@ -124,6 +124,7 @@ class AddResearchPaper extends React.Component{
                         <label htmlFor={'file'}>Upload Research Paper</label>
                         <input type={'file'} name={'file'} id={'file'}
                                 onChange={event => this.handleFileInput(event)} />
+                        <label style={{color:'red',marginTop:'-20px',marginBottom:'20px'}}>*Only pdf is allowed to upload.</label>
                     </div>
                     <div>
                         <div id={'checkB'}>

@@ -27,7 +27,6 @@ class AddWorkShop extends React.Component{
             email:'',
             affiliation:'',
             contactNo:'',
-            conductorNames:'',
             file:[],
             names:[],
 
@@ -48,7 +47,7 @@ class AddWorkShop extends React.Component{
             affiliation:this.state.affiliation,
             contactNo:this.state.contactNo,
             conductorNames:this.state.names,
-            file:'',
+            fileLocation:'',
         }
 
         /**
@@ -74,7 +73,7 @@ class AddWorkShop extends React.Component{
         }else{
             FileUploadService.FileUploads(this.state.file)
                 .then(response =>{
-                    WorkShop.file = response.url
+                    WorkShop.fileLocation = response.url
                     WorkShopServices.submitWorkShop(WorkShop)
                         .then(res => {
                             if(res.status === 200){
@@ -84,7 +83,6 @@ class AddWorkShop extends React.Component{
                             }
                     })
                 })
-
         }
     }
 
@@ -144,7 +142,7 @@ class AddWorkShop extends React.Component{
                     </div>
                     <div>
                         <label htmlFor={'affiliation'}>Affiliation</label>
-                        <input type={'text'} name={'affiliation'} id={'affiliation'} placeholder={'Ex : University Name'} value={this.state.affiliation}
+                        <input type={'text'} name={'affiliation'} id={'affiliation'} value={this.state.affiliation}
                                required onChange={event => this.onChange(event)} />
                     </div>
                     <div>
@@ -170,6 +168,7 @@ class AddWorkShop extends React.Component{
                         <label htmlFor={'file'}>Upload Workshop Proposal Document</label>
                         <input type={'file'} name={'file'} id={'file'}
                                onChange={event => this.handleFileInput(event)} />
+                        <label style={{color:'red',marginTop:'-20px',marginBottom:'20px'}}>*Only pdf is allowed to upload.</label>
                     </div>
                     <div>
                         <div id={'checkB'}>

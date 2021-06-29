@@ -45,7 +45,7 @@
     padding: 20px;
     background: #f2f2f2;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    margin: 15px auto 10px;
+    margin: 0 auto 10px;
     font-family: Georgia, "Times New Roman", Times, serif;
 }
 .form-style-upRemResWork fieldset{
@@ -103,8 +103,7 @@
     border-radius: 15px 15px 15px 0px;
 }
 
-.form-style-upRemResWork input[type="submit"],
-.form-style-upRemResWork input[type="button"]
+.form-style-upRemResWork input[type="submit"]
 {
     position: relative;
     display: block;
@@ -120,6 +119,23 @@
     border-radius: 3px;
     margin: -6px 275px 15px;
 }
+
+
+.form-style-upRemResWork input[type="button"] {
+    position: relative;
+    display: block;
+    padding: 6px 6px 6px 6px;
+    color: #FFF;
+    background: #6dabe4;
+    font-size: 16px;
+    font-style: normal;
+    width: 25%;
+    border: 1px solid #62a1e0;
+    border-width: 1px 1px 3px;
+    border-radius: 3px;
+    margin-top: -5px;
+}
+
 .form-style-upRemResWork input[type="submit"]:hover,
 .form-style-upRemResWork input[type="button"]:hover
 {
@@ -130,3 +146,60 @@
   ************************************************************************************
  */
 
+/* *---------------------------  Title Styling ----------------------------------------* */
+
+.box {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.custom-underline {
+    position: relative;
+    display: inline-block;
+    font-size: 28px !important;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+}
+
+.normal-underline:hover {
+    color: #444;
+    text-decoration: underline;
+}
+
+.custom-underline,
+.custom-underline:hover,
+.custom-underline:focus,
+.custom-underline:active {
+    color: black;
+    text-decoration: none;
+}
+
+.custom-underline::after {
+    content: "";
+    position: absolute;
+}
+
+.box{
+    height:125px;
+    display: inline-block;
+    margin:30px 0 0 0px;
+    text-align: center;
+}
+
+.box .custom-underline::after {
+    top: 65%;
+    height: 2px !important;
+    width: 40%;
+    left: 31%;
+    margin-top: 20px;
+    background-color: black;
+    transition: 0.4s ease-out all .1s;
+}
+
+.box:hover .custom-underline::after {
+    width: 90%;
+    left: 5%;
+    transition: 0.5s ease all;
+}

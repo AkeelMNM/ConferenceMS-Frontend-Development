@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import '../../styles/conference/upRemRes&Work.css'
 import {toast} from "react-toastify";
 import WorkShopServices from "../../services/WorkShopServices";
+import FileUploadService from "../../services/FileUploadService";
 
 /**
  * @author : M.N.M Akeel
@@ -22,12 +23,20 @@ class UpdateRemoveWorkshop extends React.Component{
         super(props);
         this.state ={
             wsID:this.props.match.params.id,
+            userID:'',
             presenterName:'',
             workShopTitle:'',
             email:'',
             affiliation:'',
             contactNo:'',
-            file:''
+            conductorNames:'',
+            file:[],
+            names:[],
+
+
+            agreement:false,
+            oldFileLocation:'',
+            oldNames:[]
         }
     }
 
@@ -43,7 +52,11 @@ class UpdateRemoveWorkshop extends React.Component{
                     workShopTitle:res.workShopTitle,
                     email:res.email,
                     affiliation:res.affiliation,
-                    contactNo:res.contactNumber
+                    contactNo:res.contactNumber,
+                    userID:res.userID,
+                    oldFileLocation:res.fileLocation,
+                    oldNames:res.conductorNames
+
                 })
             })
             .catch(err => console.error(err));
@@ -56,11 +69,13 @@ class UpdateRemoveWorkshop extends React.Component{
         event.preventDefault();
 
         let WorkShop = {
+            userID:this.state.userID,
             presenterName:this.state.presenterName,
             workShopTitle:this.state.workShopTitle,
             email:this.state.email,
             affiliation:this.state.affiliation,
             contactNumber:this.state.contactNo,
+            conductorNames:this.state.names,
             fileLocation:''
         }
 
@@ -78,17 +93,38 @@ class UpdateRemoveWorkshop extends React.Component{
             toast.warning("Add Affiliation!!", options)
         }else if (WorkShop.contactNo === ''){
             toast.warning("Add Contact Number!!", options)
-        }else if (WorkShop.file === ''){
-            toast.warning("Attach Proposal Document!!", options)
+        }else if (this.state.agreement === false){
+            toast.warning("Please Agree to Terms&Conditions.", options)
         }else{
-            WorkShopServices.updateWorkShop(this.state.wsID,WorkShop)
-                .then(res => {
-                    if(res.status === 200){
-                        toast.success("WorkShop Proposal Updated Successfully",options)
-                    }else{
-                        toast.error("Something went wrong!!,Try again.",options)
-                    }
-                })
+
+            if(WorkShop.conductorNames.length === 0){
+                WorkShop.conductorNames = [...this.state.oldNames]
+            }
+
+            if(this.state.file.length !== 0){
+                FileUploadService.FileUploads(this.state.file)
+                    .then(response =>{
+                        WorkShop.fileLocation = response.url
+                        WorkShopServices.submitWorkShop(WorkShop)
+                            .then(res => {
+                                if(res.status === 200){
+                                    toast.success("Workshop Proposal Updated Successfully",options)
+                                }else{
+                                    toast.error("Something went wrong!! Try again.",options)
+                                }
+                            })
+                    })
+            }else{
+                WorkShop.fileLocation = this.state.oldFileLocation
+                WorkShopServices.updateWorkShop(this.state.wsID,WorkShop)
+                    .then(res => {
+                        if(res.status === 200){
+                            toast.success("WorkShop Proposal Updated Successfully",options)
+                        }else{
+                            toast.error("Something went wrong!!,Try again.",options)
+                        }
+                    })
+            }
         }
     }
 
@@ -112,9 +148,42 @@ class UpdateRemoveWorkshop extends React.Component{
         this.setState({ [name] : value });
     }
 
+    handleFileInput(event){
+        const file = event.target.files;
+        this.setState({ file :file[0]});
+    }
+
+    handleCheckBox(){
+        if(this.state.agreement === false){
+            this.setState({agreement:true})
+        }else{
+            this.setState({agreement:false})
+        }
+    }
+
+    handleChangeOnNames(i, event) {
+        let names = [...this.state.names];
+        names[i] = event.target.value;
+        this.setState({ names });
+    }
+
+    addClick(){
+        this.setState(prevState => ({ names: [...prevState.names, '']}))
+    }
+
+    removeClick(i){
+        let names = [...this.state.names];
+        names.splice(i,1);
+        this.setState({ names });
+    }
+
     render() {
         return <div>
-            <div><label id={'UPHeadLine'} >Update or Remove Workshop Submission</label></div>
+            <div>
+                <div className={'box'}>
+                    <label className={'custom-underline'}>Update or Remove Workshop Submission</label>
+                </div>
+            </div>
             <div className={'form-style-upRemResWork'}>
                 <form>
                     <div>
@@ -129,7 +198,7 @@ class UpdateRemoveWorkshop extends React.Component{
                     </div>
                     <div>
                         <label htmlFor={'affiliation'}>New Affiliation</label>
-                        <input type={'text'} name={'affiliation'} id={'affiliation'} placeholder={'Ex:University Name'} value={this.state.email}
+                        <input type={'text'} name={'affiliation'} id={'affiliation'} value={this.state.email}
                                onChange={event => this.onChange(event)} />
                     </div>
                     <div>
@@ -138,12 +207,31 @@ class UpdateRemoveWorkshop extends React.Component{
                                onChange={event => this.onChange(event)} />
                     </div>
                     <div>
-                        <label htmlFor={'file'}>Re-upload Workshop Proposal Document</label>
-                        <input type={'file'} name={'file'} id={'file'} value={this.state.file}
-                               onChange={event => this.onChange(event)} />
+                        <label htmlFor={'conductorNames'}>Workshop Conductors Names</label><br/>
+                        {
+                            this.state.names.map((el, i) =>
+                                <div key={i}>
+                                    <input type="text" className={'fieldSt'} placeholder={'Name'} value={el||''} onChange={this.handleChangeOnNames.bind(this, i)} />
+                                    <input type='button' className={'nameBtn'} value='-' onClick={this.removeClick.bind(this, i)}/>
+                                    <br/>
+                                </div>
+                            )
+                        }
+                        <input type='button' value='Add Names' onClick={this.addClick.bind(this)}/>
+                        <label style={{color:'red',marginTop:'10px'}}>*Ignore this field if your not going to update Workshop Conductors Names.</label>
+                        <br/>
                     </div>
                     <div>
-                        <div id={'checkB'}><input type={'checkbox'}/><span>By clicking this checkbox i agree i'm posting my own works</span></div>
+                        <label htmlFor={'file'}>Re-upload Workshop Proposal Document</label>
+                        <input type={'file'} name={'file'} id={'file'}
+                               onChange={event => this.handleFileInput(event)} />
+                        <label style={{color:'red',marginTop:'-25px'}}>*Only pdf is allowed to upload.</label>
+                        <label style={{color:'red',marginBottom:'25px'}}>*Ignore this field if your not uploading an new file.</label>
+                    </div>
+                    <div>
+                        <div id={'checkB'}><input type={'checkbox'} value={true} onChange={() => this.handleCheckBox()}/>
+                            <span>By clicking this checkbox i agree i'm posting my own works</span>
+                        </div>
                         <div id={'btnDiv'}>
                             <input type={'submit'} value={'Update Workshop Details'} onClick={event => this.updateWorkShop(event)}/>
                             <input type={'submit'} id={'btnDelete'} value={'Remove Workshop Details'}
