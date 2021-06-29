@@ -76,25 +76,31 @@ class LoginRegisterHandler extends Component {
         }else if(User.password === ''){
             toast.warning("File Password", options);
         }else if(this.state.emailRegex.test(User.email)){
-            console.log("Hello Iam else ");
-            console.log(JSON.stringify(User));
+            // console.log(JSON.stringify(User));
             UserServices.loginAccount(User)
                 .then(res =>{
                     if(res !== null){
-                        toast.success("Login Successful", options);
-                        localStorage.setItem('userToken',res.token);
-                        localStorage.setItem('_id',res.userID);
+                        if(res.error !== 'User can not access.'){
+                            toast.success("Login Successful", options);
+                            localStorage.setItem('userToken',res.token);
+                            localStorage.setItem('_id',res.userID);
+                            localStorage.setItem('type',res.type);
 
-                        if(res.type === 'Researcher'){
-                            this.props.history.push("/UserProfile")
-                        }else if(res.type === 'Workshop Conductor'){
-                            this.props.history.push("/UserProfile")
-                        }else if(res.type === 'Attendee'){
-                            this.props.history.push("/UserProfile")
-                        }else if(res.type === 'Editor'){
-                            this.props.history.push("/UserProfile")
-                        }else if(res.type === 'Reviewer'){
-                            this.props.history.push("/UserProfile")
+                            if(res.type === 'Administrator'){
+                                this.props.history.push("/UserProfile")
+                            }else if(res.type === 'Researcher'){
+                                this.props.history.push("/UserProfile")
+                            }else if(res.type === 'WorkshopConductor'){
+                                this.props.history.push("/UserProfile")
+                            }else if(res.type === 'Attendee'){
+                                this.props.history.push("/UserProfile")
+                            }else if(res.type === 'Editor'){
+                                this.props.history.push("/UserProfile")
+                            }else if(res.type === 'Reviewer'){
+                                this.props.history.push("/UserProfile")
+                            }
+                        }else{
+                            toast.error("Username or Password Incorrect.",options);
                         }
                     }else{
                         toast.error("Username or Password Incorrect.",options);
@@ -235,7 +241,7 @@ class LoginRegisterHandler extends Component {
                                 <select id={"type"} name={"type"} value={this.state.type} onChange={event => this.onChange(event)}>
                                     <option id={"SEL-opt"}>Selection</option>
                                     <option value={"Researcher"}>Researcher</option>
-                                    <option value={"Workshop Conductor"}>Workshop Conductor</option>
+                                    <option value={"WorkshopConductor"}>Workshop Conductor</option>
                                     <option value={"Attendee"}>Attendee</option>
                                 </select>
                             </div>
