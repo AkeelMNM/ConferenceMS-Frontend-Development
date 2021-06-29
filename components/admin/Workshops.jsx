@@ -21,13 +21,8 @@ class Workshops extends Component {
 
 
                 }
-
-
-
             ],
             conferences:[]
-
-
         }
         this.createconferencecontent=this.createconferencecontent.bind(this);
         this.updateconference = this.updateconference.bind(this);
@@ -118,10 +113,6 @@ class Workshops extends Component {
                                             </td>
                                         </tr>
                                         ):( <> </>)
-
-
-
-
                             )
 
                         }
@@ -135,5 +126,4 @@ class Workshops extends Component {
         )
     }
 }
-
 export default Workshops;
