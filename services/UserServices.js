@@ -7,7 +7,9 @@ const USER_API_BASE_URI = "http://localhost:3000/user";
 
 class UserServices {
 
-
+    /**
+     * this service function is to user login details submission in backend
+     */
     async loginAccount(Account){
         return await fetch(USER_API_BASE_URI+"/login",{
             method: 'POST',
@@ -52,6 +54,24 @@ class UserServices {
             return reason;
         })
     }
+
+    /**
+     *  This service function is to update stored user details proposal submission in backend
+     */
+    async updateUser(id,Account){
+        return await fetch(USER_API_BASE_URI+"/update/"+id,{
+            method:'PUT',
+            headers:{
+                'content-Type':"application/json"
+            },
+            body:JSON.stringify(Account)
+        }).then(response =>{
+            return response;
+        }).catch(reason => {
+            return reason;
+        })
+    }
+
 
 
 

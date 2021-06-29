@@ -14,15 +14,46 @@ class UserProfile extends Component {
         this.state = {
             newName:'',
             NewEmail:'',
+            newType:'',
             password:'',
             rePassword:'',
-
             User: [],
-
             fullName:'',
             email:'',
             type:''
         }
+    }
+
+    clearInputs(){
+        this.setState({
+            newName:'',
+            NewEmail:'',
+            newType:'',
+            password:'',
+            rePassword:'',
+        })
+    }
+
+    /**
+     * This function is to submit Researcher Payment proposal
+     */
+    changeUserDetails(event){
+        event.preventDefault();
+
+
+        let Account = {
+            fullName:this.state.newName,
+            email:this.state.NewEmail,
+            type:this.state.newType,
+            password:this.state.rePassword
+        }
+
+        const userID = localStorage.getItem('_id');
+        UserServices.updateUser(userID,Account)
+            .then(res =>{
+                
+            })
+
     }
 
 
@@ -30,7 +61,7 @@ class UserProfile extends Component {
      * Mounting user details proposal submission of the relevant user to view
      */
     componentDidMount() {
-        UserServices.getUserByID("60d6fce024f60e61180673ad")
+        UserServices.getUserByID(localStorage.getItem('_id'))
             .then(user => {
                 this.setState({
                     fullName: user.fullName,
@@ -47,27 +78,71 @@ class UserProfile extends Component {
 
     render() {
         return <div>
-            <div>
-                <label id={'usTitle'}>User Settings</label>
-                <table id={'tableSt'}>
-                    <thead>
-                        <tr className={'trSt'}>
-                            <th colSpan={2} className={'thSt'}>User Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr className={'trSt'}>
-                            <td className={'tdSt'}>User Name : {this.state.fullName}</td>
-                        </tr>
-                        <tr className={'trSt'}>
-                            <td className={'tdSt'}>User Email : {this.state.email}</td>
-                        </tr>
-                        <tr className={'trSt'}>
-                            <td className={'tdSt'}>User Type : {this.state.type}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div className={"profile-section"}>
+                <div className={"profile-container"}>
+
+                    <div className={"profile-row"}>
+                        <div className={"section-title"}>
+                            <h2>User Settings</h2>
+                        </div>
+                    </div>
+
+                    <div className={"profile-row"}>
+                        <div className={"profile-item"}>
+                            <div className={"profile-item-inner outer-shadow-Profile"}>
+
+                                <h1> User Details </h1>
+
+                                <div>
+                                    <label className={"la"}> Full Name :  <label className={"label"}> {this.state.fullName} </label> </label>
+                                </div>
+                                <div>
+                                    <label className={"la"}> Email Address :  <label className={"label"}> {this.state.email} </label> </label>
+                                </div>
+                                <div>
+                                    <label className={"la"}> User type :  <label className={"label"}> {this.state.type} </label> </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={"profile-row"}>
+                        <div className={"profile-change"}>
+                            <div className={"profile-item-inner outer-shadow-Profile"}>
+                                <h1> Change Email </h1>
+                                <form>
+                                    <div className={"input-Field"}>
+                                        <input type={'text'} name={'NewEmail'} id={'NewEmail'}  value={this.state.NewEmail} placeholder={'Enter New Email'}
+                                               onChange={event => this.onChange(event)}/>
+                                    </div>
+                                    <div>
+                                        <input type={'submit'} value={'Change Email'} onClick={event => this.changeUserDetails(event)} />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div className={"profile-change"}>
+                            <div className={"profile-item-inner outer-shadow-Profile"}>
+                                <h1> Change Password </h1>
+                                <form>
+                                    <div className={"input-Field"}>
+                                        <input type={'password'} name={'password'} id={'password'} value={this.state.password} placeholder={'Enter New Password'}
+                                               onChange={event => this.onChange(event)}/>
+                                    </div>
+                                    <div>
+                                        <input type={'submit'} value={'Change Password'} onClick={event => this.changeUserDetails(event)} />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
+
+
 
             {/*<div className={'form-style-userPro'}>*/}
             {/*    <form>*/}
@@ -93,8 +168,8 @@ class UserProfile extends Component {
             {/*        <div>*/}
             {/*            <br/>*/}
             {/*            <label htmlFor={'password'}>Change Password</label>*/}
-            {/*            <input type={'password'} name={'password'} id={'password'} value={this.state.password} placeholder={'Enter New Password'}*/}
-            {/*                   onChange={event => this.onChange(event)}/>*/}
+                        <input type={'password'} name={'password'} id={'password'} value={this.state.password} placeholder={'Enter New Password'}
+                               onChange={event => this.onChange(event)}/>
             {/*        </div>*/}
             {/*        <div>*/}
             {/*            <input type={'submit'} value={'Change Password'} onClick={event => this.changeUserDetails(event)} />*/}
