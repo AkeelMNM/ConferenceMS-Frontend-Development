@@ -1,8 +1,9 @@
 import React from "react";
+/*
+*  IT 19167442
+*  Author Nusky M.A.M
+* */
 import {BrowserRouter as Router,Switch, Route} from "react-router-dom";
-
-
-
 import CreateConferenceComponent from './components/admin/CreateConferenceComponent';
 import EditConferenceComponent from './components/admin/EditConferenceComponent';
 import ListConferenceComponent from './components/admin/ListConferenceComponent';
@@ -35,11 +36,6 @@ class App extends React.Component{
                 <Route  path="/display-conference/:id" component={DisplayConferenceContents}/>
                 <Route  path="/AdminDashboard/" component={AdminDashboard}/>
                 <Route  path="/go/" component={ListConferenceComponent}/>
-
-
-
-
-
 
             </Switch>
         </Router>
