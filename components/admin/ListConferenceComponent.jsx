@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import ConferenceService from "../../Services/ConferenceService";
 import '/styles/admin/Conference.css';
-
-
 /*
 *  IT 19167442
 *  Author Nusky M.A.M
 * */
-
-
 class ListConferenceComponent extends Component {
 
     constructor(props){
@@ -25,7 +21,6 @@ class ListConferenceComponent extends Component {
         this.displayconference=this.displayconference.bind(this);
         this.displayworkshops=this.displayworkshops.bind(this);
         this.AdminDashboard=this.AdminDashboard.bind(this);
-
 
     }
 
@@ -79,8 +74,6 @@ class ListConferenceComponent extends Component {
         this.props.history.push('AdminDashboard/');
 
     }
-
-
     render() {
         return (
             <div>
@@ -90,9 +83,6 @@ class ListConferenceComponent extends Component {
                     <button className="btn btn-primary" onClick={this.displayconference}>Display</button>
                     <button className="btn btn-primary" onClick={this.AdminDashboard}>Admin Dashboard</button>
                     <button className="btn btn-primary" onClick={this.approveconference}>Admin</button>
-
-
-
                 </div>
                 <br></br>
                 <div className="row">
@@ -128,10 +118,7 @@ class ListConferenceComponent extends Component {
                                         </td>
 
                                     </tr>
-
-
                             )
-
                         }
 
                         </tbody>
@@ -143,5 +130,4 @@ class ListConferenceComponent extends Component {
         )
     }
 }
-
 export default ListConferenceComponent;
