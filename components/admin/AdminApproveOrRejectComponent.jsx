@@ -137,9 +137,9 @@ class AdminApproveOrRejectComponent extends Component {
                                                     :conference.status === 'Rejected'?(<span id={'stateS'}>Rejected</span>)
                                                     :(
                                                         <div>
-                                                            <button onClick={ () => this.approvalconference(conference.id)} className="btn btn-info">Approve</button>
-                                                            <button onClick={ () => this.rejectconference(conference.id)} className="btn btn-danger">Reject</button>
-                                                            <button style={{marginLeft: "10px"}} onClick={ () => this.deleteapproval(conference.id)} className="btn btn-danger">Delete</button>
+                                                             <button onClick={ () => this.approvalconference(conference.id)} className="btn btn-info">Approve</button>
+                                                           <button onClick={ () => this.rejectconference(conference.id)} className="btn btn-danger">Reject</button>
+
                                                         </div>
                                                     )
                                             }

@@ -26,6 +26,7 @@ class App extends React.Component{
     render() {
         return <Router>
             <Switch>
+
                 <Route path ="/"  exact component ={ListConferenceComponent}/>
                 <Route path ="/add-conference/:id/:name/:title" component ={CreateConferenceComponent}/>
                 <Route path ="/view-conference/:id" component ={EditorViewConferenceComponent}/>
