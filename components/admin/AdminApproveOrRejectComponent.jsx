@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import ConferenceService from "../../Services/ConferenceService";
 import '/styles/admin/AdminApproval.css';
 
-
+/*
+*  IT 19167442
+*  Author Nusky M.A.M
+* */
 class AdminApproveOrRejectComponent extends Component {
-
-
-
     constructor(props){
         super(props)
 
@@ -14,7 +14,6 @@ class AdminApproveOrRejectComponent extends Component {
             conferences:[]
 
         }
-
 
         this.deleteapproval = this.deleteapproval.bind(this);
         this.approveconference = this.approveconference.bind(this);
@@ -28,8 +27,6 @@ class AdminApproveOrRejectComponent extends Component {
         ConferenceService.deleteconference(id).then( res => {
             this.setState({conferences: this.state.conferences.filter(conference => conference.id !== id)});
         });
-
-
     }
 
 // Approval
@@ -48,7 +45,7 @@ class AdminApproveOrRejectComponent extends Component {
     /*rejectonference(id){
         this.props.history.push(`/Reject-conference/${id}`);
     }*/
-/////////////////////////////////////////
+
     approvalconference(id){
 
         console.log(id);
@@ -92,10 +89,6 @@ class AdminApproveOrRejectComponent extends Component {
     }
 
 
-
-
-// /////////////////////////////////////
-
     componentDidMount(){
 
         ConferenceService.getConference().then((res) =>{
@@ -104,10 +97,6 @@ class AdminApproveOrRejectComponent extends Component {
         });
 
     }
-
-
-
-
 
     render() {
         return (
