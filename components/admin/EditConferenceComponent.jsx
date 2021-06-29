@@ -19,14 +19,7 @@ class EditConferenceComponent extends Component {
 
         }
 
-
-
-
-
         this.updateConference = this.updateConference.bind(this);
-
-
-
     }
 
     onChange(event){
@@ -60,17 +53,9 @@ class EditConferenceComponent extends Component {
         });
 
     }
-
-
-
-
-
     cancel(){
         this.props.history.push('/conference');
     }
-
-
-
     render() {
         return (
             <div>
@@ -114,19 +99,9 @@ class EditConferenceComponent extends Component {
 
                                     </div>
 
-
-
-
-
                                         <button className="btn btn-success" onClick = {this.updateConference}> Save </button>
                                         <button className="btn btn-danger" onClick = {this.cancel.bind(this)} style ={{marginLeft: "10px"}}> Cancel </button>
-
-
-
                                 </form>
-
-
-
                             </div>
                         </div>
 
@@ -136,7 +111,5 @@ class EditConferenceComponent extends Component {
         )
     }
 }
-
-
 
 export default EditConferenceComponent;
