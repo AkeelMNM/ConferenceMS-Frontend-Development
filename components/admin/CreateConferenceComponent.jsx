@@ -5,7 +5,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import {toast} from "react-toastify"
 toast.configure()
 
-
+/*
+*  IT 19167442
+*  Author Nusky M.A.M
+* */
 class CreateConferenceComponent extends Component {
     constructor(props){
         super(props)
