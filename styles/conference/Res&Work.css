@@ -1,7 +1,3 @@
-#CHeadLine{
-    font-size: 25px;
-    font-weight: bold;
-}
 
 #checkB{
     margin-top: 10px;
@@ -14,12 +10,12 @@
  */
 
 .form-style-resWork{
-    max-width: 550px;
+    max-width: 500px !important;
     padding: 10px 20px;
     background: #f4f7f8;
     padding: 20px;
     background: #f2f2f2;
-    margin: 15px auto 10px;
+    margin: 0 auto 10px;
     font-family: Georgia, "Times New Roman", Times, serif;
 }
 .form-style-resWork fieldset{
@@ -167,5 +163,63 @@
 /**
   ************************************************************************************
  */
+
+/* *---------------------------  Title Styling ----------------------------------------* */
+
+.box {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.custom-underline {
+    position: relative;
+    display: inline-block;
+    font-size: 28px !important;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+}
+
+.normal-underline:hover {
+    color: #444;
+    text-decoration: underline;
+}
+
+.custom-underline,
+.custom-underline:hover,
+.custom-underline:focus,
+.custom-underline:active {
+    color: black;
+    text-decoration: none;
+}
+
+.custom-underline::after {
+    content: "";
+    position: absolute;
+}
+
+.box{
+    height:125px;
+    display: inline-block;
+    margin:30px 0 0 0px;
+    text-align: center;
+}
+
+.box .custom-underline::after {
+    top: 65%;
+    height: 2px !important;
+    width: 40%;
+    left: 31%;
+    margin-top: 20px;
+    background-color: black;
+    transition: 0.4s ease-out all .1s;
+}
+
+.box:hover .custom-underline::after {
+    width: 90%;
+    left: 5%;
+    transition: 0.5s ease all;
+}
 
 

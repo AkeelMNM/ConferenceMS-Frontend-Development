@@ -125,7 +125,11 @@ class AddWorkShop extends React.Component{
 
     render() {
         return <div>
-            <div><label id={'CHeadLine'} >New Workshop Submission</label></div>
+            <div>
+                <div className={'box'}>
+                    <label className={'custom-underline'}>New Workshop Submission</label>
+                </div>
+            </div>
             <div className={'form-style-resWork'}>
                 <form>
                     <div>

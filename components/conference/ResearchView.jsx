@@ -41,7 +41,11 @@ class ResearchView extends React.Component{
 
     render() {
         return <div>
-            <div><label id={'VHeadLine'} >Research Paper Submissions</label></div>
+            <div>
+                <div className={'box'}>
+                    <label className={'custom-underline'}>Research Paper Submissions</label>
+                </div>
+            </div>
             <div>
                 {
                     this.state.researchPapers.map(research => {

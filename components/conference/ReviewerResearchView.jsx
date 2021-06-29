@@ -2,11 +2,21 @@ import React from 'react';
 import '../../styles/conference/ResWorkResearcherView.css'
 import ReviewerResearchListHolder from "./ReviewerResearchListHolder";
 import ResearchPaperServices from "../../services/ResearchPaperServices";
+import {toast} from "react-toastify";
 
 /**
  * @author : M.N.M Akeel
  * Registration Number : IT19153414
  */
+
+/* configuring options to display toast message */
+const options = {
+    position: toast.POSITION.TOP_CENTER,
+    hideProgressBar:true,
+    autoClose:6000,
+    closeButton:false,
+    className:'Toastify__toast-containerBig'
+}
 
 class ReviewerResearchView extends React.Component{
     constructor(props) {
@@ -37,24 +47,11 @@ class ReviewerResearchView extends React.Component{
             .then(response =>{
                 let researchPaper = response;
                 if(researchPaper.submissionStatus === "Approved"){
-                    /**
-                     * TODO:display the message appropriately
-                     */
-                    console.log("Approved")
+                    toast.success(`Research paper ${research.paperTitle} submission is Approved`,options)
                 }else{
-                    /**
-                     * TODO:display the message appropriately
-                     */
-                    console.log("Something went wrong, try again!!")
+                    toast.error(`Something went wrong, try again!!`,options)
                 }
-            })
-    }
-
-    /**
-     * this method is to handle if the Reviewer want to view Research paper submission
-     */
-    viewPaper(research){
-
+        })
     }
 
     /**
@@ -67,29 +64,26 @@ class ReviewerResearchView extends React.Component{
             .then(response =>{
                 let researchPaper = response;
                 if(researchPaper.submissionStatus === "Rejected"){
-                    /**
-                     * TODO:display the message appropriately
-                     */
-                    console.log("Rejected")
+                    toast.error(`Research paper ${research.paperTitle} submission is Rejected`,options)
                 }else{
-                    /**
-                     * TODO:display the message appropriately
-                     */
-                    console.log("Something went wrong, try again!!")
+                    toast.warning(`Something went wrong, try again!!`,options)
                 }
             })
     }
 
     render() {
         return <div>
-            <div><label id={'RVHeadLine'} >Research Paper Submissions</label></div>
+            <div>
+                <div className={'box'}>
+                    <label className={'custom-underline'}>Research Paper Submissions</label>
+                </div>
+            </div>
             <div>
                 {
                     this.state.researchPapers.map(researchPaper =>{
                         return <ReviewerResearchListHolder key={researchPaper._id} ResearchPaper={researchPaper}
                                                            approvePaper={researchPaper => this.approvePaper(researchPaper)}
-                                                           rejectPaper={researchPaper => this.rejectPaper(researchPaper)}
-                                                           viewPaper={researchPaper => this.viewPaper(researchPaper)}/>
+                                                           rejectPaper={researchPaper => this.rejectPaper(researchPaper)}/>
                     })
                 }
             </div>

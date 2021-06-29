@@ -1,6 +1,6 @@
 import React from "react";
 import '../../styles/conference/Res&Work.css';
-import '../../styles/conference/toast.css';
+import '../../styles/toast.css';
 import 'react-toastify/dist/ReactToastify.css';
 import {toast} from "react-toastify";
 import ResearchPaperService from "../../services/ResearchPaperServices";
@@ -98,7 +98,11 @@ class AddResearchPaper extends React.Component{
 
     render() {
         return <div>
-            <div><label id={'CHeadLine'} >New Research Paper Submission</label></div>
+            <div>
+                <div className={'box'}>
+                    <label className={'custom-underline'}>New Research Paper Submission</label>
+                </div>
+            </div>
             <div className={'form-style-resWork'}>
                 <form>
                     <div>

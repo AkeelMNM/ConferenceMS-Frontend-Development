@@ -2,13 +2,13 @@ import React from 'react';
 import '../../styles/conference/ResWorkResearcherView.css'
 
 export default function ReviewerWorkshopListHolder(props) {
-    const {Workshop, approveWorkshop, viewWorkshop,rejectWorkshop} = props;
+    const {Workshop, approveWorkshop,rejectWorkshop} = props;
 
     return <div className={'RWItem-style-view'}>
         <table>
             <thead>
             <tr>
-                <th colSpan={2}><label id={'pTitle'}>{Workshop.workshopTitle}</label></th>
+                <th colSpan={2}><label id={'pTitle'}>{Workshop.workShopTitle}</label></th>
             </tr>
             </thead>
             <tbody>
@@ -26,19 +26,24 @@ export default function ReviewerWorkshopListHolder(props) {
             </tr>
             <tr>
                 <td>Contact Number</td>
-                <td className={'resTd'}>: {Workshop.contactNo}</td>
+                <td className={'resTd'}>: {Workshop.contactNumber}</td>
             </tr>
             <tr>
                 <td>Submitted Date</td>
-                <td className={'resTd'}>: {Workshop.postingDate}</td>
+                <td className={'resTd'}>: {Workshop.submittedDate}</td>
             </tr>
             <tr>
-                <td>File</td>
-                <td className={'resTd'}>: {Workshop.file}</td>
+                <td>Conductors Names</td>
+                <td className={'resTd'}>: {
+                    Workshop.conductorNames.map(names =>{
+                            return names+", "
+                        }
+                    )
+                }</td>
             </tr>
             <tr>
                 <td colSpan={2}>
-                    <button className={'btnView'} onClick={() => viewWorkshop(Workshop)}>View Proposal Document</button>
+                    <a className={'btnView'} href={Workshop.fileLocation}>View Proposal Document</a>
                 </td>
             </tr>
             <tr>

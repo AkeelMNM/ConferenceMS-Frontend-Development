@@ -2,7 +2,7 @@ import React from "react";
 import '../../styles/conference/ResWorkResearcherView.css'
 
 export default function ReviewerResearchListHolder(props){
-    const {ResearchPaper, approvePaper,viewPaper,rejectPaper} = props;
+    const {ResearchPaper, approvePaper,rejectPaper} = props;
 
     return <div className={'RWItem-style-view'}>
         <table>
@@ -25,12 +25,8 @@ export default function ReviewerResearchListHolder(props){
                 <td className={'resTd'}>: {ResearchPaper.submittedDate}</td>
             </tr>
             <tr>
-                <td>File</td>
-                <td className={'resTd'}>: {ResearchPaper.file}</td>
-            </tr>
-            <tr>
                 <td colSpan={2}>
-                    <button className={'btnView'} onClick={() => viewPaper(ResearchPaper)}>View Research Paper</button>
+                    <a className={'btnView'} href={ResearchPaper.researchPFileLocation}>View Research Paper</a>
                 </td>
             </tr>
             <tr>

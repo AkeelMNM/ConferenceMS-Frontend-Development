@@ -41,7 +41,11 @@ class WorkShopView extends React.Component{
 
     render() {
         return <div>
-            <div><label id={'VHeadLine'} >Workshop Submissions</label></div>
+            <div>
+                <div className={'box'}>
+                    <label className={'custom-underline'}>Workshop Submissions</label>
+                </div>
+            </div>
             <div>
                 {
                     this.state.Workshops.map(workshop => {

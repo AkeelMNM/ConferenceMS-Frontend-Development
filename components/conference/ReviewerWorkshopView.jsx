@@ -2,11 +2,21 @@ import React from 'react';
 import '../../styles/conference/ResWorkResearcherView.css'
 import ReviewerWorkshopListHolder from "./ReviewerWorkshopListHolder";
 import WorkShopServices from "../../services/WorkShopServices";
+import {toast} from "react-toastify";
 
 /**
  * @author : M.N.M Akeel
  * Registration Number : IT19153414
  */
+
+/* configuring options to display toast message */
+const options = {
+    position: toast.POSITION.TOP_CENTER,
+    hideProgressBar:true,
+    autoClose:6000,
+    closeButton:false,
+    className:'Toastify__toast-containerBig'
+}
 
 class ReviewerWorkshopView extends React.Component{
     constructor(props) {
@@ -39,24 +49,11 @@ class ReviewerWorkshopView extends React.Component{
             .then(response =>{
                 let researchPaper = response;
                 if(researchPaper.submissionStatus === "Approved"){
-                    /**
-                     * TODO:display the message appropriately
-                     */
-                    console.log("Approved")
+                    toast.success(`${workshop.workShopTitle} workshop proposal is Approved`,options)
                 }else{
-                    /**
-                     * TODO:display the message appropriately
-                     */
-                    console.log("Something went wrong, try again!!")
+                    toast.error(`Something went wrong, try again!!`,options)
                 }
             })
-    }
-
-    /**
-     * this method is to handle if the Reviewer want to view Workshop proposal
-     */
-    viewWorkshop(workshop){
-
     }
 
     /**
@@ -84,14 +81,17 @@ class ReviewerWorkshopView extends React.Component{
 
     render() {
         return <div>
-            <div><label id={'RVHeadLine'} >All Proposed Workshops</label></div>
+            <div>
+                <div className={'box'}>
+                    <label className={'custom-underline'}>All Proposed Workshops</label>
+                </div>
+            </div>
             <div>
                 {
                     this.state.Workshops.map(workshop => {
                         return <ReviewerWorkshopListHolder key={workshop._id} Workshop={workshop}
                                                            approveWorkshop={workshop => this.approveWorkshop(workshop)}
-                                                           rejectWorkshop={workshop => this.rejectWorkshop(workshop)}
-                                                           viewWorkshop={workshop => this.viewWorkshop(workshop)}/>
+                                                           rejectWorkshop={workshop => this.rejectWorkshop(workshop)}/>
                     })
                 }
             </div>
