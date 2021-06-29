@@ -58,7 +58,7 @@ class TemplatesDownload extends Component {
                     <div className={"Templates-row"}>
                         {files.map((file, idx) => (
                             <div className={"Templates-item"}>
-                                <div className={"Templates-item-inner outer-shadow"}>
+                                <div className={"Templates-item-inner outer-shadow-temp"}>
                                     <h3> {file.name} </h3>
                                     <p> {file.file} </p>
                                     <button className={"Download-btn"}> Download </button>

@@ -10,12 +10,11 @@
     --text-black-900: #000000;
     --text-black-700: #555555;
     --text-black-600: #666666;
-    --outer-shadow: 3px 3px 3px #d0d0d0, -3px -3px 3px #f8f8f8;
 }
 
 
-.outer-shadow {
-    box-shadow: var(--outer-shadow);
+.outer-shadow-temp {
+    box-shadow: 3px 3px 3px #d0d0d0, -3px -3px 3px #f8f8f8;
 }
 
 
