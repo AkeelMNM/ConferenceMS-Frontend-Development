@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import '/styles/admin/AdminDashboard.css';
-import AdminHeader from "./AdminHeader";
-import Adminfooter from "./Adminfooter";
-import AdminMenu from "./AdminMenu";
-import '/styles/admin/AdminDashboard.css';
+
 /*
 *  IT 19167442
 *  Author Nusky M.A.M

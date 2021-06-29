@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/admin/ResWorkResearcherView2.css'
+
 /*
 *  IT 19167442
 *  Author Nusky M.A.M

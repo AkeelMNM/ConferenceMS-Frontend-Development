@@ -14,7 +14,7 @@ import AdminUpdateApprovororReject from "./components/admin/AdminUpdateApprovoro
 import DisplayConferenceContents from "./components/admin/DisplayConferenceContents";
 import Workshops from "./components/admin/Workshops";
 import AdminDashboard from "./components/admin/AdminDashboard";
-import DashboardApp from "./components/admin/Dashboardapp";
+
 
 
 
