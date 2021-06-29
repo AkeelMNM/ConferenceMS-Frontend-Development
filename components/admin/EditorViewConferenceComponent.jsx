@@ -56,11 +56,6 @@ class EditorViewConferenceComponent extends Component {
                             <div> { this.state.conferences.postedDate }</div>
                         </div>
 
-
-
-
-
-
                     </div>
 
                 </div>
