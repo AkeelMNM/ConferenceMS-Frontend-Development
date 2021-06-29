@@ -72,7 +72,7 @@ class ReviewerResearchView extends React.Component{
     }
 
     render() {
-        return <div>
+        return <div id={'divisionColor'}>
             <div>
                 <div className={'box'}>
                     <label className={'custom-underline'}>Research Paper Submissions</label>
@@ -87,7 +87,7 @@ class ReviewerResearchView extends React.Component{
                     })
                 }
             </div>
-            <div style={{height:'30px'}}></div>
+            <div style={{height: '30px'}}/>
         </div>
     }
 }

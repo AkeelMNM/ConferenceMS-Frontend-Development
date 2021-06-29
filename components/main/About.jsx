@@ -1,8 +1,6 @@
 import React from "react";
 import '../../styles/WebView.css'
 import {toast} from "react-toastify";
-import FileUploadService from "../../services/FileUploadService";
-import ResearchPaperService from "../../services/ResearchPaperServices";
 
 /**
  * @author : M.N.M Akeel
@@ -62,7 +60,7 @@ class About extends React.Component{
 
     render() {
         return <div>
-            <div>
+            <div id={'divisionColor'}>
                 <div className={'box'}>
                     <label className={'custom-underline'}>CONTACT US</label>
                 </div>
@@ -103,7 +101,8 @@ class About extends React.Component{
                         </div>
                     </form>
                 </div>
-                <div id={'vl'}></div>
+                <div id={'vl'}/>
+                <div id={'divisionColor'} style={{height: '50px'}}/>
             </div>
         </div>
     }

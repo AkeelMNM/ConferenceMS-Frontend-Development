@@ -80,7 +80,7 @@ class ReviewerWorkshopView extends React.Component{
     }
 
     render() {
-        return <div>
+        return <div id={'divisionColor'}>
             <div>
                 <div className={'box'}>
                     <label className={'custom-underline'}>All Proposed Workshops</label>
@@ -95,7 +95,7 @@ class ReviewerWorkshopView extends React.Component{
                     })
                 }
             </div>
-            <div style={{height:'30px'}}></div>
+            <div style={{height: '30px'}}/>
         </div>
     }
 }

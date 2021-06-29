@@ -122,7 +122,7 @@ class AddWorkShop extends React.Component{
 
 
     render() {
-        return <div>
+        return <div id={'divisionColor'}>
             <div>
                 <div className={'box'}>
                     <label className={'custom-underline'}>New Workshop Submission</label>
@@ -179,7 +179,7 @@ class AddWorkShop extends React.Component{
                     </div>
                 </form>
             </div>
-            <div style={{height:'30px'}}></div>
+            <div style={{height: '30px'}}/>
         </div>
     };
 }

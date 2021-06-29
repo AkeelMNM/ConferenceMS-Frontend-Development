@@ -203,3 +203,7 @@
     left: 5%;
     transition: 0.5s ease all;
 }
+
+#divisionColor{
+    background: #F0F0F0;
+}

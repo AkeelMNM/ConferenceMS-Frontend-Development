@@ -8,7 +8,7 @@ class WorkshopSubmission extends React.Component{
 
     render() {
         return <div>
-            <div>
+            <div id={'bigDivision'}>
                 <div className={'box'}>
                     <label className={'custom-underline'}>WORKSHOP SUBMISSION</label>
                 </div>

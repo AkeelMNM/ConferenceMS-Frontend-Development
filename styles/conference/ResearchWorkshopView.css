@@ -4,8 +4,8 @@
     background: #f4f7f8;
     padding: 20px;
     background: #f2f2f2;
-    margin: 0 15px 10px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    margin: 0 15px 10px 100px;
+    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.3);
     font-family: "Raleway", sans-serif !important;
 }
 .RItem-style-view fieldset{

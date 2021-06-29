@@ -8,7 +8,7 @@ class AttendeesRegistration extends React.Component{
 
     render() {
         return <div>
-            <div>
+            <div  id={'divisionColor'} style={{height:'700px'}}>
                 <div className={'box'}>
                     <label className={'custom-underline'}>ATTENDEES REGISTRATION</label>
                 </div>

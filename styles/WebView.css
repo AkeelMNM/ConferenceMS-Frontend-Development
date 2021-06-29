@@ -74,6 +74,15 @@
     height: 950px;
 }
 
+#bigDivisionPs{
+    background: #F0F0F0;
+    height: 1000px;
+}
+
+#divisionColor{
+    background: #F0F0F0;
+}
+
 #listBigDiv{
     width: 50%;
     height: 500px;
@@ -296,7 +305,7 @@
     padding: 20px;
     background: #f2f2f2;
     margin: 0 15px 10px 300px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.3);
     font-family: "Raleway", sans-serif !important;
 }
 

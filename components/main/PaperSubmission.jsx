@@ -8,7 +8,7 @@ class PaperSubmission extends React.Component{
 
     render() {
         return <div>
-            <div>
+            <div id={'bigDivisionPs'}>
                 <div className={'box'}>
                     <label className={'custom-underline'}>RESEARCH PAPER SUBMISSION</label>
                 </div>

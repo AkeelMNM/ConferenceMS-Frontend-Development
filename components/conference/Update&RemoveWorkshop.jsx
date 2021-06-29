@@ -240,7 +240,7 @@ class UpdateRemoveWorkshop extends React.Component{
                     </div>
                 </form>
             </div>
-            <div style={{height:'30px'}}></div>
+            <div style={{height: '30px'}}/>
         </div>
     };
 }

@@ -141,7 +141,7 @@ class UpdateRemoveResearchPaper extends React.Component{
     }
 
     render() {
-        return <div>
+        return <div id={'divisionColor'}>
             <div>
                 <div className={'box'}>
                     <label className={'custom-underline'}>Update or Remove Research Paper Submission</label>
@@ -184,7 +184,7 @@ class UpdateRemoveResearchPaper extends React.Component{
                     </div>
                 </form>
             </div>
-            <div style={{height:'30px'}}></div>
+            <div style={{height: '30px'}}/>
         </div>
     };
 }

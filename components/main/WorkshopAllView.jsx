@@ -41,7 +41,7 @@ class WorkShopAllView extends React.Component{
                     _id:'C2',
                     workshopId:'2',
                     postedDate:'14-02-2021',
-                    status:'Rejected'
+                    status:'Approved'
                 }
             ],
 
@@ -90,20 +90,20 @@ class WorkShopAllView extends React.Component{
 
     render() {
         return <div>
-            <div>
+            <div id={'divisionColor'} style={{height:'auto'}}>
                 <div className={'box'}>
                     <label className={'custom-underline'}>Workshop</label>
                 </div>
+                <div>
+                    {
+                        this.state.newWorkshops.map(workshop => {
+                            console.log(workshop)
+                            return <WorkshopAllViewListHolder key={workshop._id} Workshop={workshop}/>
+                        })
+                    }
+                </div>
+                <div id={'divisionColor'} style={{height: '40px'}}/>
             </div>
-            <div>
-                {
-                    this.state.newWorkshops.map(workshop => {
-                        console.log(workshop)
-                        return <WorkshopAllViewListHolder key={workshop._id} Workshop={workshop}/>
-                    })
-                }
-            </div>
-            <div style={{height:'50px'}}></div>
         </div>
     }
 }

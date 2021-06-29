@@ -97,7 +97,7 @@ class AddResearchPaper extends React.Component{
     }
 
     render() {
-        return <div>
+        return <div id={'divisionColor'}>
             <div>
                 <div className={'box'}>
                     <label className={'custom-underline'}>New Research Paper Submission</label>
@@ -135,7 +135,7 @@ class AddResearchPaper extends React.Component{
                     </div>
                 </form>
             </div>
-            <div style={{height:'30px'}}></div>
+            <div style={{height: '30px'}}/>
         </div>
     };
 }

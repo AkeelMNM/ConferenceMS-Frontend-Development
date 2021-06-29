@@ -36,6 +36,7 @@ class Header extends React.Component{
                                 <ul>
                                     <li><a href="/callForPaper">Call For Papers</a></li>
                                     <li><a href="/paperSubmission">Submission Instructions</a></li>
+                                    <li><a href="/importantDates">ImportantDates</a></li>
                                 </ul>
 
                             </li>
@@ -148,6 +149,7 @@ class Header extends React.Component{
                                 <ul>
                                     <li><a href="/callForPaper">Call For Papers</a></li>
                                     <li><a href="/paperSubmission">Submission Instructions</a></li>
+                                    <li><a href="/importantDates">ImportantDates</a></li>
                                 </ul>
 
                             </li>
