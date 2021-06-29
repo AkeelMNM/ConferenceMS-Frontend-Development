@@ -3,6 +3,12 @@ import ConferenceService from "../../Services/ConferenceService";
 import '/styles/admin/Conference.css';
 
 
+/*
+*  IT 19167442
+*  Author Nusky M.A.M
+* */
+
+
 class ListConferenceComponent extends Component {
 
     constructor(props){
