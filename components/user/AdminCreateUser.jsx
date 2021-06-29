@@ -60,6 +60,9 @@ class AdminCreateUser extends Component {
             closeButton:false
         }
 
+        // The regular expression to validate the email pattern
+        const emailRegex= /\S+@\S+\.\S+/;
+
         /**
          * Validating the create account submission input fields
          * Displaying Error message if any input field is empty
@@ -72,8 +75,7 @@ class AdminCreateUser extends Component {
             toast.warning("Select Type", options);
         }else if(Account.password === ''){
             toast.warning("File Password", options);
-        }else {
-            // console.log(JSON.stringify(Account));
+        }else if(emailRegex.test(Account.email)){
             AdminUserServices.registerAccount(Account)
                 .then(res =>{
                     if(res.status === 201){
@@ -83,6 +85,8 @@ class AdminCreateUser extends Component {
                         toast.error("Something went wrong!!,Try again.",options);
                     }
                 })
+        }else{
+            toast.info("Please enter a valid email!", options);
         }
     }
 
