@@ -1,9 +1,7 @@
 import React from 'react';
-
 import AdminApproveOrRejectComponent from "./AdminApproveOrRejectComponent";
 import ConferenceService from "../../Services/ConferenceService";
 import '/styles/admin/AdminApproval.css';
-
 /*
 *  IT 19167442
 *  Author Nusky M.A.M
@@ -26,12 +24,10 @@ class AdminWorkshopView extends React.Component{
             .then(Conference => {
                 this.setState({Conferences:Conference})})
             .catch(err => console.error(err));
-
-
     }
 
     /**
-     * this method is to handle if the Reviewer approve Workshop proposal
+     * this method is to handle if the Editor approve Conference proposal
      */
     approveconference(conference){
         let id = conference._id;
@@ -54,14 +50,14 @@ class AdminWorkshopView extends React.Component{
     }
 
     /**
-     * this method is to handle if the Reviewer want to view Workshop proposal
+     * this method is to handle if the Editor want to view Conference
      */
     viewconference(conference){
 
     }
 
     /**
-     * this method is to handle if the Reviewer reject Workshop proposal
+     * this method is to handle if the Editor reject Conferences
      */
     rejectconference(conference){
         let id = conference._id;
