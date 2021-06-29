@@ -1,6 +1,9 @@
 import React from 'react';
 import '../../styles/admin/editorconferenceview.css'
-
+/*
+*  IT 19167442
+*  Author Nusky M.A.M
+* */
 export default function ConferenceViewListHolder(props) {
     const {Conference, editSubmission} = props;
 
