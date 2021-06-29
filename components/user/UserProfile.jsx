@@ -65,14 +65,13 @@ class UserProfile extends Component {
                 password:this.state.password,
                 email:this.state.email
             }
+            console.log("Pass : ",Pass);
             UserServices.checkPassword(Pass)
                 .then(res => {
                     if(res !== null){
                         if(res.error !== 'Invalid Password'){
                             let Account = {
-                                fullName:this.state.newName,
                                 email:this.state.NewEmail,
-                                type:this.state.newType,
                                 password:this.state.rePassword
                             }
                             UserServices.updateUser(userID,Account)
@@ -94,9 +93,7 @@ class UserProfile extends Component {
         }else if(this.state.NewEmail !== ''){
             if(emailRegex.test(this.state.NewEmail)){
                 let account = {
-                    fullName:this.state.newName,
                     email:this.state.NewEmail,
-                    type:this.state.newType,
                     password:this.state.rePassword
                 }
                 UserServices.updateUser(userID,account)

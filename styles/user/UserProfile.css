@@ -82,14 +82,12 @@ User Profile section
      font-weight: 600;
      color: #555555;
      margin: 0 10px 10px;
-     text-transform: capitalize;
  }
 .profile-section .profile-item-inner .label {
     font-size: 18px;
     font-weight: 600;
     color: #000000;
     margin: 5px;
-    text-transform: capitalize;
 }
 .profile-section .profile-item-inner div {
     padding: 7px;
