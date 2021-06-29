@@ -29,8 +29,6 @@ class CreateConferenceComponent extends Component {
         this.changestatusHandler = this.changestatusHandler.bind(this);
         this.changepostedDateHandler = this.changepostedDateHandler.bind(this);
         this.saveConference = this.saveConference.bind(this);
-
-
     }
 
     //step 3
@@ -55,10 +53,6 @@ class CreateConferenceComponent extends Component {
     getworkshop(id){
         this.props.history.push(`/get-workshop/${id}`);
     }
-
-
-
-
     saveConference =(e)=>{
 
         e.preventDefault();

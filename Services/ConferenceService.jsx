@@ -1,5 +1,8 @@
 import axios from "axios";
-
+/*
+*  IT 19167442
+*  Author Nusky M.A.M
+* */
 const CONFERENCE_API_BASE_URI = "http://localhost:3000/Conference";
 
 class ConferenceService{
