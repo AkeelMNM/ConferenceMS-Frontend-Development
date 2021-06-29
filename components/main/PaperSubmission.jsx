@@ -51,7 +51,22 @@ class PaperSubmission extends React.Component{
                         </div>
                     </div>
                 </div>
-                <div style={{height:'50px'}}></div>
+                <div>
+                    <div id={'aFeeTopicDiv'}>
+                        <label className={'conTopic'}>Fee to Present Paper</label>
+                        <div>
+                            <div className={'listDiv'}>
+                                <ul className={'topicList'}>
+                                    <li>For the Students and IEEE Member Fee Rs.30000/=</li>
+                                    <li>For the Non Student and Non IEEE Member Fee Rs.40000/=</li>
+                                    <li>For the Students Fee Rs.35000/=</li>
+                                    <li>For the Non Student Fee Rs.40000/=</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style={{height:'20px'}}></div>
             </div>
         </div>
     }

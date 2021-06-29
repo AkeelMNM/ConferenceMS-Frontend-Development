@@ -6,7 +6,7 @@ class Header extends React.Component{
         super(props);
 
         this.state = {
-            type:'WorkshopConductor'
+            type:''
         }
     }
 
@@ -15,8 +15,8 @@ class Header extends React.Component{
             <div  id={'HeadDiv'}>
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
-                    <a href={'#'} id={'regLink'}>Registration</a>
-                    <a href={'#'} id={'logLink'}>Login</a>
+                    <a href={'/registration'} id={'regLink'}>Registration</a>
+                    <a href={'/login'} id={'logLink'}>Login</a>
                 </div>
 
             </div>
@@ -27,15 +27,15 @@ class Header extends React.Component{
                         <label htmlFor={'drop'} className={'toggle'}>Menu</label>
                         <input type={'checkbox'} id={'drop'}/>
                         <ul className={'menu'}>
-                            <li><a href="#">Home</a></li>
+                            <li><a href="/">Home</a></li>
                             <li>
                                 {/*First Tier Drop Down*/}
                                 <label htmlFor={'drop-1'} className={'toggle'}>Authors +</label>
                                 <a href="#">Authors</a>
                                 <input type={'checkbox'} id={'drop-1'}/>
                                 <ul>
-                                    <li><a href="#">Call For Papers</a></li>
-                                    <li><a href="#">Submission Instructions</a></li>
+                                    <li><a href="/callForPaper">Call For Papers</a></li>
+                                    <li><a href="/paperSubmission">Submission Instructions</a></li>
                                 </ul>
 
                             </li>
@@ -46,8 +46,8 @@ class Header extends React.Component{
                                 <a href="#">Workshop</a>
                                 <input type={'checkbox'} id={'drop-2'}/>
                                 <ul>
-                                    <li><a href="#">Workshops</a></li>
-                                    <li><a href="#">Submission Instructions</a></li>
+                                    <li><a href="/workShopAllView">Workshops</a></li>
+                                    <li><a href="/WorkshopSubmission">Submission Instructions</a></li>
                                 </ul>
                             </li>
                             <li>

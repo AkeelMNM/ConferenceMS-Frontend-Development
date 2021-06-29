@@ -184,6 +184,7 @@ class UpdateRemoveResearchPaper extends React.Component{
                     </div>
                 </form>
             </div>
+            <div style={{height:'30px'}}></div>
         </div>
     };
 }

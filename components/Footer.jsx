@@ -8,7 +8,6 @@ class Footer extends React.Component{
 
     render() {
         return <div>
-            <div style={{height:'30px'}}></div>
             <div id={'footer'}>
                     <div id={'contInfoTitle'}>
                         <label id={'contInfoLabel'}>Contact Information</label>
