@@ -32,7 +32,7 @@
 /* ---------- icon css -------- */
 
 .Login-Section {
-    margin: 0;
+    margin: -8px;
     padding: 0;
     box-sizing: border-box;
 }
@@ -41,7 +41,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-.Login-Section .container {
+.Login-Section .login-container {
     position: relative;
     width: 100%;
     background-color: var(--bg-color-fff);
@@ -172,7 +172,7 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
-.Login-Section .container:before {
+.Login-Section .login-container:before {
     content: "";
     position: absolute;
     height: 2000px;
@@ -247,45 +247,45 @@
 
 /* --------------------- ANIMATION --------------------- */
 
-.Login-Section .container.sign-up-mode:before {
+.Login-Section .login-container.sign-up-mode:before {
     transform: translate(100%, -50%);
     right: 52%;
 }
 
-.Login-Section .container.sign-up-mode .left-panel .image,
-.Login-Section .container.sign-up-mode .left-panel .content {
+.Login-Section .login-container.sign-up-mode .left-panel .image,
+.Login-Section .login-container.sign-up-mode .left-panel .content {
     transform: translateX(-800px);
 }
 
-.Login-Section .container.sign-up-mode .signin-signup {
+.Login-Section .login-container.sign-up-mode .signin-signup {
     left: 25%;
 }
 
-.Login-Section .container.sign-up-mode form.sign-up-form {
+.Login-Section .login-container.sign-up-mode form.sign-up-form {
     opacity: 1;
     z-index: 2;
 }
 
-.Login-Section .container.sign-up-mode form.sign-in-form {
+.Login-Section .login-container.sign-up-mode form.sign-in-form {
     opacity: 0;
     z-index: 1;
 }
 
-.Login-Section .container.sign-up-mode .right-panel .image,
-.Login-Section .container.sign-up-mode .right-panel .content {
+.Login-Section .login-container.sign-up-mode .right-panel .image,
+.Login-Section .login-container.sign-up-mode .right-panel .content {
     transform: translateX(0%);
 }
 
-.Login-Section .container.sign-up-mode .left-panel {
+.Login-Section .login-container.sign-up-mode .left-panel {
     pointer-events: none;
 }
 
-.Login-Section .container.sign-up-mode .right-panel {
+.Login-Section .login-container.sign-up-mode .right-panel {
     pointer-events: all;
 }
 
 @media (max-width: 870px) {
-    .Login-Section .container {
+    .Login-Section .login-container {
         min-height: 800px;
         height: 100vh;
     }
@@ -297,7 +297,7 @@
     }
 
     .Login-Section .signin-signup,
-    .Login-Section .container.sign-up-mode .signin-signup {
+    .Login-Section .login-container.sign-up-mode .signin-signup {
         left: 50%;
     }
 
@@ -349,7 +349,7 @@
         font-size: 0.7rem;
     }
 
-    .Login-Section .container:before {
+    .Login-Section .login-container:before {
         width: 1500px;
         height: 1500px;
         transform: translateX(-50%);
@@ -360,19 +360,19 @@
         transition: 2s ease-in-out;
     }
 
-    .Login-Section .container.sign-up-mode:before {
+    .Login-Section .login-container.sign-up-mode:before {
         transform: translate(-50%, 100%);
         bottom: 32%;
         right: initial;
     }
 
-    .Login-Section .container.sign-up-mode .left-panel .image,
-    .Login-Section .container.sign-up-mode .left-panel .content {
+    .Login-Section .login-container.sign-up-mode .left-panel .image,
+    .Login-Section .login-container.sign-up-mode .left-panel .content {
         transform: translateY(-300px);
     }
 
-    .Login-Section .container.sign-up-mode .right-panel .image,
-    .Login-Section .container.sign-up-mode .right-panel .content {
+    .Login-Section .login-container.sign-up-mode .right-panel .image,
+    .Login-Section .login-container.sign-up-mode .right-panel .content {
         transform: translateY(0px);
     }
 
@@ -381,7 +381,7 @@
         transform: translateY(300px);
     }
 
-    .Login-Section .container.sign-up-mode .signin-signup {
+    .Login-Section .login-container.sign-up-mode .signin-signup {
         top: 5%;
         transform: translate(-50%, 0);
     }
@@ -398,16 +398,16 @@
     .Login-Section .panel .content {
         padding: 0.5rem 1rem;
     }
-    .Login-Section .container {
+    .Login-Section .login-container {
         padding: 1.5rem;
     }
 
-    .Login-Section .container:before {
+    .Login-Section .login-container:before {
         bottom: 72%;
         left: 50%;
     }
 
-    .Login-Section .container.sign-up-mode:before {
+    .Login-Section .login-container.sign-up-mode:before {
         bottom: 28%;
         left: 50%;
     }
