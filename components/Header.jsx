@@ -15,6 +15,12 @@ class Header extends React.Component{
         }
     }
 
+
+    logout(){
+        localStorage.clear();
+        history.push('/');
+    }
+
     forGuestView(){
         return <div>
             <div  id={'HeadDiv'}>
@@ -80,7 +86,7 @@ class Header extends React.Component{
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
                     <a href={'/userProfile'} id={'regLink'}>User Profile</a>
-                    <a href={'#'} id={'logLink'}>Logout</a>
+                    <a href={'#'} id={'logLink'} onClick={this.logout()}>Logout</a>
                 </div>
 
             </div>
@@ -108,7 +114,7 @@ class Header extends React.Component{
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
                     <a href={'/userProfile'} id={'regLink'}>User Profile</a>
-                    <a href={'#'} id={'logLink'}>Login</a>
+                    <a href={'#'} id={'logLink'} onClick={this.logout()} >Logout</a>
                 </div>
             </div>
             <div>
@@ -134,7 +140,7 @@ class Header extends React.Component{
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
                     <a href={'/userProfile'} id={'regLink'}>User Profile</a>
-                    <a href={'#'} id={'logLink'}>Login</a>
+                    <a href={'#'} id={'logLink'} onClick={this.logout()} >Logout</a>
                 </div>
 
             </div>
@@ -194,7 +200,7 @@ class Header extends React.Component{
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
                     <a href={'/userProfile'} id={'regLink'}>User Profile</a>
-                    <a href={'#'} id={'logLink'}>Logout</a>
+                    <a href={'#'} id={'logLink'} onClick={this.logout()} >Logout</a>
                 </div>
 
             </div>
@@ -223,7 +229,7 @@ class Header extends React.Component{
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
                     <a href={'/userProfile'} id={'regLink'}>User Profile</a>
-                    <a href={'#'} id={'logLink'}>Logout</a>
+                    <a href={'#'} id={'logLink'} onClick={this.logout()} >Logout</a>
                 </div>
 
             </div>
