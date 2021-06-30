@@ -190,7 +190,7 @@ class LoginRegisterHandler extends Component {
     }
 
     render() {
-        return <div>
+        return <div className={"Login-Section"}>
 
             <div className={this.state.isActive===true ? "container" : "container sign-up-mode"} id={"container"}>
                 <div className={"forms-container"}>

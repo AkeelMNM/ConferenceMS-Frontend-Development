@@ -31,14 +31,13 @@
 
 /* ---------- icon css -------- */
 
-* {
+.Login-Section {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body,
-input {
+.Login-Section {
     font-family: "Poppins", sans-serif;
 }
 
