@@ -162,14 +162,16 @@ class LoginRegisterHandler extends Component {
     changeSignInForm(){
         // set state value to initialize state value
         this.setState(initialState);
-        this.setState({isActive:false})
+        this.setState({isActive:false});
+        history.push('/login');
     }
 
     // redirecting to  Sign-up page
     changeSignUpForm(){
         // set state value to initialize state value
         this.setState(initialState);
-        this.setState({isActive:true})
+        this.setState({isActive:true});
+        history.push('/login');
     }
 
     PasswordVisibility(){
