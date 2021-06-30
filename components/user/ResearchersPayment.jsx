@@ -79,13 +79,12 @@ class ResearchersPayment extends Component {
     }
 
     render() {
-        return <div className={'big-style-div'}>
-            <div className={"payment-section"}>
+        return <div className={"payment-section"}>
                 <div className={"payment-container"}>
 
                     <div className={"payment-row"}>
-                        <div className={"section-title"}>
-                            <h2>Researcher Payment</h2>
+                        <div className={"payment-section-title"}>
+                            <h2 className={"payment-custom-underline"}>Researcher Payment</h2>
                         </div>
                     </div>
 
@@ -126,7 +125,6 @@ class ResearchersPayment extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
 
         </div>
     }

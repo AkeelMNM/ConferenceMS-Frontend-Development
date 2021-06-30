@@ -78,7 +78,7 @@ class App extends React.Component{
                 <Route  path="/update-conference/:id" component={EditConferenceComponent}/>
                 <Route path="/approve-conference/:id" component={AdminApproveOrRejectComponent}/>
                 <Route  path="/display-conference/:id" component={DisplayConferenceContents}/>
-                <Route  path="/AdminDashboard/" component={AdminDashboard}/>
+                <Route  path="/adminDashboard/" component={AdminDashboard}/>
             </Switch>
             <Footer/>
         </Router>

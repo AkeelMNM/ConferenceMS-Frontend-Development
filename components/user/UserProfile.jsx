@@ -140,8 +140,8 @@ class UserProfile extends Component {
                 <div className={"profile-container"}>
 
                     <div className={"profile-row"}>
-                        <div className={"section-title"}>
-                            <h2>User Settings</h2>
+                        <div className={"profile-section-title"}>
+                            <h2 className={"profile-custom-underline"}>User Settings</h2>
                         </div>
                     </div>
 

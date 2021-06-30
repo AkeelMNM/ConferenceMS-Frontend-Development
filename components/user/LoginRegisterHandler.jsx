@@ -86,17 +86,17 @@ class LoginRegisterHandler extends Component {
                             localStorage.setItem('type',res.type);
 
                             if(res.type === 'Administrator'){
-                                this.props.history.push("/userProfile")
+                                this.props.history.push("/adminDashboard")
                             }else if(res.type === 'Researcher'){
-                                this.props.history.push("/userProfile")
+                                this.props.history.push("/")
                             }else if(res.type === 'WorkshopConductor'){
-                                this.props.history.push("/userProfile")
+                                this.props.history.push("/")
                             }else if(res.type === 'Attendee'){
-                                this.props.history.push("/userProfile")
+                                this.props.history.push("/")
                             }else if(res.type === 'Editor'){
-                                this.props.history.push("/userProfile")
+                                this.props.history.push("/")
                             }else if(res.type === 'Reviewer'){
-                                this.props.history.push("/userProfile")
+                                this.props.history.push("/")
                             }
                         }else{
                             toast.error("Username or Password Incorrect.",options);
@@ -162,14 +162,16 @@ class LoginRegisterHandler extends Component {
     changeSignInForm(){
         // set state value to initialize state value
         this.setState(initialState);
-        this.setState({isActive:false})
+        this.setState({isActive:false});
+        history.push('/login');
     }
 
     // redirecting to  Sign-up page
     changeSignUpForm(){
         // set state value to initialize state value
         this.setState(initialState);
-        this.setState({isActive:true})
+        this.setState({isActive:true});
+        history.push('/login');
     }
 
     PasswordVisibility(){

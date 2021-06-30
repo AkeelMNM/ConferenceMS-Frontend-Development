@@ -56,6 +56,20 @@ class UserServices {
     }
 
     /**
+     * this service function is to get all the user details submission of specific user ID from backEnd
+     */
+    async getAllUser(){
+        return await fetch(USER_API_BASE_URI+"/", {
+            method: 'GET',
+        }).then(response =>{
+            return response.json();
+        }).catch(reason => {
+            return reason;
+        })
+    }
+
+
+    /**
      *  This service function is to update stored user details proposal submission in backend
      */
     async updateUser(id,Account){
@@ -88,10 +102,6 @@ class UserServices {
             return reason;
         })
     }
-
-
-
-
 
 
 }

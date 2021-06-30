@@ -13,14 +13,14 @@
 /* --------------------
 User Profile title section
 -------------------- */
-.profile-row .section-title {
+.profile-row .profile-section-title {
     padding: 0 15px;
     flex: 0 0 100%;
     max-width: 100%;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
-.profile-row .section-title h2 {
+.profile-row .profile-section-title h2 {
     display: inline-block;
     font-size: 30px;
     font-weight: 700;
@@ -29,9 +29,62 @@ User Profile title section
     margin: 0;
 }
 
+.profile-section .profile-section-title {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.profile-section .profile-custom-underline {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+}
+
+.profile-custom-underline,
+.profile-custom-underline:hover,
+.profile-custom-underline:focus,
+.profile-custom-underline:active {
+    color: black;
+    text-decoration: none;
+}
+.profile-custom-underline::after {
+    content: "";
+    position: absolute;
+}
+
+.profile-section .profile-section-title{
+    height:125px;
+    display: inline-block;
+    font-size: 30px;
+    margin:30px 0 0 0px;
+    text-align: center;
+}
+
+.profile-section-title .profile-custom-underline::after {
+    top: 65%;
+    height: 2px !important;
+    width: 40%;
+    left: 31% ;
+    margin-top: 20px;
+    background-color: black;
+    transition: 0.4s ease-out all .1s;
+}
+
+.profile-section-title:hover .profile-custom-underline::after {
+    width: 90%;
+    left: 5%;
+    transition: 0.5s ease all;
+}
+
+
 /* --------------------
 User Profile section
 -------------------- */
+
 .profile-section {
     padding: 50px 0 80px;
     min-height: 100vh;
@@ -120,7 +173,7 @@ User Profile section
     background-color: #e96302;
 }
 
-.input-Field {
+.profile-section .input-Field {
     max-width: 380px;
     width: 100%;
     background-color: #cacaca;
@@ -133,7 +186,7 @@ User Profile section
     position: relative;
 }
 
-.input-Field  input {
+.profile-section .input-Field  input {
     /*font-family: Georgia, "Times New Roman", Times, serif;*/
     background: none;
     max-width: 380px;
@@ -144,3 +197,5 @@ User Profile section
     font-size: 1.1rem;
     color: #333;
 }
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

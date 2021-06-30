@@ -49,8 +49,8 @@ class TemplatesDownload extends Component {
                 <div className={"Templates-container"}>
 
                     <div className={"Templates-row"}>
-                        <div className={"section-title"}>
-                            <h2>Templates</h2>
+                        <div className={"Templates-section-title"}>
+                            <h2 className={"Templates-custom-underline"}>Templates</h2>
                         </div>
                     </div>
 
