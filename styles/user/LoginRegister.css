@@ -5,13 +5,6 @@
 ************************************************************
 */
 
-:root{
-    --btn-submit: #5995fd;
-    --bg-color-fff: #fff;
-    --bg-container: linear-gradient(358deg, #d15a08 0%, #007aff 100%);
-}
-
-
 /* ---------- icon css -------- */
 
 .Login-Section .fas {
@@ -44,7 +37,7 @@
 .Login-Section .login-container {
     position: relative;
     width: 100%;
-    background-color: var(--bg-color-fff);
+    background-color: #fff;
     min-height: 100vh;
     overflow: hidden;
 }
@@ -146,12 +139,12 @@
 
 .Login-Section .btn {
     width: 150px;
-    background-color: var(--btn-submit);
+    background-color: #5995fd;
     border: none;
     outline: none;
     height: 49px;
     border-radius: 15px;
-    color: var(--bg-color-fff);
+    color: #fff;
     text-transform: uppercase;
     font-weight: 600;
     margin: 10px 0;
@@ -180,7 +173,7 @@
     top: -10%;
     right: 48%;
     transform: translateY(-50%);
-    background-image: var(--bg-container);
+    background-image: linear-gradient(358deg, #d15a08 0%, #007aff 100%);
     /*background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%); 007aff*/
     transition: 1.8s ease-in-out;
     border-radius: 50%;
@@ -213,7 +206,7 @@
 }
 
 .Login-Section .panel .content {
-    color: var(--bg-color-fff);
+    color: #fff;
     transition: transform 0.9s ease-in-out;
     transition-delay: 0.6s;
 }
@@ -232,7 +225,7 @@
 .Login-Section .btn.transparent {
     margin: 0;
     background: none;
-    border: 2px solid var(--bg-color-fff);
+    border: 2px solid #fff;
     width: 130px;
     height: 41px;
     font-weight: 600;
