@@ -21,7 +21,7 @@ class Home extends React.Component{
     render() {
         AOS.init();
         return <div>
-            <div className={'wrapper'}>
+            <div className={'wrapperImg'}>
                 <div className={'divImage'}></div>
                 <div className={'divText'}>International Conference on Application Frameworks</div>
                 <div className={'divText2'}>7th,8th and 9th July 2021</div>

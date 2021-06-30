@@ -45,13 +45,13 @@ class App extends React.Component{
             <Header/>
             <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route exact path="/about" component={About}/>
-                <Route exact path="/callForPaper" component={CallForPaper}/>
-                <Route exact path="/importantDates" component={ImportantDates}/>
-                <Route exact path="/paperSubmission" component={PaperSubmission}/>
-                <Route exact path="/workShopAllView" component={WorkShopAllView}/>
-                <Route exact path="/workshopSubmission" component={WorkshopSubmission}/>
-                <Route exact path="/attendeesRegistration" component={AttendeesRegistration}/>
+                <Route  path="/about" component={About}/>
+                <Route  path="/callForPaper" component={CallForPaper}/>
+                <Route  path="/importantDates" component={ImportantDates}/>
+                <Route  path="/paperSubmission" component={PaperSubmission}/>
+                <Route  path="/workShopAllView" component={WorkShopAllView}/>
+                <Route  path="/workshopSubmission" component={WorkshopSubmission}/>
+                <Route  path="/attendeesRegistration" component={AttendeesRegistration}/>
 
                 <Route  path="/addResearchPaper" component={AddResearchPaper}/>
                 <Route  path="/addWorkShop" component={AddWorkShop}/>
