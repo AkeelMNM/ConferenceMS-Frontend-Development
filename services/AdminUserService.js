@@ -7,10 +7,12 @@ class AdminUserService {
      * this service function is to store user details submission in backend
      */
     async registerAccount(Account){
+        const bearer = 'Bearer ' + localStorage.getItem('userToken');
         return await fetch(ADMIN_CREATE_USER_API_BASE_URI ,{
             method:'POST',
             headers:{
-                'content-Type':"application/json"
+                'content-Type':"application/json",
+                'Authorization': bearer
             },
             body:JSON.stringify(Account)
         }).then(response =>{
