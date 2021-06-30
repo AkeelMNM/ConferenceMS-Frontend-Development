@@ -20,10 +20,15 @@ class AdminWorkshopView extends React.Component{
      * Mounting All Workshop proposal submission details to view
      */
     componentDidMount() {
-        ConferenceService.getConference()
-            .then(Conference => {
-                this.setState({Conferences:Conference})})
-            .catch(err => console.error(err));
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }else {
+            ConferenceService.getConference()
+                .then(Conference => {
+                    this.setState({Conferences: Conference})
+                })
+                .catch(err => console.error(err));
+        }
     }
 
     /**

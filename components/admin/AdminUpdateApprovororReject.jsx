@@ -18,9 +18,7 @@ class AdminUpdateApprovororReject extends Component {
             postedDate:''
 
         }
-
         this.updateConferenceApproval = this.updateConferenceApproval.bind(this);
-
     }
 
     onChange(event){
@@ -29,16 +27,21 @@ class AdminUpdateApprovororReject extends Component {
     }
 
     componentDidMount(){
-        ConferenceService.getconferenceById(this.state.id).then( (res) =>{
-            let conference = res.data;
-            this.setState({creator: conference.creator,
-                conference_title: conference.conference_title,
-                message : conference.message,
-                status: conference.status,
-                postedDate : conference.postedDate
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }else {
+            ConferenceService.getconferenceById(this.state.id).then((res) => {
+                let conference = res.data;
+                this.setState({
+                    creator: conference.creator,
+                    conference_title: conference.conference_title,
+                    message: conference.message,
+                    status: conference.status,
+                    postedDate: conference.postedDate
 
+                });
             });
-        });
+        }
     }
 
     updateConferenceApproval=(e)=>{

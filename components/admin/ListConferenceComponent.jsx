@@ -42,12 +42,13 @@ class ListConferenceComponent extends Component {
 
 
     componentDidMount(){
-
-        ConferenceService.getConference().then((res) =>{
-
-            this.setState({conferences:res});
-        });
-
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }else {
+            ConferenceService.getConference().then((res) => {
+                this.setState({conferences: res});
+            });
+        }
     }
 
     createconference(){
