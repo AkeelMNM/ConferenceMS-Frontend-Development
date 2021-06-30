@@ -1,5 +1,9 @@
 const RESEARCH_PAPER_API_BASE_URI = "http://localhost:3000/researchPaper";
 
+/**
+ * @author : M.N.M Akeel
+ * Registration Number : IT19153414
+ */
 
 class ResearchPaperServices{
 

@@ -62,6 +62,10 @@ class AddResearchPaper extends React.Component{
         }else if (this.state.agreement === false){
             toast.warning("Please Agree to Terms&Conditions.", options)
         }else{
+           /**
+            * uploading the file in to the aws cloud and storing
+            * the details in mongodb
+            */
             FileUploadService.FileUploads(this.state.file)
                 .then(response =>{
                     researchPaper.researchPFileLocation = response.url
@@ -78,16 +82,25 @@ class AddResearchPaper extends React.Component{
     }
 
 
+    /**
+     * this function is to capture data in the input fields
+     */
     onChange(event){
         const { name, value } = event.target;
         this.setState({ [name] : value });
     }
 
+    /**
+     * this function is to capture file uploaded in th input field
+     */
     handleFileInput(event){
         const file = event.target.files;
         this.setState({ file :file[0]});
     }
 
+    /**
+     * this function is check agreement checkbox is checked or not
+     */
     handleCheckBox(){
         if(this.state.agreement === false){
             this.setState({agreement:true})

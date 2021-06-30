@@ -1,6 +1,11 @@
 import React from "react";
 import '../../styles/conference/ResearchWorkshopView.css'
 
+/**
+ * @author : M.N.M Akeel
+ * Registration Number : IT19153414
+ */
+
 export default function ResearchViewListHolder(props){
     const {Research, editSubmission, researchSubPayment } = props;
 

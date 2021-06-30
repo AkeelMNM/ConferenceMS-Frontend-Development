@@ -143,16 +143,25 @@ class UpdateRemoveWorkshop extends React.Component{
             })
     }
 
+    /**
+     * this function is to capture data in the input fields
+     */
     onChange(event){
         const { name, value } = event.target;
         this.setState({ [name] : value });
     }
 
+    /**
+     * this function is to capture file uploaded in th input field
+     */
     handleFileInput(event){
         const file = event.target.files;
         this.setState({ file :file[0]});
     }
 
+    /**
+     * this function is check agreement checkbox is checked or not
+     */
     handleCheckBox(){
         if(this.state.agreement === false){
             this.setState({agreement:true})
@@ -161,16 +170,26 @@ class UpdateRemoveWorkshop extends React.Component{
         }
     }
 
+    /**
+     * this function is capture names in the dynamically
+     * populated input field and storing those names in an state array
+     */
     handleChangeOnNames(i, event) {
         let names = [...this.state.names];
         names[i] = event.target.value;
         this.setState({ names });
     }
 
+    /**
+     * this function is to dynamically create input field to add Workshop conductors names
+     */
     addClick(){
         this.setState(prevState => ({ names: [...prevState.names, '']}))
     }
 
+    /**
+     * this function is to remove dynamically created input field
+     */
     removeClick(i){
         let names = [...this.state.names];
         names.splice(i,1);

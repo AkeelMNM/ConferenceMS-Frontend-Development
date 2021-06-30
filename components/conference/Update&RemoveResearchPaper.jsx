@@ -80,6 +80,10 @@ class UpdateRemoveResearchPaper extends React.Component{
         }else if (this.state.agreement === false){
             toast.warning("Please Agree to Terms&Conditions.", options)
         }else{
+            /**
+             * if user attaching an new file we are uploading the file in aws cloud
+             * and storing in details on mongodb
+             */
             if(this.state.file.length !== 0){
                 FileUploadService.FileUploads(this.state.file)
                     .then(response =>{
@@ -93,7 +97,11 @@ class UpdateRemoveResearchPaper extends React.Component{
                                 }
                             })
                     })
-            }else{
+            }
+            /**
+             * if user not attaching an new file we are storing only the new details on mongodb
+             */
+            else{
                 researchPaper.researchPFileLocation = this.state.oldFileLocation
                 console.log(" Not inside file upload condition")
                 console.log(JSON.stringify(researchPaper));
@@ -109,6 +117,9 @@ class UpdateRemoveResearchPaper extends React.Component{
         }
     }
 
+    /**
+     * this function is to remove a Research paper submission
+     */
     removeResearchPaper(event){
         event.preventDefault()
         ResearchPaperService.removeResearchPaper(this.state.subID)
@@ -122,16 +133,25 @@ class UpdateRemoveResearchPaper extends React.Component{
             })
     }
 
+    /**
+     * this function is to capture data in the input fields
+     */
     onChange(event){
         const { name, value } = event.target;
         this.setState({ [name] : value });
     }
 
+    /**
+     * this function is to capture file uploaded in th input field
+     */
     handleFileInput(event){
         const file = event.target.files;
         this.setState({ file :file[0]});
     }
 
+    /**
+     * this function is check agreement checkbox is checked or not
+     */
     handleCheckBox(){
         if(this.state.agreement === false){
             this.setState({agreement:true})

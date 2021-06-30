@@ -66,15 +66,9 @@ class ReviewerWorkshopView extends React.Component{
             .then(response =>{
                 let researchPaper = response;
                 if(researchPaper.submissionStatus === "Rejected"){
-                    /**
-                     * TODO:display the message appropriately
-                     */
-                    console.log("Rejected")
+                    toast.error(`${workshop.workShopTitle} workshop proposal is Rejected`,options)
                 }else{
-                    /**
-                     * TODO:display the message appropriately
-                     */
-                    console.log("Something went wrong, try again!!")
+                    toast.error(`Something went wrong, try again!!`,options)
                 }
             })
     }

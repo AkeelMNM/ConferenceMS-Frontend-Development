@@ -1,5 +1,10 @@
 const FILE_UPLOAD_API_BASE_URI = "http://localhost:3000/upload";
 
+/**
+ * @author : M.N.M Akeel
+ * Registration Number : IT19153414
+ */
+
 class FileUploadService{
 
     async FileUploads(file){

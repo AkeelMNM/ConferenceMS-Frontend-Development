@@ -1,6 +1,11 @@
 import React from "react";
 import '../../styles/WebView.css'
 
+/**
+ * @author : M.N.M Akeel
+ * Registration Number : IT19153414
+ */
+
 class PaperSubmission extends React.Component{
     constructor(props) {
         super(props);
