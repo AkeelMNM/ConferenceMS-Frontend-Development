@@ -58,11 +58,6 @@
     z-index: 1;
 }
 
-#container {
-    margin: 0 auto;
-    max-width: 890px;
-}
-
 .toggle,
 [id^=drop] {
     display: none;
