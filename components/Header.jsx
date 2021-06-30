@@ -11,7 +11,7 @@ class Header extends React.Component{
         super(props);
 
         this.state = {
-            type:''
+            type:'Editor'
         }
     }
 
@@ -118,8 +118,8 @@ class Header extends React.Component{
                         <input type={'checkbox'} id={'drop'}/>
                         <ul className={'menu'}>
                             <li><a href="#">Home</a></li>
-                            <li style={{width:"250px"}}><a href="#">View Conference Contents</a></li>
-                            <li style={{width:"250px"}}><a href="#">View Approved Workshop</a></li>
+                            <li style={{width:"250px"}}><a href="#">Create Content</a></li>
+                            <li style={{width:"250px"}}><a href="#">View Contents</a></li>
                             <li><a href="#">Contact</a></li>
                         </ul>
                     </nav>
