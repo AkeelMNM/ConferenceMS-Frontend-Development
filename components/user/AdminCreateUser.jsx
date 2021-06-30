@@ -167,10 +167,9 @@ class AdminCreateUser extends Component {
 
                     <div className={"panel right-panel"}>
                         <div className={"content"}>
-                            <h3>One of us</h3>
+                            <h3>ICAF 2021</h3>
                             <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                                ex ratione. Aliquid!
+                                International Conference on Application Frameworks.
                             </p>
                             <button className={"btn transparent"} id={"sign-in-btn"} onClick={this.changeViewUsersForm.bind(this)} > View Users </button>
                         </div>
