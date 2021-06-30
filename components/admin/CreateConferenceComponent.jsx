@@ -160,13 +160,13 @@ class CreateConferenceComponent extends Component {
                                 <form>
                                     <div className="form-group">
                                         <label> Creator's  Name :</label>
-                                        <input placeholder="creator" name="creator" className="form-control"
+                                        <input disabled placeholder="creator" name="creator" className="form-control"
                                                value={this.state.creator} onChange ={this.changecreatorHandler}/>
 
                                     </div>
                                     <div className="form-group">
                                         <label> Conference Title:</label>
-                                        <input placeholder="conference_title" name="conference_title" className="form-control"
+                                        <input disabled placeholder="conference_title" name="conference_title" className="form-control"
                                                value={this.state.conference_title} onChange ={this.changeconference_titleHandler}/>
                                     </div>
                                     <div className="form-group">
@@ -177,13 +177,13 @@ class CreateConferenceComponent extends Component {
                                     </div>
                                     <div className="form-group">
                                         <label>Status :</label>
-                                        <input value="Pending"  placeholder="status" name="status" className="form-control"
+                                        <input disabled value="Pending"  placeholder="status" name="status" className="form-control"
                                               />
 
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Posted Date :</label>
+                                        <label>Conference Date & Time:</label>
                                         <input placeholder="postedDate" name="postedDate" className="form-control"
                                                value={this.state.postedDate} onChange ={this.changepostedDateHandler}/>
 
