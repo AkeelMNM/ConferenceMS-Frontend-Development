@@ -11,10 +11,12 @@ class WorkShopServices{
      *  This service function is to store Workshop proposal submission in backend
      */
     async submitWorkShop(workShop){
+        const bearer = 'Bearer ' + localStorage.getItem('userToken');
         return await fetch(WORK_SHOP_API_BASE_URI,{
             method:'POST',
             headers:{
-                'content-Type':"application/json"
+                'content-Type':"application/json",
+                'Authorization': bearer
             },
             body:JSON.stringify(workShop)
         }).then(response =>{
@@ -71,10 +73,12 @@ class WorkShopServices{
      *  This service function is to update stored Workshop proposal submission in backend
      */
     async updateWorkShop(id,workShop){
+        const bearer = 'Bearer ' + localStorage.getItem('userToken');
         return await fetch(WORK_SHOP_API_BASE_URI+"/"+id,{
             method:'PUT',
             headers:{
-                'content-Type':"application/json"
+                'content-Type':"application/json",
+                'Authorization': bearer
             },
             body:JSON.stringify(workShop)
         }).then(response =>{
@@ -88,7 +92,11 @@ class WorkShopServices{
      *  This service function is to remove stored Workshop proposal submission in backend
      */
     async removeWorkShop(id){
+        const bearer = 'Bearer ' + localStorage.getItem('userToken');
         return await fetch(WORK_SHOP_API_BASE_URI+"/"+id,{
+            headers:{
+                'Authorization': bearer
+            },
             method:'DELETE',
         }).then(response =>{
             return response;
@@ -102,10 +110,12 @@ class WorkShopServices{
      *  This service function is to approval of Workshop proposal submission
      */
     async workShopApproval(id,approval){
+        const bearer = 'Bearer ' + localStorage.getItem('userToken');
         return await fetch(WORK_SHOP_API_BASE_URI+'/approval/'+id,{
             method:'PUT',
             headers:{
-                'content-Type':"application/json"
+                'content-Type':"application/json",
+                'Authorization': bearer
             },
             body:JSON.stringify(approval)
         }).then(response =>{
