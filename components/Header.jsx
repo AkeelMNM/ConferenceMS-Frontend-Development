@@ -20,8 +20,8 @@ class Header extends React.Component{
             <div  id={'HeadDiv'}>
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
-                    <a href={'/register'} id={'regLink'}>Registration</a>
-                    <a href={'/login'} id={'logLink'}>Login</a>
+                    <a href={`/register/${false}`} id={'regLink'}>Registration</a>
+                    <a href={`/login/${true}`} id={'logLink'}>Login</a>
                 </div>
 
             </div>
@@ -264,7 +264,7 @@ class Header extends React.Component{
                     (this.forResearcherView())
                 :this.state.type === 'Administrator'?
                     (<></>)
-                :this.state.type === null ?
+                :localStorage.getItem('loginValue') === 'value' ?
                      (<></>)
                 :(this.forGuestView())
             }

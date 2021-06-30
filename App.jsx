@@ -62,8 +62,8 @@ class App extends React.Component{
                 <Route  path="/updateResearchPaper/:id" component={UpdateRemoveResearchPaper}/>
                 <Route  path="/updateWorkShop/:id" component={UpdateRemoveWorkshop}/>
 
-                <Route path="/login" component={LoginRegisterHandler}/>
-                <Route path="/register" component={LoginRegisterHandler}/>
+                <Route path="/login/:id" component={LoginRegisterHandler}/>
+                <Route path="/register/:id" component={LoginRegisterHandler}/>
                 <Route path="/userProfile" component={UserProfile} />
                 <Route path="/adminCreateUser" component={AdminCreateUser} />
                 <Route path="/researchersPayment" component={ResearchersPayment} />

@@ -18,7 +18,7 @@ class Footer extends React.Component{
     render() {
         return <div>
             {
-                this.state.type === null ?
+                localStorage.getItem('loginValue') === 'value' ?
                     (<></>)
                 :this.state.type === 'Administration'?
                     (<></>)
