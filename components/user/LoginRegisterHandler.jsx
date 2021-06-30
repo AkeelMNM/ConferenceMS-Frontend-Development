@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Cookies from 'universal-cookie/es6';
 import {Link} from "react-router-dom";
 import '../../styles/user/LoginRegister.css';
 import '../../styles/toast.css';
@@ -87,17 +86,17 @@ class LoginRegisterHandler extends Component {
                             localStorage.setItem('type',res.type);
 
                             if(res.type === 'Administrator'){
-                                this.props.history.push("/UserProfile")
+                                this.props.history.push("/userProfile")
                             }else if(res.type === 'Researcher'){
-                                this.props.history.push("/UserProfile")
+                                this.props.history.push("/userProfile")
                             }else if(res.type === 'WorkshopConductor'){
-                                this.props.history.push("/UserProfile")
+                                this.props.history.push("/userProfile")
                             }else if(res.type === 'Attendee'){
-                                this.props.history.push("/UserProfile")
+                                this.props.history.push("/userProfile")
                             }else if(res.type === 'Editor'){
-                                this.props.history.push("/UserProfile")
+                                this.props.history.push("/userProfile")
                             }else if(res.type === 'Reviewer'){
-                                this.props.history.push("/UserProfile")
+                                this.props.history.push("/userProfile")
                             }
                         }else{
                             toast.error("Username or Password Incorrect.",options);
