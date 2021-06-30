@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ConferenceService from "../../Services/ConferenceService";
-import '/styles/admin/AdminApproval.css';
+import '/styles/admin/Conference.css';
 
 /*
 *  IT 19167442
