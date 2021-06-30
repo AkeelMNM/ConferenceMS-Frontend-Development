@@ -31,11 +31,15 @@ class ReviewerWorkshopView extends React.Component{
      * Mounting All Workshop proposal submission details to view
      */
     componentDidMount() {
-        WorkShopServices.getWorkShop()
-            .then(workShop => {
-                this.setState({Workshops:workShop})})
-            .catch(err => console.error(err));
-
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }else {
+            WorkShopServices.getWorkShop()
+                .then(workShop => {
+                    this.setState({Workshops: workShop})
+                })
+                .catch(err => console.error(err));
+        }
 
     }
 
