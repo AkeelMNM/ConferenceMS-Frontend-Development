@@ -7,6 +7,7 @@ import UserProfile from "./components/user/UserProfile";
 import ResearchersPayment from "./components/user/ResearchersPayment";
 import AttendeesPayment from "./components/user/AttendeesPayment";
 import TemplatesDownload from "./components/user/TemplatesDownload";
+import AttendeesTickets from "./components/user/AttendeesTickets";
 
 class App extends React.Component{
     constructor(props) {
@@ -23,6 +24,7 @@ class App extends React.Component{
                 <Route path="/AdminCreateUser" component={AdminCreateUser} />
                 <Route path="/ResearchersPayment" component={ResearchersPayment} />
                 <Route path="/AttendeesPayment" component={AttendeesPayment} />
+                <Route path="/AttendeesTickets" component={AttendeesTickets} />
                 <Route path="/TemplatesDownload" component={TemplatesDownload} />
             </Switch>
         </Router>

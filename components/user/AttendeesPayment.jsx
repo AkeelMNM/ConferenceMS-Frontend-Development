@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {toast} from "react-toastify";
-import AttendeesPaymentServices from "../../services/AttendeesPaymentServices";
-import validator from 'validator';
+import AttendeesServices from "../../services/AttendeesServices";
 
 /**
  * @author : A.M Zumry
@@ -60,7 +59,7 @@ class AttendeesPayment extends Component {
         // }
         else {
             console.log(JSON.stringify(Payment));
-            AttendeesPaymentServices.makePayment(Payment)
+            AttendeesServices.makePayment(Payment)
                 .then(res => {
                     if(res.status === 201){
                         toast.success("Made payments successful.", options)
