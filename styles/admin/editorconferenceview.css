@@ -1,0 +1,133 @@
+.RItem-style-view{
+    max-width: 900px;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    padding: 20px;
+    background: #f2f2f2;
+    margin: 20px 15px 10px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.RItem-style-view fieldset{
+    border: none;
+}
+.RItem-style-view legend {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+.RItem-style-view label {
+    display: block;
+    margin-bottom: 8px;
+}
+.RItem-style-view input[type="text"],
+.RItem-style-view input[type="date"],
+.RItem-style-view input[type="file"],
+.RItem-style-view select {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background: #e6e6e6;
+    color: #63686e;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin: 0 0 30px;
+}
+.RItem-style-view input[type="text"]:focus,
+.RItem-style-view input[type="date"]:focus,
+.RItem-style-view input[type="file"] focus,
+.RItem-style-view select:focus{
+    background: #e6e6e6;
+}
+.RItem-style-view select{
+    -webkit-appearance: menulist-button;
+    height:35px;
+}
+.RItem-style-view .number {
+    background: #1abc9c;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    border-radius: 15px 15px 15px 0px;
+}
+
+#btnWork
+{
+    position: relative;
+    display: block;
+    padding: 9px 9px 8px 9px;
+    color: #FFF;
+    background: #ff6801;
+    font-size: 14px;
+    text-align: center;
+    font-style: normal;
+    width: 70%;
+    border: 1px solid #e96302;
+    border-width: 1px 1px 3px;
+    border-radius: 3px;
+    margin: 50px -10px -45px 85px;
+}
+
+#btnWork:hover
+{
+    background: #e96302;
+}
+
+#btnPaper
+{
+    position: relative;
+    display: block;
+    padding: 9px 9px 8px 9px;
+    color: #FFF;
+    background: #ff6801;
+    font-size: 14px;
+    text-align: center;
+    font-style: normal;
+    width: 70%;
+    border: 1px solid #e96302;
+    border-width: 1px 1px 3px;
+    border-radius: 3px;
+    margin: 40px -10px -35px 85px;
+}
+
+#btnPaper:hover
+{
+    background: #e96302;
+}
+
+.resTag{
+    width: 150px;
+    padding: 5px;
+}
+.resTd{
+    width: 500px;
+    padding: 5px;
+}
+
+#pTitle{
+    float: left;
+    font-size: 22px;
+}
+
+#VHeadLine{
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+#btnTag{
+    width: 240px;
+}
+
