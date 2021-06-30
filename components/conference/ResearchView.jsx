@@ -25,7 +25,7 @@ class ResearchView extends React.Component{
         /**
          * Change the Parameter need to get the userID from Token
          */
-        ResearchPaperServices.getResearchPaperByUser(localStorage.getItem('id'))
+        ResearchPaperServices.getResearchPaperByUser(localStorage.getItem('_id'))
             .then(researchPaper => {
                 this.setState({researchPapers:researchPaper})})
             .catch(err => console.error(err));

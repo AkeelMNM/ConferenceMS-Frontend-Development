@@ -11,7 +11,7 @@ class Header extends React.Component{
         super(props);
 
         this.state = {
-            type:''
+            type:localStorage.getItem('type')
         }
     }
 
@@ -247,6 +247,7 @@ class Header extends React.Component{
     }
 
     render() {
+        console.log("header",this.state.type)
         return <div>
             {
                 this.state.type === 'Researcher'?
@@ -259,6 +260,12 @@ class Header extends React.Component{
                     (this.forReviewerView())
                 :this.state.type === 'Attendee'?
                     (this.forAttendeeView())
+                :this.state.type === 'Researcher'?
+                    (this.forResearcherView())
+                :this.state.type === 'Administrator'?
+                    (<></>)
+                :this.state.type === null ?
+                     (<></>)
                 :(this.forGuestView())
             }
         </div>

@@ -60,15 +60,15 @@ class ResearchersPayment extends Component {
         }else if(Payment.cvv === ''){
             toast.warning("Enter Card CVV.", options);
         } else {
-            ResearchPaperServices.researchPaperPayment(localStorage.getItem('id'),Payment)
+            ResearchPaperServices.researchPaperPayment("60d5717cbcea6f2fe4fe8bc1",Payment)
                 .then(response =>{
                         if(response.paymentStatus === 'Payment paid'){
                             toast.success("Payment Process Successfully Completed.", options);
-                            this.props.history.push(`/researchView`);
                         }else{
                             toast.success("Some thing went wrong!! try again.", options);
                         }
                 })
+            this.props.history.push(`/researchView`);
         }
 
     }
