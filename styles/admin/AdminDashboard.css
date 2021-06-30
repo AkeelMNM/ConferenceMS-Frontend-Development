@@ -41,7 +41,7 @@ p {
     text-align: left;
     background-color: #fff;
 }*/
-:root {
+/*:root {
     --blue: #007bff;
     --indigo: #6610f2;
     --purple: #6f42c1;
@@ -70,7 +70,7 @@ p {
     --breakpoint-xl: 1200px;
     --font-family-sans-serif: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-}
+}*/
 /*!
  *   AdminLTE v3.1.0-rc
  *   Author: Colorlib
@@ -83,7 +83,7 @@ p {
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-:root {
+/*:root {
     --blue: #007bff;
     --indigo: #6610f2;
     --purple: #6f42c1;
@@ -112,7 +112,7 @@ p {
     --breakpoint-xl: 1200px;
     --font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
+}*/
 
 /**,
 *::before,
@@ -298,10 +298,10 @@ th {
     text-align: -webkit-match-parent;
 }
 
-label {
+/*label {
     display: inline-block;
     margin-bottom: 0.5rem;
-}
+}*/
 
 button {
     border-radius: 0;
@@ -10331,9 +10331,9 @@ a.text-dark:hover, a.text-dark:focus {
     @page {
         size: a3;
     }
-    body {
+    /*body {
         min-width: 992px !important;
-    }
+    }*/
     .container {
         min-width: 992px !important;
     }
@@ -10369,9 +10369,9 @@ a.text-dark:hover, a.text-dark:focus {
     }
 }
 
-html.scroll-smooth {
+/*html.scroll-smooth {
     scroll-behavior: smooth;
-}
+}*/
 
 html,
 body,
@@ -14368,9 +14368,9 @@ body.text-sm .control-sidebar {
     line-height: calc(1.8125rem + 2px);
 }
 
-label:not(.form-check-label):not(.custom-file-label) {
+/*label:not(.form-check-label):not(.custom-file-label) {
     font-weight: 700;
-}
+}*/
 
 .warning-feedback {
     font-size: 80%;
