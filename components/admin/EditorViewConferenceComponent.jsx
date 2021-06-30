@@ -18,10 +18,14 @@ class EditorViewConferenceComponent extends Component {
         }
     }
     componentDidMount(){
-        ConferenceService.getconferenceById(this.state.id).then( res => {
-            this.setState({conferences: res});
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }else {
+            ConferenceService.getconferenceById(this.state.id).then(res => {
+                this.setState({conferences: res});
 
-        })
+            })
+        }
     }
 
     render() {

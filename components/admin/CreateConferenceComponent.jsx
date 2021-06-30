@@ -22,7 +22,6 @@ class CreateConferenceComponent extends Component {
             postedDate:''
 
         }
-
         this.changecreatorHandler = this.changecreatorHandler.bind(this);
         this.changeconference_titleHandler = this.changeconference_titleHandler.bind(this);
         this.changemessageHandler = this.changemessageHandler.bind(this);
@@ -31,23 +30,11 @@ class CreateConferenceComponent extends Component {
         this.saveConference = this.saveConference.bind(this);
     }
 
-    //step 3
-   /* componentDidMount(){
-        if(this.state.id === '_add'){
-            return
-        }else{
-            ConferenceService.getconferenceById(this.state.id).then( (res) =>{
-                let conference = res.data;
-                this.setState({creator: conference.creator,
-                    conference_title: conference.conference_title,
-                    message : conference.message,
-                    status: conference.status,
-                    postedDate : conference.postedDate
-
-                });
-            });
+    componentDidMount() {
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
         }
-    }*/
+    }
 
 
     getworkshop(id){

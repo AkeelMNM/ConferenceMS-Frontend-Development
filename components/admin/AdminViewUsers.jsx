@@ -20,12 +20,14 @@ class AdminViewUsers extends Component {
     }
 
     componentDidMount(){
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }else {
+            UserServices.getAllUser().then((res) => {
 
-        UserServices.getAllUser().then((res) =>{
-
-            this.setState({Users:res});
-        });
-
+                this.setState({Users: res});
+            });
+        }
     }
 
     render() {

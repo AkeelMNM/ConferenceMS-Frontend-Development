@@ -31,10 +31,15 @@ class ReviewerResearchView extends React.Component{
      * Mounting All Research paper submission details to view
      */
     componentDidMount() {
-        ResearchPaperServices.getResearchPaper()
-            .then(researchPaper => {
-                this.setState({researchPapers:researchPaper})})
-            .catch(err => console.error(err));
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }else {
+            ResearchPaperServices.getResearchPaper()
+                .then(researchPaper => {
+                    this.setState({researchPapers: researchPaper})
+                })
+                .catch(err => console.error(err));
+        }
     }
 
     /**

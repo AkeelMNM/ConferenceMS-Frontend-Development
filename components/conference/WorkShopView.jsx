@@ -23,13 +23,15 @@ class WorkShopView extends React.Component{
      * Mounting Workshop proposal submission of the relevant user to view
      */
     componentDidMount() {
-        /**
-         * Change the Parameter need to get the userID from Token
-         */
-        WorkShopServices.getWorkShopByUser(localStorage.getItem('_id'))
-            .then(workShop => {
-                this.setState({Workshops:workShop})})
-            .catch(err => console.error(err));
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }else {
+            WorkShopServices.getWorkShopByUser(localStorage.getItem('_id'))
+                .then(workShop => {
+                    this.setState({Workshops: workShop})
+                })
+                .catch(err => console.error(err));
+        }
     }
     /**
      * this method is to redirect to the update page for edit Workshop proposal submission

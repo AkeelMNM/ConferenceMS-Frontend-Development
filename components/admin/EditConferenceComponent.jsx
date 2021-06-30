@@ -28,17 +28,22 @@ class EditConferenceComponent extends Component {
     }
 
     componentDidMount(){
-        ConferenceService.getconferenceById(this.state.id).then( (res) =>{
-            let conference = res;
-            console.log(conference);
-            this.setState({creator: conference.creator,
-                conference_title: conference.conference_title,
-                message : conference.message,
-                status: conference.status,
-                postedDate : conference.postedDate
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }else {
+            ConferenceService.getconferenceById(this.state.id).then((res) => {
+                let conference = res;
+                console.log(conference);
+                this.setState({
+                    creator: conference.creator,
+                    conference_title: conference.conference_title,
+                    message: conference.message,
+                    status: conference.status,
+                    postedDate: conference.postedDate
 
+                });
             });
-        });
+        }
     }
 
 

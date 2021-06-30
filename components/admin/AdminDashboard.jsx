@@ -16,9 +16,14 @@ export default class AdminDashboard extends Component {
         }
 
         this.go=this.go.bind(this);
-
-
     }
+
+    componentDidMount() {
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }
+    }
+
     go(){
         this.props.history.push('go/');
 
