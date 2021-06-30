@@ -18,14 +18,27 @@ import ImportantDates from "./components/main/ImportantDates";
 import About from "./components/main/About";
 import WorkShopAllView from "./components/main/WorkshopAllView";
 import AttendeesRegistration from "./components/main/AttendeesRegistration";
+import LoginRegisterHandler from "./components/user/LoginRegisterHandler";
+import UserProfile from "./components/user/UserProfile";
+import AdminCreateUser from "./components/user/AdminCreateUser";
+import ResearchersPayment from "./components/user/ResearchersPayment";
+import AttendeesPayment from "./components/user/AttendeesPayment";
+import AttendeesTickets from "./components/user/AttendeesTickets";
+import TemplatesDownload from "./components/user/TemplatesDownload";
+import ListConferenceComponent from "./components/admin/ListConferenceComponent";
+import CreateConferenceComponent from "./components/admin/CreateConferenceComponent";
+import EditorViewConferenceComponent from "./components/admin/EditorViewConferenceComponent";
+import Workshops from "./components/admin/Workshops";
+import EditConferenceComponent from "./components/admin/EditConferenceComponent";
+import AdminApproveOrRejectComponent from "./components/admin/AdminApproveOrRejectComponent";
+import DisplayConferenceContents from "./components/admin/DisplayConferenceContents";
+import AdminDashboard from "./components/admin/AdminDashboard";
 
 
 class App extends React.Component{
     constructor(props) {
         super(props);
     }
-
-
 
     render() {
         return <Router>
@@ -37,7 +50,7 @@ class App extends React.Component{
                 <Route exact path="/importantDates" component={ImportantDates}/>
                 <Route exact path="/paperSubmission" component={PaperSubmission}/>
                 <Route exact path="/workShopAllView" component={WorkShopAllView}/>
-                <Route exact path="/WorkshopSubmission" component={WorkshopSubmission}/>
+                <Route exact path="/workshopSubmission" component={WorkshopSubmission}/>
                 <Route exact path="/attendeesRegistration" component={AttendeesRegistration}/>
 
                 <Route  path="/addResearchPaper" component={AddResearchPaper}/>
@@ -48,6 +61,24 @@ class App extends React.Component{
                 <Route  path="/reviewerWorkshopView" component={ReviewerWorkshopView}/>
                 <Route  path="/updateResearchPaper/:id" component={UpdateRemoveResearchPaper}/>
                 <Route  path="/updateWorkShop/:id" component={UpdateRemoveWorkshop}/>
+
+                <Route path="/login" component={LoginRegisterHandler}/>
+                <Route path="/register" component={LoginRegisterHandler}/>
+                <Route path="/userProfile" component={UserProfile} />
+                <Route path="/adminCreateUser" component={AdminCreateUser} />
+                <Route path="/researchersPayment" component={ResearchersPayment} />
+                <Route path="/attendeesPayment" component={AttendeesPayment} />
+                <Route path="/attendeesTickets" component={AttendeesTickets} />
+                <Route path="/templatesDownload" component={TemplatesDownload} />
+
+                <Route path ="/add-conference/:id/:name/:title" component ={CreateConferenceComponent}/>
+                <Route path ="/view-conference/:id" component ={EditorViewConferenceComponent}/>
+                <Route  path="/display-workshops" component={Workshops}/>
+                <Route  path="/list-ContentView" component={ListConferenceComponent}/>
+                <Route  path="/update-conference/:id" component={EditConferenceComponent}/>
+                <Route path="/approve-conference/:id" component={AdminApproveOrRejectComponent}/>
+                <Route  path="/display-conference/:id" component={DisplayConferenceContents}/>
+                <Route  path="/AdminDashboard/" component={AdminDashboard}/>
             </Switch>
             <Footer/>
         </Router>
