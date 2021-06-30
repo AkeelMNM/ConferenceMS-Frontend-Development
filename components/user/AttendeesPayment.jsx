@@ -76,13 +76,12 @@ class AttendeesPayment extends Component {
     }
 
     render() {
-        return <div className={'big-style-div'}>
-            <div className={"payment-section"}>
+        return<div className={"payment-section"}>
                 <div className={"payment-container"}>
 
                     <div className={"payment-row"}>
-                        <div className={"section-title"}>
-                            <h2>Attendees Payment</h2>
+                        <div className={"payment-section-title"}>
+                            <h2 className={"payment-custom-underline"}>Attendees Payment</h2>
                         </div>
                     </div>
 
@@ -124,7 +123,6 @@ class AttendeesPayment extends Component {
                     </div>
 
                 </div>
-            </div>
 
         </div>
     }
