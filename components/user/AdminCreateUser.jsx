@@ -93,6 +93,7 @@ class AdminCreateUser extends Component {
 
     // Admin Users view panel
     changeViewUsersForm(){
+        this.props.history.push('/adminView');
     }
 
     PasswordVisibility(){
