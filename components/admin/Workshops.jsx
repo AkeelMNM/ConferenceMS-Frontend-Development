@@ -16,48 +16,37 @@ class Workshops extends Component {
             workshops:[],
             conferences:[]
         }
-
-
-
     }
 
     deleteconference(id){
         ConferenceService.deleteconference(id).then( res => {
             this.setState({conferences: this.state.conferences.filter(conference => conference.id !== id)});
         });
-
-
     }
 
-
-
-
     componentDidMount(){
-
-        WorkShopServices.getWorkShop().then(res =>{
-
-            this.setState({workshops:res});
-        });
-
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }else {
+            WorkShopServices.getWorkShop().then(res => {
+                this.setState({workshops: res});
+            });
+        }
     }
 
     createconferencecontent(workshop){
         console.log(workshop);
         this.props.history.push(`/add-conference/${workshop._id}/${workshop.presenterName}/${workshop.workShopTitle}`);
-
-
     }
+
     //Admin
     approveconference(){
         this.props.history.push('approve-conference/_add');
-
     }
 
     displayconference(){
         this.props.history.push('display-conference/_add');
-
     }
-
 
     render() {
         return (
