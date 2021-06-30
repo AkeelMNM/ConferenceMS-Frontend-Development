@@ -42,8 +42,9 @@ class LoginRegisterHandler extends Component {
             isEyeImage: true,
             initialState,
             // The regular expression to validate the email pattern
-            emailRegex: /\S+@\S+\.\S+/
+            emailRegex: /\S+@\S+\.\S+/,
         }
+        localStorage.setItem('loginValue', value);
     }
 
 
