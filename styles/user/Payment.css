@@ -70,11 +70,11 @@ Payment section
  */
 
 .big-style-div{
-    width: 850px;
+    width: 550px;
     height:fit-content;
     padding: 10px 20px;
     /*background: #f4f7f8;*/
-    margin: 20px auto 0 300px;
+    margin: -25px auto 0 450px;
     padding: 20px;
     border-radius: 6px;
     font-family: Georgia, "Times New Roman", Times, serif;

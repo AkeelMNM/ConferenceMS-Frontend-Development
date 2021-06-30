@@ -48,20 +48,20 @@ class Home extends React.Component{
                         <label className={'custom-underline'}>KEY NOTE SPEAKERS</label>
                     </div>
                     <div id={'cardInsideDiv'}>
-                        <div className={'card'} data-aos={'fade-up'}>
+                        <div className={'cardImg'} data-aos={'fade-up'}>
                             <div className={'info'}>
                                 <h1 className={'title'}>Prof. John Beyers</h1>
                                 <p className={'description'}>University of Maryland, Land-grant university in College Park,
                                     Maryland</p>
                             </div>
                         </div>
-                        <div className={'card2'} data-aos={'fade-up'}>
+                        <div className={'cardImg2'} data-aos={'fade-up'}>
                             <div className={'info2'}>
                                 <h1 className={'title'}>Prof. Douglas Klutz</h1>
                                 <p className={'description'}>University of Alabama,Tuscaloosa, AL 35487, United States</p>
                             </div>
                         </div>
-                        <div className={'card3'} data-aos={'fade-up'}>
+                        <div className={'cardImg3'} data-aos={'fade-up'}>
                             <div className={'info3'}>
                                 <h1 className={'title'}>Prof. Jack Epps</h1>
                                 <p className={'description'}>University of Southern California,Los Angeles,

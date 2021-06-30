@@ -8,6 +8,7 @@ import ResearchPaperServices from "../../services/ResearchPaperServices";
  * Registration Number : IT19153414
  */
 
+localStorage.setItem('id','123456')
 
 class ResearchView extends React.Component{
     constructor(props) {
@@ -25,7 +26,7 @@ class ResearchView extends React.Component{
         /**
          * Change the Parameter need to get the userID from Token
          */
-        ResearchPaperServices.getResearchPaperByUser("123456")
+        ResearchPaperServices.getResearchPaperByUser(localStorage.getItem('id'))
             .then(researchPaper => {
                 this.setState({researchPapers:researchPaper})})
             .catch(err => console.error(err));
@@ -39,6 +40,10 @@ class ResearchView extends React.Component{
        this.props.history.push(`/updateResearchPaper/${id}`);
     }
 
+    researchSubPayment(researcher){
+        this.props.history.push(`/researchersPayment`);
+    }
+
     render() {
         return <div id={'divisionColor'}>
             <div>
@@ -50,7 +55,8 @@ class ResearchView extends React.Component{
                 {
                     this.state.researchPapers.map(research => {
                         return <ResearchListHolder key={research._id} Research={research}
-                                                   editSubmission={research => this.editSubmission(research) } />
+                                                   editSubmission={research => this.editSubmission(research)}
+                                                   researchSubPayment={research => this.researchSubPayment(research)}/>
                     })
                 }
             </div>

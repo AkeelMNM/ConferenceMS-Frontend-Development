@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../../styles/user/Payment.css';
 import {toast} from "react-toastify";
+import ResearchPaperServices from "../../services/ResearchPaperServices";
 
 /**
  * @author : A.M Zumry
@@ -13,8 +14,11 @@ class ResearchersPayment extends Component {
 
         this.state = {
             name:'',
-            payment:'',
-            payDate:''
+            payment:0,
+            payDate:'',
+            cardNo:'',
+            exDate:'',
+            cvv:''
         }
     }
 
@@ -26,7 +30,11 @@ class ResearchersPayment extends Component {
 
         let Payment = {
             name:this.state.name,
-            payment:this.state.payment
+            payment:this.state.payment,
+            cardNo:this.state.cardNo,
+            exDate:this.state.exDate,
+            cvv:this.state.cvv,
+            paymentStatus:'Payment paid'
         }
 
         /* configuring options to display toast message */
@@ -43,11 +51,24 @@ class ResearchersPayment extends Component {
          */
         if(Payment.name === ''){
             toast.warning("File Name.", options);
-        }else if(Payment.payment === ''){
+        }else if(Payment.payment === 0){
             toast.warning("File Amount.", options);
-        }else {
-            console.log(JSON.stringify(Payment));
-
+        }else if(Payment.cardNo === ''){
+            toast.warning("Enter Card Number.", options);
+        }else if(Payment.exDate === ''){
+            toast.warning("Enter Card Expire date.", options);
+        }else if(Payment.cvv === ''){
+            toast.warning("Enter Card CVV.", options);
+        } else {
+            ResearchPaperServices.researchPaperPayment(localStorage.getItem('_id'),Payment)
+                .then(response =>{
+                        if(response.paymentStatus === 'Payment paid'){
+                            toast.success("Payment Process Successfully Completed.", options);
+                            this.props.history.push(`/researchView`);
+                        }else{
+                            toast.success("Some thing went wrong!! try again.", options);
+                        }
+                })
         }
 
     }

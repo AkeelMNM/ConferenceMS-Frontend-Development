@@ -26,7 +26,7 @@ class WorkShopView extends React.Component{
         /**
          * Change the Parameter need to get the userID from Token
          */
-        WorkShopServices.getWorkShopByUser("60b1345d1a66ed342a73681b")
+        WorkShopServices.getWorkShopByUser(localStorage.getItem('_id'))
             .then(workShop => {
                 this.setState({Workshops:workShop})})
             .catch(err => console.error(err));
