@@ -11,8 +11,14 @@ class Header extends React.Component{
         super(props);
 
         this.state = {
-            type:''
+            type:localStorage.getItem('type')
         }
+    }
+
+
+    logout(){
+        localStorage.clear();
+        history.push('/');
     }
 
     forGuestView(){
@@ -20,8 +26,8 @@ class Header extends React.Component{
             <div  id={'HeadDiv'}>
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
-                    <a href={'/register'} id={'regLink'}>Registration</a>
-                    <a href={'/login'} id={'logLink'}>Login</a>
+                    <a href={`/register/${false}`} id={'regLink'}>Registration</a>
+                    <a href={`/login/${true}`} id={'logLink'}>Login</a>
                 </div>
 
             </div>
@@ -80,7 +86,7 @@ class Header extends React.Component{
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
                     <a href={'/userProfile'} id={'regLink'}>User Profile</a>
-                    <a href={'#'} id={'logLink'}>Logout</a>
+                    <a href={'#'} id={'logLink'} onClick={this.logout()}>Logout</a>
                 </div>
 
             </div>
@@ -108,7 +114,7 @@ class Header extends React.Component{
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
                     <a href={'/userProfile'} id={'regLink'}>User Profile</a>
-                    <a href={'#'} id={'logLink'}>Login</a>
+                    <a href={'#'} id={'logLink'} onClick={this.logout()} >Logout</a>
                 </div>
             </div>
             <div>
@@ -134,7 +140,7 @@ class Header extends React.Component{
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
                     <a href={'/userProfile'} id={'regLink'}>User Profile</a>
-                    <a href={'#'} id={'logLink'}>Login</a>
+                    <a href={'#'} id={'logLink'} onClick={this.logout()} >Logout</a>
                 </div>
 
             </div>
@@ -194,7 +200,7 @@ class Header extends React.Component{
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
                     <a href={'/userProfile'} id={'regLink'}>User Profile</a>
-                    <a href={'#'} id={'logLink'}>Logout</a>
+                    <a href={'#'} id={'logLink'} onClick={this.logout()} >Logout</a>
                 </div>
 
             </div>
@@ -223,7 +229,7 @@ class Header extends React.Component{
                 <label id={'HeadTitle'}>ICAF 2021</label>
                 <div id={'logRDiv'}>
                     <a href={'/userProfile'} id={'regLink'}>User Profile</a>
-                    <a href={'#'} id={'logLink'}>Logout</a>
+                    <a href={'#'} id={'logLink'} onClick={this.logout()} >Logout</a>
                 </div>
 
             </div>
@@ -247,6 +253,7 @@ class Header extends React.Component{
     }
 
     render() {
+        console.log("header",this.state.type)
         return <div>
             {
                 this.state.type === 'Researcher'?
@@ -259,6 +266,12 @@ class Header extends React.Component{
                     (this.forReviewerView())
                 :this.state.type === 'Attendee'?
                     (this.forAttendeeView())
+                :this.state.type === 'Researcher'?
+                    (this.forResearcherView())
+                :this.state.type === 'Administrator'?
+                    (<></>)
+                :localStorage.getItem('loginValue') === 'value' ?
+                     (<></>)
                 :(this.forGuestView())
             }
         </div>

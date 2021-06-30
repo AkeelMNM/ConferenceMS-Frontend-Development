@@ -62,8 +62,8 @@ class App extends React.Component{
                 <Route  path="/updateResearchPaper/:id" component={UpdateRemoveResearchPaper}/>
                 <Route  path="/updateWorkShop/:id" component={UpdateRemoveWorkshop}/>
 
-                <Route path="/login" component={LoginRegisterHandler}/>
-                <Route path="/register" component={LoginRegisterHandler}/>
+                <Route path="/login/:id" component={LoginRegisterHandler}/>
+                <Route path="/register/:id" component={LoginRegisterHandler}/>
                 <Route path="/userProfile" component={UserProfile} />
                 <Route path="/adminCreateUser" component={AdminCreateUser} />
                 <Route path="/researchersPayment" component={ResearchersPayment} />
@@ -78,7 +78,7 @@ class App extends React.Component{
                 <Route  path="/update-conference/:id" component={EditConferenceComponent}/>
                 <Route path="/approve-conference/:id" component={AdminApproveOrRejectComponent}/>
                 <Route  path="/display-conference/:id" component={DisplayConferenceContents}/>
-                <Route  path="/AdminDashboard/" component={AdminDashboard}/>
+                <Route  path="/adminDashboard/" component={AdminDashboard}/>
             </Switch>
             <Footer/>
         </Router>

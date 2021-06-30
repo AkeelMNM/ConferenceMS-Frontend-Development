@@ -42,8 +42,9 @@ class LoginRegisterHandler extends Component {
             isEyeImage: true,
             initialState,
             // The regular expression to validate the email pattern
-            emailRegex: /\S+@\S+\.\S+/
+            emailRegex: /\S+@\S+\.\S+/,
         }
+        localStorage.setItem('loginValue', value);
     }
 
 
@@ -86,17 +87,17 @@ class LoginRegisterHandler extends Component {
                             localStorage.setItem('type',res.type);
 
                             if(res.type === 'Administrator'){
-                                this.props.history.push("/userProfile")
+                                this.props.history.push("/adminDashboard")
                             }else if(res.type === 'Researcher'){
-                                this.props.history.push("/userProfile")
+                                this.props.history.push("/")
                             }else if(res.type === 'WorkshopConductor'){
-                                this.props.history.push("/userProfile")
+                                this.props.history.push("/")
                             }else if(res.type === 'Attendee'){
-                                this.props.history.push("/userProfile")
+                                this.props.history.push("/")
                             }else if(res.type === 'Editor'){
-                                this.props.history.push("/userProfile")
+                                this.props.history.push("/")
                             }else if(res.type === 'Reviewer'){
-                                this.props.history.push("/userProfile")
+                                this.props.history.push("/")
                             }
                         }else{
                             toast.error("Username or Password Incorrect.",options);

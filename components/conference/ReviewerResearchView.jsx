@@ -52,6 +52,9 @@ class ReviewerResearchView extends React.Component{
                     toast.error(`Something went wrong, try again!!`,options)
                 }
         })
+        setTimeout(function () {
+            window.location.reload();
+        }, 7000);
     }
 
     /**
@@ -69,6 +72,10 @@ class ReviewerResearchView extends React.Component{
                     toast.warning(`Something went wrong, try again!!`,options)
                 }
             })
+
+        setTimeout(function () {
+            window.location.reload();
+        }, 7000);
     }
 
     render() {

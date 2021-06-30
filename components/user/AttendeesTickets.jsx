@@ -24,8 +24,7 @@ class AttendeesTickets extends Component {
     componentDidMount() {
         AttendeesServices.getTicketsByUserId('60db36dcf7520c0da8590d81')
             .then(res => {
-                console.log('res',res);
-                this.setState({tickets: res})
+                this.setState({tickets:res})
             }).catch(err => console.error(err));
         console.log("Data", this.tickets);
     }
@@ -42,16 +41,14 @@ class AttendeesTickets extends Component {
                     </div>
 
                     <div className={"Tickets-row"}>
+                    {this.state.tickets.map(ticket =>(
                         <div className={"Tickets-item"}>
                             <div className={"Tickets-item-inner outer-shadow-Tickets"}>
-                                <h3> Hello</h3>
+                                <h3>Amount : {ticket.payment} </h3>
+                                <h3>Paid Date : {ticket.payDate} </h3>
                             </div>
                         </div>
-                        <div className={"Tickets-item"}>
-                            <div className={"Tickets-item-inner outer-shadow-Tickets"}>
-                                <h3> Hello</h3>
-                            </div>
-                        </div>
+                    ))}
                     </div>
 
                 </div>

@@ -7,10 +7,12 @@ class AttendeesServices {
      * this service function is to store Attendees payment  details submission in backend
      */
     async makePayment(payment){
+        const bearer = 'Bearer ' + localStorage.getItem('userToken');
         return await fetch(ATTENDEES_API_BASE_URI+"/pay",{
             method:'POST',
             headers:{
-                'content-Type':"application/json"
+                'content-Type':"application/json",
+                'Authorization': bearer
             },
             body:JSON.stringify(payment)
         }).then(response =>{
