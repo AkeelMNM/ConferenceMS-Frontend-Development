@@ -5,14 +5,6 @@
 ************************************************************
 */
 
-/* --------- define custom css variables --------- */
-:root {
-    --text-black-900: #000000;
-    --text-black-700: #555555;
-    --text-black-600: #666666;
-}
-
-
 .outer-shadow-temp {
     box-shadow: 3px 3px 3px #d0d0d0, -3px -3px 3px #f8f8f8;
 }
@@ -33,7 +25,7 @@ Templates download title section
     display: inline-block;
     font-size: 30px;
     font-weight: 700;
-    color: var(--text-black-900);
+    color: #000000;
     text-transform: uppercase;
     margin: 0;
 }
@@ -76,14 +68,14 @@ Templates download section
 .Templates-section .Templates-item-inner h3 {
     font-size: 20px;
     font-weight: 600;
-    color: var(--text-black-700);
+    color: #555555;
     margin: 0 0 10px;
     text-transform: capitalize;
 }
 
 .Templates-section .Templates-item-inner p {
     font-size: 16px;
-    color: var(--text-black-600);
+    color: #666666;
     margin: 0;
     line-height: 26px;
 }
