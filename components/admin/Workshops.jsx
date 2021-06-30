@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ConferenceService from "../../Services/ConferenceService";
+import WorkShopServices from "../../services/WorkShopServices";
 import '/styles/admin/Conference.css';
 /*
 *  IT 19167442
@@ -12,23 +13,10 @@ class Workshops extends Component {
         super(props)
 
         this.state={
-            workshops:[
-                {
-                    _id:"123",
-                   proposalStatus:"Approved",
-                    presenterName:" Mr.Kushira",
-                    workShopTitle :"AF Conference"
-
-
-                }
-            ],
+            workshops:[],
             conferences:[]
         }
-        this.createconferencecontent=this.createconferencecontent.bind(this);
-        this.updateconference = this.updateconference.bind(this);
-        this.deleteconference = this.deleteconference.bind(this);
-        this.approveconference=this.approveconference.bind(this);
-        this.displayconference=this.displayconference.bind(this);
+
 
 
     }
@@ -41,20 +29,14 @@ class Workshops extends Component {
 
     }
 
-    viewconference(id){
-        this.props.history.push(`/view-conference/${id}`);
-    }
 
-    updateconference(id){
-        this.props.history.push(`/update-conference/${id}`);
-    }
 
 
     componentDidMount(){
 
-        ConferenceService.getConference().then((res) =>{
+        WorkShopServices.getWorkShop().then(res =>{
 
-            this.setState({conferences:res.data});
+            this.setState({workshops:res});
         });
 
     }
