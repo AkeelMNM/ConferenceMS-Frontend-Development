@@ -36,8 +36,8 @@ class AttendeesTickets extends Component {
                 <div className={"Tickets-container"}>
 
                     <div className={"Tickets-row"}>
-                        <div className={"section-title"}>
-                            <h2>Conference Tickets</h2>
+                        <div className={"Tickets-section-title"}>
+                            <h2 className={"Tickets-custom-underline"}>Conference Tickets</h2>
                         </div>
                     </div>
 
