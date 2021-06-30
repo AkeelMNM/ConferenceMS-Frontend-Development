@@ -8,7 +8,6 @@ import ResearchPaperServices from "../../services/ResearchPaperServices";
  * Registration Number : IT19153414
  */
 
-localStorage.setItem('id','123456')
 
 class ResearchView extends React.Component{
     constructor(props) {
@@ -40,8 +39,9 @@ class ResearchView extends React.Component{
        this.props.history.push(`/updateResearchPaper/${id}`);
     }
 
-    researchSubPayment(researcher){
-        this.props.history.push(`/researchersPayment`);
+    researchSubPayment(research){
+        const id = research._id;
+        this.props.history.push(`/researchersPayment/${id}`);
     }
 
     render() {
