@@ -37,6 +37,24 @@ class UserProfile extends Component {
         })
     }
 
+    /**
+     * Mounting user details proposal submission of the relevant user to view
+     */
+    componentDidMount() {
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }else{
+            UserServices.getUserByID(localStorage.getItem('_id'))
+                .then(user => {
+                    this.setState({
+                        fullName: user.fullName,
+                        email: user.email,
+                        type: user.type
+                    })
+                }).catch(err => console.error(err));
+        }
+    }
+
 
     /**
      * This function is to submit Researcher Payment proposal
@@ -112,21 +130,6 @@ class UserProfile extends Component {
         setTimeout(function () {
             window.location.reload();
         }, 200);
-    }
-
-
-    /**
-     * Mounting user details proposal submission of the relevant user to view
-     */
-    componentDidMount() {
-        UserServices.getUserByID(localStorage.getItem('_id'))
-            .then(user => {
-                this.setState({
-                    fullName: user.fullName,
-                    email: user.email,
-                    type: user.type
-                })
-            }).catch(err => console.error(err));
     }
 
     onChange(event){

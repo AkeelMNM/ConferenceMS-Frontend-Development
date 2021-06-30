@@ -81,8 +81,7 @@ class ListConferenceComponent extends Component {
                 <div className= "row">
                     <button className="btn btn-primary" onClick={this.displayworkshops}>Workshops</button>
                     <button className="btn btn-primary" onClick={this.displayconference}>Display</button>
-                    <button className="btn btn-primary" onClick={this.AdminDashboard}>Admin Dashboard</button>
-                    <button className="btn btn-primary" onClick={this.approveconference}>Admin</button>
+
                 </div>
                 <br></br>
                 <div className="row">

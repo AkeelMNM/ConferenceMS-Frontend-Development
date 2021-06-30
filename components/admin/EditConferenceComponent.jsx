@@ -49,7 +49,7 @@ class EditConferenceComponent extends Component {
         console.log('conference => '+JSON.stringify(conference));
         console.log('id => ' + JSON.stringify(this.state.id));
         ConferenceService.updateconference(this.state.id,conference).then( res => {
-            this.props.history.push('/');
+            this.props.history.push('/list-ContentView');
         });
 
     }
