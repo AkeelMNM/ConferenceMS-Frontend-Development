@@ -135,7 +135,7 @@ header .logo span {
     color: #fff ;
 }
 
-/*
+
 .main-content {
     background-color: #fafafa;
     width: calc(100% - 250px);
@@ -158,7 +158,7 @@ header .logo span {
     padding: 20px 10px;
     font-size: 80%;
 }
-*/
+
 
 @media only screen and (max-width: 420px){
     header {
