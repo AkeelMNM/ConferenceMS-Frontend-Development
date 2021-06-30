@@ -1,8 +1,8 @@
 import React from "react";
-import BG1 from 'url:../images/BG1.jpg'
-import BG2 from 'url:../images/BG2.jpg'
-import BG3 from 'url:../images/BG3.jpg'
-import BG4 from 'url:../images/BG4.jpeg'
+import BG1 from 'url:../images/home/BG1.jpg'
+import BG2 from 'url:../images/home/BG2.jpg'
+import BG3 from 'url:../images/home/BG3.jpg'
+import BG4 from 'url:../images/home/BG4.jpeg'
 import '../styles/Home.css';
 import "aos/dist/aos.css";
 import AOS from 'aos';
