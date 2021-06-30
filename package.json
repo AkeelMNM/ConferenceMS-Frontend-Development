@@ -18,15 +18,14 @@
   },
   "homepage": "https://github.com/AkeelMNM/ConferenceMS-Frontend-Development#readme",
   "dependencies": {
-    "parcel": "^2.0.0-beta.2",
+    "aos": "^2.3.4",
+    "parcel": "^2.0.0-beta.3.1",
+    "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "validator": "^13.6.0"
+    "react-router-dom": "^5.2.0",
+    "react-toastify": "^7.0.4"
   },
   "devDependencies": {
-    "@parcel/transformer-image": "^2.0.0-beta.2",
-    "react": "^17.0.2",
-    "react-router-dom": "^5.2.0",
-    "react-toastify": "^7.0.4",
-    "universal-cookie": "^4.0.4"
+    "@parcel/transformer-image": "^2.0.0-beta.3.1"
   }
 }
