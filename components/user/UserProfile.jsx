@@ -57,9 +57,6 @@ class UserProfile extends Component {
         // The regular expression to validate the email pattern
         const emailRegex= /\S+@\S+\.\S+/;
 
-        console.log('Password', this.state.password);
-        console.log('New Password', this.state.rePassword);
-
         if(this.state.password !== null && this.state.NewEmail === '' && this.state.rePassword !== null){
             let Pass = {
                 password:this.state.password,
@@ -112,6 +109,9 @@ class UserProfile extends Component {
         }else{
             toast.warning('Something went wrong, try again!', options);
         }
+        setTimeout(function () {
+            window.location.reload();
+        }, 200);
     }
 
 
