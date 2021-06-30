@@ -113,9 +113,9 @@ class AdminCreateUser extends Component {
     }
 
     render() {
-        return <div>
+        return <div className={"Login-Section"}>
 
-            <div className={"container sign-up-mode"} id={"container"}>
+            <div className={"login-container sign-up-mode"} id={"login-container"}>
                 <div className={"forms-container"}>
                     <div className={"signin-signup"}>
 
