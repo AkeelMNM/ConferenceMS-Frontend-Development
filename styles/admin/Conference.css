@@ -255,9 +255,9 @@ tr {
     border-color: #17a2b8;
 }
 
-*, ::after, ::before {
+/**, ::after, ::before {
     box-sizing: border-box;
-}
+}*/
 .table-bordered {
     border: 1px solid #dee2e6;
 }
@@ -373,9 +373,9 @@ table {
     margin-right: auto;
     margin-left: auto;
 }
-*, ::after, ::before {
+/**, ::after, ::before {
     box-sizing: border-box;
-}
+}*/
 .form-group {
     margin-bottom: 1rem;
 }

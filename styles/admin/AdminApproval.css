@@ -258,9 +258,9 @@ tr {
 *, ::after, ::before {
     box-sizing: border-box;
 }
-.table-bordered {
+/*.table-bordered {
     border: 1px solid #dee2e6;
-}
+}*/
 table {
     border-collapse: collapse;
 }
@@ -379,7 +379,7 @@ table {
 .form-group {
     margin-bottom: 1rem;
 }
-.card {
+/*.card {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -391,7 +391,7 @@ table {
     border-radius: .25rem;
     width: 500px;
     margin-left: 300px;
-}
+}*/
 /*body {
     margin: 0;
     font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
