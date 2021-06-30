@@ -22,11 +22,15 @@ class AttendeesTickets extends Component {
      * Mounting user details proposal submission of the relevant user to view
      */
     componentDidMount() {
-        AttendeesServices.getTicketsByUserId('60db36dcf7520c0da8590d81')
-            .then(res => {
-                this.setState({tickets:res})
-            }).catch(err => console.error(err));
-        console.log("Data", this.tickets);
+        if(localStorage.getItem('_id') === null ){
+            this.props.history.push('/');
+        }else{
+            AttendeesServices.getTicketsByUserId('60db36dcf7520c0da8590d81')
+                .then(res => {
+                    this.setState({tickets:res})
+                }).catch(err => console.error(err));
+        }
+
     }
 
     render() {

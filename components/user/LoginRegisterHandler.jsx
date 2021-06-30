@@ -44,7 +44,7 @@ class LoginRegisterHandler extends Component {
             // The regular expression to validate the email pattern
             emailRegex: /\S+@\S+\.\S+/,
         }
-        localStorage.setItem('loginValue', value);
+        localStorage.setItem('loginValue', 'value');
     }
 
 
@@ -86,17 +86,11 @@ class LoginRegisterHandler extends Component {
                             localStorage.setItem('_id',res.userID);
                             localStorage.setItem('type',res.type);
 
+                            console.log('type 2 : ',res.type );
+
                             if(res.type === 'Administrator'){
                                 this.props.history.push("/adminDashboard")
-                            }else if(res.type === 'Researcher'){
-                                this.props.history.push("/")
-                            }else if(res.type === 'WorkshopConductor'){
-                                this.props.history.push("/")
-                            }else if(res.type === 'Attendee'){
-                                this.props.history.push("/")
-                            }else if(res.type === 'Editor'){
-                                this.props.history.push("/")
-                            }else if(res.type === 'Reviewer'){
+                            }else{
                                 this.props.history.push("/")
                             }
                         }else{
