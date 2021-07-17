@@ -33,6 +33,7 @@ import EditConferenceComponent from "./components/admin/EditConferenceComponent"
 import AdminApproveOrRejectComponent from "./components/admin/AdminApproveOrRejectComponent";
 import DisplayConferenceContents from "./components/admin/DisplayConferenceContents";
 import AdminDashboard from "./components/admin/AdminDashboard";
+import AdminViewUsers from "./components/admin/AdminViewUsers";
 
 
 class App extends React.Component{
@@ -41,8 +42,8 @@ class App extends React.Component{
     }
 
     render() {
-        return <Router>
-            <Header/>
+        return <Router forceRefresh={true}>
+            <Header />
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route  path="/about" component={About}/>
@@ -66,7 +67,7 @@ class App extends React.Component{
                 <Route path="/register/:id" component={LoginRegisterHandler}/>
                 <Route path="/userProfile" component={UserProfile} />
                 <Route path="/adminCreateUser" component={AdminCreateUser} />
-                <Route path="/researchersPayment" component={ResearchersPayment} />
+                <Route path="/researchersPayment/:id" component={ResearchersPayment} />
                 <Route path="/attendeesPayment" component={AttendeesPayment} />
                 <Route path="/attendeesTickets" component={AttendeesTickets} />
                 <Route path="/templatesDownload" component={TemplatesDownload} />
@@ -79,6 +80,7 @@ class App extends React.Component{
                 <Route path="/approve-conference/:id" component={AdminApproveOrRejectComponent}/>
                 <Route  path="/display-conference/:id" component={DisplayConferenceContents}/>
                 <Route  path="/adminDashboard/" component={AdminDashboard}/>
+                <Route  path="/adminViewUser" component={AdminViewUsers}/>
             </Switch>
             <Footer/>
         </Router>
