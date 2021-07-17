@@ -35,7 +35,7 @@ class AddWorkShop extends React.Component{
     }
 
     componentDidMount() {
-        if(localStorage.getItem('_id') === null ){
+        if(localStorage.getItem('_id') === null && localStorage.getItem('type') !== 'WorkshopConductor'){
             this.props.history.push('/');
         }
     }
@@ -47,11 +47,12 @@ class AddWorkShop extends React.Component{
         event.preventDefault();
 
         let WorkShop = {
+            userID:localStorage.getItem('_id'),
             presenterName:this.state.presenterName,
             workShopTitle:this.state.workShopTitle,
             email:this.state.email,
             affiliation:this.state.affiliation,
-            contactNo:this.state.contactNo,
+            contactNumber:this.state.contactNo,
             conductorNames:this.state.names,
             fileLocation:'',
         }
@@ -77,16 +78,24 @@ class AddWorkShop extends React.Component{
         }else if (this.state.agreement === false){
             toast.warning("Please Agree to Terms&Conditions.", options)
         }else{
+            toast.success("Uploading", {position: toast.POSITION.TOP_CENTER,autoClose:9000,closeButton:false})
+            /**
+             * uploading the file in to the aws cloud and storing
+             * the details in mongodb
+             */
             FileUploadService.FileUploads(this.state.file)
                 .then(response =>{
                     WorkShop.fileLocation = response.url
                     WorkShopServices.submitWorkShop(WorkShop)
                         .then(res => {
-                            if(res.status === 200){
-                                toast.success("Workshop Proposal Submitted Successfully",options)
-                            }else{
-                                toast.error("Something went wrong!! Try again.",options)
-                            }
+                            setTimeout(() =>{
+                                if(res.status === 200){
+                                    toast.success("Workshop Proposal Submitted Successfully",options)
+                                    setTimeout(()=>{this.props.history.push("/workShopView")},3000)
+                                }else{
+                                    toast.error("Something went wrong!! Try again.",options)
+                                }
+                            },7000)
                     })
                 })
         }
@@ -163,6 +172,11 @@ class AddWorkShop extends React.Component{
                     <div>
                         <label htmlFor={'presenterName'}>Presenter Name</label>
                         <input type={'text'} name={'presenterName'} id={'presenterName'} value={this.state.presenterName}
+                               required onChange={event => this.onChange(event)} />
+                    </div>
+                    <div>
+                        <label htmlFor={'email'}>Email</label>
+                        <input type={'text'} name={'email'} id={'email'} value={this.state.email}
                                required onChange={event => this.onChange(event)} />
                     </div>
                     <div>
