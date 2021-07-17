@@ -28,7 +28,7 @@ class EditConferenceComponent extends Component {
     }
 
     componentDidMount(){
-        if(localStorage.getItem('_id') === null ){
+        if(localStorage.getItem('_id') === null && localStorage.getItem('type') !== 'Editor'){
             this.props.history.push('/');
         }else {
             ConferenceService.getconferenceById(this.state.id).then((res) => {
@@ -68,7 +68,7 @@ class EditConferenceComponent extends Component {
                 <div className="container">
                     <div className="row" >
                         <div className = "card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center"> Update Conference</h3>
+                            <h3 className="text-centerTitle"> Update Conference</h3>
 
 
                             <div className="card-body">

@@ -41,7 +41,7 @@ class DisplayConferenceContents extends Component {
 
 
     componentDidMount(){
-        if(localStorage.getItem('_id') === null ){
+        if(localStorage.getItem('_id') === null && localStorage.getItem('type') !== 'Editor'){
             this.props.history.push('/');
         }else {
             ConferenceService.getConference().then((res) => {
@@ -60,10 +60,37 @@ class DisplayConferenceContents extends Component {
         this.props.history.push('approve-conference/_add');
 
     }
+    logout(event){
+        localStorage.clear();
+        this.props.history.push('/');
+
+    }
 
     render() {
         return (
+
             <div>
+                {
+                    localStorage.getItem('type')==='Editor' ?
+                        (<></>)
+                        :(
+                            <div className="sidebar">
+                                <div className="navDiv">
+                                    <a className="aDLink" href="#"><span id="dashName">ICAF 2021</span></a>
+                                    <ul id="dashUl">
+                                        <li className="dashLi"><a className="aDLink" href="/adminDashboard/">Dashboard</a></li>
+                                        <li className="dashLi"><a className="aDLink" href="/adminCreateUser">Create User</a></li>
+                                        <li className="dashLi"><a className="aDLink" href="/approve-conference/:id">View Requests</a></li>
+                                        <li className="dashLi"><a className="aDLink" href="/adminViewUser">View Users</a></li>
+                                        <li className="dashLi"><a className="aDLink" href="/display-conference/:id">View Conference Contents</a></li>
+                                        <li className="dashLi"><a className="aDLink" href="/userProfile"> Admin Profile </a></li>
+                                    </ul>
+                                </div>
+                                <button id={'logOutAdmin'} onClick={event => this.logout(event)}>Log out</button>
+                            </div>
+                        )
+                }
+
                 <h2 className="text-center"> Active Conference Contents</h2>
                 <div className= "row">
 
