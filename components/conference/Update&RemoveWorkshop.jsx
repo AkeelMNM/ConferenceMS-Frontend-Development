@@ -44,7 +44,7 @@ class UpdateRemoveWorkshop extends React.Component{
      * Mounting Workshop proposal submission details of the relevant user to update form
      */
     componentDidMount() {
-        if(localStorage.getItem('_id') === null ){
+        if(localStorage.getItem('_id') === null && localStorage.getItem('type') !== 'WorkshopConductor' ){
             this.props.history.push('/');
         }else {
             WorkShopServices.getWorkShopByID(this.state.wsID)
@@ -113,6 +113,7 @@ class UpdateRemoveWorkshop extends React.Component{
                             .then(res => {
                                 if(res.status === 200){
                                     toast.success("Workshop Proposal Updated Successfully",options)
+                                    setTimeout(()=>{this.props.history.push("/workShopView")},3000)
                                 }else{
                                     toast.error("Something went wrong!! Try again.",options)
                                 }
@@ -124,6 +125,7 @@ class UpdateRemoveWorkshop extends React.Component{
                     .then(res => {
                         if(res.status === 200){
                             toast.success("WorkShop Proposal Updated Successfully",options)
+                            setTimeout(()=>{this.props.history.push("/workShopView")},3000)
                         }else{
                             toast.error("Something went wrong!!,Try again.",options)
                         }
@@ -141,6 +143,7 @@ class UpdateRemoveWorkshop extends React.Component{
             .then(res => {
                 if(res.status === 200){
                     toast.error("WorkShop Proposal Removed",options)
+                    setTimeout(()=>{this.props.history.push("/workShopView")},3000)
                 }else{
                     toast.warning("Something went wrong!!,Try again.",options)
                 }
@@ -220,8 +223,13 @@ class UpdateRemoveWorkshop extends React.Component{
                                onChange={event => this.onChange(event)} />
                     </div>
                     <div>
+                        <label htmlFor={'email'}>New Email</label>
+                        <input type={'text'} name={'email'} id={'email'} value={this.state.email}
+                               onChange={event => this.onChange(event)} />
+                    </div>
+                    <div>
                         <label htmlFor={'affiliation'}>New Affiliation</label>
-                        <input type={'text'} name={'affiliation'} id={'affiliation'} value={this.state.email}
+                        <input type={'text'} name={'affiliation'} id={'affiliation'} value={this.state.affiliation}
                                onChange={event => this.onChange(event)} />
                     </div>
                     <div>
