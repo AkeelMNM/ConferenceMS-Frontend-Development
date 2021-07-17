@@ -25,7 +25,7 @@ class Workshops extends Component {
     }
 
     componentDidMount(){
-        if(localStorage.getItem('_id') === null ){
+        if(localStorage.getItem('_id') === null && localStorage.getItem('type') !== 'Editor'){
             this.props.history.push('/');
         }else {
             WorkShopServices.getWorkShop().then(res => {
@@ -51,14 +51,14 @@ class Workshops extends Component {
     render() {
         return (
             <div>
-                <h2 className="text-center"> Conference Content  List </h2>
+                <h2 className="text-center2"> Approved Workshops </h2>
                 <div className= "row">
 
                 </div>
                 <br></br>
                 <div className="row">
 
-                    <table className="table table-striped table-bordered">
+                    <table className="table2 table-striped2 table-bordered2">
                         <thead>
                         <tr>
                             <th> Creator</th>
