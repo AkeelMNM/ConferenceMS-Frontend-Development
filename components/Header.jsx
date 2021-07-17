@@ -253,7 +253,6 @@ class Header extends React.Component{
     }
 
     render() {
-        console.log("header",this.state.type)
         return <div>
             {
                 this.state.type === 'Researcher'?
