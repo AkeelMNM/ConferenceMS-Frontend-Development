@@ -8,22 +8,22 @@ import ResearchPaperServices from "../../services/ResearchPaperServices";
  * Registration Number : IT19175126
  */
 
+
 class ResearchersPayment extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
+            id:this.props.match.params.id,
             name:'',
             payment:0,
-            payDate:'',
             cardNo:'',
             exDate:'',
             cvv:''
-        }
+        };
     }
 
     componentDidMount() {
-        if(localStorage.getItem('_id') === null ){
+        if(localStorage.getItem('_id') === null && localStorage.getItem('type') !== 'Researcher'){
             this.props.history.push('/');
         }
     }
@@ -43,6 +43,7 @@ class ResearchersPayment extends Component {
             paymentStatus:'Payment paid'
         }
 
+
         /* configuring options to display toast message */
         const options = {
             position: toast.POSITION.TOP_CENTER,
@@ -55,26 +56,36 @@ class ResearchersPayment extends Component {
          * Validating the login account submission input fields
          * Displaying Error message if any input field is empty
          */
-        if(Payment.name === ''){
+        if(this.state.name === ''){
             toast.warning("File Name.", options);
-        }else if(Payment.payment === 0){
+        }else if(Payment.payment === ''){
             toast.warning("File Amount.", options);
-        }else if(Payment.cardNo === ''){
-            toast.warning("Enter Card Number.", options);
-        }else if(Payment.exDate === ''){
-            toast.warning("Enter Card Expire date.", options);
-        }else if(Payment.cvv === ''){
-            toast.warning("Enter Card CVV.", options);
-        } else {
-            ResearchPaperServices.researchPaperPayment("60d5717cbcea6f2fe4fe8bc1",Payment)
+        }else if(this.state.cardNo === '') {
+            toast.warning("File Card Number.", options);
+        }else if(this.state.exDate === ''){
+            toast.warning("File Expiration date.", options);
+        }else if(this.state.cvv === ''){
+            toast.warning("File cvv.", options);
+        }else if(!(this.state.name.match(/^[a-zA-Z ]+$/))) {
+            toast.warning("Invalid Name..!!", options);
+        }else if(!(Payment.payment.match(/^[0-9]+$/))){
+            toast.warning("Invalid amount..!!", options);
+        }else if(!(this.state.cardNo.match(/^[0-9].{15}$/))){
+            toast.warning("Invalid Card Number..!!", options);
+        }else if(!(this.state.exDate.match(/[0-9]+[0-9]+\/+[0-9]+[0-9]/))){
+            toast.warning("Invalid card expire Date..!!", options);
+        }else if(!(this.state.cvv.match(/^[0-9].{2}$/))){
+            toast.warning("Invalid CVV Number..!!", options);
+        }else {
+            ResearchPaperServices.researchPaperPayment(this.state.id,Payment)
                 .then(response =>{
                         if(response.paymentStatus === 'Payment paid'){
                             toast.success("Payment Process Successfully Completed.", options);
+                            setTimeout(()=>{this.props.history.push("/researchView")},3000)
                         }else{
                             toast.success("Some thing went wrong!! try again.", options);
                         }
                 })
-            this.props.history.push(`/researchView`);
         }
 
     }

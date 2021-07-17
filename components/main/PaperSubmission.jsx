@@ -43,7 +43,7 @@ class PaperSubmission extends React.Component{
                                     <li>The page length limit for all initial submissions for review is 6 printed pages with font size of 10</li>
                                     <li>Download template form the following page while preparing full papers
                                         <ul>
-                                            <li><a href={'#'}>Conference Templates Download</a></li>
+                                            <li><a href={'/templatesDownload'}>Conference Templates Download</a></li>
                                         </ul>
                                     </li>
                                     <li>Paper selection is subjected to the contribution, originality, relevance, technical strength, and the overall quality.
