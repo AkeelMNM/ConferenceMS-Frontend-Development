@@ -11,18 +11,26 @@ class Footer extends React.Component{
         super(props);
 
         this.state ={
-            type:localStorage.getItem('type')
+            type:null
         }
+    }
+
+    componentDidMount() {
+        this.setState({type:localStorage.getItem('type')})
+    }
+
+    componentWillUnmount() {
+        localStorage.removeItem('footerValue')
     }
 
     render() {
         return <div>
             {
-                localStorage.getItem('loginValue') === 'value' ?
-                    (<></>)
-                :this.state.type === 'Administration'?
-                    (<></>)
-                :(<div id={'footer'}>
+                localStorage.getItem('footerValue') !== 'value' ?
+                    (
+                        this.state.type === 'Administrator'?
+                             (<></>)
+                        :(<div id={'footer'}>
                             <div id={'contInfoTitle'}>
                                 <label id={'contInfoLabel'}>Contact Information</label>
                                 <hr/>
@@ -36,7 +44,9 @@ class Footer extends React.Component{
                                 </div>
                                 <label id={'rightsLabel'}>&copy; 2020 SLIIT, developed by 3rd year 1st Semester Students. All Rights Reserved</label>
                             </div>
-                 </div>)
+                        </div>)
+                    )
+                :(<></>,localStorage.removeItem('footerValue'))
             }
         </div>
     }

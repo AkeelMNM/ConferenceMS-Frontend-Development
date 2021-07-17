@@ -44,9 +44,20 @@ class LoginRegisterHandler extends Component {
             // The regular expression to validate the email pattern
             emailRegex: /\S+@\S+\.\S+/,
         }
-        localStorage.setItem('loginValue', 'value');
     }
 
+    componentDidMount() {
+        localStorage.setItem('headerValue', 'value');
+        localStorage.setItem('footerValue', 'value');
+        if(this.props.match.params.id === 'false'){
+            this.setState({isActive:false})
+        }
+    }
+
+    componentWillUnmount() {
+        localStorage.removeItem('headerValue');
+        localStorage.removeItem('footerValue');
+    }
 
     /**
      * This function is to submit Login account proposal
@@ -72,16 +83,14 @@ class LoginRegisterHandler extends Component {
          * Displaying Error message if any input field is empty
          */
         if(User.email === ''){
-            toast.warning("File Email.", options);
+            toast.warning("Fill Email.", options);
         }else if(User.password === ''){
-            toast.warning("File Password", options);
+            toast.warning("Fill Password", options);
         }else if(this.state.emailRegex.test(User.email)){
-            // console.log(JSON.stringify(User));
             UserServices.loginAccount(User)
                 .then(res =>{
                     if(res !== null){
                         if(res.error !== 'User can not access.'){
-                            toast.success("Login Successful", options);
                             localStorage.setItem('userToken',res.token);
                             localStorage.setItem('_id',res.userID);
                             localStorage.setItem('type',res.type);
@@ -139,15 +148,23 @@ class LoginRegisterHandler extends Component {
         }else if(Account.password === ''){
             toast.warning("File Password", options);
         }else if(this.state.emailRegex.test(Account.email)){
-            UserServices.createAccount(Account)
-                .then(res =>{
-                    if(res.status === 201){
-                        toast.success("Account created Successfully", options);
-                        this.setState(initialState);
-                    }else{
-                        toast.error("Something went wrong!!,Try again.",options);
-                    }
-                })
+            if(Account.fullName.match(/^[a-zA-Z ]+$/)){
+                if(Account.password.match(/^.{8,32}$/)){
+                    UserServices.createAccount(Account)
+                        .then(res =>{
+                            if(res.status === 201){
+                                this.setState(initialState);
+                                this.props.history.push(`/login/${true}`);
+                            }else{
+                                toast.error("Something went wrong!!,Try again.",options);
+                            }
+                        })
+                }else{
+                    toast.warning("Password must be 8 characters long", options);
+                }
+            }else {
+                toast.warning("Only letters can type in the Name field", options);
+            }
         }else {
             toast.info("Please enter a valid email!", options);
         }

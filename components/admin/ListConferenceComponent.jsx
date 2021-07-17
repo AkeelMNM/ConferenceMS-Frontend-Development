@@ -42,7 +42,7 @@ class ListConferenceComponent extends Component {
 
 
     componentDidMount(){
-        if(localStorage.getItem('_id') === null ){
+        if(localStorage.getItem('_id') === null && localStorage.getItem('type') !== 'Editor'){
             this.props.history.push('/');
         }else {
             ConferenceService.getConference().then((res) => {
@@ -78,16 +78,15 @@ class ListConferenceComponent extends Component {
     render() {
         return (
             <div>
-                <h2 className="text-center"> Conference Content  List </h2>
+                <h2 className="text-center2"> Conference Content  List </h2>
                 <div className= "row">
-                    <button className="btn btn-primary" onClick={this.displayworkshops}>Workshops</button>
-                    <button className="btn btn-primary" onClick={this.displayconference}>Display</button>
+
 
                 </div>
                 <br></br>
                 <div className="row">
 
-                    <table className="table table-striped table-bordered">
+                    <table className="table2 table-striped2 table-bordered2">
                         <thead>
                         <tr>
                             <th> Creator</th>
