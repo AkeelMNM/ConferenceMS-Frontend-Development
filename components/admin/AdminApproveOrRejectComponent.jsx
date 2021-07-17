@@ -34,17 +34,10 @@ class AdminApproveOrRejectComponent extends Component {
         this.props.history.push(`/update-conferenceapproval/${id}`);
     }
 
-   /* viewconference(id){
-        this.props.history.push(`/view-conference/${id}`);
-    }*/
-
    approveconference(id){
         this.props.history.push(`/Approve-conference/${id}`);
     }
 
-    /*rejectonference(id){
-        this.props.history.push(`/Reject-conference/${id}`);
-    }*/
 
     approvalconference(id){
 
@@ -54,15 +47,9 @@ class AdminApproveOrRejectComponent extends Component {
             .then(response =>{
                 let conference = response;
                 if(conference.status === "Approved"){
-                    /**
-                     * TODO:display the message appropriately
-                     */
-                    console.log("Approved")
+                    alert("Approved")
                 }else{
-                    /**
-                     * TODO:display the message appropriately
-                     */
-                    console.log("Something went wrong, try again!!")
+                    alert("Something went wrong, try again!!")
                 }
             })
     }
@@ -75,22 +62,21 @@ class AdminApproveOrRejectComponent extends Component {
             .then(response =>{
                 let conference = response;
                 if(conference.status === "Rejected"){
-                    /**
-                     * TODO:display the message appropriately
-                     */
-                    console.log("Rejected")
+                    alert("Rejected")
                 }else{
-                    /**
-                     * TODO:display the message appropriately
-                     */
-                    console.log("Something went wrong, try again!!")
+                    alert("Something went wrong, try again!!")
                 }
             })
+    }
+    logout(event){
+        localStorage.clear();
+        this.props.history.push('/');
+
     }
 
 
     componentDidMount(){
-        if(localStorage.getItem('_id') === null ){
+        if(localStorage.getItem('_id') === null && localStorage.getItem('type') !== 'Administrator'){
             this.props.history.push('/');
         }else {
             ConferenceService.getConference().then((res) => {
@@ -103,6 +89,21 @@ class AdminApproveOrRejectComponent extends Component {
     render() {
         return (
             <div>
+
+                <div className="sidebar">
+                    <div className="navDiv">
+                        <a className="aDLink" href="#"><span id="dashName">ICAF 2021</span></a>
+                        <ul id="dashUl">
+                            <li className="dashLi"><a className="aDLink" href="/adminDashboard/">Dashboard</a></li>
+                            <li className="dashLi"><a className="aDLink" href="/adminCreateUser">Create User</a></li>
+                            <li className="dashLi"><a className="aDLink" href="/approve-conference/:id">View Requests</a></li>
+                            <li className="dashLi"><a className="aDLink" href="/adminViewUser">View Users</a></li>
+                            <li className="dashLi"><a className="aDLink" href="/display-conference/:id">View Conference Contents</a></li>
+                            <li className="dashLi"><a className="aDLink" href="/userProfile"> Admin Profile </a></li>
+                        </ul>
+                    </div>
+                    <button id={'logOutAdmin'} onClick={event => this.logout(event)}>Log out</button>
+                </div>
                 <h2 className="text-center"> Admin View Conference List </h2>
 
                 <br></br>
